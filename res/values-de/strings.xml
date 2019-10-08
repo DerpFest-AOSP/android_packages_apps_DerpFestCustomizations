@@ -156,4 +156,23 @@ Der Fortschrittsbalken wechselt dynamisch zwischen Medien- und Downloadstatus, s
     <string name="theming_settings_dashboard_icons_accent">Akzenter Hintergrund / Transparenter Vordergrund</string>
     <string name="theming_settings_dashboard_icons_plain">Transparenter Hintergrund / Einfacher Vordergrund</string>
     <string name="theming_settings_dashboard_icons_plain_accent">Transparenter Hintergrund / Akzenter Vordergrund</string>
+
+    <!-- QS Header -->
+    <string name="qs_header_image_title">Bild in Kopfzeile</string>
+    <string name="qs_header_image_summary">Hintergrundbild der Schnelleinstellungskopfzeile auswählen</string>
+    <string name="qs_header_daylight_pack_title">Kopfzeilen-Bildersammlung</string>
+    <string name="qs_header_shadow_title">Kopfzeilen-Bildschatten</string>
+    <string name="qs_header_shadow_summary">Für bessere Sichtbarkeit auf hellen Hintergründen</string>
+    <string name="qs_header_static_provider_title">Statisches Bild</string>
+    <string name="qs_header_daylight_provider_title">Bildersammlung</string>
+    <string name="qs_header_file_provider_title">Benutzerdefiniertes Bild</string>
+    <string name="qs_header_provider_title">Kopfzeilenanbieter</string>
+    <string name="qs_header_browse_title">Installierte Kopfzeilen durchsuchen</string>
+    <string name="qs_header_browse_summary">Durchsuche alle verfügbaren Kopfzeilenpakete</string>
+    <string name="qs_header_pick_title">Hintergrundbild für Kopfzeile auswählen</string>
+    <string name="qs_header_pick_summary">Bild für statischen Modus wählen</string>
+    <string name="qs_header_file_select_title">Bild auswählen</string>
+    <string name="qs_header_file_select_summary">Benutzerdefiniertes Bild auswählen</string>
+    <string name="qs_header_needs_gallery">Dafür muss eine Galerie-App installiert sein!</string>
+    <string name="enable">Aktivieren</string>
 </resources>
