@@ -174,4 +174,6 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="qs_header_file_select_summary">Select custom image</string>
     <string name="qs_header_needs_gallery">You must install a gallery app!</string>
     <string name="enable">Enable</string>
+    <string name="qs_header_offset_title">Header image offset</string>
+    <string name="qs_header_offset_summary">Adjust the image header size</string>
 </resources>
