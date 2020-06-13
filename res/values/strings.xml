@@ -28,6 +28,10 @@
     <string name="flashlight_on_call_no_ringer">When ringer is silent</string>
     <string name="flashlight_on_call_silent">When entirely silent (no ringer or vibrator)</string>
     <string name="flashlight_on_call_always">Always</string>
+    <string name="flashlight_on_call_ignore_dnd_title">Ignore DND</string>
+    <string name="flashlight_on_call_ignore_dnd_summary">Whether to flash when Do Not Disturb mode is active</string>
+    <string name="flashlight_on_call_rate_title">Blink rate</string>
+    <string name="unit_hz" translatable="false">Hz</string>
     <string name="live_status_title">Live status</string>
     <string name="live_status_summary">Dynamic Island and Dynamic Bar</string>
     <string name="live_status_summary_no_cutout">Dynamic Bar</string>
