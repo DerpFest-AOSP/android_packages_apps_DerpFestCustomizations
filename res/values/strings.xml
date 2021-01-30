@@ -176,4 +176,10 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="enable">Enable</string>
     <string name="qs_header_offset_title">Header image offset</string>
     <string name="qs_header_offset_summary">Adjust the image header size</string>
+    
+    <!-- Screen Off animation -->
+    <string name="screen_off_animation_title">Screen off animation</string>
+    <string name="screen_off_animation_default">Default</string>
+    <string name="screen_off_animation_crt">CRT</string>
+    <string name="screen_off_animation_scale">Scale</string>
 </resources>
