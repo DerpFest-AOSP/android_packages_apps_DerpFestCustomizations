@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: DerpFest AOSP
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<resources>
+
+    <!-- App name --> 
+    <string name="customisation_settings_title">DerpFest-Einstellungen</string>
+
+    <!-- Home page -->
+    <string name="monet_settings">Monet-Einstellungen</string>
+    <string name="statusbar_title">Statusleiste</string>
+    <string name="statusbar_summary">Elemente der Statusleiste anpassen</string>
+    <string name="qs_title">Schnelleinstellungen</string>
+    <string name="qs_summary">QS-Panel individuell gestalten</string>
+    <string name="buttons_title">Tasten</string>
+    <string name="buttons_summary">Standardverhalten und -aktionen für Tasten festlegen</string>
+    <string name="lockscreen_title">Sperrbildschirm</string>
+    <string name="lockscreen_summary">Optionen für Sperrbildschirm &amp; AOD konfigurieren</string>
+    <string name="misc_title">Sonstiges</string>
+    <string name="misc_summary">Alles, was woanders nicht hinpasst</string>
+
+    <string name="dark_mode_summary_default">Dunkles Systemdesign aktivieren</string>
+    <string name="dark_mode_summary_powersave">Energiesparen ist aktiviert</string>
+</resources>

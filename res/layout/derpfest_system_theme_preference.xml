@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: DerpFest AOSP
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/derpfest_card_margin_horizontal"
+    android:layout_marginVertical="@dimen/derpfest_card_margin_vertical"
+    android:background="@drawable/derpfest_card_background"
+    android:orientation="vertical"
+    android:animateLayoutChanges="true"
+    android:padding="24dp">
+
+    <!-- Single DerpFest logo above the theme button -->
+    <ImageView
+        android:id="@+id/derpfest_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:layout_marginBottom="24dp"
+        android:src="@drawable/ic_derpfest_logo_full" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/button_below"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:clickable="true"
+        android:foreground="@drawable/selectable_item_background_coloured"
+        app:cardBackgroundColor="@color/surface3"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/button_below_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:src="@drawable/ic_brush_variant" />
+
+            <TextView
+                android:id="@+id/button_below_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/monet_settings"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/colorSecondary" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

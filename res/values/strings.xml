@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: DerpFest AOSP
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<resources>
+
+    <!-- App name --> 
+    <string name="customisation_settings_title">DerpFest Customizations</string>
+
+    <!-- Home page -->
+    <string name="monet_settings">Monet settings</string>
+    <string name="statusbar_title">Status bar</string>
+    <string name="statusbar_summary">Tweak status bar elements</string>
+    <string name="qs_title">Quick Settings</string>
+    <string name="qs_summary">Customize your QS panel</string>
+    <string name="buttons_title">Buttons</string>
+    <string name="buttons_summary">Set default behavior and actions for keys</string>
+    <string name="lockscreen_title">Lockscreen</string>
+    <string name="lockscreen_summary">Configure options for lockscreen &amp; ambient display</string>
+    <string name="misc_title">Miscellaneous</string>
+    <string name="misc_summary">Everything which doesn\’t fit elsewhere</string>
+
+    <string name="dark_mode_summary_default">Enable system dark theme</string>
+    <string name="dark_mode_summary_powersave">Power saver is enabled</string>
+</resources>

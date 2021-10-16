@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="derpfest_windowHasLightSystemBars">false</bool>
+    <color name="colorBackground">@color/system_neutral1_900</color>
+    <color name="colorError">@color/system_error_200</color>
+    <color name="colorErrorContainer">@color/system_error_700</color>
+    <color name="colorOnBackground">@color/system_neutral1_100</color>
+    <color name="colorOnError">@color/system_error_800</color>
+    <color name="colorOnErrorContainer">@color/system_error_100</color>
+    <color name="colorOnPrimary">@color/system_accent1_800</color>
+    <color name="colorOnPrimaryContainer">@color/system_accent1_100</color>
+    <color name="colorOnSecondary">@color/system_accent2_800</color>
+    <color name="colorOnSecondaryContainer">@color/system_accent2_100</color>
+    <color name="colorOnSurface">@color/system_neutral1_100</color>
+    <color name="colorOnSurfaceInverse">@color/system_neutral1_900</color>
+    <color name="colorOnSurfaceVariant">@color/system_neutral2_200</color>
+    <color name="colorOnTertiary">@color/system_accent3_800</color>
+    <color name="colorOnTertiaryContainer">@color/system_accent3_100</color>
+    <color name="colorOutline">@color/system_neutral2_400</color>
+    <color name="colorPrimary">@color/system_accent1_200</color>
+    <color name="colorPrimaryContainer">@color/system_accent1_700</color>
+    <color name="colorPrimaryInverse">@color/system_accent1_700</color>
+    <color name="colorSecondary">@color/system_accent2_200</color>
+    <color name="colorSecondaryContainer">@color/system_accent2_700</color>
+    <color name="colorSurface">@color/system_neutral1_900</color>
+    <color name="colorSurfaceInverse">@color/system_neutral1_200</color>
+    <color name="colorSurfaceVariant">@color/system_neutral2_700</color>
+    <color name="colorTertiary">@color/system_accent3_200</color>
+    <color name="colorTertiaryContainer">@color/system_accent3_700</color>
+    <color name="elevationOverlayColor">@color/system_accent1_200</color>
+</resources>

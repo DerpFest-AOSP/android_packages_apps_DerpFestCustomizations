@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: DerpFest AOSP
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<PreferenceScreen
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/customisation_settings_title" >
+
+    <org.derpfest.customizations.preference.DarkModeCardPreference
+        android:key="dark_ui_mode"
+        android:title="@string/dark_ui_mode" />
+
+    <org.derpfest.customizations.preference.SystemThemePreference />
+
+    <org.derpfest.ui.preference.DerpFestCardPreference
+        app:key="status_bar"
+        app:title="@string/statusbar_title"
+        app:summary="@string/statusbar_summary"
+        app:icon="@drawable/ic_statusbar_category"
+        app:fragment="org.derpfest.customizations.fragment.StatusBar"
+        app:cornerType="top" />
+
+    <org.derpfest.ui.preference.DerpFestCardPreference
+        app:key="qs"
+        app:title="@string/qs_title"
+        app:summary="@string/qs_summary"
+        app:icon="@drawable/ic_qs_category"
+        app:fragment="org.derpfest.customizations.fragment.QS"
+        app:cornerType="none" />
+
+    <org.derpfest.ui.preference.DerpFestCardPreference
+        app:key="buttons"
+        app:title="@string/buttons_title"
+        app:summary="@string/buttons_summary"
+        app:icon="@drawable/ic_buttons_category"
+        app:fragment="org.derpfest.customizations.fragment.Buttons"
+        app:cornerType="none" />
+
+    <org.derpfest.ui.preference.DerpFestCardPreference
+        app:key="lockscreen"
+        app:title="@string/lockscreen_title"
+        app:summary="@string/lockscreen_summary"
+        app:icon="@drawable/ic_lockscreen_category"
+        app:fragment="org.derpfest.customizations.fragment.Lockscreen"
+        app:cornerType="none" />
+
+    <org.derpfest.ui.preference.DerpFestCardPreference
+        app:key="misc"
+        app:title="@string/misc_title"
+        app:summary="@string/misc_summary"
+        app:icon="@drawable/ic_misc_category"
+        app:fragment="org.derpfest.customizations.fragment.Misc"
+        app:cornerType="bottom" />
+
+</PreferenceScreen>

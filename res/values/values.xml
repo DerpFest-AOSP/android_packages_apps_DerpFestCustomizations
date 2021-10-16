@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <bool name="derpfest_windowHasLightSystemBars">true</bool>
+    <color name="colorBackground">@color/system_neutral1_10</color>
+    <color name="colorError">@color/system_error_600</color>
+    <color name="colorErrorContainer">@color/system_error_100</color>
+    <color name="colorOnBackground">@color/system_neutral1_900</color>
+    <color name="colorOnError">@color/system_error_0</color>
+    <color name="colorOnErrorContainer">@color/system_error_900</color>
+    <color name="colorOnPrimary">@color/system_accent1_100</color>
+    <color name="colorOnPrimaryContainer">@color/system_accent1_900</color>
+    <color name="colorOnSecondary">@color/system_accent2_100</color>
+    <color name="colorOnSecondaryContainer">@color/system_accent2_900</color>
+    <color name="colorOnSurface">@color/system_neutral1_900</color>
+    <color name="colorOnSurfaceInverse">@color/system_neutral1_10</color>
+    <color name="colorOnSurfaceVariant">@color/system_neutral2_700</color>
+    <color name="colorOnTertiary">@color/system_accent3_100</color>
+    <color name="colorOnTertiaryContainer">@color/system_accent3_900</color>
+    <color name="colorOutline">@color/system_neutral2_500</color>
+    <color name="colorPrimary">@color/system_accent1_600</color>
+    <color name="colorPrimaryContainer">@color/system_accent1_100</color>
+    <color name="colorPrimaryInverse">@color/system_accent1_0</color>
+    <color name="colorSecondary">@color/system_accent2_600</color>
+    <color name="colorSecondaryContainer">@color/system_accent2_100</color>
+    <color name="colorSurface">@color/system_neutral1_10</color>
+    <color name="colorSurfaceInverse">@color/system_neutral1_900</color>
+    <color name="colorSurfaceVariant">@color/system_neutral2_100</color>
+    <color name="colorTertiary">@color/system_accent3_600</color>
+    <color name="colorTertiaryContainer">@color/system_accent3_100</color>
+    <color name="elevationOverlayColor">@color/system_accent1_600</color>
+    <color name="system_accent1_0">#fff</color>
+    <color name="system_accent1_10">#fff</color>
+    <color name="system_accent1_100">#fff</color>
+    <color name="system_accent1_1000">#fff</color>
+    <color name="system_accent1_200">#fff</color>
+    <color name="system_accent1_300">#fff</color>
+    <color name="system_accent1_400">#fff</color>
+    <color name="system_accent1_50">#fff</color>
+    <color name="system_accent1_500">#fff</color>
+    <color name="system_accent1_600">#fff</color>
+    <color name="system_accent1_700">#fff</color>
+    <color name="system_accent1_800">#fff</color>
+    <color name="system_accent1_900">#fff</color>
+    <color name="system_accent2_0">#fff</color>
+    <color name="system_accent2_10">#fff</color>
+    <color name="system_accent2_100">#fff</color>
+    <color name="system_accent2_1000">#fff</color>
+    <color name="system_accent2_200">#fff</color>
+    <color name="system_accent2_300">#fff</color>
+    <color name="system_accent2_400">#fff</color>
+    <color name="system_accent2_50">#fff</color>
+    <color name="system_accent2_500">#fff</color>
+    <color name="system_accent2_600">#fff</color>
+    <color name="system_accent2_700">#fff</color>
+    <color name="system_accent2_800">#fff</color>
+    <color name="system_accent2_900">#fff</color>
+    <color name="system_accent3_0">#fff</color>
+    <color name="system_accent3_10">#fff</color>
+    <color name="system_accent3_100">#fff</color>
+    <color name="system_accent3_1000">#fff</color>
+    <color name="system_accent3_200">#fff</color>
+    <color name="system_accent3_300">#fff</color>
+    <color name="system_accent3_400">#fff</color>
+    <color name="system_accent3_50">#fff</color>
+    <color name="system_accent3_500">#fff</color>
+    <color name="system_accent3_600">#fff</color>
+    <color name="system_accent3_700">#fff</color>
+    <color name="system_accent3_800">#fff</color>
+    <color name="system_accent3_900">#fff</color>
+    <color name="system_error_0">#FFFFFF</color>
+    <color name="system_error_10">#FFFBFF</color>
+    <color name="system_error_100">#FFDAD6</color>
+    <color name="system_error_1000">#000000</color>
+    <color name="system_error_200">#FFB4AB</color>
+    <color name="system_error_300">#FF897D</color>
+    <color name="system_error_400">#FF5449</color>
+    <color name="system_error_50">#FFEDEA</color>
+    <color name="system_error_500">#DE3730</color>
+    <color name="system_error_600">#BA1A1A</color>
+    <color name="system_error_700">#93000A</color>
+    <color name="system_error_800">#690005</color>
+    <color name="system_error_900">#410002</color>
+    <color name="system_neutral1_0">#fff</color>
+    <color name="system_neutral1_10">#fff</color>
+    <color name="system_neutral1_100">#fff</color>
+    <color name="system_neutral1_1000">#fff</color>
+    <color name="system_neutral1_200">#fff</color>
+    <color name="system_neutral1_300">#fff</color>
+    <color name="system_neutral1_400">#fff</color>
+    <color name="system_neutral1_50">#fff</color>
+    <color name="system_neutral1_500">#fff</color>
+    <color name="system_neutral1_600">#fff</color>
+    <color name="system_neutral1_700">#fff</color>
+    <color name="system_neutral1_800">#fff</color>
+    <color name="system_neutral1_900">#fff</color>
+    <color name="system_neutral2_0">#fff</color>
+    <color name="system_neutral2_10">#fff</color>
+    <color name="system_neutral2_100">#fff</color>
+    <color name="system_neutral2_1000">#fff</color>
+    <color name="system_neutral2_200">#fff</color>
+    <color name="system_neutral2_300">#fff</color>
+    <color name="system_neutral2_400">#fff</color>
+    <color name="system_neutral2_50">#fff</color>
+    <color name="system_neutral2_500">#fff</color>
+    <color name="system_neutral2_600">#fff</color>
+    <color name="system_neutral2_700">#fff</color>
+    <color name="system_neutral2_800">#fff</color>
+    <color name="system_neutral2_900">#fff</color>
+    <dimen name="derpfest_blur_behind_radius">48dp</dimen>
+    <dimen name="derpfest_card_content_padding">24dp</dimen>
+    <dimen name="derpfest_card_corner_radius">20dp</dimen>
+    <dimen name="derpfest_card_corner_radius_small">8dp</dimen>
+    <dimen name="derpfest_card_margin_horizontal">20dp</dimen>
+    <dimen name="derpfest_card_margin_vertical">12dp</dimen>
+    <dimen name="derpfest_card_margin_vertical_small">2dp</dimen>
+    <dimen name="derpfest_drag_handle_height">3dp</dimen>
+    <dimen name="derpfest_drag_handle_width">48dp</dimen>
+    <style name="DerpFest"/>
+    <style name="DerpFest.AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Main color -->
+        <item name="elevationOverlayColor">@color/elevationOverlayColor</item>
+
+        <item name="colorOnErrorContainer">@color/colorOnErrorContainer</item>
+        <item name="colorOnError">@color/colorOnError</item>
+        <item name="colorErrorContainer">@color/colorErrorContainer</item>
+
+        <item name="colorError">@color/colorError</item>
+        <item name="colorOutline">@color/colorOutline</item>
+
+        <item name="colorOnBackground">@color/colorOnBackground</item>
+        <item name="android:colorBackground">@color/colorBackground</item>
+
+        <item name="colorOnSurfaceInverse">@color/colorOnSurfaceInverse</item>
+        <item name="colorSurfaceInverse">@color/colorSurfaceInverse</item>
+        <item name="colorOnSurfaceVariant">@color/colorOnSurfaceVariant</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <item name="colorSurfaceVariant">@color/colorSurfaceVariant</item>
+        <item name="colorSurface">@color/colorSurface</item>
+
+        <item name="colorOnTertiaryContainer">@color/colorOnTertiaryContainer</item>
+        <item name="colorOnTertiary">@color/colorOnTertiary</item>
+        <item name="colorTertiaryContainer">@color/colorTertiaryContainer</item>
+        <item name="colorTertiary">@color/colorTertiary</item>
+
+        <item name="colorOnSecondaryContainer">@color/colorOnSecondaryContainer</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+        <item name="colorSecondaryContainer">@color/colorSecondaryContainer</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+
+        <item name="colorOnPrimaryContainer">@color/colorOnPrimaryContainer</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <item name="colorPrimaryContainer">@color/colorPrimaryContainer</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryInverse">@color/colorPrimaryInverse</item>
+
+        <!-- Status & Navbar -->
+        <item name="android:windowLightStatusBar">@bool/derpfest_windowHasLightSystemBars</item>
+        <item name="android:windowLightNavigationBar">@bool/derpfest_windowHasLightSystemBars</item>
+
+        <item name="android:statusBarColor">@color/colorSurface</item>
+        <item name="android:navigationBarColor">@color/colorSurface</item>
+
+        <item name="strokeColor">@color/colorOutline</item>
+        <item name="android:strokeColor">@color/colorOutline</item>
+        <item name="colorControlHighlight">@color/coloured_ripple</item>
+        <item name="android:colorControlHighlight">@color/coloured_ripple</item>
+
+        <!-- Others -->
+        <item name="preferenceTheme">@style/DerpFest.AppTheme</item>
+        <item name="actionMenuTextColor">@color/colorOnBackground</item>
+    </style>
+    <style name="DerpFest.Preferences"/>
+    <style name="DerpFest.Preferences.EditTextPreference" parent="Widget.AppCompat.EditText"/>
+    <declare-styleable name="DerpFestCardPreference">
+        <attr format="string" name="cornerType"/>
+    </declare-styleable>
+</resources>
