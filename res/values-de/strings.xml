@@ -104,4 +104,8 @@
     <string name="mic_camera_privacy_indicator_summary">In der Statusleiste anzeigen, wenn eine App auf Mikrofon oder Kamera zugreift</string>
     <string name="location_privacy_indicator_title">Anzeige bei Standortzugriff</string>
     <string name="location_privacy_indicator_summary">In der Statusleiste anzeigen, wenn eine App auf den Standort zugreift</string>
+
+    <!-- Fingerprint Ripple Effect -->
+    <string name="enable_fingerprint_ripple_effect_title">Welleneffekt</string>
+    <string name="enable_fingerprint_ripple_effect_summary">Welleneffekt zeigen bei Entsperrung mit Fingerabdruck</string>
 </resources>

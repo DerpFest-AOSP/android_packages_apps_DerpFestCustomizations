@@ -105,4 +105,8 @@
     <string name="mic_camera_privacy_indicators_summary">Show indicators when apps use camera or microphone</string>
     <string name="location_privacy_indicator_title">Location</string>
     <string name="location_privacy_indicator_summary">Show indicator when apps use location</string>
+
+    <!-- Fingerprint Ripple Effect -->
+    <string name="enable_fingerprint_ripple_effect_title">Unlock animation</string>
+    <string name="enable_fingerprint_ripple_effect_summary">Show ripple effect on unlock with fingerprint</string>
 </resources>

@@ -9,6 +9,12 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/lockscreen_title" >
 
+    <org.derpfest.support.preferences.SystemSettingSwitchPreference
+        android:key="auth_ripple_enabled"
+        android:title="@string/enable_fingerprint_ripple_effect_title"
+        android:summary="@string/enable_fingerprint_ripple_effect_summary"
+        android:defaultValue="true" />
+
     <Preference
         android:key="ambient_edge_light"
         android:title="@string/ambient_edge_light_title"
