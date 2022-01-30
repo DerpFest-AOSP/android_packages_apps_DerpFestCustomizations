@@ -102,4 +102,8 @@
     <string name="ambient_edge_light_width_title">Beleuchtungsbreite</string>
     <string name="ambient_edge_light_face_down_title">Zum Aktivieren umdrehen</string>
     <string name="ambient_edge_light_face_down_summary">Seitenbeleuchtung wird nur angezeigt, wenn das Telefon mit der Vorderseite nach unten liegt.</string>
+
+    <!-- Fingerprint Ripple Effect -->
+    <string name="enable_fingerprint_ripple_effect_title">Welleneffekt</string>
+    <string name="enable_fingerprint_ripple_effect_summary">Welleneffekt zeigen bei Entsperrung mit Fingerabdruck</string>
 </resources>
