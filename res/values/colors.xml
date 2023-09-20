@@ -17,4 +17,8 @@
     <color name="homepage_orange_bg">#ffffdcc3</color>
     <color name="homepage_grey_bg">#F1F5F9</color>
     <color name="homepage_red_bg">#ffffdadc</color>
+
+    <!-- Ambient edge light -->
+    <color name="ambient_edge_light_color_selector_item_outer_bg_color">@android:color/white</color>
+    <color name="ambient_edge_light_color_selector_selected_icon_tint_color">#AA000000</color>
 </resources>
