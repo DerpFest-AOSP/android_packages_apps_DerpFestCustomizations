@@ -9,4 +9,12 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/lockscreen_title" >
 
+    <Preference
+        android:key="ambient_edge_light"
+        android:title="@string/ambient_edge_light_title"
+        android:summary="@string/ambient_edge_light_summary"
+        android:fragment="org.derpfest.customizations.fragment.AmbientEdgeLightSettings"
+        settings:controller="org.derpfest.customizations.fragment.AmbientEdgeLightPreferenceController"
+        settings:requiresConfig="@bool/config_show_ambient_edge_light" />
+
 </PreferenceScreen>
