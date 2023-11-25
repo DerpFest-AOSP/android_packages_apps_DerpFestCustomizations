@@ -21,4 +21,10 @@
         android:summary="@string/compact_heads_up_notifications_enabled_summary"
         android:defaultValue="false" />
 
+    <Preference
+        android:key="island_notification"
+        android:title="@string/island_notification_title"
+        android:summary="@string/island_notification_summary"
+        android:fragment="org.derpfest.customizations.fragment.IslandSettings" />
+
 </PreferenceScreen>
