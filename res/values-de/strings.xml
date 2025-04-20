@@ -112,6 +112,28 @@
     <string name="enable_fingerprint_ripple_effect_summary">Welleneffekt zeigen bei Entsperrung mit Fingerabdruck</string>
 
     <!-- Ongoing action chip -->
+    <string name="ongoing_progress_settings_title">Fortschrittsanzeige für laufende Aktionen</string>
+    <string name="ongoing_progress_settings_summary">Fortschrittsanzeige in der Statusleiste für laufende Aktionen wie Downloads anzeigen</string>
     <string name="ongoing_action_chip_title">Fortschrittsanzeige für laufende Aktionen</string>
-    <string name="ongoing_action_chip_summary">Fortschrittsanzeige in der Statusleiste für laufende Aktionen wie Downloads anzeigen</string> 
+    <string name="ongoing_action_chip_summary">Fortschrittsanzeige in der Statusleiste für laufende Aktionen wie Downloads anzeigen</string>
+    <string name="show_media_progress_title">Medienfortschritt anzeigen</string>
+    <string name="show_media_progress_summary">Den Fortschritt der Medienwiedergabe in der Statusleiste anzeigen</string>
+    <string name="progress_footer_text">
+    "Der Aktionschip in der Statusleiste bietet Echtzeit-Updates sowohl für die Medienwiedergabe als auch für aktive Downloads/Uploads.
+
+    Medienfortschritt:
+    • Zeigt den Wiedergabefortschritt für Musik und Videos an, wenn Medien abgespielt werden.
+    • Durch einmaliges Tippen werden die Wiedergabesteuerungen geöffnet (Vorheriger, Nächster Titel).
+    • Doppeltippen schaltet zwischen Wiedergabe und Pause um.
+    • Durch Wischen nach links wird zum vorherigen Titel gesprungen.
+    • Durch Wischen nach rechts wird zum nächsten Titel gesprungen.
+    • Langes Drücken öffnet die Medien-App. 
+
+    Download-/Upload-Fortschritt:
+    • Zeigt den Fortschritt laufender Downloads und Uploads an.
+    • Wird automatisch ausgeblendet, wenn keine aktiven Übertragungen erkannt werden.
+    • Durch einmaliges Tippen wird die für den Download zuständige App geöffnet.
+
+Der Fortschrittsbalken wechselt dynamisch zwischen Medien- und Downloadstatus, sodass Sie immer die wichtigsten Informationen auf einen Blick haben."
+    </string>
 </resources>
