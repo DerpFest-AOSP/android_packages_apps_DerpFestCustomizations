@@ -20,8 +20,13 @@
         app:title="@string/statusbar_title"
         app:summary="@string/statusbar_summary"
         app:icon="@drawable/ic_statusbar_category"
-        app:fragment="org.derpfest.customizations.fragment.StatusBar"
-        app:cornerType="top" />
+        app:cornerType="top">
+        
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="org.lineageos.lineageparts"
+            android:targetClass="org.lineageos.lineageparts.statusbar.StatusBarSettings" />
+    </org.derpfest.ui.preference.DerpFestCardPreference>
 
     <org.derpfest.ui.preference.DerpFestCardPreference
         app:key="qs"
