@@ -24,4 +24,12 @@
 
     <string name="dark_mode_summary_default">Dunkles Systemdesign aktivieren</string>
     <string name="dark_mode_summary_powersave">Energiesparen ist aktiviert</string>
+
+    <!-- Categories -->
+    <string name="general_category_title">Allgemein</string>
+    <string name="general_category_summary">Allgemeine globale Systemeinstellungen</string>
+
+    <!-- Ignore window secure -->
+    <string name="ignore_window_secure_title">Flag für sichere Fenster ignorieren</string>
+    <string name="ignore_window_secure_summary">Entfernt Screenshot- und Screenrecord-Limits für alle Apps. Dies kann in einigen Fällen bequem sein, kann aber zu Datenschutzlecks führen.</string>
 </resources>

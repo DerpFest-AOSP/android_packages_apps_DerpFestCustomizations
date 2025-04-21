@@ -24,4 +24,12 @@
 
     <string name="dark_mode_summary_default">Enable system dark theme</string>
     <string name="dark_mode_summary_powersave">Power saver is enabled</string>
+
+    <!-- Categories -->
+    <string name="general_category_title">General</string>
+    <string name="general_category_summary">General global system settings</string>
+
+    <!-- Ignore window secure -->
+    <string name="ignore_window_secure_title">Ignore window secure flags</string>
+    <string name="ignore_window_secure_summary">Remove screenshot and screenrecord limits for all apps. This can be convenient in some cases but may lead to privacy leaks.</string>
 </resources>
