@@ -41,8 +41,13 @@
         app:title="@string/buttons_title"
         app:summary="@string/buttons_summary"
         app:icon="@drawable/ic_buttons_category"
-        app:fragment="org.derpfest.customizations.fragment.Buttons"
-        app:cornerType="none" />
+        app:cornerType="none">
+        
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="org.lineageos.lineageparts"
+            android:targetClass="org.lineageos.lineageparts.input.ButtonSettings" />
+    </org.derpfest.ui.preference.DerpFestCardPreference>
 
     <org.derpfest.ui.preference.DerpFestCardPreference
         app:key="lockscreen"
