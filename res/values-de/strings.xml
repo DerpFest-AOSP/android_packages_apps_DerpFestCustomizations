@@ -246,4 +246,8 @@ Der Fortschrittsbalken wechselt dynamisch zwischen Medien- und Downloadstatus, s
     <!-- Single tap for keyguard affordance -->
     <string name="keyguard_affordance_single_tap_title">Einmaliges Tippen für Sperrbildschirm-Schnellaktionen</string>
     <string name="keyguard_affordance_single_tap_summary">Sperrbildschirm-Schnellaktionen mit einmaligem Tippen umschalten</string>
+
+    <!-- QS footer data usage -->
+    <string name="qs_footer_datausage_title">Datennutzung anzeigen</string>
+    <string name="qs_footer_datausage_summary">Tägliche Mobilfunk-/WLAN-Datennutzung in der QS-Fußzeile anzeigen</string>
 </resources>
