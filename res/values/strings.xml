@@ -139,4 +139,8 @@ The progress bar dynamically switches between media and download states, ensurin
     </string>
     <string name="compact_progress_mode_title">Compact Progress Indicator</string>
     <string name="compact_progress_mode_summary">Use a compact circular indicator for ongoing actions</string>
+
+    <!-- Heads-up -->
+    <string name="compact_heads_up_notifications_enabled_title">Compact heads-up</string>
+    <string name="compact_heads_up_notifications_enabled_summary">Display notifications in compact size</string>
 </resources>

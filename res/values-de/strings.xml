@@ -138,4 +138,8 @@ Der Fortschrittsbalken wechselt dynamisch zwischen Medien- und Downloadstatus, s
     </string>
     <string name="compact_progress_mode_title">Kompakte Fortschrittsanzeige</string>
     <string name="compact_progress_mode_summary">Einen kompakten kreisförmigen Indikator für laufende Aktionen verwenden</string>
+
+    <!-- Heads-up -->
+    <string name="compact_heads_up_notifications_enabled_title">Kompakte Pop-ups</string>
+    <string name="compact_heads_up_notifications_enabled_summary">Kompakte Benachrichtigungsanzeige</string>
 </resources>
