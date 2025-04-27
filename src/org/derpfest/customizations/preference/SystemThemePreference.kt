@@ -7,17 +7,30 @@
 package org.derpfest.customizations.preference
 
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.util.AttributeSet
 import android.widget.Toast
+import androidx.fragment.app.FragmentActivity
 
 import org.derpfest.ui.preference.DerpFestSystemThemePreferenceBase
+import org.derpfest.customizations.fragment.MonetSettings
 
 class SystemThemePreference(context: Context, attributeSet: AttributeSet)
     : DerpFestSystemThemePreferenceBase(context, attributeSet) {
 
     // open the theme settings when button is pressed
     override fun openThemeSettings() {
-        Toast.makeText(context, "Monet settings coming soon", Toast.LENGTH_SHORT).show()
+        // Launch MonetSettings fragment using standard Settings approach
+        val intent = Intent(context, com.android.settings.SubSettings::class.java)
+        intent.putExtra(":settings:show_fragment", MonetSettings::class.java.name)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        
+        val title = context.getString(com.android.settings.R.string.monet_settings)
+        intent.putExtra(":settings:show_fragment_title_resid",
+                        com.android.settings.R.string.monet_settings)
+        
+        context.startActivity(intent)
     }
 
     // check if Monet is enabled
