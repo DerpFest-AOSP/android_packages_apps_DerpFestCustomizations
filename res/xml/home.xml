@@ -37,6 +37,14 @@
         app:cornerType="none" />
 
     <org.derpfest.ui.preference.DerpFestCardPreference
+        app:key="notifications"
+        app:title="@string/notifications_title"
+        app:summary="@string/notifications_summary"
+        app:icon="@drawable/ic_notifications_category_expressive"
+        app:fragment="org.derpfest.customizations.fragment.Notifications"
+        app:cornerType="none" />
+
+    <org.derpfest.ui.preference.DerpFestCardPreference
         app:key="buttons"
         app:title="@string/buttons_title"
         app:summary="@string/buttons_summary"
