@@ -19,6 +19,8 @@
     <string name="buttons_summary">Standardverhalten und -aktionen für Tasten festlegen</string>
     <string name="lockscreen_title">Sperrbildschirm</string>
     <string name="lockscreen_summary">Optionen für Sperrbildschirm &amp; AOD konfigurieren</string>
+    <string name="spoofing_title">Spoofing</string>
+    <string name="spoofing_summary">Umgehen von App-Einschränkungen durch Spoofing von Komponenten</string>
     <string name="misc_title">Sonstiges</string>
     <string name="misc_summary">Alles, was woanders nicht hinpasst</string>
 
@@ -62,4 +64,8 @@
     <string name="monet_engine_color_source_home">Hintergrundbild des Startbildschirms</string>
     <string name="monet_engine_color_source_lock">Hintergrundbild des Sperrbildschirms</string>
     <string name="monet_engine_color_source_preset">Voreinstellung</string>
+
+    <!-- Keybox Data -->
+    <string name="keybox_data_title">Keybox-Attestation überschreiben</string>
+    <string name="keybox_data_summary">Benutzerdefinierte Keybox-XML laden, um Geräteschlüssel-Attestation zu überschreiben</string>
 </resources>

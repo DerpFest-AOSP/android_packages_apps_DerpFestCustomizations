@@ -19,6 +19,8 @@
     <string name="buttons_summary">Set default behavior and actions for keys</string>
     <string name="lockscreen_title">Lockscreen</string>
     <string name="lockscreen_summary">Configure options for lockscreen &amp; ambient display</string>
+    <string name="spoofing_title">Spoofing</string>
+    <string name="spoofing_summary">Bypass app restrictions by spoofing components</string>
     <string name="misc_title">Miscellaneous</string>
     <string name="misc_summary">Everything which doesn\’t fit elsewhere</string>
 
@@ -62,4 +64,8 @@
     <string name="monet_engine_color_source_home">Home wallpaper</string>
     <string name="monet_engine_color_source_lock">Lock wallpaper</string>
     <string name="monet_engine_color_source_preset">Preset</string>
+
+    <!-- Keybox Data -->
+    <string name="keybox_data_title">Keybox imitation spoof</string>
+    <string name="keybox_data_summary">Select custom keybox XML for system-wide key attestation spoof</string>
 </resources>
