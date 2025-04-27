@@ -110,4 +110,8 @@
     <!-- Fingerprint Ripple Effect -->
     <string name="enable_fingerprint_ripple_effect_title">Welleneffekt</string>
     <string name="enable_fingerprint_ripple_effect_summary">Welleneffekt zeigen bei Entsperrung mit Fingerabdruck</string>
+
+    <!-- Ongoing action chip -->
+    <string name="ongoing_action_chip_title">Fortschrittsanzeige für laufende Aktionen</string>
+    <string name="ongoing_action_chip_summary">Fortschrittsanzeige in der Statusleiste für laufende Aktionen wie Downloads anzeigen</string> 
 </resources>

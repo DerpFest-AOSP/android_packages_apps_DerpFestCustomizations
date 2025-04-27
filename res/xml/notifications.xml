@@ -9,4 +9,10 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/notifications_title" >
 
+    <org.derpfest.support.preferences.SystemSettingSwitchPreference
+        android:key="ongoing_action_chip"
+        android:title="@string/ongoing_action_chip_title"
+        android:summary="@string/ongoing_action_chip_summary"
+        android:defaultValue="true" />
+
 </PreferenceScreen>
