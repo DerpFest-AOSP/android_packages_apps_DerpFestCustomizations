@@ -9,4 +9,22 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/statusbar_title" >
 
+    <PreferenceCategory
+        android:title="@string/privacy_indicators_title"
+        android:summary="@string/privacy_indicators_summary">
+
+        <org.derpfest.support.preferences.SecureSettingSwitchPreference
+            android:key="mic_camera_privacy_indicators"
+            android:title="@string/mic_camera_privacy_indicators_title"
+            android:summary="@string/mic_camera_privacy_indicators_summary"
+            android:defaultValue="true" />
+
+        <org.derpfest.support.preferences.SecureSettingSwitchPreference
+            android:key="location_privacy_indicator"
+            android:title="@string/location_privacy_indicator_title"
+            android:summary="@string/location_privacy_indicator_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

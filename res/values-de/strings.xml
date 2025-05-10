@@ -96,4 +96,12 @@
     <string name="ambient_edge_light_width_title">Beleuchtungsbreite</string>
     <string name="ambient_edge_light_face_down_title">Zum Aktivieren umdrehen</string>
     <string name="ambient_edge_light_face_down_summary">Seitenbeleuchtung wird nur angezeigt, wenn das Telefon mit der Vorderseite nach unten liegt.</string>
+
+    <!-- Privacy Settings -->
+    <string name="privacy_indicators_title">Datenschutzindikatoren</string>
+    <string name="privacy_indicators_summary">Anzeigen, wenn Apps Kamera, Mikrofon oder Standort verwenden</string>
+    <string name="mic_camera_privacy_indicator_title">Anzeige bei Mikrofon-/Kamerazugriff</string>
+    <string name="mic_camera_privacy_indicator_summary">In der Statusleiste anzeigen, wenn eine App auf Mikrofon oder Kamera zugreift</string>
+    <string name="location_privacy_indicator_title">Anzeige bei Standortzugriff</string>
+    <string name="location_privacy_indicator_summary">In der Statusleiste anzeigen, wenn eine App auf den Standort zugreift</string>
 </resources>
