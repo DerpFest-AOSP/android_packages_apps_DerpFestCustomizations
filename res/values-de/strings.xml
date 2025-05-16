@@ -136,4 +136,6 @@
 
 Der Fortschrittsbalken wechselt dynamisch zwischen Medien- und Downloadstatus, sodass Sie immer die wichtigsten Informationen auf einen Blick haben."
     </string>
+    <string name="compact_progress_mode_title">Kompakte Fortschrittsanzeige</string>
+    <string name="compact_progress_mode_summary">Einen kompakten kreisförmigen Indikator für laufende Aktionen verwenden</string>
 </resources>
