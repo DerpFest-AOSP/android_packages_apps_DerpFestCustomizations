@@ -30,4 +30,5 @@
     <dimen name="ambient_edge_light_color_selector_item_margin">8dp</dimen>
     <dimen name="ambient_edge_light_color_selector_item_padding">4dp</dimen>
     <dimen name="ambient_edge_light_color_selector_view_padding_horizontal">24dp</dimen>
+    <dimen name="color_picker_preview_height">48dp</dimen>
 </resources>

@@ -75,6 +75,9 @@
     <string name="monet_engine_color_source_home">Home wallpaper</string>
     <string name="monet_engine_color_source_lock">Lock wallpaper</string>
     <string name="monet_engine_color_source_preset">Preset</string>
+    <string name="monet_engine_wallpaper_color_title">Select a different accent color from your wallpaper</string>
+    <string name="monet_engine_wallpaper_color_summary">Wallpaper color selector</string>
+    <string name="monet_engine_wallpaper_color_not_available">Not available</string>
 
     <!-- Ambient edge lighting -->
     <string name="ambient_edge_light_action_title">Ambient edge lighting</string>

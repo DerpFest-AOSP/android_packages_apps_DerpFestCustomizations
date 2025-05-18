@@ -47,7 +47,7 @@
 
     <!-- Monet settings -->
     <string name="monet_settings_title">Monet-Einstellungen</string>
-    <string name="monet_settings_sammary">Anpassen der „Material You“-Theme-Engine</string>
+    <string name="monet_settings_sammary">Anpassen der "Material You"-Theme-Engine</string>
     <string name="monet_engine_custom_color_title">Akzentfarbe</string>
     <string name="monet_engine_custom_color_summary">Benutzerdefinierte Akzentfarbe auswählen</string>
     <string name="monet_engine_custom_bgcolor_title">Hintergrundfarbe</string>
@@ -74,6 +74,9 @@
     <string name="monet_engine_color_source_home">Hintergrundbild des Startbildschirms</string>
     <string name="monet_engine_color_source_lock">Hintergrundbild des Sperrbildschirms</string>
     <string name="monet_engine_color_source_preset">Voreinstellung</string>
+    <string name="monet_engine_wallpaper_color_title">Wähle eine Akzentfarbe aus dem Hintergrundbild</string>
+    <string name="monet_engine_wallpaper_color_summary">Hintergrundbild-Farbauswahl</string>
+    <string name="monet_engine_wallpaper_color_not_available">Nicht verfügbar</string>
 
     <!-- Ambient edge lighting -->
     <string name="ambient_edge_light_action_title">Bildschirm-Seitenbeleuchtung bei Inaktivität</string>
