@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: DerpFest AOSP
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- App name --> 
+    <string name="customisation_settings_title">Personalizzazioni DerpFest</string>
+
+    <!-- Home page -->
+    <string name="monet_settings">Impostazioni Monet</string>
+    <string name="statusbar_title">Barra di stato</string>
+    <string name="statusbar_summary">Modifica gli elementi della barra di stato</string>
+    <string name="qs_title">Impostazioni Rapide</string>
+    <string name="qs_summary">Personalizza il pannello delle Impostazioni Rapide</string>
+    <string name="notifications_title">Notifiche</string>
+    <string name="notifications_summary">Configura opzioni delle notifiche</string>
+    <string name="buttons_title">Pulsanti</string>
+    <string name="buttons_summary">Imposta comportamento predefinito e azioni dei tasti</string>
+    <string name="lockscreen_title">Schermata di blocco</string>
+    <string name="lockscreen_summary">Configura opzioni della schermata di blocco &amp; ambient display</string>
+    <string name="lockscreen_clock_title">Orologio</string>
+    <string name="misc_title">Varie</string>
+    <string name="misc_summary">Tutto il resto che non c\'entra con le altre categorie</string>
+
+    <string name="dark_mode_summary_default">Abilita il tema scuro di sistema</string>
+    <string name="dark_mode_summary_powersave">Risparmio energia è attivo</string>
+
+    <!-- Data usage info in QS footer -->
+    <string name="qs_footer_datausage_title">Utilizzo dati</string>
+    <string name="qs_footer_datausage_summary">Mostra riassunto dell\'utilizzo dati in basso alle Impostazioni Rapide</string>
+
+    <!-- Ignore window secure -->
+    <string name="ignore_window_secure_title">Ignora flag di sicurezza delle finestre</string>
+    <string name="ignore_window_secure_summary">Rimuove limiti di screenshot e registrazione schermo a tutte le app. Ciò torna utile in alcuni casi, ma potrebbe rendere meno sicure alcune informazioni.</string>
+
+    <!-- Ambient edge lighting -->
+    <string name="ambient_edge_light_action_title">Illuminazione bordi in ambient</string>
+    <string name="ambient_edge_light_title">Illuminazione bordi</string>
+    <string name="ambient_edge_light_enable_title">Abilita l\'illuminazione bordi</string>
+    <string name="ambient_edge_light_summary">Illumina i lati dello schermo quando arriva una notifica</string>
+    <string name="ambient_edge_light_color_mode_category_title">Colore</string>
+    <string name="ambient_edge_light_color_mode_auto">Automatico</string>
+    <string name="ambient_edge_light_color_mode_app">Colore app</string>
+    <string name="ambient_edge_light_color_mode_manual">Manuale</string>
+    <string name="ambient_edge_light_color_mode_auto_summary">Imposta il colore dell\'illuminazione bordi a quello di sistema</string>
+    <string name="ambient_edge_light_color_mode_app_summary">Imposta il colore dell\'illuminazione bordi a quello dell\'app</string>
+    <string name="ambient_edge_light_color_mode_manual_summary">Scegli un colore manualmente</string>
+    <string name="ambient_edge_light_advanced_category_title">Avanzate</string>
+    <string name="ambient_edge_light_duration_title">Durata illuminazione</string>
+    <string name="ambient_edge_light_repeat_count_title">Numero di ripetizioni</string>
+    <string name="ambient_edge_light_width_title">Spessore illuminazione</string>
+    <string name="ambient_edge_light_face_down_title">Capovolgi per attivare</string>
+    <string name="ambient_edge_light_face_down_summary">Mostra l\'illuminazione bordi solo a faccia in giù</string>
+
+    <!-- Fingerprint Ripple Effect -->
+    <string name="enable_fingerprint_ripple_effect_title">Animazione sblocco schermo</string>
+    <string name="enable_fingerprint_ripple_effect_summary">Mostra effetto onda allo sblocco con impronta digitale</string>
+
+    <!-- Monet settings -->
+    <string name="monet_settings_title">Personalizzazione Monet</string>
+    <string name="monet_settings_sammary">Personalizza il motore del tema dinamico</string>
+    <string name="monet_engine_custom_color_title">Colore accento</string>
+    <string name="monet_engine_custom_color_summary">Scegli colore d\'accento personalizzato</string>
+    <string name="monet_engine_custom_bgcolor_title">Colore sfondo</string>
+    <string name="monet_engine_custom_bgcolor_summary">Scegli colore di sfondo personalizzato</string>
+    <string name="monet_engine_color_override_title">Colore personalizzato</string>
+    <string name="monet_engine_luminance_factor_title">Luminanza</string>
+    <string name="monet_engine_luminance_factor_summary">Valori più alti producono colori più brillanti</string>
+    <string name="monet_engine_chroma_factor_title">Fattore cromatico</string>
+    <string name="monet_engine_chroma_factor_summary">Valori più alti producono colori più forti</string>
+    <string name="monet_engine_whole_palette_title">Intera palette</string>
+    <string name="monet_engine_whole_palette_summary">La selezione di luminanza e fattore cromatico avrà effetto anche sui colori secondari</string>
+    <string name="monet_engine_tint_background_title">Sfondo tinta</string>
+    <string name="monet_engine_tint_background_summary">La selezione di luminanza e fattore cromatico avrà effetto anche sui colori di sfondo</string>
+    <string name="monet_engine_style_title">Stile tema</string>
+    <string name="monet_engine_style_tonal_spot">Punto tonale (Predefinito)</string>
+    <string name="monet_engine_style_vibrant">Vibrant</string>
+    <string name="monet_engine_style_expressive">Espressivo</string>
+    <string name="monet_engine_style_spritz">Spritz</string>
+    <string name="monet_engine_style_rainbow">Arcobaleno</string>
+    <string name="monet_engine_style_fruit_salad">Macedonia</string>
+    <string name="monet_engine_style_monochromatic">Monocromatico</string>
+    <string name="monet_engine_color_source_title">Sorgente colore</string>
+    <string name="monet_engine_color_source_both">Entrambi (Default)</string>
+    <string name="monet_engine_color_source_home">Sfondo home</string>
+    <string name="monet_engine_color_source_lock">Sfondo blocco</string>
+    <string name="monet_engine_color_source_preset">Preset</string>
+    <string name="monet_engine_wallpaper_color_title">Seleziona un colore d\'accento diverso dal tuo sfondo</string>
+    <string name="monet_engine_wallpaper_color_summary">Selettore colori sfondo</string>
+    <string name="monet_engine_wallpaper_color_not_available">Non disponibile</string>
+
+    <!-- Ongoing action chip -->
+    <string name="ongoing_progress_settings_title">Chip azione della barra di stato</string>
+    <string name="ongoing_progress_settings_summary">Opzioni della Chip azione della barra di stato</string>
+    <string name="ongoing_action_chip_title">Chip azioni in corso</string>
+    <string name="ongoing_action_chip_summary">Mostra un indicatore di progresso nella barra di stato per azioni con progresso come i download</string>
+    <string name="show_media_progress_title">Mostra progresso multimedia</string>
+    <string name="show_media_progress_summary">Mostra progresso di riproduzione multimedia nella barra di stato</string>
+    <string name="progress_footer_text">
+    "La Chip azione della barra di stato fornisce aggiornamenti in tempo reale per riproduzione multimediale e download/upload in corso.
+
+    Riproduzione multimediale:
+    • Mostra progresso di musica e video in riproduzione.
+    • Un tap apre i controlli di riproduzione (Traccia precedente, successiva).
+    • Due tap pausano/riprendono.
+    • Scorrimento a sinistra torna alla traccia precedente.
+    • Scorrimento a destra passa alla traccia successiva.
+    • Tenere premuto apre l\'app multimediale. 
+
+    Progresso Download/Upload:
+    • Mostra progresso di download/upload in corso.
+    • Si nasconde automaticamente quando non ci sono operazioni in corso.
+    • Un tap apre l\'app responsabile del download/upload corrente.
+
+La barra di progresso cambia dinamicamente tra multimedia e download/upload, assicurandoti di avere sempre l\'informazione più rilevante a portata di vista."
+    </string>
+    <string name="compact_progress_mode_title">Indicatore di progresso compatto</string>
+    <string name="compact_progress_mode_summary">Usa un indicatore compatto circolare per azioni in corso</string>
+
+    <!-- Heads-up -->
+    <string name="compact_heads_up_notifications_enabled_title">Heads-up compatto</string>
+    <string name="compact_heads_up_notifications_enabled_summary">Mostra notifiche in un formato più compatto</string>
+
+    <!-- Island Notification -->
+    <string name="island_notification_title">Notifiche a isola</string>
+    <string name="island_notification_summary">Mostra notifiche heads-up in stile Dynamic Island</string>
+    <string name="island_notification_footer_text">
+        La funzionalità Island notification, ispirata dalla Dynamic Island di iOS, trasforma le notifiche heads-up di Android in notifiche compatte e ad accesso rapido.\n\nIsland Quick Access Controls include le seguenti funzionalità:\n1. Tocca la notifica per rispondere velocemente a una chiamata.\n2. Tieni premuta la notifica per rifiutare una chiamata.\n3. Tieni premuta la notifica per espandere la preview.
+    </string>
+
+    <!-- QS Header -->
+    <string name="qs_header_image_title">Immagine intestazione impostazioni rapide</string>
+    <string name="qs_header_image_summary">Seleziona l\'immagine d\'intestazione delle impostazioni rapide</string>
+    <string name="qs_header_daylight_pack_title">Collezione immagini d\'intestazione</string>
+    <string name="qs_header_shadow_title">Ombra immagine intestazione</string>
+    <string name="qs_header_shadow_summary">Per una visibilità migliore con immagini luminose</string>
+    <string name="qs_header_static_provider_title">Immagini statiche</string>
+    <string name="qs_header_daylight_provider_title">Collezione immagini</string>
+    <string name="qs_header_file_provider_title">Immagine personalizzata</string>
+    <string name="qs_header_provider_title">Provider intestazione</string>
+    <string name="qs_header_browse_title">Sfoglia intestazioni installate</string>
+    <string name="qs_header_browse_summary">Sfoglia tutte le collezioni di intestazioni disponibili</string>
+    <string name="qs_header_pick_title">Seleziona l\'immagine d\'intestazione</string>
+    <string name="qs_header_pick_summary">Seleziona un\'immagine da usare per la modalità statica</string>
+    <string name="qs_header_file_select_title">Seleziona immagine</string>
+    <string name="qs_header_file_select_summary">Seleziona immagine personalizzata</string>
+    <string name="qs_header_needs_gallery">Devi installare una app galleria!</string>
+    <string name="enable">Abilita</string>
+    <string name="qs_header_offset_title">Offset immagine intestazione</string>
+    <string name="qs_header_offset_summary">Modifica la grandezza dell\'immagine di intestazione</string>
+
+    <!-- Privacy Settings -->
+    <string name="privacy_indicators_title">Indicatori di Privacy</string>
+    <string name="privacy_indicators_summary">Mostra indicatori quando delle app usano fotocamera, microfono o posizione</string>
+    <string name="mic_camera_privacy_indicators_title">Fotocamera &amp; Microfono</string>
+    <string name="mic_camera_privacy_indicators_summary">Mostra indicatori quando delle app usano fotocamera o microfono</string>
+    <string name="location_privacy_indicator_title">Posizione</string>
+    <string name="location_privacy_indicator_summary">Mostra indicatori quando delle app usano la posizione</string>
+</resources>
