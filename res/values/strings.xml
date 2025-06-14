@@ -20,7 +20,19 @@
     <string name="lockscreen_title">Lockscreen</string>
     <string name="lockscreen_summary">Configure options for lockscreen &amp; ambient display</string>
     <string name="misc_title">Miscellaneous</string>
-    <string name="misc_summary">Everything which doesn\’t fit elsewhere</string>
+    <string name="misc_summary">Everything which doesn\'t fit elsewhere</string>
+
+    <!-- Keybox -->
+    <string name="keybox_title">Keybox</string>
+    <string name="keybox_summary">Manage device keybox data</string>
+    <string name="keybox_data_title">Load keybox data</string>
+    <string name="keybox_data_summary">Select a keybox XML file to load</string>
+    <string name="keybox_data_delete_title">Delete keybox data</string>
+    <string name="keybox_data_delete_summary">Remove currently loaded keybox data</string>
+    <string name="keybox_data_loaded">Keybox data loaded successfully</string>
+    <string name="keybox_data_cleared">Keybox data cleared</string>
+    <string name="keybox_data_error">Failed to load keybox data</string>
+    <string name="keybox_data_invalid">Invalid keybox XML file</string>
 
     <string name="dark_mode_summary_default">Enable system dark theme</string>
     <string name="dark_mode_summary_powersave">Power saver is enabled</string>

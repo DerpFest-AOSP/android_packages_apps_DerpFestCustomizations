@@ -19,6 +19,22 @@
             android:summary="@string/ignore_window_secure_summary"
             android:defaultValue="false" />
 
-   </PreferenceCategory>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/keybox_title"
+        android:summary="@string/keybox_summary">
+
+        <Preference
+            android:key="keybox_data_setting"
+            android:title="@string/keybox_data_title"
+            android:summary="@string/keybox_data_summary" />
+
+        <Preference
+            android:key="keybox_data_delete"
+            android:title="@string/keybox_data_delete_title"
+            android:summary="@string/keybox_data_delete_summary" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>

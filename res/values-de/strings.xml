@@ -22,6 +22,18 @@
     <string name="misc_title">Sonstiges</string>
     <string name="misc_summary">Alles, was woanders nicht hinpasst</string>
 
+    <!-- Keybox -->
+    <string name="keybox_title">Keybox</string>
+    <string name="keybox_summary">Keybox-Daten des Geräts verwalten</string>
+    <string name="keybox_data_title">Keybox-Daten laden</string>
+    <string name="keybox_data_summary">Wähle eine Keybox-XML-Datei zum Laden aus</string>
+    <string name="keybox_data_delete_title">Keybox-Daten löschen</string>
+    <string name="keybox_data_delete_summary">Aktuell geladene Keybox-Daten entfernen</string>
+    <string name="keybox_data_loaded">Keybox-Daten erfolgreich geladen</string>
+    <string name="keybox_data_cleared">Keybox-Daten gelöscht</string>
+    <string name="keybox_data_error">Keybox-Daten konnten nicht geladen werden</string>
+    <string name="keybox_data_invalid">Ungültige Keybox-XML-Datei</string>
+
     <string name="dark_mode_summary_default">Dunkles Systemdesign aktivieren</string>
     <string name="dark_mode_summary_powersave">Energiesparen ist aktiviert</string>
 
