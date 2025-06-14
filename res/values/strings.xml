@@ -27,6 +27,7 @@
     <string name="keybox_summary">Manage device keybox data</string>
     <string name="keybox_data_title">Load keybox data</string>
     <string name="keybox_data_summary">Select a keybox XML file to load</string>
+    <string name="keybox_data_summary_loaded">Loaded %1$s keybox with %2$d certificates (%3$s)</string>
     <string name="keybox_data_delete_title">Delete keybox data</string>
     <string name="keybox_data_delete_summary">Remove currently loaded keybox data</string>
     <string name="keybox_data_loaded">Keybox data loaded successfully</string>
