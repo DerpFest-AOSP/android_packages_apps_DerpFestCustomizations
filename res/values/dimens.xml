@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: DerpFest AOSP
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Dashboard image tile size -->
+    <dimen name="dashboard_tile_image_size">40dp</dimen>
+
+    <!-- Dashboard foreground image size -->
+    <dimen name="dashboard_tile_foreground_image_size">24dp</dimen>
+
+    <!-- Dashboard foreground image inset (from background edge to foreground edge) -->
+    <dimen name="dashboard_tile_foreground_image_inset">8dp</dimen>
+
+    <!-- Preference icon foreground image inset (from background edge to foreground edge) -->
+    <dimen name="preference_icon_foreground_image_inset">12dp</dimen>
+
+    <!-- Icon frame dimensions -->
+    <dimen name="icon_frame_width">56dp</dimen>
+    <dimen name="icon_frame_end_padding">14dp</dimen>
+</resources>

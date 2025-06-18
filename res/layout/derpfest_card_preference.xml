@@ -37,7 +37,7 @@
                 android:clipToPadding="false"
                 android:baselineAligned="false">
                 <include layout="@layout/image_frame"
-                    android:layout_width="44dp"
+                    android:layout_width="@dimen/icon_frame_width"
                     android:layout_height="wrap_content" />
                 <RelativeLayout
                     android:layout_width="0dp"
