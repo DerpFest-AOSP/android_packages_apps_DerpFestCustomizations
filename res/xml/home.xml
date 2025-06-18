@@ -19,7 +19,7 @@
         app:key="status_bar"
         app:title="@string/statusbar_title"
         app:summary="@string/statusbar_summary"
-        app:icon="@drawable/ic_statusbar_category"
+        app:icon="@drawable/ic_statusbar_category_expressive"
         app:cornerType="top">
         
         <intent
@@ -32,7 +32,7 @@
         app:key="qs"
         app:title="@string/qs_title"
         app:summary="@string/qs_summary"
-        app:icon="@drawable/ic_qs_category"
+        app:icon="@drawable/ic_qs_category_expressive"
         app:fragment="org.derpfest.customizations.fragment.QS"
         app:cornerType="none" />
 
@@ -40,7 +40,7 @@
         app:key="buttons"
         app:title="@string/buttons_title"
         app:summary="@string/buttons_summary"
-        app:icon="@drawable/ic_buttons_category"
+        app:icon="@drawable/ic_buttons_category_expressive"
         app:cornerType="none">
         
         <intent
@@ -53,7 +53,7 @@
         app:key="lockscreen"
         app:title="@string/lockscreen_title"
         app:summary="@string/lockscreen_summary"
-        app:icon="@drawable/ic_lockscreen_category"
+        app:icon="@drawable/ic_lockscreen_category_expressive"
         app:fragment="org.derpfest.customizations.fragment.Lockscreen"
         app:cornerType="none" />
 
@@ -61,7 +61,7 @@
         app:key="misc"
         app:title="@string/misc_title"
         app:summary="@string/misc_summary"
-        app:icon="@drawable/ic_misc_category"
+        app:icon="@drawable/ic_misc_category_expressive"
         app:fragment="org.derpfest.customizations.fragment.Misc"
         app:cornerType="bottom" />
 

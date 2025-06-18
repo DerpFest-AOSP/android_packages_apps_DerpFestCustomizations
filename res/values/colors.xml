@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: DerpFest AOSP
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<resources>
+
+    <!-- Expressive homepage icon colors (Material 3) -->
+    <color name="homepage_blue_fg">#ff04409f</color>
+    <color name="homepage_orange_fg">#ff753403</color>
+    <color name="homepage_grey_fg">#64748B</color>
+    <color name="homepage_red_fg">#ff8a1a16</color>
+
+    <!-- Expressive homepage icon background colors (Material 3) -->
+    <color name="homepage_blue_bg">#ffd0e4ff</color>
+    <color name="homepage_orange_bg">#ffffdcc3</color>
+    <color name="homepage_grey_bg">#F1F5F9</color>
+    <color name="homepage_red_bg">#ffffdadc</color>
+</resources>
