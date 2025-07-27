@@ -150,4 +150,12 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="island_notification_footer_text">
         The Island notification feature, inspired by iOS\'s Dynamic Island, transforms Android\'s heads-up notifications into quick-access and compact notification utility.\n\nIsland Quick Access Controls includes the following features:\n1. Tap island notification to quick answer phone calls.\n2. Long press island notification to reject phone calls.\n3. Long press island notification to expand the island notification preview.
     </string>
+
+    <!-- Settings dashboard icon style -->
+    <string name="theming_settings_dashboard_icons_title">Settings dashboard icons</string>
+    <string name="theming_settings_dashboard_icons_default">AOSP default (natural theming)</string>
+    <string name="theming_settings_dashboard_icons_white">System background / White foreground</string>
+    <string name="theming_settings_dashboard_icons_accent">Accent background / Transparent foreground</string>
+    <string name="theming_settings_dashboard_icons_plain">Transparent background / Plain foreground</string>
+    <string name="theming_settings_dashboard_icons_plain_accent">Transparent background / Accent foreground</string>
 </resources>
