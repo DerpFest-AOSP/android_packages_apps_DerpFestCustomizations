@@ -264,7 +264,7 @@ class Misc : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener
         return numberOfKeyboxes == 1 &&
                hasPrivKey &&
                hasEcdsaKey && hasRsaKey &&
-               ecdsaCertCount == 3 && rsaCertCount == 3
+               ecdsaCertCount >= 1 && rsaCertCount >= 1
     }
 
     override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
