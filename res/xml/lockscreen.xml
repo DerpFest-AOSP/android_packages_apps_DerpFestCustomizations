@@ -38,4 +38,10 @@
         settings:controller="org.derpfest.customizations.fragment.AmbientEdgeLightPreferenceController"
         settings:requiresConfig="@bool/config_show_ambient_edge_light" />
 
+    <Preference
+        android:key="pulse_settings"
+        android:title="@string/pulse_settings"
+        android:summary="@string/pulse_settings_summary"
+        android:fragment="org.derpfest.customizations.fragment.PulseSettings" />
+
 </PreferenceScreen>
