@@ -37,6 +37,19 @@
     <string name="keybox_data_error">Failed to load keybox data</string>
     <string name="keybox_data_invalid">Invalid keybox XML file</string>
 
+    <!-- PIF -->
+    <string name="pif_title">Play Integrity</string>
+    <string name="pif_summary">Manage device Play Integrity data for Google Play Services</string>
+    <string name="pif_data_title">Load PIF data</string>
+    <string name="pif_data_summary">Select a PIF JSON file to load</string>
+    <string name="pif_data_delete_title">Delete PIF data</string>
+    <string name="pif_data_delete_summary">Remove currently loaded PIF data</string>
+    <string name="pif_data_loaded">PIF data loaded successfully</string>
+    <string name="pif_data_cleared">PIF data cleared</string>
+    <string name="pif_data_error">Failed to load PIF data</string>
+    <string name="pif_data_invalid">Invalid PIF JSON file</string>
+    <string name="pif_data_summary_loaded">PIF data loaded: %1$d props (%2$s)</string>
+
     <string name="dark_mode_summary_default">Enable system dark theme</string>
     <string name="dark_mode_summary_powersave">Power saver is enabled</string>
 

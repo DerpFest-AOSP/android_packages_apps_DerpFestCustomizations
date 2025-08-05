@@ -35,6 +35,20 @@
     <string name="keybox_data_cleared">Keybox-Daten gelöscht</string>
     <string name="keybox_data_error">Keybox-Daten konnten nicht geladen werden</string>
     <string name="keybox_data_invalid">Ungültige Keybox-XML-Datei</string>
+    <string name="keybox_data_summary_loaded">Keybox-Daten geladen: %1$s (%2$d Zertifikate, %3$s)</string>
+
+    <!-- PIF -->
+    <string name="pif_title">Play Integrity</string>
+    <string name="pif_summary">Play Integrity-Daten des Geräts für Google Play Services verwalten</string>
+    <string name="pif_data_title">PIF-Daten laden</string>
+    <string name="pif_data_summary">Wähle eine PIF-JSON-Datei zum Laden aus</string>
+    <string name="pif_data_delete_title">PIF-Daten löschen</string>
+    <string name="pif_data_delete_summary">Aktuell geladene PIF-Daten entfernen</string>
+    <string name="pif_data_loaded">PIF-Daten erfolgreich geladen</string>
+    <string name="pif_data_cleared">PIF-Daten gelöscht</string>
+    <string name="pif_data_error">PIF-Daten konnten nicht geladen werden</string>
+    <string name="pif_data_invalid">Ungültige PIF-JSON-Datei</string>
+    <string name="pif_data_summary_loaded">PIF-Daten geladen: %1$d Eigenschaften (%2$s)</string>
 
     <string name="dark_mode_summary_default">Dunkles Systemdesign aktivieren</string>
     <string name="dark_mode_summary_powersave">Energiesparen ist aktiviert</string>

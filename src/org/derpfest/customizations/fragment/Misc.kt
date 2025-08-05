@@ -29,10 +29,13 @@ class Misc : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener
     private val TAG = "DerpFestCustomizations"
     private val KEYBOX_DATA_KEY = "keybox_data_setting"
     private val KEYBOX_DELETE_KEY = "keybox_data_delete"
-    private val REQUEST_KEYBOX_FILE = 10003
+    private val PIF_DATA_KEY = "pif_data_setting"
+    private val PIF_DELETE_KEY = "pif_data_delete"
 
     private lateinit var mKeyboxDataPreference: Preference
     private lateinit var mKeyboxDeletePreference: Preference
+    private lateinit var mPifDataPreference: Preference
+    private lateinit var mPifDeletePreference: Preference
     private var mMicCameraPrivacy: SwitchPreferenceCompat? = null
     private var mLocationPrivacy: SwitchPreferenceCompat? = null
 
@@ -43,6 +46,17 @@ class Misc : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener
             val uri = result.data?.data
             if (uri != null) {
                 loadKeyboxFile(uri)
+            }
+        }
+    }
+
+    private val mPifFilePickerLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == Activity.RESULT_OK && result.data != null) {
+            val uri = result.data?.data
+            if (uri != null) {
+                loadPifFile(uri)
             }
         }
     }
@@ -68,9 +82,34 @@ class Misc : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener
         }
     }
 
+    private fun updatePifSummaries() {
+        val pifData = Settings.Secure.getString(
+            requireContext().contentResolver,
+            Settings.Secure.PIF_DATA
+        )
+
+        if (pifData != null) {
+            val pifInfo = parsePifInfo(pifData)
+            mPifDataPreference.summary = getString(
+                R.string.pif_data_summary_loaded,
+                pifInfo.propCount,
+                pifInfo.timestamp
+            )
+            mPifDeletePreference.isEnabled = true
+        } else {
+            mPifDataPreference.summary = getString(R.string.pif_data_summary)
+            mPifDeletePreference.isEnabled = false
+        }
+    }
+
     private data class KeyboxInfo(
         val type: String,
         val certCount: Int,
+        val timestamp: String
+    )
+
+    private data class PifInfo(
+        val propCount: Int,
         val timestamp: String
     )
 
@@ -118,6 +157,23 @@ class Misc : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener
         )
     }
 
+    private fun parsePifInfo(json: String): PifInfo {
+        var propCount = 0
+
+        try {
+            val jsonObject = org.json.JSONObject(json)
+            propCount = jsonObject.length()
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to parse PIF info", e)
+        }
+
+        return PifInfo(
+            propCount = propCount,
+            timestamp = java.text.SimpleDateFormat("yyyy-MM-dd HH:mm", java.util.Locale.getDefault())
+                .format(java.util.Date())
+        )
+    }
+
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         addPreferencesFromResource(R.xml.misc)
 
@@ -135,6 +191,21 @@ class Misc : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener
         }
 
         updateKeyboxSummaries()
+
+        mPifDataPreference = findPreference(PIF_DATA_KEY)!!
+        mPifDeletePreference = findPreference(PIF_DELETE_KEY)!!
+
+        mPifDataPreference.setOnPreferenceClickListener {
+            openPifFileSelector()
+            true
+        }
+
+        mPifDeletePreference.setOnPreferenceClickListener {
+            deletePifData()
+            true
+        }
+
+        updatePifSummaries()
 
         mMicCameraPrivacy = findPreference("mic_camera_privacy_indicators")
         mLocationPrivacy = findPreference("location_privacy_indicator")
@@ -166,6 +237,14 @@ class Misc : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener
         mKeyboxFilePickerLauncher.launch(intent)
     }
 
+    private fun openPifFileSelector() {
+        val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
+            type = "application/json"
+            addCategory(Intent.CATEGORY_OPENABLE)
+        }
+        mPifFilePickerLauncher.launch(intent)
+    }
+
     private fun deleteKeyboxData() {
         Settings.Secure.putString(
             requireContext().contentResolver,
@@ -174,6 +253,17 @@ class Misc : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener
         )
         updateKeyboxSummaries()
         Toast.makeText(context, R.string.keybox_data_cleared, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun deletePifData() {
+        Settings.Secure.putString(
+            requireContext().contentResolver,
+            Settings.Secure.PIF_DATA,
+            null
+        )
+        updatePifSummaries()
+        Toast.makeText(context, R.string.pif_data_cleared, Toast.LENGTH_SHORT).show()
+        killGms()
     }
 
     private fun loadKeyboxFile(uri: Uri) {
@@ -212,6 +302,43 @@ class Misc : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener
         }
     }
 
+    private fun loadPifFile(uri: Uri) {
+        Log.d(TAG, "Loading PIF JSON file from URI: ${uri.toString()}")
+        
+        if (uri.toString().endsWith(".json") || 
+            "application/json" == requireContext().contentResolver.getType(uri)) {
+            try {
+                requireContext().contentResolver.openInputStream(uri)?.use { inputStream ->
+                    val reader = BufferedReader(InputStreamReader(inputStream))
+                    val jsonContent = StringBuilder()
+                    var line: String?
+                    while (reader.readLine().also { line = it } != null) {
+                        jsonContent.append(line).append('\n')
+                    }
+
+                    val json = jsonContent.toString()
+                    if (validatePifJson(json)) {
+                        Settings.Secure.putString(
+                            requireContext().contentResolver,
+                            Settings.Secure.PIF_DATA,
+                            json
+                        )
+                        updatePifSummaries()
+                        Toast.makeText(context, R.string.pif_data_loaded, Toast.LENGTH_SHORT).show()
+                        killGms()
+                    } else {
+                        Toast.makeText(context, R.string.pif_data_invalid, Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to read PIF JSON file", e)
+                Toast.makeText(context, R.string.pif_data_error, Toast.LENGTH_SHORT).show()
+            }
+        } else {
+            Toast.makeText(context, R.string.pif_data_invalid, Toast.LENGTH_SHORT).show()
+        }
+    }
+
     private fun validateKeyboxXml(xml: String): Boolean {
         var hasPrivKey = false
         var hasEcdsaKey = false
@@ -232,7 +359,11 @@ class Misc : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener
                         "NumberOfKeyboxes" -> {
                             parser.next()
                             if (parser.eventType == XmlPullParser.TEXT) {
-                                numberOfKeyboxes = parser.text.trim().toIntOrNull() ?: -1
+                                try {
+                                    numberOfKeyboxes = parser.text.trim().toInt()
+                                } catch (e: NumberFormatException) {
+                                    numberOfKeyboxes = -1
+                                }
                             }
                         }
                         "Key" -> {
@@ -265,6 +396,31 @@ class Misc : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener
                hasPrivKey &&
                hasEcdsaKey && hasRsaKey &&
                ecdsaCertCount >= 1 && rsaCertCount >= 1
+    }
+
+    private fun validatePifJson(json: String): Boolean {
+        try {
+            val jsonObject = org.json.JSONObject(json)
+            // Basic check for a valid JSON object
+            if (jsonObject.length() > 0) {
+                return true
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "JSON validation failed", e)
+        }
+        return false
+    }
+
+    private fun killGms() {
+        try {
+            val am = requireContext().getSystemService(android.content.Context.ACTIVITY_SERVICE) as android.app.ActivityManager
+            am.javaClass
+                .getMethod("forceStopPackage", String::class.java)
+                .invoke(am, "com.google.android.gms")
+            Log.i(TAG, "GMS process killed")
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to kill GMS process", e)
+        }
     }
 
     override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {

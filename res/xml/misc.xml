@@ -38,6 +38,22 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:title="@string/pif_title"
+        android:summary="@string/pif_summary">
+
+        <Preference
+            android:key="pif_data_setting"
+            android:title="@string/pif_data_title"
+            android:summary="@string/pif_data_summary" />
+
+        <Preference
+            android:key="pif_data_delete"
+            android:title="@string/pif_data_delete_title"
+            android:summary="@string/pif_data_delete_summary" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:title="@string/privacy_indicators_title"
         android:summary="@string/privacy_indicators_summary">
 
