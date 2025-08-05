@@ -15,6 +15,12 @@
         android:summary="@string/lockscreen_hide_status_bar_summary"
         android:defaultValue="false" />
 
+    <org.derpfest.support.preferences.SecureSettingSwitchPreference
+        android:key="keyguard_affordance_single_tap"
+        android:title="@string/keyguard_affordance_single_tap_title"
+        android:summary="@string/keyguard_affordance_single_tap_summary"
+        android:defaultValue="false" />
+
     <org.derpfest.support.preferences.SystemSettingSwitchPreference
         android:key="auth_ripple_enabled"
         android:title="@string/enable_fingerprint_ripple_effect_title"

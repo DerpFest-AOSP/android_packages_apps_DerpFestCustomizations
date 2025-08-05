@@ -224,4 +224,8 @@ Der Fortschrittsbalken wechselt dynamisch zwischen Medien- und Downloadstatus, s
     <string name="visualizer_center_mirrored_summary">Den mittig gespiegelten Modus aktivieren</string>
     <string name="pulse_vertical_mirror_title">Vertikal gespiegelt</string>
     <string name="pulse_vertical_mirror_summary">Erzeugt einen weiteren Pulse, der vertikal gedreht ist</string>
+
+    <!-- Single tap for keyguard affordance -->
+    <string name="keyguard_affordance_single_tap_title">Einmaliges Tippen für Sperrbildschirm-Schnellaktionen</string>
+    <string name="keyguard_affordance_single_tap_summary">Sperrbildschirm-Schnellaktionen mit einmaligem Tippen umschalten</string>
 </resources>

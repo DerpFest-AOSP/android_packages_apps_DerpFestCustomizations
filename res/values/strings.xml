@@ -231,4 +231,8 @@ The progress bar dynamically switches between media and download states, ensurin
     <!-- Units -->
     <string name="unit_milliseconds">ms</string>
     <string name="unit_pixels">px</string>
+
+    <!-- Single tap for keyguard affordance -->
+    <string name="keyguard_affordance_single_tap_title">Keyguard affordance single tap</string>
+    <string name="keyguard_affordance_single_tap_summary">Toggle keyguard affordances with a single tap</string>
 </resources>
