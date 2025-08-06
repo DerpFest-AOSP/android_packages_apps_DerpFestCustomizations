@@ -261,4 +261,13 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="click_bluetooth_tile_behavior_title">Click Bluetooth tile behavior</string>
     <string name="b_bluetooth_tile">Toggle Bluetooth</string>
     <string name="modern_panel_bluetooth_tile">Open Bluetooth QS panel</string>
+
+    <!-- QS Panel -->
+    <string name="brightness_category_title">Brightness slider</string>
+    <string name="qs_show_brightness_title">Where to show</string>
+    <string name="qs_show_brightness_hide">Hide</string>
+    <string name="qs_show_brightness_normal">Show in QS Panel</string>
+    <string name="qs_show_brightness_both">Show in QS &amp; Quick QS Panel</string>
+    <string name="qs_brightness_position_position_title">Move to bottom</string>
+    <string name="qs_brightness_position_position_summary">Show brightness slider in the bottom of QS panel</string>
 </resources>
