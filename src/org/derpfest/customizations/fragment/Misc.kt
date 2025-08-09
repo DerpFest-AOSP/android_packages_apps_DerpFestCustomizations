@@ -263,7 +263,7 @@ class Misc : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener
         )
         updatePifSummaries()
         Toast.makeText(context, R.string.pif_data_cleared, Toast.LENGTH_SHORT).show()
-        killGms()
+        killPackages()
     }
 
     private fun loadKeyboxFile(uri: Uri) {
@@ -325,7 +325,7 @@ class Misc : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener
                         )
                         updatePifSummaries()
                         Toast.makeText(context, R.string.pif_data_loaded, Toast.LENGTH_SHORT).show()
-                        killGms()
+                        killPackages()
                     } else {
                         Toast.makeText(context, R.string.pif_data_invalid, Toast.LENGTH_SHORT).show()
                     }
@@ -411,15 +411,18 @@ class Misc : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener
         return false
     }
 
-    private fun killGms() {
+    private fun killPackages() {
         try {
             val am = requireContext().getSystemService(android.content.Context.ACTIVITY_SERVICE) as android.app.ActivityManager
-            am.javaClass
-                .getMethod("forceStopPackage", String::class.java)
-                .invoke(am, "com.google.android.gms")
-            Log.i(TAG, "GMS process killed")
+            val packages = arrayOf("com.google.android.gms", "com.android.vending")
+            for (pkg in packages) {
+                am.javaClass
+                  .getMethod("forceStopPackage", String::class.java)
+                  .invoke(am, pkg)
+                Log.i(TAG, "$pkg process killed")
+            }
         } catch (e: Exception) {
-            Log.e(TAG, "Failed to kill GMS process", e)
+            Log.e(TAG, "Failed to kill packages", e)
         }
     }
 
