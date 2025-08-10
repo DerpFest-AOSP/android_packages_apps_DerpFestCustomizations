@@ -9,11 +9,18 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/notifications_title" >
 
-    <org.derpfest.support.preferences.SystemPropertySwitchPreference
-        android:key="persist.sys.compact_heads_up_notification.always_show"
-        android:title="@string/compact_heads_up_notifications_enabled_title"
-        android:summary="@string/compact_heads_up_notifications_enabled_summary"
-        android:defaultValue="false" />
+    <PreferenceCategory
+        android:key="general_category"
+        android:title="@string/general_category_title"
+        android:summary="@string/general_category_summary" >
+
+        <org.derpfest.support.preferences.SystemPropertySwitchPreference
+            android:key="persist.sys.compact_heads_up_notification.always_show"
+            android:title="@string/compact_heads_up_notifications_enabled_title"
+            android:summary="@string/compact_heads_up_notifications_enabled_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="ongoing_chip_category"

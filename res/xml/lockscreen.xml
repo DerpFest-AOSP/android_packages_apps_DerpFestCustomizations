@@ -9,32 +9,39 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/lockscreen_title" >
 
-    <org.derpfest.support.preferences.SystemSettingSwitchPreference
-        android:key="hide_lockscreen_status_bar"
-        android:title="@string/lockscreen_hide_status_bar_title"
-        android:summary="@string/lockscreen_hide_status_bar_summary"
-        android:defaultValue="false" />
+    <PreferenceCategory
+        android:key="general_category"
+        android:title="@string/general_category_title"
+        android:summary="@string/general_category_summary" >
 
-    <org.derpfest.support.preferences.SecureSettingSwitchPreference
-        android:key="keyguard_affordance_single_tap"
-        android:title="@string/keyguard_affordance_single_tap_title"
-        android:summary="@string/keyguard_affordance_single_tap_summary"
-        android:defaultValue="false" />
+        <org.derpfest.support.preferences.SystemSettingSwitchPreference
+            android:key="hide_lockscreen_status_bar"
+            android:title="@string/lockscreen_hide_status_bar_title"
+            android:summary="@string/lockscreen_hide_status_bar_summary"
+            android:defaultValue="false" />
 
-    <org.derpfest.support.preferences.SystemSettingSwitchPreference
-        android:key="auth_ripple_enabled"
-        android:title="@string/enable_fingerprint_ripple_effect_title"
-        android:summary="@string/enable_fingerprint_ripple_effect_summary"
-        android:defaultValue="true" />
+        <org.derpfest.support.preferences.SecureSettingSwitchPreference
+            android:key="keyguard_affordance_single_tap"
+            android:title="@string/keyguard_affordance_single_tap_title"
+            android:summary="@string/keyguard_affordance_single_tap_summary"
+            android:defaultValue="false" />
 
-    <org.derpfest.support.preferences.SystemSettingListPreference
-        android:key="screen_off_animation"
-        android:title="@string/screen_off_animation_title"
-        android:dialogTitle="@string/screen_off_animation_title"
-        android:summary="%s"
-        android:entries="@array/screen_off_animation_entries"
-        android:entryValues="@array/screen_off_animation_values"
-        android:defaultValue="0" />
+        <org.derpfest.support.preferences.SystemSettingSwitchPreference
+            android:key="auth_ripple_enabled"
+            android:title="@string/enable_fingerprint_ripple_effect_title"
+            android:summary="@string/enable_fingerprint_ripple_effect_summary"
+            android:defaultValue="true" />
+
+        <org.derpfest.support.preferences.SystemSettingListPreference
+            android:key="screen_off_animation"
+            android:title="@string/screen_off_animation_title"
+            android:dialogTitle="@string/screen_off_animation_title"
+            android:summary="%s"
+            android:entries="@array/screen_off_animation_entries"
+            android:entryValues="@array/screen_off_animation_values"
+            android:defaultValue="0" />
+
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="pulse_ambient_edge_light_category"
