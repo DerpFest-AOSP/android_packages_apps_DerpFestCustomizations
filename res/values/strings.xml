@@ -199,6 +199,8 @@ The progress bar dynamically switches between media and download states, ensurin
     <!-- Pulse music visualizer -->
     <string name="pulse_help_policy_notice_title">About Pulse</string>
     <string name="pulse_help_policy_notice_summary">Pulse is a brilliant audio visualizer when music plays on the device</string>
+    <string name="pulse_ambient_edge_light_category_title">Pulse Ambient Edge Light</string>
+    <string name="pulse_visualizer_category_title">Pulse Visualizer</string>
     <string name="pulse_settings">Pulse</string>
     <string name="pulse_settings_summary">Audio visualizer for navigation bar, lockscreen and ambient screen</string>
     <string name="show_navbar_pulse_title">Navbar Pulse</string>
