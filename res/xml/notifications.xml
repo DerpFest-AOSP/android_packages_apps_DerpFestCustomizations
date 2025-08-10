@@ -9,22 +9,34 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/notifications_title" >
 
-    <Preference
-        android:key="ongoing_progress_settings"
-        android:title="@string/ongoing_progress_settings_title"
-        android:summary="@string/ongoing_progress_settings_summary"
-        android:fragment="org.derpfest.customizations.fragment.OngoingProgressBar" />
-
     <org.derpfest.support.preferences.SystemPropertySwitchPreference
         android:key="persist.sys.compact_heads_up_notification.always_show"
         android:title="@string/compact_heads_up_notifications_enabled_title"
         android:summary="@string/compact_heads_up_notifications_enabled_summary"
         android:defaultValue="false" />
 
-    <Preference
-        android:key="island_notification"
-        android:title="@string/island_notification_title"
-        android:summary="@string/island_notification_summary"
-        android:fragment="org.derpfest.customizations.fragment.IslandSettings" />
+    <PreferenceCategory
+        android:key="ongoing_chip_category"
+        android:title="@string/ongoing_chip_category_title" >
+
+        <Preference
+            android:key="ongoing_progress_settings"
+            android:title="@string/ongoing_progress_settings_title"
+            android:summary="@string/ongoing_progress_settings_summary"
+            android:fragment="org.derpfest.customizations.fragment.OngoingProgressBar" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="island_notifications_category"
+        android:title="@string/island_notifications_category_title" >
+
+        <Preference
+            android:key="island_notification"
+            android:title="@string/island_notification_title"
+            android:summary="@string/island_notification_summary"
+            android:fragment="org.derpfest.customizations.fragment.IslandSettings" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>

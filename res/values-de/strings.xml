@@ -126,6 +126,7 @@
     <string name="enable_fingerprint_ripple_effect_summary">Welleneffekt zeigen bei Entsperrung mit Fingerabdruck</string>
 
     <!-- Ongoing action chip -->
+    <string name="ongoing_chip_category_title">Laufende Aktionen</string>
     <string name="ongoing_progress_settings_title">Fortschrittsanzeige für laufende Aktionen</string>
     <string name="ongoing_progress_settings_summary">Fortschrittsanzeige in der Statusleiste für laufende Aktionen wie Downloads anzeigen</string>
     <string name="ongoing_action_chip_title">Fortschrittsanzeige für laufende Aktionen</string>
@@ -162,6 +163,7 @@ Der Fortschrittsbalken wechselt dynamisch zwischen Medien- und Downloadstatus, s
     <string name="lockscreen_hide_status_bar_summary">Wenn aktiviert, wird die Statusleiste auf dem Sperrbildschirm ausgeblendet</string>
 
     <!-- Island Notification -->
+    <string name="island_notifications_category_title">Island-Benachrichtigungen</string>
     <string name="island_notification_title">Island-Benachrichtigungen</string>
     <string name="island_notification_summary">Pop-up-Benachrichtigungen im „Dynamic Island“-Stil anzeigen</string>
     <string name="island_notification_footer_text">Mit der von iOS’ Dynamic Island inspirierten Funktion der Island-Benachrichtigungen werden Androids Pop-up-Benachrichtigungen zu einem Schnellzugriff und einem kompakten Benachrichtigungstool umgestaltet.\n\nDie Schnellaktionen der Island haben u. a. die folgenden Funktionen:\n1. Tippen auf die Island-Benachrichtigung: Anruf entgegennehmen.\n2. Gedrückthalten der Island-Benachrichtigung: Anruf abweisen.\n3. Gedrückthalten der Island-Benachrichtigung: Aufklappen der Island-Benachrichtigungs-Vorschau.
