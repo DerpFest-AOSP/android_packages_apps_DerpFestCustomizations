@@ -36,10 +36,16 @@
         android:entryValues="@array/screen_off_animation_values"
         android:defaultValue="0" />
 
-    <Preference
-        android:key="pulse_settings"
-        android:title="@string/pulse_settings"
-        android:summary="@string/pulse_settings_summary"
-        android:fragment="org.derpfest.customizations.fragment.PulseSettings" />
+    <PreferenceCategory
+        android:key="pulse_visualizer_category"
+        android:title="@string/pulse_visualizer_category_title" >
+
+        <Preference
+            android:key="pulse_settings"
+            android:title="@string/pulse_settings"
+            android:summary="@string/pulse_settings_summary"
+            android:fragment="org.derpfest.customizations.fragment.PulseSettings" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>
