@@ -120,4 +120,14 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+
+    <!-- Bluetooth QS Tile behavior -->
+    <string-array name="click_bluetooth_qs_entries" translatable="false">
+        <item>@string/b_bluetooth_tile</item>
+        <item>@string/modern_panel_bluetooth_tile</item>
+    </string-array>
+    <string-array name="click_bluetooth_qs_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
 </resources>

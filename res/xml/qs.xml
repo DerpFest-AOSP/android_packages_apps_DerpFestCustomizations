@@ -10,6 +10,21 @@
     android:title="@string/qs_title" >
 
     <PreferenceCategory
+        android:key="general_category"
+        android:title="@string/general_category_title"
+        android:summary="@string/general_category_summary" >
+
+        <org.derpfest.support.preferences.SystemSettingListPreference
+            android:key="qs_bt_click_behavior"
+            android:title="@string/click_bluetooth_tile_behavior_title"
+            android:summary="%s"
+            android:entries="@array/click_bluetooth_qs_entries"
+            android:entryValues="@array/click_bluetooth_qs_values"
+            android:defaultValue="0" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:title="@string/qs_header_image_title">
 
         <Preference
