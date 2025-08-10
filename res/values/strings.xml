@@ -252,4 +252,8 @@ The progress bar dynamically switches between media and download states, ensurin
     <!-- Single tap for keyguard affordance -->
     <string name="keyguard_affordance_single_tap_title">Keyguard affordance single tap</string>
     <string name="keyguard_affordance_single_tap_summary">Toggle keyguard affordances with a single tap</string>
+
+    <!-- Small landscape notifications -->
+    <string name="small_landscape_notification_title">Small landscape notifications</string>
+    <string name="small_landscape_notification_summary">Shows notifications smaller in width in notification panel in landscape mode just as AOSP intended</string>
 </resources>
