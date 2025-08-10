@@ -20,6 +20,12 @@
             android:summary="@string/compact_heads_up_notifications_enabled_summary"
             android:defaultValue="false" />
 
+        <org.derpfest.support.preferences.SystemSettingSwitchPreference
+            android:key="small_landscape_notification"
+            android:title="@string/small_landscape_notification_title"
+            android:summary="@string/small_landscape_notification_summary"
+            android:defaultValue="true" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
