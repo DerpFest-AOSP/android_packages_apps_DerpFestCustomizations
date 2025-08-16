@@ -272,4 +272,10 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="qs_brightness_position_position_summary">Show brightness slider in the bottom of QS panel</string>
     <string name="qs_show_auto_brightness_title">Show auto brightness icon</string>
     <string name="qs_show_auto_brightness_summary">Show the auto brightness toggle icon in the brightness slider</string>
+    <string name="qs_show_settings_icon_title">Show settings icon</string>
+    <string name="qs_show_settings_icon_summary">Show the settings icon in the quick settings footer</string>
+    <string name="qs_show_power_menu_icon_title">Show power menu icon</string>
+    <string name="qs_show_power_menu_icon_summary">Show the power menu icon in the quick settings footer</string>
+    <string name="footer_category_title">Footer items</string>
+    <string name="footer_category_summary">Customize quick settings footer items</string>
 </resources>

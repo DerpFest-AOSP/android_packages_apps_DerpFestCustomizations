@@ -59,4 +59,23 @@
             android:fragment="org.derpfest.customizations.fragment.QsHeaderImageSettings" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="footer_category"
+        android:title="@string/footer_category_title"
+        android:summary="@string/footer_category_summary" >
+
+        <org.derpfest.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_show_settings_icon"
+            android:title="@string/qs_show_settings_icon_title"
+            android:summary="@string/qs_show_settings_icon_summary"
+            android:defaultValue="true" />
+
+        <org.derpfest.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_show_power_menu_icon"
+            android:title="@string/qs_show_power_menu_icon_title"
+            android:summary="@string/qs_show_power_menu_icon_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
