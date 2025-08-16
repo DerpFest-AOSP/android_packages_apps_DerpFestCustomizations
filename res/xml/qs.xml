@@ -24,12 +24,6 @@
 
     </PreferenceCategory>
 
-        <org.derpfest.support.preferences.SecureSettingSwitchPreference
-            android:key="qs_show_data_usage"
-            android:title="@string/qs_footer_datausage_title"
-            android:summary="@string/qs_footer_datausage_summary"
-            android:defaultValue="true" />
-
     <PreferenceCategory
         android:key="brightness_category"
         android:title="@string/brightness_category_title" >
@@ -69,6 +63,18 @@
         android:key="footer_category"
         android:title="@string/footer_category_title"
         android:summary="@string/footer_category_summary" >
+
+        <org.derpfest.support.preferences.SecureSettingSwitchPreference
+            android:key="qs_show_data_usage"
+            android:title="@string/qs_footer_datausage_title"
+            android:summary="@string/qs_footer_datausage_summary"
+            android:defaultValue="true" />
+
+        <org.derpfest.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_show_edit_button"
+            android:title="@string/qs_show_edit_button_title"
+            android:summary="@string/qs_show_edit_button_summary"
+            android:defaultValue="true" />
 
         <org.derpfest.support.preferences.SystemSettingSwitchPreference
             android:key="qs_show_settings_icon"

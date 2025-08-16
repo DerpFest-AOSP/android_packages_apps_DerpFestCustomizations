@@ -282,4 +282,6 @@ The progress bar dynamically switches between media and download states, ensurin
     <!-- Data usage info in QS footer -->
     <string name="qs_footer_datausage_title">Data usage</string>
     <string name="qs_footer_datausage_summary">Display data usage summary in quick settings footer</string>
+    <string name="qs_show_edit_button_title">Show edit button</string>
+    <string name="qs_show_edit_button_summary">Show the edit button in the quick settings panel</string>
 </resources>
