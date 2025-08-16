@@ -66,9 +66,13 @@ class Misc : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener
             requireContext().contentResolver,
             Settings.Secure.KEYBOX_DATA
         )
+        val keyboxTimestamp = Settings.Secure.getString(
+            requireContext().contentResolver,
+            Settings.Secure.KEYBOX_DATA_TIMESTAMP
+        )
 
         if (keyboxData != null) {
-            val keyboxInfo = parseKeyboxInfo(keyboxData)
+            val keyboxInfo = parseKeyboxInfo(keyboxData, keyboxTimestamp)
             mKeyboxDataPreference.summary = getString(
                 R.string.keybox_data_summary_loaded,
                 keyboxInfo.type,
@@ -87,9 +91,13 @@ class Misc : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener
             requireContext().contentResolver,
             Settings.Secure.PIF_DATA
         )
+        val pifTimestamp = Settings.Secure.getString(
+            requireContext().contentResolver,
+            Settings.Secure.PIF_DATA_TIMESTAMP
+        )
 
         if (pifData != null) {
-            val pifInfo = parsePifInfo(pifData)
+            val pifInfo = parsePifInfo(pifData, pifTimestamp)
             mPifDataPreference.summary = getString(
                 R.string.pif_data_summary_loaded,
                 pifInfo.propCount,
@@ -113,7 +121,7 @@ class Misc : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener
         val timestamp: String
     )
 
-    private fun parseKeyboxInfo(xml: String): KeyboxInfo {
+    private fun parseKeyboxInfo(xml: String, timestamp: String? = null): KeyboxInfo {
         var hasEcdsaKey = false
         var hasRsaKey = false
         var certCount = 0
@@ -149,15 +157,17 @@ class Misc : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener
             else -> "Unknown"
         }
 
+        val displayTimestamp = timestamp ?: java.text.SimpleDateFormat("yyyy-MM-dd HH:mm", java.util.Locale.getDefault())
+            .format(java.util.Date())
+
         return KeyboxInfo(
             type = type,
             certCount = certCount,
-            timestamp = java.text.SimpleDateFormat("yyyy-MM-dd HH:mm", java.util.Locale.getDefault())
-                .format(java.util.Date())
+            timestamp = displayTimestamp
         )
     }
 
-    private fun parsePifInfo(json: String): PifInfo {
+    private fun parsePifInfo(json: String, timestamp: String? = null): PifInfo {
         var propCount = 0
 
         try {
@@ -167,10 +177,12 @@ class Misc : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener
             Log.e(TAG, "Failed to parse PIF info", e)
         }
 
+        val displayTimestamp = timestamp ?: java.text.SimpleDateFormat("yyyy-MM-dd HH:mm", java.util.Locale.getDefault())
+            .format(java.util.Date())
+
         return PifInfo(
             propCount = propCount,
-            timestamp = java.text.SimpleDateFormat("yyyy-MM-dd HH:mm", java.util.Locale.getDefault())
-                .format(java.util.Date())
+            timestamp = displayTimestamp
         )
     }
 
@@ -251,6 +263,11 @@ class Misc : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener
             Settings.Secure.KEYBOX_DATA,
             null
         )
+        Settings.Secure.putString(
+            requireContext().contentResolver,
+            Settings.Secure.KEYBOX_DATA_TIMESTAMP,
+            null
+        )
         updateKeyboxSummaries()
         Toast.makeText(context, R.string.keybox_data_cleared, Toast.LENGTH_SHORT).show()
     }
@@ -259,6 +276,11 @@ class Misc : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener
         Settings.Secure.putString(
             requireContext().contentResolver,
             Settings.Secure.PIF_DATA,
+            null
+        )
+        Settings.Secure.putString(
+            requireContext().contentResolver,
+            Settings.Secure.PIF_DATA_TIMESTAMP,
             null
         )
         updatePifSummaries()
@@ -282,10 +304,18 @@ class Misc : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener
 
                     val xml = xmlContent.toString()
                     if (validateKeyboxXml(xml)) {
+                        val timestamp = java.text.SimpleDateFormat("yyyy-MM-dd HH:mm", java.util.Locale.getDefault())
+                            .format(java.util.Date())
+                        
                         Settings.Secure.putString(
                             requireContext().contentResolver,
                             Settings.Secure.KEYBOX_DATA,
                             xml
+                        )
+                        Settings.Secure.putString(
+                            requireContext().contentResolver,
+                            Settings.Secure.KEYBOX_DATA_TIMESTAMP,
+                            timestamp
                         )
                         updateKeyboxSummaries()
                         Toast.makeText(context, R.string.keybox_data_loaded, Toast.LENGTH_SHORT).show()
@@ -318,10 +348,18 @@ class Misc : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener
 
                     val json = jsonContent.toString()
                     if (validatePifJson(json)) {
+                        val timestamp = java.text.SimpleDateFormat("yyyy-MM-dd HH:mm", java.util.Locale.getDefault())
+                            .format(java.util.Date())
+                        
                         Settings.Secure.putString(
                             requireContext().contentResolver,
                             Settings.Secure.PIF_DATA,
                             json
+                        )
+                        Settings.Secure.putString(
+                            requireContext().contentResolver,
+                            Settings.Secure.PIF_DATA_TIMESTAMP,
+                            timestamp
                         )
                         updatePifSummaries()
                         Toast.makeText(context, R.string.pif_data_loaded, Toast.LENGTH_SHORT).show()
