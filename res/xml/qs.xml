@@ -56,6 +56,12 @@
             android:defaultValue="true" />
 
         <org.derpfest.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_show_edit_button"
+            android:title="@string/qs_show_edit_button_title"
+            android:summary="@string/qs_show_edit_button_summary"
+            android:defaultValue="true" />
+
+        <org.derpfest.support.preferences.SystemSettingSwitchPreference
             android:key="qs_show_settings_icon"
             android:title="@string/qs_show_settings_icon_title"
             android:summary="@string/qs_show_settings_icon_summary"
