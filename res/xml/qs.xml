@@ -22,11 +22,13 @@
             android:entryValues="@array/click_bluetooth_qs_values"
             android:defaultValue="0" />
 
-        <org.derpfest.support.preferences.SystemSettingSwitchPreference
+        <org.derpfest.support.preferences.SystemSettingListPreference
             android:key="qs_enable_tile_squishing"
             android:title="@string/qs_enable_tile_squishing_title"
-            android:summary="@string/qs_enable_tile_squishing_summary"
-            android:defaultValue="true" />
+            android:summary="%s"
+            android:entries="@array/qs_tile_shape_mode_entries"
+            android:entryValues="@array/qs_tile_shape_mode_values"
+            android:defaultValue="0" />
 
     </PreferenceCategory>
 

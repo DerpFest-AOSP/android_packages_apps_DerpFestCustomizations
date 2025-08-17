@@ -265,6 +265,9 @@
     <string name="qs_footer_datausage_summary">Tägliche Mobilfunk-/WLAN-Datennutzung in der QS-Fußzeile anzeigen</string>
     <string name="qs_show_edit_button_title">Bearbeiten-Button anzeigen</string>
     <string name="qs_show_edit_button_summary">Den Bearbeiten-Button im Schnelleinstellungen-Panel anzeigen</string>
-    <string name="qs_enable_tile_squishing_title">Kachel-Quetsch-Animation aktivieren</string>
-    <string name="qs_enable_tile_squishing_summary">Kachel-Quetsch-Animation im Schnelleinstellungen-Panel aktivieren</string>
+    <string name="qs_enable_tile_squishing_title">Kachel-Form-Modus</string>
+    <string name="qs_enable_tile_squishing_summary">Wählen Sie, wie Kacheln im Schnelleinstellungen-Panel erscheinen</string>
+    <string name="qs_tile_shape_mode_normal">Normal</string>
+    <string name="qs_tile_shape_mode_all_round">Alle rund</string>
+    <string name="qs_tile_shape_mode_all_squared">Alle eckig</string>
 </resources>
