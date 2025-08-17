@@ -10,6 +10,19 @@
     android:title="@string/qs_title" >
 
     <PreferenceCategory
+        android:key="general_category"
+        android:title="@string/general_category_title"
+        android:summary="@string/general_category_summary" >
+
+        <org.derpfest.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_enable_tile_squishing"
+            android:title="@string/qs_enable_tile_squishing_title"
+            android:summary="@string/qs_enable_tile_squishing_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="brightness_category"
         android:title="@string/brightness_category_title" >
 
