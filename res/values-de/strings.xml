@@ -73,6 +73,12 @@
     <!-- Keybox Data -->
     <string name="keybox_data_title">Keybox-Attestation überschreiben</string>
     <string name="keybox_data_summary">Benutzerdefinierte Keybox-XML laden, um Geräteschlüssel-Attestation zu überschreiben</string>
+    <string name="keybox_data_loaded_summary">Benutzerdefinierte Keybox-XML geladen. Bei Bedarf löschen.</string>
+    <string name="keybox_delete_content_description">Keybox-Daten löschen</string>
+    <string name="keybox_toast_invalid_file_selected">Keine XML-Datei. Bitte gültige Keybox-XML auswählen.</string>
+    <string name="keybox_toast_missing_data">Ungültige Keybox-XML: Fehlende Pflichtfelder</string>
+    <string name="keybox_toast_file_loaded">Keybox geladen</string>
+    <string name="keybox_toast_file_cleared">Keybox gelöscht</string>
 
     <!-- Pif Data -->
     <string name="pif_data_title">PIF-JSON zum Spoofen auswählen</string>
