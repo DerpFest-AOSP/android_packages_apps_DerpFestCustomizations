@@ -257,12 +257,20 @@
     <string name="qs_show_settings_icon_summary">Das Einstellungen-Symbol in der Schnelleinstellungen-Fußzeile anzeigen</string>
     <string name="qs_show_power_menu_icon_title">Power-Menü-Symbol anzeigen</string>
     <string name="qs_show_power_menu_icon_summary">Das Power-Menü-Symbol in der Schnelleinstellungen-Fußzeile anzeigen</string>
+    <string name="data_usage_category_title">Datennutzung</string>
+    <string name="data_usage_category_summary">Datennutzungsanzeige in der Schnelleinstellungen-Fußzeile konfigurieren</string>
     <string name="footer_category_title">Fußzeilen-Elemente</string>
     <string name="footer_category_summary">Schnelleinstellungen-Fußzeilen-Elemente anpassen</string>
 
     <!-- Data usage info in QS footer -->
     <string name="qs_footer_datausage_title">Datennutzung anzeigen</string>
     <string name="qs_footer_datausage_summary">Tägliche Mobilfunk-/WLAN-Datennutzung in der QS-Fußzeile anzeigen</string>
+    <string name="qs_data_usage_cycle_type_title">Datennutzungs-Zyklus</string>
+    <string name="qs_data_usage_cycle_type_summary">Wählen Sie zwischen täglicher oder wöchentlicher Datennutzungsanzeige</string>
+    <string name="qs_data_usage_cycle_daily">Täglich</string>
+    <string name="qs_data_usage_cycle_weekly">Wöchentlich</string>
+    <string name="qs_show_data_usage_cycle_info_title">Zyklus-Info anzeigen</string>
+    <string name="qs_show_data_usage_cycle_info_summary">Zusätzliche Informationen über den Datennutzungszyklus anzeigen</string>
     <string name="qs_show_edit_button_title">Bearbeiten-Button anzeigen</string>
     <string name="qs_show_edit_button_summary">Den Bearbeiten-Button im Schnelleinstellungen-Panel anzeigen</string>
     <string name="qs_enable_tile_squishing_title">Kachel-Form-Modus</string>

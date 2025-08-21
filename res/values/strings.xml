@@ -276,12 +276,20 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="qs_show_settings_icon_summary">Show the settings icon in the quick settings footer</string>
     <string name="qs_show_power_menu_icon_title">Show power menu icon</string>
     <string name="qs_show_power_menu_icon_summary">Show the power menu icon in the quick settings footer</string>
+    <string name="data_usage_category_title">Data usage</string>
+    <string name="data_usage_category_summary">Configure data usage display in quick settings footer</string>
     <string name="footer_category_title">Footer items</string>
     <string name="footer_category_summary">Customize quick settings footer items</string>
 
     <!-- Data usage info in QS footer -->
     <string name="qs_footer_datausage_title">Data usage</string>
     <string name="qs_footer_datausage_summary">Display data usage summary in quick settings footer</string>
+    <string name="qs_data_usage_cycle_type_title">Data usage cycle</string>
+    <string name="qs_data_usage_cycle_type_summary">Choose between daily or weekly data usage display</string>
+    <string name="qs_data_usage_cycle_daily">Daily</string>
+    <string name="qs_data_usage_cycle_weekly">Weekly</string>
+    <string name="qs_show_data_usage_cycle_info_title">Show cycle info</string>
+    <string name="qs_show_data_usage_cycle_info_summary">Display additional information about the data usage cycle</string>
     <string name="qs_show_edit_button_title">Show edit button</string>
     <string name="qs_show_edit_button_summary">Show the edit button in the quick settings panel</string>
     <string name="qs_enable_tile_squishing_title">Tile shape mode</string>

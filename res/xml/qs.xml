@@ -68,15 +68,30 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="footer_category"
-        android:title="@string/footer_category_title"
-        android:summary="@string/footer_category_summary" >
+        android:key="data_usage_category"
+        android:title="@string/data_usage_category_title"
+        android:summary="@string/data_usage_category_summary" >
 
         <org.derpfest.support.preferences.SecureSettingSwitchPreference
             android:key="qs_show_data_usage"
             android:title="@string/qs_footer_datausage_title"
             android:summary="@string/qs_footer_datausage_summary"
             android:defaultValue="true" />
+
+        <org.derpfest.support.preferences.SecureSettingListPreference
+            android:key="qs_data_usage_cycle_type"
+            android:title="@string/qs_data_usage_cycle_type_title"
+            android:summary="@string/qs_data_usage_cycle_type_summary"
+            android:entries="@array/qs_data_usage_cycle_type_entries"
+            android:entryValues="@array/qs_data_usage_cycle_type_values"
+            android:defaultValue="0" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="footer_category"
+        android:title="@string/footer_category_title"
+        android:summary="@string/footer_category_summary" >
 
         <org.derpfest.support.preferences.SystemSettingSwitchPreference
             android:key="qs_show_edit_button"
