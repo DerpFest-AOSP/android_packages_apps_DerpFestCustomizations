@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: DerpFest AOSP
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- App name --> 
+    <string name="customisation_settings_title">DerpFest 自定义设置</string>
+
+    <!-- Home page -->
+    <string name="monet_settings">Monet 设置</string>
+    <string name="statusbar_title">状态栏</string>
+    <string name="statusbar_summary">调整状态栏元素</string>
+    <string name="qs_title">快速设置</string>
+    <string name="qs_summary">自定义您的快速设置面板</string>
+    <string name="notifications_title">通知</string>
+    <string name="notifications_summary">配置通知选项</string>
+    <string name="buttons_title">按钮</string>
+    <string name="buttons_summary">设置按键的默认行为和操作</string>
+    <string name="lockscreen_title">锁屏</string>
+    <string name="lockscreen_summary">配置锁屏和息屏显示的选项</string>
+    <string name="misc_title">杂项</string>
+    <string name="misc_summary">其他未分类的设置选项</string>
+
+    <!-- Keybox -->
+    <string name="keybox_title">Keybox</string>
+    <string name="keybox_summary">管理设备的 Keybox 数据</string>
+    <string name="keybox_data_title">加载 Keybox 数据</string>
+    <string name="keybox_data_summary">选择要加载的 Keybox XML 文件</string>
+    <string name="keybox_data_summary_loaded">已加载 %1$s keybox，包含 %2$d 个证书 (%3$s)</string>
+    <string name="keybox_data_delete_title">删除 Keybox 数据</string>
+    <string name="keybox_data_delete_summary">移除当前加载的 Keybox 数据</string>
+    <string name="keybox_data_loaded">Keybox 数据加载成功</string>
+    <string name="keybox_data_cleared">Keybox 数据已清除</string>
+    <string name="keybox_data_error">Keybox 数据加载失败</string>
+    <string name="keybox_data_invalid">无效的 Keybox XML 文件</string>
+
+    <!-- PIF -->
+    <string name="pif_title">Play Integrity</string>
+    <string name="pif_summary">管理设备用于 Google Play 服务的 Play Integrity 数据</string>
+    <string name="pif_data_title">加载 PIF 数据</string>
+    <string name="pif_data_summary">选择要加载的 PIF JSON 文件</string>
+    <string name="pif_data_delete_title">删除 PIF 数据</string>
+    <string name="pif_data_delete_summary">移除当前加载的 PIF 数据</string>
+    <string name="pif_data_loaded">PIF 数据加载成功</string>
+    <string name="pif_data_cleared">PIF 数据已清除</string>
+    <string name="pif_data_error">PIF 数据加载失败</string>
+    <string name="pif_data_invalid">无效的 PIF JSON 文件</string>
+    <string name="pif_data_summary_loaded">已加载PIF 数据：%1$d props (%2$s)</string>
+
+    <string name="dark_mode_summary_default">启用系统深色主题</string>
+    <string name="dark_mode_summary_powersave">已启用省电模式</string>
+
+    <!-- Categories -->
+    <string name="general_category_title">通用</string>
+    <string name="general_category_summary">通用的全局系统设置</string>
+
+    <!-- Ignore window secure -->
+    <string name="ignore_window_secure_title">忽略窗口安全标志</string>
+    <string name="ignore_window_secure_summary">移除所有应用的截屏和录屏限制。这在某些情况下可能很方便，但可能导致隐私泄露。</string>
+
+    <!-- Monet settings -->
+    <string name="monet_settings_title">Monet 个性化</string>
+    <string name="monet_settings_sammary">自定义动态主题引擎参数</string>
+    <string name="monet_engine_custom_color_title">强调色</string>
+    <string name="monet_engine_custom_color_summary">选择自定义颜色作为强调色</string>
+    <string name="monet_engine_custom_bgcolor_title">背景色</string>
+    <string name="monet_engine_custom_bgcolor_summary">选择自定义颜色作为背景色</string>
+    <string name="monet_engine_color_override_title">自定义颜色</string>
+    <string name="monet_engine_luminance_factor_title">明度</string>
+    <string name="monet_engine_luminance_factor_summary">值越高，颜色越亮</string>
+    <string name="monet_engine_chroma_factor_title">色度</string>
+    <string name="monet_engine_chroma_factor_summary">值越高，颜色越鲜艳</string>
+    <string name="monet_engine_whole_palette_title">全局调色板</string>
+    <string name="monet_engine_whole_palette_summary">使明度和色度同时作用于次级颜色</string>
+    <string name="monet_engine_tint_background_title">背景色调</string>
+    <string name="monet_engine_tint_background_summary">使明度和色度同时作用于背景色</string>
+    <string name="monet_engine_style_title">主题样式</string>
+    <string name="monet_engine_style_tonal_spot">色调聚焦（默认）</string>
+    <string name="monet_engine_style_vibrant">青春活力</string>
+    <string name="monet_engine_style_expressive">印象派风格</string>
+    <string name="monet_engine_style_spritz">墨水风</string>
+    <string name="monet_engine_style_rainbow">彩虹</string>
+    <string name="monet_engine_style_fruit_salad">水果沙拉</string>
+    <string name="monet_engine_style_content">内容强调</string>
+    <string name="monet_engine_style_monochromatic">单色</string>
+    <string name="monet_engine_color_source_title">颜色来源</string>
+    <string name="monet_engine_color_source_both">双壁纸（默认）</string>
+    <string name="monet_engine_color_source_home">主屏幕壁纸</string>
+    <string name="monet_engine_color_source_lock">锁屏壁纸</string>
+    <string name="monet_engine_color_source_preset">预设</string>
+    <string name="monet_engine_wallpaper_color_title">从壁纸中选择其他强调色</string>
+    <string name="monet_engine_wallpaper_color_summary">壁纸颜色选择器</string>
+    <string name="monet_engine_wallpaper_color_not_available">不可用</string>
+
+    <!-- Ambient edge lighting -->
+    <string name="ambient_edge_light_action_title">息屏边缘光效</string>
+    <string name="ambient_edge_light_title">边缘光效</string>
+    <string name="ambient_edge_light_enable_title">启用边缘光效</string>
+    <string name="ambient_edge_light_summary">当收到通知时在屏幕边缘显示光效</string>
+    <string name="ambient_edge_light_color_mode_category_title">颜色</string>
+    <string name="ambient_edge_light_color_mode_auto">自动</string>
+    <string name="ambient_edge_light_color_mode_app">应用颜色</string>
+    <string name="ambient_edge_light_color_mode_manual">手动</string>
+    <string name="ambient_edge_light_color_mode_auto_summary">将边缘光效颜色设置为系统颜色</string>
+    <string name="ambient_edge_light_color_mode_app_summary">将边缘光效颜色设置为应用颜色</string>
+    <string name="ambient_edge_light_color_mode_manual_summary">手动选择颜色</string>
+    <string name="ambient_edge_light_advanced_category_title">高级</string>
+    <string name="ambient_edge_light_duration_title">光效持续时间</string>
+    <string name="ambient_edge_light_repeat_count_title">重复次数</string>
+    <string name="ambient_edge_light_width_title">光效宽度</string>
+    <string name="ambient_edge_light_face_down_title">翻转以启用</string>
+    <string name="ambient_edge_light_face_down_summary">仅在手机面朝下时显示边缘光效</string>
+
+    <!-- Privacy Settings -->
+    <string name="privacy_indicators_title">隐私指示器</string>
+    <string name="privacy_indicators_summary">当应用使用摄像头、麦克风或位置信息时显示指示器</string>
+    <string name="mic_camera_privacy_indicators_title">摄像头与麦克风</string>
+    <string name="mic_camera_privacy_indicators_summary">当应用使用摄像头或麦克风时显示指示器</string>
+    <string name="location_privacy_indicator_title">位置信息</string>
+    <string name="location_privacy_indicator_summary">当应用使用位置信息时显示指示器</string>
+
+    <!-- Fingerprint Ripple Effect -->
+    <string name="enable_fingerprint_ripple_effect_title">解锁动画</string>
+    <string name="enable_fingerprint_ripple_effect_summary">使用指纹解锁时显示涟漪效果</string>
+
+    <!-- Ongoing action chip -->
+    <string name="ongoing_chip_category_title">动态提示</string>
+    <string name="ongoing_progress_settings_title">状态栏动态提示</string>
+    <string name="ongoing_progress_settings_summary">状态栏动态提示选项</string>
+    <string name="ongoing_action_chip_title">实时任务提示</string>
+    <string name="ongoing_action_chip_summary">在状态栏显示下载等后台任务的进度提示</string>
+    <string name="show_media_progress_title">显示媒体进度</string>
+    <string name="show_media_progress_summary">在状态栏显示媒体播放进度</string>
+    <string name="progress_footer_text">
+    "状态栏动态提示可为媒体播放、正在进行的的下载/上传任务提供实时状态更新。
+
+    媒体进度：
+    • 显示音乐和视频播放时的进度。
+    • 单击打开播放控制（上一曲、下一曲）。
+    • 双击切换播放/暂停。
+    • 向左滑动跳至上一曲。
+    • 向右滑动跳至下一曲。
+    • 长按打开媒体应用。
+
+    下载/上传进度：
+    • 显示正在进行的下载和上传进度。
+    • 无正在进行的传输时自动隐藏。
+    • 单击打开正在下载的应用。
+
+该进度条会智能切换显示媒体和下载状态，确保您随时轻松掌握最新动态。"
+    </string>
+    <string name="compact_progress_mode_title">紧凑型进度显示</string>
+    <string name="compact_progress_mode_summary">对正在进行的操作使用紧凑型圆形指示器</string>
+
+    <!-- Heads-up -->
+    <string name="compact_heads_up_notifications_enabled_title">紧凑型通知</string>
+    <string name="compact_heads_up_notifications_enabled_summary">以紧凑形式显示通知</string>
+
+    <!-- Hide statusbar on lockscreen -->
+    <string name="lockscreen_hide_status_bar_title">隐藏状态栏</string>
+    <string name="lockscreen_hide_status_bar_summary">启用后，锁屏界面将隐藏状态栏</string>
+
+    <!-- Island Notification -->
+    <string name="island_notifications_category_title">灵动岛式通知</string>
+    <string name="island_notification_title">灵动岛式通知</string>
+    <string name="island_notification_summary">以灵动岛样式显示通知</string>
+    <string name="island_notification_footer_text">
+        受 iOS 中的灵动岛启发，灵动岛式通知功能可将 Android 的通知转化为更紧凑、更便捷的通知形式。\n\n灵动岛快捷控制具备以下功能：\n1. 轻点灵动岛通知，快速接听来电。\n2. 长按灵动岛通知，直接拒接来电。\n3. 长按灵动岛通知，展开完整预览。
+    </string>
+
+    <!-- QS Header -->
+    <string name="qs_header_image_title">快速设置顶部图片</string>
+    <string name="qs_header_image_summary">选择快速设置面板顶部背景图片</string>
+    <string name="qs_header_daylight_pack_title">顶部图片集</string>
+    <string name="qs_header_shadow_title">顶部图片阴影</string>
+    <string name="qs_header_shadow_summary">优化亮色背景图片的可视性</string>
+    <string name="qs_header_static_provider_title">静态图片</string>
+    <string name="qs_header_daylight_provider_title">图片集</string>
+    <string name="qs_header_file_provider_title">自定义图片</string>
+    <string name="qs_header_provider_title">顶部图片来源</string>
+    <string name="qs_header_browse_title">浏览已安装的顶部图片</string>
+    <string name="qs_header_browse_summary">浏览所有可用的顶部图片集</string>
+    <string name="qs_header_pick_title">选择顶部图片</string>
+    <string name="qs_header_pick_summary">选择一张图片以用于静态模式</string>
+    <string name="qs_header_file_select_title">选择图片</string>
+    <string name="qs_header_file_select_summary">选择自定义图片</string>
+    <string name="qs_header_needs_gallery">您必须安装相册应用！</string>
+    <string name="enable">启用</string>
+    <string name="qs_header_offset_title">顶部图片偏移量</string>
+    <string name="qs_header_offset_summary">调整顶部图片尺寸</string>
+
+    <!-- Screen Off animation -->
+    <string name="screen_off_animation_title">灭屏动画</string>
+    <string name="screen_off_animation_default">默认</string>
+    <string name="screen_off_animation_crt">CRT</string>
+    <string name="screen_off_animation_scale">缩放</string>
+
+    <!-- Pulse music visualizer -->
+    <string name="pulse_help_policy_notice_title">关于律动脉冲</string>
+    <string name="pulse_help_policy_notice_summary">律动脉冲是设备播放音乐时炫酷的音频可视化工具</string>
+    <string name="pulse_ambient_edge_light_category_title">息屏边缘光效</string>
+    <string name="pulse_visualizer_category_title">律动脉冲</string>
+    <string name="pulse_settings">律动脉冲</string>
+    <string name="pulse_settings_summary">在导航栏、锁屏和息屏显示音频可视化效果</string>
+    <string name="show_navbar_pulse_title">导航栏律动</string>
+    <string name="show_navbar_pulse_summary">在导航栏显示音频可视化效果</string>
+    <string name="show_lockscreen_pulse_title">锁屏律动</string>
+    <string name="show_lockscreen_pulse_summary">在锁屏上显示音频可视化效果</string>
+    <string name="show_ambient_pulse_title">息屏律动</string>
+    <string name="show_ambient_pulse_summary">在息屏时显示音频可视化效果</string>
+    <string name="pulse_render_mode_title">渲染模式</string>
+    <string name="pulse_render_mode_fading_bars">渐隐方块式</string>
+    <string name="pulse_render_mode_solid_lines">线条式</string>
+    <string name="pulse_legacy_mode_advanced_category">渐隐方块式</string>
+    <string name="pulse_custom_fudge_factor">灵敏度</string>
+    <string name="pulse_lavalamp_speed_title">熔岩灯速度</string>
+    <string name="pulse_solid_units_count">线条数量</string>
+    <string name="pulse_solid_units_opacity">线条透明度</string>
+    <string name="pulse_solid_dimen_category">线条式设置</string>
+    <string name="pulse_color_mode_title">颜色</string>
+    <string name="pulse_color_accent">强调色</string>
+    <string name="pulse_color_custom">自定义</string>
+    <string name="pulse_color_lava_lamp">熔岩灯</string>
+    <string name="pulse_color_auto">专辑封面</string>
+    <string name="pulse_color_user_title">选择颜色</string>
+    <string name="pulse_smoothing_enabled_title">启用平滑动画</string>
+    <string name="pulse_smoothing_enabled_summary">使线条动画更加平滑</string>
+    <string name="pulse_custom_dimen">线条宽度</string>
+    <string name="pulse_custom_div">线条间距</string>
+    <string name="pulse_filled_block_size">方块大小</string>
+    <string name="pulse_empty_block_size">方块间距</string>
+    <string name="pulse_solid_units_rounded_title">圆角线条</string>
+    <string name="pulse_solid_units_rounded_summary">使线条圆角化</string>
+
+    <!-- Pulse Gravity and mirror options -->
+    <string name="pulse_custom_gravity_title">对齐方式</string>
+    <string name="pulse_custom_gravity_bottom">底部</string>
+    <string name="pulse_custom_gravity_top">顶部</string>
+    <string name="pulse_custom_gravity_center">居中</string>
+    <string name="visualizer_center_mirrored_title">中心镜像</string>
+    <string name="visualizer_center_mirrored_summary">将可视化设置为中心镜像模式</string>
+    <string name="pulse_vertical_mirror_title">垂直镜像</string>
+    <string name="pulse_vertical_mirror_summary">创建另一个垂直翻转的律动效果</string>
+
+    <!-- Units -->
+    <string name="unit_milliseconds">ms</string>
+    <string name="unit_pixels">px</string>
+
+    <!-- Single tap for keyguard affordance -->
+    <string name="keyguard_affordance_single_tap_title">锁屏快捷操作单击触发</string>
+    <string name="keyguard_affordance_single_tap_summary">单击即可执行锁屏快捷操作功能</string>
+
+    <!-- Small landscape notifications -->
+    <string name="small_landscape_notification_title">小型横屏通知</string>
+    <string name="small_landscape_notification_summary">按 AOSP 设计，在横屏模式下的通知面板中显示更窄的通知</string>
+
+    <!-- Bluetooth QS Tile behavior -->
+    <string name="click_bluetooth_tile_behavior_title">蓝牙磁贴点击行为</string>
+    <string name="b_bluetooth_tile">开关蓝牙</string>
+    <string name="modern_panel_bluetooth_tile">打开蓝牙快速设置面板</string>
+
+    <!-- QS Panel -->
+    <string name="brightness_category_title">亮度滑块</string>
+    <string name="qs_show_brightness_title">显示位置</string>
+    <string name="qs_show_brightness_hide">隐藏</string>
+    <string name="qs_show_brightness_normal">在快速设置面板显示</string>
+    <string name="qs_show_brightness_both">在快速设置、快速下拉面板中显示</string>
+    <string name="qs_brightness_position_position_title">移到底端</string>
+    <string name="qs_brightness_position_position_summary">在快速设置面板底栏显示亮度滑块</string>
+    <string name="qs_show_auto_brightness_title">显示自动亮度图标</string>
+    <string name="qs_show_auto_brightness_summary">在亮度调节滑块旁显示自动亮度开关图标</string>
+    <string name="qs_show_settings_icon_title">显示设置图标</string>
+    <string name="qs_show_settings_icon_summary">在快速设置底栏显示设置图标</string>
+    <string name="qs_show_power_menu_icon_title">显示电源菜单图标</string>
+    <string name="qs_show_power_menu_icon_summary">在快速设置底栏显示电源菜单图标</string>
+    <string name="footer_category_title">底栏</string>
+    <string name="footer_category_summary">自定义快速设置底栏的显示项目</string>
+
+    <!-- Data usage info in QS footer -->
+    <string name="qs_footer_datausage_title">流量使用量</string>
+    <string name="qs_footer_datausage_summary">在快速设置底部显示流量使用量摘要</string>
+    <string name="qs_show_edit_button_title">显示编辑按钮</string>
+    <string name="qs_show_edit_button_summary">在快速设置面板中显示编辑按钮</string>
+    <string name="qs_enable_tile_squishing_title">磁贴形状</string>
+    <string name="qs_enable_tile_squishing_summary">选择磁贴在快速设置面板中的显示样式</string>
+    <string name="qs_tile_shape_mode_normal">标准</string>
+    <string name="qs_tile_shape_mode_all_round">全部圆角</string>
+    <string name="qs_tile_shape_mode_all_squared">全部圆角矩形</string>
+</resources>
