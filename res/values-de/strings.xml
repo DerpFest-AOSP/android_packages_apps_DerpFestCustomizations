@@ -265,6 +265,8 @@
     <!-- Data usage info in QS footer -->
     <string name="qs_footer_datausage_title">Datennutzung anzeigen</string>
     <string name="qs_footer_datausage_summary">Tägliche Mobilfunk-/WLAN-Datennutzung in der QS-Fußzeile anzeigen</string>
+    <string name="qs_footer_datausage_summary_daily">Tägliche Mobilfunk-/WLAN-Datennutzung in der QS-Fußzeile anzeigen</string>
+    <string name="qs_footer_datausage_summary_weekly">Wöchentliche Mobilfunk-/WLAN-Datennutzung in der QS-Fußzeile anzeigen</string>
     <string name="qs_data_usage_cycle_type_title">Datennutzungs-Zyklus</string>
     <string name="qs_data_usage_cycle_type_summary">Wählen Sie zwischen täglicher oder wöchentlicher Datennutzungsanzeige</string>
     <string name="qs_data_usage_cycle_daily">Täglich</string>
