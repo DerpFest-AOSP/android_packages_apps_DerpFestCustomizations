@@ -296,4 +296,24 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="qs_tile_shape_mode_normal">Normal</string>
     <string name="qs_tile_shape_mode_all_round">All round</string>
     <string name="qs_tile_shape_mode_all_squared">All squared</string>
+
+    <!-- QS Layout Settings -->
+    <string name="qs_layout_settings_title">QS Layout</string>
+    <string name="qs_layout_category_title">Quick Settings Layout</string>
+    <string name="qs_layout_category_summary">Configure the layout of the quick settings panel</string>
+    <string name="qs_layout_columns_title">Columns</string>
+    <string name="qs_layout_columns_summary">columns (affects both QS and QQS panels)</string>
+    <string name="qs_layout_rows_title">Rows</string>
+    <string name="qs_layout_rows_summary">rows</string>
+    <string name="qqs_layout_category_title">Quick Quick Settings Layout</string>
+    <string name="qqs_layout_category_summary">Configure the layout of the quick quick settings panel (columns are shared with QS)</string>
+    <string name="qqs_layout_rows_title">Rows</string>
+    <string name="qqs_layout_rows_summary">rows</string>
+    <string name="qs_layout_columns_landscape_title">Columns (Landscape)</string>
+    <string name="qs_layout_columns_landscape_summary">columns for landscape orientation (affects both QS and QQS panels)</string>
+    <string name="qs_layout_rows_landscape_title">Rows (Landscape)</string>
+    <string name="qs_layout_rows_landscape_summary">rows for landscape orientation</string>
+    <string name="qqs_layout_rows_landscape_title">Rows (Landscape)</string>
+    <string name="qqs_layout_rows_landscape_summary">rows for landscape orientation</string>
+    <string name="qs_layout_default">Default (System)</string>
 </resources>

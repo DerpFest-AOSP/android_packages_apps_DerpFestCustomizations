@@ -25,6 +25,19 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="layout_category"
+        android:title="@string/qs_layout_settings_title"
+        android:summary="@string/qs_layout_category_summary" >
+
+        <Preference
+            android:key="qs_layout_settings"
+            android:title="@string/qs_layout_settings_title"
+            android:summary="@string/qs_layout_category_summary"
+            android:fragment="org.derpfest.customizations.fragment.QsLayoutSettings" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="brightness_category"
         android:title="@string/brightness_category_title" >
 
