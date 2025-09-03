@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: DerpFest AOSP
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/qs_layout_settings_title" >
+
+    <PreferenceCategory
+        android:key="qs_layout_category"
+        android:title="@string/qs_layout_category_title"
+        android:summary="@string/qs_layout_category_summary" >
+
+        <org.derpfest.support.preferences.ProperSeekBarPreference
+            android:key="qs_tiles_columns"
+            android:title="@string/qs_layout_columns_title"
+            android:summary="@string/qs_layout_columns_summary"
+            android:defaultValue="4"
+            android:max="6"
+            settings:min="2"
+            settings:interval="1"
+            settings:units=" columns" />
+
+        <org.derpfest.support.preferences.ProperSeekBarPreference
+            android:key="qs_tiles_rows"
+            android:title="@string/qs_layout_rows_title"
+            android:summary="@string/qs_layout_rows_summary"
+            android:defaultValue="4"
+            android:max="5"
+            settings:min="2"
+            settings:interval="1"
+            settings:units=" rows" />
+
+        <org.derpfest.support.preferences.ProperSeekBarPreference
+            android:key="qs_tiles_columns_landscape"
+            android:title="@string/qs_layout_columns_landscape_title"
+            android:summary="@string/qs_layout_columns_landscape_summary"
+            android:defaultValue="4"
+            android:max="6"
+            settings:min="2"
+            settings:interval="1"
+            settings:units=" columns" />
+
+        <org.derpfest.support.preferences.ProperSeekBarPreference
+            android:key="qs_tiles_rows_landscape"
+            android:title="@string/qs_layout_rows_landscape_title"
+            android:summary="@string/qs_layout_rows_landscape_summary"
+            android:defaultValue="2"
+            android:max="3"
+            settings:min="1"
+            settings:interval="1"
+            settings:units=" rows" />
+
+        <org.derpfest.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_media_respect_halving"
+            android:title="@string/qs_media_respect_halving_title"
+            android:summary="@string/qs_media_respect_halving_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="qqs_layout_category"
+        android:title="@string/qqs_layout_category_title"
+        android:summary="@string/qqs_layout_category_summary" >
+
+
+        <org.derpfest.support.preferences.ProperSeekBarPreference
+            android:key="qqs_tiles_rows"
+            android:title="@string/qqs_layout_rows_title"
+            android:summary="@string/qqs_layout_rows_summary"
+            android:defaultValue="2"
+            android:max="3"
+            settings:min="1"
+            settings:interval="1"
+            settings:units=" rows" />
+
+        <org.derpfest.support.preferences.ProperSeekBarPreference
+            android:key="qqs_tiles_rows_landscape"
+            android:title="@string/qqs_layout_rows_landscape_title"
+            android:summary="@string/qqs_layout_rows_landscape_summary"
+            android:defaultValue="1"
+            android:max="3"
+            settings:min="1"
+            settings:interval="1"
+            settings:units=" rows" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

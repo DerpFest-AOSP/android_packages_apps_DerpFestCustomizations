@@ -281,4 +281,24 @@
     <!-- Brightness Slider Style -->
     <string name="qs_brightness_slider_shape_title">Form des Helligkeitsreglers</string>
     <string name="default_value">Standard</string>
+
+    <!-- QS Layout Settings -->
+    <string name="qs_layout_settings_title">QS-Layout</string>
+    <string name="qs_layout_category_title">Schnelleinstellungen-Layout</string>
+    <string name="qs_layout_category_summary">Layout des Schnelleinstellungen-Panels konfigurieren</string>
+    <string name="qs_layout_columns_title">Spalten</string>
+    <string name="qs_layout_columns_summary">Spalten (betrifft sowohl QS- als auch QQS-Panel)</string>
+    <string name="qs_layout_rows_title">Zeilen</string>
+    <string name="qs_layout_rows_summary">Zeilen</string>
+    <string name="qqs_layout_category_title">Quick QS-Layout</string>
+    <string name="qqs_layout_category_summary">Layout des Quick QS-Panels konfigurieren (Spalten werden mit QS geteilt)</string>
+    <string name="qqs_layout_rows_title">Zeilen</string>
+    <string name="qqs_layout_rows_summary">Zeilen</string>
+    <string name="qs_layout_columns_landscape_title">Spalten (Querformat)</string>
+    <string name="qs_layout_columns_landscape_summary">Spalten für Querformat (betrifft sowohl QS- als auch QQS-Panel)</string>
+    <string name="qs_layout_rows_landscape_title">Zeilen (Querformat)</string>
+    <string name="qs_layout_rows_landscape_summary">Zeilen für Querformat</string>
+    <string name="qqs_layout_rows_landscape_title">Zeilen (Querformat)</string>
+    <string name="qqs_layout_rows_landscape_summary">Zeilen für Querformat</string>
+    <string name="qs_layout_default">Standard (System)</string>
 </resources>
