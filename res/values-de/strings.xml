@@ -301,5 +301,7 @@
     <string name="qs_layout_rows_landscape_summary">Zeilen für Querformat</string>
     <string name="qqs_layout_rows_landscape_title">Zeilen (Querformat)</string>
     <string name="qqs_layout_rows_landscape_summary">Zeilen für Querformat</string>
+    <string name="qs_media_respect_halving_title">Media Halbierung respektieren</string>
+    <string name="qs_media_respect_halving_summary">Wenn aktiviert, halbiert Media-in-Row die QS-Spalten</string>
     <string name="qs_layout_default">Standard (System)</string>
 </resources>

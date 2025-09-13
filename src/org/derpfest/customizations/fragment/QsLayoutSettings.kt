@@ -12,6 +12,7 @@ import android.provider.Settings
 
 import androidx.preference.Preference
 import org.derpfest.support.preferences.ProperSeekBarPreference
+import org.derpfest.support.preferences.SystemSettingSwitchPreference
 
 import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
@@ -24,6 +25,7 @@ class QsLayoutSettings : SettingsPreferenceFragment(), Preference.OnPreferenceCh
     private lateinit var mQsRowsLandscapePreference: ProperSeekBarPreference
     private lateinit var mQqsRowsPreference: ProperSeekBarPreference
     private lateinit var mQqsRowsLandscapePreference: ProperSeekBarPreference
+    private lateinit var mQsMediaRespectHalvingPreference: SystemSettingSwitchPreference
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         addPreferencesFromResource(R.xml.qs_layout_settings)
@@ -34,6 +36,7 @@ class QsLayoutSettings : SettingsPreferenceFragment(), Preference.OnPreferenceCh
         mQsRowsLandscapePreference = findPreference("qs_layout_rows_landscape")!!
         mQqsRowsPreference = findPreference("qqs_layout_rows")!!
         mQqsRowsLandscapePreference = findPreference("qqs_layout_rows_landscape")!!
+        mQsMediaRespectHalvingPreference = findPreference("qs_media_respect_halving")!!
         
         mQsColumnsPreference.setOnPreferenceChangeListener(this)
         mQsRowsPreference.setOnPreferenceChangeListener(this)
@@ -41,6 +44,7 @@ class QsLayoutSettings : SettingsPreferenceFragment(), Preference.OnPreferenceCh
         mQsRowsLandscapePreference.setOnPreferenceChangeListener(this)
         mQqsRowsPreference.setOnPreferenceChangeListener(this)
         mQqsRowsLandscapePreference.setOnPreferenceChangeListener(this)
+        mQsMediaRespectHalvingPreference.setOnPreferenceChangeListener(this)
         
         // Set initial values from system settings
         setInitialValues()
@@ -142,6 +146,11 @@ class QsLayoutSettings : SettingsPreferenceFragment(), Preference.OnPreferenceCh
                 Settings.System.putInt(requireContext().contentResolver, "qqs_layout_rows_landscape", seekbarValue)
                 // Ensure the preference shows the correct value
                 mQqsRowsLandscapePreference.setValue(seekbarValue)
+                return true
+            }
+            "qs_media_respect_halving" -> {
+                val switchValue = newValue as? Boolean ?: return false
+                Settings.System.putInt(requireContext().contentResolver, "qs_media_respect_halving", if (switchValue) 1 else 0)
                 return true
             }
         }
