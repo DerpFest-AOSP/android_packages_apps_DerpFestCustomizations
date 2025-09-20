@@ -7,6 +7,10 @@ package org.derpfest.ui.preference
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.LayerDrawable
+import com.android.settingslib.widget.AdaptiveIcon
+import android.provider.Settings
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +24,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 import com.android.settings.R
+import com.android.settings.Utils
 
 open class DerpFestCardPreference @JvmOverloads constructor(
     context: Context,
@@ -37,6 +42,9 @@ open class DerpFestCardPreference @JvmOverloads constructor(
     private lateinit var container: CardView
     private var cornerType: Int? = null
     private var cornerTypeString: String? = null
+    private var mIconStyle: Int = 0
+    private var mNormalColor: Int = 0
+    private var mAccentColor: Int = 0
     
     init {
         CoroutineScope(Dispatchers.Main).launch {
@@ -50,6 +58,79 @@ open class DerpFestCardPreference @JvmOverloads constructor(
         }
         
         layoutResource = R.layout.derpfest_card_preference
+        updateTheme()
+    }
+    
+    private fun updateTheme() {
+        val attrs = intArrayOf(
+            android.R.attr.colorControlNormal,
+            android.R.attr.colorAccent
+        )
+        val ta = context.theme.obtainStyledAttributes(attrs)
+        mNormalColor = ta.getColor(0, 0xff808080.toInt())
+        mAccentColor = ta.getColor(1, 0xff808080.toInt())
+        ta.recycle()
+        
+        mIconStyle = Settings.System.getInt(
+            context.contentResolver,
+            Settings.System.THEMING_SETTINGS_DASHBOARD_ICONS, 0
+        )
+    }
+    
+    private fun themeIcon() {
+        val iconDrawable = icon
+        if (iconDrawable != null) {
+            if (iconDrawable is AdaptiveIcon) {
+                // Clear colors from previous calls
+                iconDrawable.resetCustomColors()
+                if (mIconStyle == 0) {
+                    // Style 0: Use AOSP's natural theming - no custom colors applied
+                    return
+                }
+                when (mIconStyle) {
+                    1 -> iconDrawable.setCustomForegroundColor(context.getColor(android.R.color.white))
+                    2 -> {
+                        iconDrawable.setCustomBackgroundColor(mAccentColor)
+                        iconDrawable.setCustomForegroundColor(context.getColor(android.R.color.white))
+                    }
+                    3 -> {
+                        iconDrawable.setCustomForegroundColor(mNormalColor)
+                        iconDrawable.setCustomBackgroundColor(0)
+                    }
+                    4 -> {
+                        iconDrawable.setCustomForegroundColor(mAccentColor)
+                        iconDrawable.setCustomBackgroundColor(0)
+                    }
+                }
+            } else if (iconDrawable is LayerDrawable) {
+                if (iconDrawable.numberOfLayers == 2) {
+                    val fg = iconDrawable.getDrawable(1)
+                    val bg = iconDrawable.getDrawable(0)
+                    // Clear tints from previous calls
+                    bg.setTintList(null)
+                    fg.setTintList(null)
+                    if (mIconStyle == 0) {
+                        // Style 0: Use AOSP's natural theming - no custom colors applied
+                        return
+                    }
+                    when (mIconStyle) {
+                        1 -> fg.setTint(context.getColor(android.R.color.white))
+                        2 -> {
+                            bg.setTint(mAccentColor)
+                            fg.setTint(context.getColor(android.R.color.white))
+                        }
+                        3 -> {
+                            fg.setTint(mNormalColor)
+                            bg.setTint(0)
+                        }
+                        4 -> {
+                            fg.setTint(mAccentColor)
+                            bg.setTint(0)
+                        }
+                    }
+                }
+            }
+        }
     }
     
     private fun hideIcon() {
@@ -121,6 +202,10 @@ open class DerpFestCardPreference @JvmOverloads constructor(
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
         super.onBindViewHolder(holder)
         this.holder = holder
+        
+        // Update theme and apply icon theming
+        updateTheme()
+        themeIcon()
         
         // Remove background from the preference item
         holder.itemView.background = null
