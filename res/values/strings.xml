@@ -252,6 +252,10 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="small_landscape_notification_title">Small landscape notifications</string>
     <string name="small_landscape_notification_summary">Shows notifications smaller in width in notification panel in landscape mode just as AOSP intended</string>
 
+    <!-- Blur intensity -->
+    <string name="blur_intensity_title">Blur intensity</string>
+    <string name="blur_intensity_summary" formatted="false">Control the intensity of blur effects throughout the system.\n0% = no blur, 100% = system default, 200% = double intensity.</string>
+
     <!-- QS Panel -->
     <string name="brightness_category_title">Brightness slider</string>
     <string name="qs_show_brightness_title">Where to show</string>
