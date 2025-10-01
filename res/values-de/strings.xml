@@ -233,6 +233,10 @@
     <string name="small_landscape_notification_title">Kleine Querformat-Benachrichtigungen</string>
     <string name="small_landscape_notification_summary">Zeigt Benachrichtigungen in kleinerer Breite im Benachrichtigungsbereich im Querformat an, genau wie von AOSP vorgesehen</string>
 
+    <!-- Blur intensity -->
+    <string name="blur_intensity_title">Unschärfe-Intensität</string>
+    <string name="blur_intensity_summary" formatted="false">Intensität der Unschärfe-Effekte im gesamten System steuern.\n0% = keine Unschärfe, 100% = Systemstandard, 200% = doppelte Intensität.</string>
+
     <!-- Bluetooth QS Tile behavior -->
     <string name="click_bluetooth_tile_behavior_title">Bluetooth-Kachel-Verhalten beim Klicken</string>
     <string name="b_bluetooth_tile">Bluetooth umschalten</string>
