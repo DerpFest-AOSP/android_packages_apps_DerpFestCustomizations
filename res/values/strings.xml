@@ -257,6 +257,8 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="qs_brightness_position_position_summary">Show brightness slider in the bottom of QS panel</string>
     <string name="qs_show_auto_brightness_title">Show auto brightness icon</string>
     <string name="qs_show_auto_brightness_summary">Show the auto brightness toggle icon in the brightness slider</string>
+    <string name="qs_brightness_match_tile_shape_title">Match brightness slider to tile shape</string>
+    <string name="qs_brightness_match_tile_shape_summary">Make the brightness slider follow the chosen tile shape mode</string>
     <string name="qs_show_settings_icon_title">Show settings icon</string>
     <string name="qs_show_settings_icon_summary">Show the settings icon in the quick settings footer</string>
     <string name="qs_show_power_menu_icon_title">Show power menu icon</string>
