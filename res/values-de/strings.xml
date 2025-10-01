@@ -71,5 +71,5 @@
 
     <!-- Pif Data -->
     <string name="pif_data_title">PIF-JSON zum Spoofen auswählen</string>
-    <string name="pif_data_summary">PIF-JSON auswählen, das für das Spoofing von Prop-Attestations für Google Mobile Services verwendet wird. Klicken auf die Schaltfläche „Löschen“, um die PIF-Daten-Props zurückzusetzen und dynamische PIF-Props zu verwenden, die standardmäßig verwendet werden.</string>
+    <string name="pif_data_summary">PIF-JSON auswählen, das für das Spoofing von Prop-Attestations für Google Mobile Services und Play Store verwendet wird. Klicken auf die Schaltfläche „Löschen“, um die PIF-Daten-Props zurückzusetzen und dynamische PIF-Props zu verwenden, die standardmäßig verwendet werden.</string>
 </resources>
