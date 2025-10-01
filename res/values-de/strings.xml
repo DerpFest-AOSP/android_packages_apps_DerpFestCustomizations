@@ -245,6 +245,11 @@
     <string name="qs_show_auto_brightness_summary">Das Auto-Helligkeit-Umschalt-Symbol im Helligkeitsregler anzeigen</string>
     <string name="qs_brightness_match_tile_shape_title">Helligkeitsregler an Kachelform anpassen</string>
     <string name="qs_brightness_match_tile_shape_summary">Helligkeitsregler folgt dem gewählten Kachel-Form-Modus</string>
+    <string name="qs_brightness_slider_shape_title">Helligkeitsregler-Form</string>
+    <string name="qs_brightness_slider_shape_summary">Form des Helligkeitsreglers unabhängig von Kacheln wählen</string>
+    <string name="qs_brightness_slider_shape_default">Standard</string>
+    <string name="qs_brightness_slider_shape_circle">Kreis</string>
+    <string name="qs_brightness_slider_shape_rounded_square">Abgerundetes Quadrat</string>
     <string name="qs_show_settings_icon_title">Einstellungen-Symbol anzeigen</string>
     <string name="qs_show_settings_icon_summary">Das Einstellungen-Symbol in der Schnelleinstellungen-Fußzeile anzeigen</string>
     <string name="qs_show_power_menu_icon_title">Power-Menü-Symbol anzeigen</string>

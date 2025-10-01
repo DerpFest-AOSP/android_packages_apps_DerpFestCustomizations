@@ -164,6 +164,19 @@
         <item>2</item>
     </string-array>
 
+    <!-- QS brightness slider shape -->
+    <string-array name="qs_brightness_slider_shape_entries" translatable="false">
+        <item>@string/qs_brightness_slider_shape_default</item>
+        <item>@string/qs_brightness_slider_shape_circle</item>
+        <item>@string/qs_brightness_slider_shape_rounded_square</item>
+    </string-array>
+
+    <string-array name="qs_brightness_slider_shape_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
     <!-- Data usage cycle type -->
     <string-array name="qs_data_usage_cycle_type_entries">
         <item>@string/qs_data_usage_cycle_daily</item>
