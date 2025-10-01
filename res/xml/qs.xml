@@ -51,7 +51,8 @@
             android:key="qs_brightness_match_tile_shape"
             android:title="@string/qs_brightness_match_tile_shape_title"
             android:summary="@string/qs_brightness_match_tile_shape_summary"
-            android:defaultValue="false" />
+            android:defaultValue="false"
+            android:disableDependentsState="true" />
 
         <org.derpfest.support.preferences.SystemSettingListPreference
             android:key="qs_brightness_slider_shape"
@@ -59,7 +60,8 @@
             android:summary="@string/qs_brightness_slider_shape_summary"
             android:entries="@array/qs_brightness_slider_shape_entries"
             android:entryValues="@array/qs_brightness_slider_shape_values"
-            android:defaultValue="0" />
+            android:defaultValue="0"
+            android:dependency="qs_brightness_match_tile_shape" />
 
     </PreferenceCategory>
 
