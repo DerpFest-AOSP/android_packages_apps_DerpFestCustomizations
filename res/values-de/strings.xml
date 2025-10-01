@@ -68,4 +68,8 @@
     <!-- Keybox Data -->
     <string name="keybox_data_title">Keybox-Attestation überschreiben</string>
     <string name="keybox_data_summary">Benutzerdefinierte Keybox-XML laden, um Geräteschlüssel-Attestation zu überschreiben</string>
+
+    <!-- Pif Data -->
+    <string name="pif_data_title">PIF-JSON zum Spoofen auswählen</string>
+    <string name="pif_data_summary">PIF-JSON auswählen, das für das Spoofing von Prop-Attestations für Google Mobile Services verwendet wird. Klicken auf die Schaltfläche „Löschen“, um die PIF-Daten-Props zurückzusetzen und dynamische PIF-Props zu verwenden, die standardmäßig verwendet werden.</string>
 </resources>
