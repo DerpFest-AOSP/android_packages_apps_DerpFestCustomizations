@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: DerpFest AOSP
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/ls_media_art_title" >
+
+    <org.derpfest.support.preferences.SystemSettingSwitchPreference
+        android:key="ls_media_art_enabled"
+        android:title="@string/ls_media_art_title"
+        android:summary="@string/ls_media_art_summary"
+        android:defaultValue="false" />
+
+    <org.derpfest.support.preferences.SystemSettingListPreference
+        android:key="ls_media_art_filter"
+        android:title="@string/ls_media_art_filter_title"
+        android:entries="@array/ls_media_art_filter_entries"
+        android:entryValues="@array/ls_media_art_filter_values"
+        android:dependency="ls_media_art_enabled"
+        android:defaultValue="0" />
+
+    <org.derpfest.support.preferences.SystemSettingSeekBarPreference
+        android:key="ls_media_art_fade_level"
+        android:title="@string/ls_media_art_fade_level_title"
+        android:summary="@string/ls_media_art_fade_level_summary"
+        android:defaultValue="40"
+        settings:interval="1"
+        settings:units="%"
+        android:max="100"
+        android:min="0"
+        android:dependency="ls_media_art_enabled" />
+
+    <org.derpfest.support.preferences.SystemSettingSeekBarPreference
+        android:key="ls_media_art_blur_level"
+        android:title="@string/ls_media_art_blur_level_title"
+        android:summary="@string/ls_media_art_blur_level_summary"
+        android:max="600"
+        android:min="0"
+        android:defaultValue="200"
+        android:dependency="ls_media_art_enabled" />
+
+</PreferenceScreen>
