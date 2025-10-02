@@ -84,6 +84,11 @@
     <!-- Pif Data -->
     <string name="pif_data_title">PIF-JSON zum Spoofen auswählen</string>
     <string name="pif_data_summary">PIF-JSON auswählen, das für das Spoofing von Prop-Attestations für Google Mobile Services und Play Store verwendet wird. Klicken auf die Schaltfläche „Löschen“, um die PIF-Daten-Props zurückzusetzen und dynamische PIF-Props zu verwenden, die standardmäßig verwendet werden.</string>
+    <string name="pif_data_loaded_summary">Benutzerdefinierte PIF-JSON geladen. Bei Bedarf löschen.</string>
+    <string name="pif_delete_content_description">PIF-Daten löschen</string>
+    <string name="pif_toast_invalid_file_selected">Keine JSON-Datei. Bitte gültige PIF-JSON auswählen.</string>
+    <string name="pif_toast_file_loaded">PIF-JSON geladen</string>
+    <string name="pif_toast_file_cleared">PIF-JSON gelöscht</string>
 
     <!-- Ambient edge lighting -->
     <string name="ambient_edge_light_action_title">Bildschirm-Seitenbeleuchtung bei Inaktivität</string>
