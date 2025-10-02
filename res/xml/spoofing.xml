@@ -7,7 +7,7 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/notifications_title" >
+    android:title="@string/spoofing_title" >
 
     <org.derpfest.customizations.preference.KeyboxDataPreference
         android:key="keybox_data_setting"
@@ -16,5 +16,12 @@
     <org.derpfest.customizations.preference.PifDataPreference
         android:key="pif_data_setting"
         android:title="@string/pif_data_title"/>
+
+    <!-- Google Photos spoof -->
+    <org.derpfest.support.preferences.SystemPropertySwitchPreference
+        android:key="persist.sys.pihooks.gphotos"
+        android:title="@string/gphotos_spoof_title"
+        android:summary="@string/gphotos_spoof_summary"
+        android:defaultValue="true" />
 
 </PreferenceScreen>
