@@ -312,4 +312,26 @@
     <string name="qs_media_respect_halving_title">Media Halbierung respektieren</string>
     <string name="qs_media_respect_halving_summary">Wenn aktiviert, halbiert Media-in-Row die QS-Spalten</string>
     <string name="qs_layout_default">Standard (System)</string>
+
+    <!-- Lock screen media art -->
+    <string name="ls_media_art_title">Mediencover anzeigen</string>
+    <string name="ls_media_art_summary">Mediencover anzeigen, wenn verfügbar</string>
+
+    <!-- Lock screen album art filter -->
+    <string name="ls_media_art_filter_title">Mediencover-Filter</string>
+    <string name="ls_media_art_filter_none">Keine</string>
+    <string name="ls_media_art_filter_blur">Unschärfe</string>
+    <string name="ls_media_art_filter_grayscale">Graustufen</string>
+    <string name="ls_media_art_filter_sepia">Sepia</string>
+    <string name="ls_media_art_filter_tint">Akzentfarbig</string>
+    <string name="ls_media_art_filter_invert">Invertiert</string>
+    <string name="ls_media_art_filter_grayblur">Graustufen und Unschärfe</string>
+
+    <!-- Lock screen media art fade level -->
+    <string name="ls_media_art_fade_level_title">Mediencover-Ausblendung</string>
+    <string name="ls_media_art_fade_level_summary">Ausblendung des Mediencovers einstellen</string>
+    
+    <!-- Lock screen media art blur level -->
+    <string name="ls_media_art_blur_level_title">Mediencover-Unschärfe</string>
+    <string name="ls_media_art_blur_level_summary">Unschärfe-Intensität beim Anwenden des Unschärfe-Filters</string>
 </resources>
