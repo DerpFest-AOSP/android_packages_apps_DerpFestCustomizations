@@ -10,25 +10,21 @@ import android.provider.Settings
 
 import com.android.settings.R
 
-import org.derpfest.support.preferences.AppListFragment
+import android.content.pm.LauncherActivityInfo
+import com.android.settings.core.BaseAppListSettingsFragment
 
-class HeadsUpStoplistSettings : AppListFragment() {
+class HeadsUpStoplistSettings : BaseAppListSettingsFragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setDisplayCategory(CATEGORY_BOTH)
+    override fun getTitleResId(): Int = R.string.heads_up_stoplist_title
+
+    override fun appFilter(info: LauncherActivityInfo): Boolean {
         val whiteListedPackages = requireContext().resources.getStringArray(
             R.array.config_headsUpConfAllowedSystemApps)
-        setCustomFilter {
-            !it.applicationInfo!!.isSystemApp() || whiteListedPackages.contains(it.packageName)
-        }
+        return !info.applicationInfo!!.isSystemApp() ||
+            whiteListedPackages.contains(info.componentName.packageName)
     }
 
-    override protected fun getTitle(): Int {
-        return R.string.heads_up_stoplist_title
-    }
-
-    override protected fun getInitialCheckedList(): List<String> {
+    override fun getInitialCheckedList(): List<String> {
         val packageList = Settings.System.getString(
             requireContext().contentResolver,
             Settings.System.HEADS_UP_STOPLIST_VALUES
@@ -36,11 +32,13 @@ class HeadsUpStoplistSettings : AppListFragment() {
         return packageList?.takeIf { it.isNotBlank() }?.split("|") ?: emptyList()
     }
 
-    override protected fun onListUpdate(list: List<String>) {
+    override fun onListUpdate(packageName: String, isChecked: Boolean) {
+        val current = getInitialCheckedList().toMutableSet()
+        if (isChecked) current.add(packageName) else current.remove(packageName)
         Settings.System.putString(
             requireContext().contentResolver,
             Settings.System.HEADS_UP_STOPLIST_VALUES,
-            list.joinToString("|")
+            current.joinToString("|")
         )
     }
 }
