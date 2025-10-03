@@ -19,11 +19,17 @@ import androidx.preference.PreferenceViewHolder;
 
 import com.android.settings.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.StringReader;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class PifDataPreference extends Preference {
 
@@ -54,8 +60,15 @@ public class PifDataPreference extends Preference {
         boolean hasData = Settings.Secure.getString(
                 cr, Settings.Secure.PIF_DATA) != null;
 
-        summary.setText(ctx.getString(
-                hasData ? R.string.pif_data_loaded_summary : R.string.pif_data_summary));
+        if (hasData) {
+            String json = Settings.Secure.getString(cr, Settings.Secure.PIF_DATA);
+            String pifTimestamp = Settings.Secure.getString(cr, Settings.Secure.PIF_DATA_TIMESTAMP);
+            int propsCount = countPifProps(json);
+            String ts = pifTimestamp != null ? pifTimestamp : new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()).format(new Date());
+            summary.setText(ctx.getString(R.string.pif_data_loaded_summary, propsCount, ts));
+        } else {
+            summary.setText(ctx.getString(R.string.pif_data_summary));
+        }
 
         deleteButton.setVisibility(hasData ? View.VISIBLE : View.GONE);
         deleteButton.setEnabled(hasData);
@@ -74,6 +87,7 @@ public class PifDataPreference extends Preference {
         deleteButton.setOnClickListener(v -> {
             if (!callChangeListener(Boolean.FALSE)) return;
             Settings.Secure.putString(cr, Settings.Secure.PIF_DATA, null);
+            Settings.Secure.putString(cr, Settings.Secure.PIF_DATA_TIMESTAMP, null);
             Toast.makeText(ctx, ctx.getString(R.string.pif_toast_file_cleared), Toast.LENGTH_SHORT).show();
             notifyChanged();
             killPackages();
@@ -113,6 +127,8 @@ public class PifDataPreference extends Preference {
 
             if (!callChangeListener(Boolean.TRUE)) return;
             Settings.Secure.putString(cr, Settings.Secure.PIF_DATA, json);
+            String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()).format(new Date());
+            Settings.Secure.putString(cr, Settings.Secure.PIF_DATA_TIMESTAMP, timestamp);
             Toast.makeText(ctx,
                     ctx.getString(R.string.pif_toast_file_loaded), Toast.LENGTH_SHORT).show();
             notifyChanged();
@@ -122,6 +138,26 @@ public class PifDataPreference extends Preference {
             Toast.makeText(ctx,
                 ctx.getString(R.string.pif_toast_invalid_file_selected), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private int countPifProps(String json) {
+        if (json == null || json.trim().isEmpty()) return 0;
+        try {
+            String trimmed = json.trim();
+            if (trimmed.startsWith("{")) {
+                JSONObject obj = new JSONObject(trimmed);
+                // Prefer nested "props" object if present
+                if (obj.has("props") && obj.opt("props") instanceof JSONObject) {
+                    return ((JSONObject) obj.get("props")).length();
+                }
+                return obj.length();
+            } else if (trimmed.startsWith("[")) {
+                JSONArray arr = new JSONArray(trimmed);
+                return arr.length();
+            }
+        } catch (JSONException ignore) {
+        }
+        return 0;
     }
 
     private void killPackages() {

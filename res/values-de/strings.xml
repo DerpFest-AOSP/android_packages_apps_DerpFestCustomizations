@@ -74,7 +74,7 @@
     <!-- Keybox Data -->
     <string name="keybox_data_title">Keybox-Attestation überschreiben</string>
     <string name="keybox_data_summary">Benutzerdefinierte Keybox-XML laden, um Geräteschlüssel-Attestation zu überschreiben</string>
-    <string name="keybox_data_loaded_summary">Benutzerdefinierte Keybox-XML geladen. Bei Bedarf löschen.</string>
+    <string name="keybox_data_loaded_summary">„%1$s“-Keybox geladen mit %2$d Zertifikaten (%3$s)</string>
     <string name="keybox_delete_content_description">Keybox-Daten löschen</string>
     <string name="keybox_toast_invalid_file_selected">Keine XML-Datei. Bitte gültige Keybox-XML auswählen.</string>
     <string name="keybox_toast_missing_data">Ungültige Keybox-XML: Fehlende Pflichtfelder</string>
@@ -84,7 +84,7 @@
     <!-- Pif Data -->
     <string name="pif_data_title">PIF-JSON zum Spoofen auswählen</string>
     <string name="pif_data_summary">PIF-JSON auswählen, das für das Spoofing von Prop-Attestations für Google Mobile Services und Play Store verwendet wird. Klicken auf die Schaltfläche „Löschen“, um die PIF-Daten-Props zurückzusetzen und dynamische PIF-Props zu verwenden, die standardmäßig verwendet werden.</string>
-    <string name="pif_data_loaded_summary">Benutzerdefinierte PIF-JSON geladen. Bei Bedarf löschen.</string>
+    <string name="pif_data_loaded_summary">%1$d Props geladen (%2$s)</string>
     <string name="pif_delete_content_description">PIF-Daten löschen</string>
     <string name="pif_toast_invalid_file_selected">Keine JSON-Datei. Bitte gültige PIF-JSON auswählen.</string>
     <string name="pif_toast_file_loaded">PIF-JSON geladen</string>
