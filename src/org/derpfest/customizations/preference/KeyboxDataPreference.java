@@ -26,6 +26,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringReader;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class KeyboxDataPreference extends Preference {
 
@@ -53,11 +56,23 @@ public class KeyboxDataPreference extends Preference {
 
         title.setText(getTitle());
 
-        boolean hasData = Settings.Secure.getString(
-                cr, Settings.Secure.KEYBOX_DATA) != null;
+        String keyboxData = Settings.Secure.getString(cr, Settings.Secure.KEYBOX_DATA);
+        String keyboxTimestamp = Settings.Secure.getString(cr, Settings.Secure.KEYBOX_DATA_TIMESTAMP);
+        boolean hasData = keyboxData != null;
 
-        summary.setText(ctx.getString(
-                hasData ? R.string.keybox_data_loaded_summary : R.string.keybox_data_summary));
+        if (hasData) {
+            KeyboxInfo info = parseKeyboxInfo(keyboxData);
+            String ts = keyboxTimestamp != null ? keyboxTimestamp :
+                new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()).format(new Date());
+            summary.setText(ctx.getString(
+                R.string.keybox_data_loaded_summary,
+                info.type,
+                info.certCount,
+                ts
+            ));
+        } else {
+            summary.setText(ctx.getString(R.string.keybox_data_summary));
+        }
 
         deleteButton.setVisibility(hasData ? View.VISIBLE : View.GONE);
         deleteButton.setEnabled(hasData);
@@ -76,6 +91,7 @@ public class KeyboxDataPreference extends Preference {
         deleteButton.setOnClickListener(v -> {
             if (!callChangeListener(Boolean.FALSE)) return;
             Settings.Secure.putString(cr, Settings.Secure.KEYBOX_DATA, null);
+            Settings.Secure.putString(cr, Settings.Secure.KEYBOX_DATA_TIMESTAMP, null);
             Toast.makeText(ctx, ctx.getString(R.string.keybox_toast_file_cleared), Toast.LENGTH_SHORT).show();
             notifyChanged();
         });
@@ -119,6 +135,8 @@ public class KeyboxDataPreference extends Preference {
 
             if (!callChangeListener(Boolean.TRUE)) return;
             Settings.Secure.putString(cr, Settings.Secure.KEYBOX_DATA, xml);
+            String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()).format(new Date());
+            Settings.Secure.putString(cr, Settings.Secure.KEYBOX_DATA_TIMESTAMP, timestamp);
             Toast.makeText(ctx,
                     ctx.getString(R.string.keybox_toast_file_loaded), Toast.LENGTH_SHORT).show();
             notifyChanged();
@@ -127,6 +145,64 @@ public class KeyboxDataPreference extends Preference {
             Toast.makeText(ctx,
                 ctx.getString(R.string.keybox_toast_invalid_file_selected), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private static final class KeyboxInfo {
+        final String type;
+        final int certCount;
+        final String timestamp;
+
+        KeyboxInfo(String type, int certCount, String timestamp) {
+            this.type = type;
+            this.certCount = certCount;
+            this.timestamp = timestamp;
+        }
+    }
+
+    private KeyboxInfo parseKeyboxInfo(String xml) {
+        boolean hasEcdsaKey = false;
+        boolean hasRsaKey = false;
+        int certCount = 0;
+
+        try {
+            XmlPullParser parser = XmlPullParserFactory.newInstance().newPullParser();
+            parser.setInput(new StringReader(xml));
+
+            String currentAlg = null;
+            for (int eventType = parser.next(); eventType != XmlPullParser.END_DOCUMENT; eventType = parser.next()) {
+                if (eventType == XmlPullParser.START_TAG) {
+                    String name = parser.getName();
+                    if ("Key".equals(name)) {
+                        currentAlg = parser.getAttributeValue(null, "algorithm");
+                        if ("ecdsa".equalsIgnoreCase(currentAlg)) {
+                            hasEcdsaKey = true;
+                        } else if ("rsa".equalsIgnoreCase(currentAlg)) {
+                            hasRsaKey = true;
+                        }
+                    } else if ("Certificate".equals(name)) {
+                        certCount++;
+                    }
+                } else if (eventType == XmlPullParser.END_TAG && "Key".equals(parser.getName())) {
+                    currentAlg = null;
+                }
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to parse keybox info", e);
+        }
+
+        String type;
+        if (hasEcdsaKey && hasRsaKey) {
+            type = "RSA + ECDSA";
+        } else if (hasEcdsaKey) {
+            type = "ECDSA";
+        } else if (hasRsaKey) {
+            type = "RSA";
+        } else {
+            type = "Unknown";
+        }
+
+        String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()).format(new Date());
+        return new KeyboxInfo(type, certCount, timestamp);
     }
 
     private boolean validateXml(String xml) {
