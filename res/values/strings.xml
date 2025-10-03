@@ -382,4 +382,8 @@ The progress bar dynamically switches between media and download states, ensurin
     <!-- Lock screen media art blur level -->
     <string name="ls_media_art_blur_level_title">Media art blur level</string>
     <string name="ls_media_art_blur_level_summary">Blur intensity when blur filter is applied</string>
+
+    <!-- Notification Row -->
+    <string name="notification_row_transparency_title">Notification row transparency</string>
+    <string name="notification_row_transparency_summary">Show translucent quicksettings notifications</string>
 </resources>

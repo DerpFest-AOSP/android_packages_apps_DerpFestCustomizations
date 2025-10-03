@@ -22,6 +22,12 @@
             android:entryValues="@array/qs_tile_shape_mode_values"
             android:defaultValue="0" />
 
+        <org.derpfest.support.preferences.SecureSettingSwitchPreference
+            android:key="notification_row_transparency"
+            android:title="@string/notification_row_transparency_title"
+            android:summary="@string/notification_row_transparency_summary"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

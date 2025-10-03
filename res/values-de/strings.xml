@@ -334,4 +334,8 @@
     <!-- Lock screen media art blur level -->
     <string name="ls_media_art_blur_level_title">Mediencover-Unschärfe</string>
     <string name="ls_media_art_blur_level_summary">Unschärfe-Intensität beim Anwenden des Unschärfe-Filters</string>
+
+    <!-- Notification Row -->
+    <string name="notification_row_transparency_title">Transparenz der Benachrichtigungszeile</string>
+    <string name="notification_row_transparency_summary">Durchsichtige Schnelleinstellungsbenachrichtigungen anzeigen</string>
 </resources>
