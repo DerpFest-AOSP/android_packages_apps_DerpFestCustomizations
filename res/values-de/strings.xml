@@ -32,6 +32,12 @@
     <!-- Categories -->
     <string name="general_category_title">Allgemein</string>
     <string name="general_category_summary">Allgemeine globale Systemeinstellungen</string>
+    <string name="security_category_title">Sicherheit</string>
+    <string name="security_category_summary">Sicherheits- und Datenschutzeinstellungen</string>
+    <string name="dashboard_category_title">Dashboard</string>
+    <string name="dashboard_category_summary">Dashboard-Erscheinungseinstellungen</string>
+    <string name="effects_category_title">Effekte</string>
+    <string name="effects_category_summary">Visuelle Effekte und Animationen</string>
 
     <!-- Ignore window secure -->
     <string name="ignore_window_secure_title">Flag für sichere Fenster ignorieren</string>
