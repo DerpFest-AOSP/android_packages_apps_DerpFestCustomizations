@@ -96,6 +96,12 @@
     <string name="pif_toast_file_loaded">PIF-JSON geladen</string>
     <string name="pif_toast_file_cleared">PIF-JSON gelöscht</string>
 
+    <!-- Spoofing Categories -->
+    <string name="spoofing_attestation_category_title">Attestation</string>
+    <string name="spoofing_attestation_category_summary">Geräte-Attestation und Zertifikat-Spoofing</string>
+    <string name="spoofing_apps_category_title">App-Spoofing</string>
+    <string name="spoofing_apps_category_summary">Geräteeigenschaften für bestimmte Anwendungen spoofen</string>
+
     <!-- Google Photos Spoof -->
     <string name="gphotos_spoof_title">Unbegrenzter Fotospeicher</string>
     <string name="gphotos_spoof_summary">Gerät als Pixel XL für die Google Fotos-App spoofen, um unbegrenzten Speicherplatz für Backups zu erhalten</string>
