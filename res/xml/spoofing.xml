@@ -9,19 +9,31 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/spoofing_title" >
 
-    <org.derpfest.customizations.preference.KeyboxDataPreference
-        android:key="keybox_data_setting"
-        android:title="@string/keybox_data_title"/>
+    <PreferenceCategory
+        android:title="@string/spoofing_attestation_category_title"
+        android:summary="@string/spoofing_attestation_category_summary">
 
-    <org.derpfest.customizations.preference.PifDataPreference
-        android:key="pif_data_setting"
-        android:title="@string/pif_data_title"/>
+        <org.derpfest.customizations.preference.KeyboxDataPreference
+            android:key="keybox_data_setting"
+            android:title="@string/keybox_data_title"/>
 
-    <!-- Google Photos spoof -->
-    <org.derpfest.support.preferences.SystemPropertySwitchPreference
-        android:key="persist.sys.pihooks.gphotos"
-        android:title="@string/gphotos_spoof_title"
-        android:summary="@string/gphotos_spoof_summary"
-        android:defaultValue="true" />
+        <org.derpfest.customizations.preference.PifDataPreference
+            android:key="pif_data_setting"
+            android:title="@string/pif_data_title"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/spoofing_apps_category_title"
+        android:summary="@string/spoofing_apps_category_summary">
+
+        <!-- Google Photos spoof -->
+        <org.derpfest.support.preferences.SystemPropertySwitchPreference
+            android:key="persist.sys.pihooks.gphotos"
+            android:title="@string/gphotos_spoof_title"
+            android:summary="@string/gphotos_spoof_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>
