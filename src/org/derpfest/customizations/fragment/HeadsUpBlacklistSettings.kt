@@ -18,25 +18,28 @@ class HeadsUpBlacklistSettings : BaseAppListSettingsFragment() {
     override fun getTitleResId(): Int = R.string.heads_up_blacklist_title
 
     override fun appFilter(info: LauncherActivityInfo): Boolean {
-        val whiteListedPackages = requireContext().resources.getStringArray(
+        val context = context ?: return false
+        val whiteListedPackages = context.resources.getStringArray(
             R.array.config_headsUpConfAllowedSystemApps)
         return !info.applicationInfo!!.isSystemApp() ||
             whiteListedPackages.contains(info.componentName.packageName)
     }
 
     override fun getInitialCheckedList(): List<String> {
+        val context = context ?: return emptyList()
         val packageList = Settings.System.getString(
-            requireContext().contentResolver,
+            context.contentResolver,
             Settings.System.HEADS_UP_BLACKLIST_VALUES
         )
         return packageList?.takeIf { it.isNotBlank() }?.split("|") ?: emptyList()
     }
 
     override fun onListUpdate(packageName: String, isChecked: Boolean) {
+        val context = context ?: return
         val current = getInitialCheckedList().toMutableSet()
         if (isChecked) current.add(packageName) else current.remove(packageName)
         Settings.System.putString(
-            requireContext().contentResolver,
+            context.contentResolver,
             Settings.System.HEADS_UP_BLACKLIST_VALUES,
             current.joinToString("|")
         )
