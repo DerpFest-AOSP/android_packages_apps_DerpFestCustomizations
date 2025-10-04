@@ -22,11 +22,14 @@
             android:entryValues="@array/qs_tile_shape_mode_values"
             android:defaultValue="0" />
 
-        <org.derpfest.support.preferences.SecureSettingSwitchPreference
-            android:key="notification_row_transparency"
-            android:title="@string/notification_row_transparency_title"
-            android:summary="@string/notification_row_transparency_summary"
-            android:defaultValue="false" />
+        <org.derpfest.support.preferences.SecureSettingSeekBarPreference
+            android:key="notification_row_transparency_level"
+            android:title="@string/notification_row_transparency_level_title"
+            android:summary="@string/notification_row_transparency_level_summary"
+            android:defaultValue="85"
+            android:max="100"
+            settings:min="0"
+            settings:units="%" />
 
     </PreferenceCategory>
 

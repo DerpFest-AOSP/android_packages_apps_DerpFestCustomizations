@@ -396,6 +396,6 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="ls_media_art_blur_level_summary">Blur intensity when blur filter is applied</string>
 
     <!-- Notification Row -->
-    <string name="notification_row_transparency_title">Notification row transparency</string>
-    <string name="notification_row_transparency_summary">Show translucent quicksettings notifications</string>
+    <string name="notification_row_transparency_level_title">Transparency level</string>
+    <string name="notification_row_transparency_level_summary" formatted="false">Adjust notification row transparency (0–100%). 0% = AOSP default (fully opaque).</string>
 </resources>
