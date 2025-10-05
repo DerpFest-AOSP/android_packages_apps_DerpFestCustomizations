@@ -351,4 +351,15 @@
     <string name="notification_row_transparency_level_summary" formatted="false">Transparenz der Benachrichtigungszeilen anpassen (0–100%). 0% = AOSP-Standard (vollständig undurchsichtig).</string>
     <string name="notification_row_transparency_context_title">Kontextabhängige Transparenz</string>
     <string name="notification_row_transparency_context_summary">Transparenz nur im Benachrichtigungsbereich anwenden. Deaktivieren, um überall anzuwenden (inkl. Heads-up und Sperrbildschirm).</string>
+
+    <!-- Status Bar Ticker -->
+    <string name="ticker_screen_title">Ticker</string>
+    <string name="ticker_screen_summary">Benachrichtigungen im Ticker-Stil in der Statusleiste anzeigen</string>
+    <string name="ticker_screen_footer">Ticker wird nur angezeigt, wenn keine Heads-up-Benachrichtigung gezeigt wird.</string>
+    <string name="ticker_title">Statusleisten-Ticker</string>
+    <string name="ticker_summary">Den Statusleisten-Ticker aktivieren</string>
+    <string name="ticker_animation_mode_title">Ticker-Animation</string>
+    <string name="ticker_animation_mode_alpha_fade">Ein-/Ausblenden</string>
+    <string name="ticker_animation_mode_scroll">Scrollen</string>
+    <string name="ticker_tick_duration_title">Ticker-Dauer</string>
 </resources>
