@@ -350,4 +350,6 @@
     <!-- Notification Row -->
     <string name="notification_row_transparency_level_title">Transparenzstufe</string>
     <string name="notification_row_transparency_level_summary" formatted="false">Transparenz der Benachrichtigungszeilen anpassen (0–100%). 0% = AOSP-Standard (vollständig undurchsichtig).</string>
+    <string name="notification_row_transparency_context_title">Kontextabhängige Transparenz</string>
+    <string name="notification_row_transparency_context_summary">Transparenz nur im Benachrichtigungsbereich anwenden. Deaktivieren, um überall anzuwenden (inkl. Heads-up und Sperrbildschirm).</string>
 </resources>
