@@ -305,6 +305,8 @@
 
     <!-- QS Layout Settings -->
     <string name="qs_layout_settings_title">QS-Layout</string>
+    <!-- QS Notifications category -->
+    <string name="qs_notifications_category_title">Benachrichtigungen</string>
     <string name="qs_layout_category_title">Schnelleinstellungen-Layout</string>
     <string name="qs_layout_category_summary">Layout des Schnelleinstellungen-Panels konfigurieren</string>
     <string name="qs_layout_columns_title">Spalten</string>

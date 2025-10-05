@@ -22,6 +22,12 @@
             android:entryValues="@array/qs_tile_shape_mode_values"
             android:defaultValue="0" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="notifications_category"
+        android:title="@string/qs_notifications_category_title" >
+
         <org.derpfest.support.preferences.SecureSettingSeekBarPreference
             android:key="notification_row_transparency_level"
             android:title="@string/notification_row_transparency_level_title"
