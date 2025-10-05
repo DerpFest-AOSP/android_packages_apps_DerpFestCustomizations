@@ -32,6 +32,12 @@
             android:summary="@string/small_landscape_notification_summary"
             android:defaultValue="true" />
 
+        <Preference
+            android:key="ticker_settings"
+            android:title="@string/ticker_screen_title"
+            android:summary="@string/ticker_screen_summary"
+            android:fragment="org.derpfest.customizations.fragment.Ticker"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory
