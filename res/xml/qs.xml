@@ -30,6 +30,12 @@
             settings:min="0"
             settings:units="%" />
 
+        <org.derpfest.support.preferences.SecureSettingSwitchPreference
+            android:key="notification_row_transparency_context_aware"
+            android:title="@string/notification_row_transparency_context_title"
+            android:summary="@string/notification_row_transparency_context_summary"
+            android:defaultValue="true" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
