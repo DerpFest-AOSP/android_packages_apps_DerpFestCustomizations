@@ -43,7 +43,7 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
         val currentLevel = Settings.Secure.getInt(
             requireContext().contentResolver,
             "notification_row_transparency_level",
-            85
+            15
         )
         updateTransparencyContextAvailability(currentLevel)
     }

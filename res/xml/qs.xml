@@ -32,7 +32,7 @@
             android:key="notification_row_transparency_level"
             android:title="@string/notification_row_transparency_level_title"
             android:summary="@string/notification_row_transparency_level_summary"
-            android:defaultValue="85"
+            android:defaultValue="15"
             android:max="100"
             settings:min="0"
             settings:units="%" />
