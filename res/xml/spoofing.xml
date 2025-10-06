@@ -13,6 +13,12 @@
         android:title="@string/spoofing_attestation_category_title"
         android:summary="@string/spoofing_attestation_category_summary">
 
+        <org.derpfest.support.preferences.SecureSettingSwitchPreference
+            android:key="gms_cert_chain"
+            android:title="@string/gms_cert_chain_title"
+            android:summary="@string/gms_cert_chain_summary"
+            android:defaultValue="false" />
+
         <org.derpfest.customizations.preference.KeyboxDataPreference
             android:key="keybox_data_setting"
             android:title="@string/keybox_data_title"/>
