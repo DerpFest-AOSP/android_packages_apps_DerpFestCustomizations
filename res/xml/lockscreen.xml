@@ -32,6 +32,12 @@
             android:summary="@string/enable_fingerprint_ripple_effect_summary"
             android:defaultValue="true" />
 
+        <org.derpfest.support.preferences.SecureSettingSwitchPreference
+            android:key="ambient_aod"
+            android:title="@string/ambient_aod_title"
+            android:summary="@string/ambient_aod_summary"
+            android:defaultValue="true" />
+
         <org.derpfest.support.preferences.SystemSettingListPreference
             android:key="screen_off_animation"
             android:title="@string/screen_off_animation_title"

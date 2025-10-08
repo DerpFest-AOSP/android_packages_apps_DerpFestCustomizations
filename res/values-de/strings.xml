@@ -129,6 +129,10 @@
     <string name="enable_fingerprint_ripple_effect_title">Welleneffekt</string>
     <string name="enable_fingerprint_ripple_effect_summary">Welleneffekt zeigen bei Entsperrung mit Fingerabdruck</string>
 
+    <!-- Ambient AOD -->
+    <string name="ambient_aod_title">Ambient AOD</string>
+    <string name="ambient_aod_summary">Ambient-Hintergrundbild und AOD-Verbesserungen aktivieren</string>
+
     <!-- Ongoing action chip -->
     <string name="ongoing_chip_category_title">Laufende Aktionen</string>
     <string name="ongoing_progress_settings_title">Fortschrittsanzeige für laufende Aktionen</string>

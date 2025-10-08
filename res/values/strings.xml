@@ -129,6 +129,10 @@
     <string name="enable_fingerprint_ripple_effect_title">Unlock animation</string>
     <string name="enable_fingerprint_ripple_effect_summary">Show ripple effect on unlock with fingerprint</string>
 
+    <!-- Ambient AOD -->
+    <string name="ambient_aod_title">Ambient AOD</string>
+    <string name="ambient_aod_summary">Enable ambient wallpaper and AOD enhancements</string>
+
     <!-- Ongoing action chip -->
     <string name="ongoing_chip_category_title">Ongoing Chip</string>
     <string name="ongoing_progress_settings_title">Statusbar action chip</string>
