@@ -32,7 +32,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
     private static final String TAG = PulseSettings.class.getSimpleName();
 
-
+    private static final String NAVBAR_PULSE_ENABLED_KEY = "navbar_pulse_enabled";
     private static final String LOCKSCREEN_PULSE_ENABLED_KEY = "lockscreen_pulse_enabled";
     private static final String AMBIENT_PULSE_ENABLED_KEY = "ambient_pulse_enabled";
     private static final String PULSE_SMOOTHING_KEY = "pulse_smoothing_enabled";
@@ -54,7 +54,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
     private static final String PULSE_SETTINGS_FOOTER = "pulse_settings_footer";
 
-
+    private SwitchPreferenceCompat mNavbarPulse;
     private SwitchPreferenceCompat mLockscreenPulse;
     private SwitchPreferenceCompat mAmbientPulse;
     private SwitchPreferenceCompat mPulseSmoothing;
@@ -78,7 +78,11 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
         ContentResolver resolver = getContext().getContentResolver();
 
-
+        mNavbarPulse = (SwitchPreferenceCompat) findPreference(NAVBAR_PULSE_ENABLED_KEY);
+        boolean navbarPulse = Settings.Secure.getIntForUser(resolver,
+                Settings.Secure.NAVBAR_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
+        mNavbarPulse.setChecked(navbarPulse);
+        mNavbarPulse.setOnPreferenceChangeListener(this);
 
         mLockscreenPulse = (SwitchPreferenceCompat) findPreference(LOCKSCREEN_PULSE_ENABLED_KEY);
         boolean lockscreenPulse = Settings.Secure.getIntForUser(resolver,
@@ -122,7 +126,13 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getContext().getContentResolver();
-        if (preference == mLockscreenPulse) {
+        if (preference == mNavbarPulse) {
+            boolean val = (Boolean) newValue;
+            Settings.Secure.putIntForUser(resolver,
+                Settings.Secure.NAVBAR_PULSE_ENABLED, val ? 1 : 0, UserHandle.USER_CURRENT);
+            updateAllPrefs();
+            return true;
+        } else if (preference == mLockscreenPulse) {
             boolean val = (Boolean) newValue;
             Settings.Secure.putIntForUser(resolver,
                 Settings.Secure.LOCKSCREEN_PULSE_ENABLED, val ? 1 : 0, UserHandle.USER_CURRENT);
@@ -147,21 +157,23 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     private void updateAllPrefs() {
         ContentResolver resolver = getContext().getContentResolver();
 
+        boolean navbarPulse = Settings.Secure.getIntForUser(resolver,
+                Settings.Secure.NAVBAR_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
         boolean lockscreenPulse = Settings.Secure.getIntForUser(resolver,
                 Settings.Secure.LOCKSCREEN_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
         boolean ambientPulse = Settings.Secure.getIntForUser(resolver,
                 Settings.Secure.AMBIENT_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
 
-        mPulseSmoothing.setEnabled(lockscreenPulse || ambientPulse);
+        mPulseSmoothing.setEnabled(navbarPulse || lockscreenPulse || ambientPulse);
 
-        mPulseCenterMirrored.setEnabled(lockscreenPulse || ambientPulse);
+        mPulseCenterMirrored.setEnabled(navbarPulse || lockscreenPulse || ambientPulse);
 
-        mPulseVerticalMirror.setEnabled(lockscreenPulse || ambientPulse);
+        mPulseVerticalMirror.setEnabled(navbarPulse || lockscreenPulse || ambientPulse);
 
-        mPulseGravity.setEnabled(lockscreenPulse || ambientPulse);
+        mPulseGravity.setEnabled(navbarPulse || lockscreenPulse || ambientPulse);
 
-        mColorModePref.setEnabled(lockscreenPulse || ambientPulse);
-        if (lockscreenPulse || ambientPulse) {
+        mColorModePref.setEnabled(navbarPulse || lockscreenPulse || ambientPulse);
+        if (navbarPulse || lockscreenPulse || ambientPulse) {
             int colorMode = Settings.Secure.getIntForUser(resolver,
                 Settings.Secure.PULSE_COLOR_MODE, COLOR_TYPE_LAVALAMP, UserHandle.USER_CURRENT);
             updateColorPrefs(colorMode);
@@ -170,8 +182,8 @@ public class PulseSettings extends SettingsPreferenceFragment implements
             mLavaSpeedPref.setEnabled(false);
         }
 
-        mRenderMode.setEnabled(lockscreenPulse || ambientPulse);
-        if (lockscreenPulse || ambientPulse) {
+        mRenderMode.setEnabled(navbarPulse || lockscreenPulse || ambientPulse);
+        if (navbarPulse || lockscreenPulse || ambientPulse) {
             int renderMode = Settings.Secure.getIntForUser(resolver,
                 Settings.Secure.PULSE_RENDER_STYLE, RENDER_STYLE_SOLID_LINES, UserHandle.USER_CURRENT);
             updateRenderCategories(renderMode);
@@ -180,7 +192,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
             mSolidBarsCat.setEnabled(false);
         }
 
-        mFooterPref.setEnabled(lockscreenPulse || ambientPulse);
+        mFooterPref.setEnabled(navbarPulse || lockscreenPulse || ambientPulse);
     }
 
     private void updateColorPrefs(int val) {
