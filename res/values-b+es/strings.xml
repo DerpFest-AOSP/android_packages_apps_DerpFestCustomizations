@@ -1,1 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: DerpFest AOSP
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- App name -->
+    <string name="customisation_settings_title">Personalizaciones de DerpFest</string>
+
+    <!-- Home page -->
+    <string name="monet_settings">Ajustes de Monet</string>
+    <string name="statusbar_title">Barra de estado</string>
+    <string name="statusbar_summary">Ajusta los elementos de la barra de estado</string>
+    <string name="qs_title">Ajustes rápidos</string>
+    <string name="qs_summary">Personaliza tu panel de Ajustes rápidos</string>
+    <string name="notifications_title">Notificaciones</string>
+    <string name="notifications_summary">Configura las opciones de notificaciones</string>
+    <string name="buttons_title">Botones</string>
+    <string name="buttons_summary">Define el comportamiento y las acciones predeterminadas de las teclas</string>
+    <string name="lockscreen_title">Pantalla de bloqueo</string>
+    <string name="lockscreen_summary">Configura opciones para la pantalla de bloqueo y la pantalla ambiente</string>
+    <string name="spoofing_title">Suplantación</string>
+    <string name="spoofing_summary">Omitir restricciones de apps mediante suplantación de componentes</string>
+    <string name="misc_title">Varios</string>
+    <string name="misc_summary">Todo lo que no encaja en otro sitio</string>
+
+    <string name="dark_mode_summary_default">Activar el tema oscuro del sistema</string>
+    <string name="dark_mode_summary_powersave">El ahorro de energía está activado</string>
+
+    <!-- Categories -->
+    <string name="general_category_title">General</string>
+    <string name="general_category_summary">Ajustes generales del sistema</string>
+
+    <!-- Ignore window secure -->
+    <string name="ignore_window_secure_title">Ignorar indicadores de seguridad de ventana</string>
+    <string name="ignore_window_secure_summary">Elimina las restricciones de capturas y grabación de pantalla para todas las apps. Puede resultar conveniente en algunos casos, pero puede provocar filtraciones de privacidad.</string>
+
+    <!-- Monet settings -->
+    <string name="monet_settings_title">Personalización de Monet</string>
+    <string name="monet_settings_sammary">Personaliza el motor de tema dinámico</string>
+    <string name="monet_engine_custom_color_title">Color de acento</string>
+    <string name="monet_engine_custom_color_summary">Elige un color personalizado para el acento</string>
+    <string name="monet_engine_custom_bgcolor_title">Color de fondo</string>
+    <string name="monet_engine_custom_bgcolor_summary">Elige un color personalizado para el fondo</string>
+    <string name="monet_engine_color_override_title">Color personalizado</string>
+    <string name="monet_engine_luminance_factor_title">Luminancia</string>
+    <string name="monet_engine_luminance_factor_summary">Valores más altos producen colores más brillantes</string>
+    <string name="monet_engine_chroma_factor_title">Croma</string>
+    <string name="monet_engine_chroma_factor_summary">Valores más altos producen colores más intensos</string>
+    <string name="monet_engine_whole_palette_title">Paleta completa</string>
+    <string name="monet_engine_whole_palette_summary">Haz que la luminancia y el croma afecten también a los colores secundarios</string>
+    <string name="monet_engine_tint_background_title">Teñir el fondo</string>
+    <string name="monet_engine_tint_background_summary">Haz que la luminancia y el croma afecten también a los colores de fondo</string>
+    <string name="monet_engine_style_title">Estilo del tema</string>
+    <string name="monet_engine_style_tonal_spot">Tonal Spot (predeterminado)</string>
+    <string name="monet_engine_style_vibrant">Vibrant</string>
+    <string name="monet_engine_style_expressive">Expressive</string>
+    <string name="monet_engine_style_spritz">Spritz</string>
+    <string name="monet_engine_style_rainbow">Rainbow</string>
+    <string name="monet_engine_style_fruit_salad">Fruit Salad</string>
+    <string name="monet_engine_style_content">Content</string>
+    <string name="monet_engine_style_monochromatic">Monochromatic</string>
+    <string name="monet_engine_color_source_title">Fuente de color</string>
+    <string name="monet_engine_color_source_both">Ambos (predeterminado)</string>
+    <string name="monet_engine_color_source_home">Fondo de inicio</string>
+    <string name="monet_engine_color_source_lock">Fondo de bloqueo</string>
+    <string name="monet_engine_color_source_preset">Predefinido</string>
+    <string name="monet_engine_wallpaper_color_title">Selecciona un color de acento a partir de tu fondo de pantalla</string>
+    <string name="monet_engine_wallpaper_color_summary">Selector de color del fondo de pantalla</string>
+    <string name="monet_engine_wallpaper_color_not_available">No disponible</string>
+
+    <!-- Keybox Data -->
+    <string name="keybox_data_title">Anulación de atestación de keybox</string>
+    <string name="keybox_data_summary">Carga un XML de keybox personalizado para anular la atestación de claves del dispositivo</string>
+    <string name="keybox_data_loaded_summary">Keybox personalizada cargada. Elimínala para borrar.</string>
+    <string name="keybox_delete_content_description">Borrar datos de keybox</string>
+    <string name="keybox_toast_invalid_file_selected">No es un archivo XML. Elige un XML de keybox válido.</string>
+    <string name="keybox_toast_missing_data">XML de keybox no válido: faltan campos obligatorios</string>
+    <string name="keybox_toast_file_loaded">Keybox cargada</string>
+    <string name="keybox_toast_file_cleared">Keybox borrada</string>
+
+    <!-- Pif Data -->
+    <string name="pif_data_title">Seleccionar JSON de PIF para suplantar</string>
+    <string name="pif_data_summary">Selecciona el JSON de PIF usado para la suplantación de atestación de propiedades en los servicios móviles de Google y Play Store. Pulsa el botón de borrar para restablecer las propiedades PIF y usar propiedades PIF dinámicas, que se usan de forma predeterminada.</string>
+
+    <!-- Ambient edge lighting -->
+    <string name="ambient_edge_light_action_title">Iluminación de bordes en ambiente</string>
+    <string name="ambient_edge_light_title">Iluminación de bordes</string>
+    <string name="ambient_edge_light_enable_title">Activar iluminación de bordes</string>
+    <string name="ambient_edge_light_summary">Ilumina los bordes de la pantalla al recibir una notificación</string>
+    <string name="ambient_edge_light_color_mode_category_title">Color</string>
+    <string name="ambient_edge_light_color_mode_auto">Automático</string>
+    <string name="ambient_edge_light_color_mode_app">Color de la app</string>
+    <string name="ambient_edge_light_color_mode_manual">Manual</string>
+    <string name="ambient_edge_light_color_mode_auto_summary">Usar el color del sistema para la luz de borde</string>
+    <string name="ambient_edge_light_color_mode_app_summary">Usar el color de la app para la luz de borde</string>
+    <string name="ambient_edge_light_color_mode_manual_summary">Elegir un color manualmente</string>
+    <string name="ambient_edge_light_advanced_category_title">Avanzado</string>
+    <string name="ambient_edge_light_duration_title">Duración de la luz</string>
+    <string name="ambient_edge_light_repeat_count_title">Número de repeticiones</string>
+    <string name="ambient_edge_light_width_title">Anchura de la luz</string>
+    <string name="ambient_edge_light_face_down_title">Boca abajo para activar</string>
+    <string name="ambient_edge_light_face_down_summary">Mostrar la luz de borde solo cuando el teléfono esté boca abajo</string>
+
+    <!-- Fingerprint Ripple Effect -->
+    <string name="enable_fingerprint_ripple_effect_title">Animación de desbloqueo</string>
+    <string name="enable_fingerprint_ripple_effect_summary">Mostrar efecto de ondas al desbloquear con huella</string>
+
+    <!-- Ongoing action chip -->
+    <string name="ongoing_progress_settings_title">Chip de acción en la barra de estado</string>
+    <string name="ongoing_progress_settings_summary">Opciones del chip de acción en la barra de estado</string>
+    <string name="ongoing_action_chip_title">Chip de acción en curso</string>
+    <string name="ongoing_action_chip_summary">Mostrar un indicador de progreso en la barra de estado para acciones en curso, como descargas</string>
+    <string name="show_media_progress_title">Mostrar progreso de medios</string>
+    <string name="show_media_progress_summary">Mostrar el progreso de reproducción de medios en la barra de estado</string>
+    <string name="progress_footer_text">
+    "El chip de acción de la barra de estado ofrece actualizaciones en tiempo real tanto de la reproducción multimedia como de las descargas/subidas activas.
+
+    Progreso de medios:
+    • Muestra el progreso de reproducción de música y vídeo cuando hay medios en reproducción.
+    • Un toque abre los controles de reproducción (Anterior, Siguiente pista).
+    • Doble toque alterna reproducir/pausar.
+    • Deslizar a la izquierda va a la pista anterior.
+    • Deslizar a la derecha va a la pista siguiente.
+    • Mantener pulsado abre la app de medios. 
+
+    Progreso de descarga/subida:
+    • Muestra el progreso de descargas y subidas en curso.
+    • Se oculta automáticamente cuando no se detectan transferencias activas.
+    • Un toque abre la app responsable de la descarga.
+
+La barra de progreso cambia dinámicamente entre estados de medios y descarga, para que siempre tengas la información más relevante de un vistazo."
+    </string>
+    <string name="compact_progress_mode_title">Indicador de progreso compacto</string>
+    <string name="compact_progress_mode_summary">Usar un indicador circular compacto para acciones en curso</string>
+
+    <!-- Heads-up -->
+    <string name="compact_heads_up_notifications_enabled_title">Avisos emergentes compactos</string>
+    <string name="compact_heads_up_notifications_enabled_summary">Mostrar las notificaciones en tamaño compacto</string>
+
+    <!-- Hide statusbar on lockscreen -->
+    <string name="lockscreen_hide_status_bar_title">Ocultar barra de estado</string>
+    <string name="lockscreen_hide_status_bar_summary">Si se activa, se ocultará la barra de estado en la pantalla de bloqueo</string>
+
+    <!-- Island Notification -->
+    <string name="island_notification_title">Notificación tipo Isla</string>
+    <string name="island_notification_summary">Mostrar avisos emergentes al estilo Dynamic Island</string>
+    <string name="island_notification_footer_text">
+        La función de notificación tipo Isla, inspirada en Dynamic Island de iOS, transforma los avisos emergentes de Android en una utilidad compacta y de acceso rápido.
+
+Los controles de acceso rápido de la Isla incluyen las siguientes funciones:
+1. Toca la notificación de la Isla para contestar rápidamente llamadas telefónicas.
+2. Mantén pulsada la notificación de la Isla para rechazar llamadas telefónicas.
+3. Mantén pulsada la notificación de la Isla para ampliar la vista previa de la notificación.
+    </string>
+
+    <!-- Settings dashboard icon style -->
+    <string name="theming_settings_dashboard_icons_title">Iconos del panel de Ajustes</string>
+    <string name="theming_settings_dashboard_icons_default">Predeterminado de AOSP (tematizado natural)</string>
+    <string name="theming_settings_dashboard_icons_white">Fondo del sistema / Primer plano blanco</string>
+    <string name="theming_settings_dashboard_icons_accent">Fondo de acento / Primer plano transparente</string>
+    <string name="theming_settings_dashboard_icons_plain">Fondo transparente / Primer plano simple</string>
+    <string name="theming_settings_dashboard_icons_plain_accent">Fondo transparente / Primer plano de acento</string>
+
+    <!-- QS Header -->
+    <string name="qs_header_image_title">Imagen de cabecera de QS</string>
+    <string name="qs_header_image_summary">Selecciona la imagen de cabecera del panel QS</string>
+    <string name="qs_header_daylight_pack_title">Colección de imágenes de cabecera</string>
+    <string name="qs_header_shadow_title">Sombra de la imagen de cabecera</string>
+    <string name="qs_header_shadow_summary">Para una mejor visibilidad en imágenes muy brillantes</string>
+    <string name="qs_header_static_provider_title">Imagen estática</string>
+    <string name="qs_header_daylight_provider_title">Colección de imágenes</string>
+    <string name="qs_header_file_provider_title">Imagen personalizada</string>
+    <string name="qs_header_provider_title">Proveedor de cabecera</string>
+    <string name="qs_header_browse_title">Explorar cabeceras instaladas</string>
+    <string name="qs_header_browse_summary">Explora todas las colecciones de cabeceras disponibles</string>
+    <string name="qs_header_pick_title">Seleccionar imagen de cabecera</string>
+    <string name="qs_header_pick_summary">Selecciona una imagen para el modo estático</string>
+    <string name="qs_header_file_select_title">Seleccionar imagen</string>
+    <string name="qs_header_file_select_summary">Selecciona una imagen personalizada</string>
+    <string name="qs_header_needs_gallery">¡Debes instalar una app de galería!</string>
+    <string name="enable">Activar</string>
+    <string name="qs_header_offset_title">Desplazamiento de la imagen de cabecera</string>
+    <string name="qs_header_offset_summary">Ajusta el tamaño de la imagen de cabecera</string>
+</resources>
 
