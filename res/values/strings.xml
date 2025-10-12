@@ -410,4 +410,34 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="ticker_animation_mode_alpha_fade">Fade</string>
     <string name="ticker_animation_mode_scroll">Scroll</string>
     <string name="ticker_tick_duration_title">Ticker duration</string>
+
+    <!-- About -->
+    <string name="about_title">About</string>
+    <string name="about_summary">About DerpFest and useful links</string>
+    <string name="about_team_category">Our Team</string>
+    <string name="about_external_category">External Links</string>
+    <string name="about_dev_title">Lead Developer</string>
+    <string name="about_dev_name">Alexander Brunswig</string>
+    <string name="about_dev_git" translatable="false">https://github.com/NurKeinNeid</string>
+    <string name="about_qa_title">Lead of QA</string>
+    <string name="about_qa_name">David Setiawan</string>
+    <string name="about_qa_git" translatable="false">https://github.com/fryevia</string>
+    <string name="about_site_title">Site</string>
+    <string name="about_site_summary">Visit DerpFest.org</string>
+    <string name="about_site_link" translatable="false">https://derpfest.org/</string>
+    <string name="about_tg_title">Telegram Group</string>
+    <string name="about_tg_summary">Official, Global Telegram Group</string>
+    <string name="about_tg_link" translatable="false">https://t.me/DerpFestAOSP</string>
+    <string name="about_wall_title">Wallpapers</string>
+    <string name="about_wall_summary">Community made telegram wallpapers channel</string>
+    <string name="about_wall_link" translatable="false">https://t.me/DerpFestWalls</string>
+    <string name="about_git_title">ROM Source Code</string>
+    <string name="about_git_summary">View our source on GitHub</string>
+    <string name="about_git_link" translatable="false">https://github.com/DerpFest-AOSP</string>
+    <string name="about_devices_git_title">Devices Source Code</string>
+    <string name="about_devices_git_summary">View our device sources on GitHub</string>
+    <string name="about_devices_git_link" translatable="false">https://github.com/DerpFest-Devices</string>
+    <string name="about_phone_title">About Phone</string>
+    <string name="about_phone_summary">Open the system\'s about page</string>
+
 </resources>

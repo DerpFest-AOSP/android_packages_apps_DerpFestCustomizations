@@ -362,4 +362,25 @@
     <string name="ticker_animation_mode_alpha_fade">Ein-/Ausblenden</string>
     <string name="ticker_animation_mode_scroll">Scrollen</string>
     <string name="ticker_tick_duration_title">Ticker-Dauer</string>
+
+    <!-- About -->
+    <string name="about_title">Über</string>
+    <string name="about_summary">Über DerpFest und nützliche Links</string>
+    <string name="about_team_category">Unser Team</string>
+    <string name="about_external_category">Externe Links</string>
+    <string name="about_dev_title">Leitender Entwickler</string>
+    <string name="about_qa_title">Leiter der Qualitätssicherung</string>
+    <string name="about_site_title">Website</string>
+    <string name="about_site_summary">DerpFest.org besuchen</string>
+    <string name="about_tg_title">Telegram-Gruppe</string>
+    <string name="about_tg_summary">Offizielle, globale Telegram-Gruppe</string>
+    <string name="about_wall_title">Hintergrundbilder</string>
+    <string name="about_wall_summary">Community-erstellter Telegram-Kanal für Hintergrundbilder</string>
+    <string name="about_git_title">ROM-Quellcode</string>
+    <string name="about_git_summary">Quellcode auf GitHub ansehen</string>
+    <string name="about_devices_git_title">Geräte-Quellcode</string>
+    <string name="about_devices_git_summary">Gerätequellen auf GitHub ansehen</string>
+    <string name="about_phone_title">Telefoninfo</string>
+    <string name="about_phone_summary">Systemeinstellungen „Über dieses Telefon" öffnen</string>
+
 </resources>

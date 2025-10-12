@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: DerpFest AOSP
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:title="@string/about_title">
+
+    <Preference
+        android:layout="@layout/about_logo"
+        android:key="derp_logo"
+        android:selectable="false" />
+
+    <PreferenceCategory
+        android:key="about_team"
+        android:title="@string/about_team_category">
+
+        <Preference
+            android:key="dev_pref"
+            android:title="@string/about_dev_title"
+            android:summary="@string/about_dev_name">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/about_dev_git"/>
+        </Preference>
+
+        <Preference
+            android:key="qa_pref"
+            android:title="@string/about_qa_title"
+            android:summary="@string/about_qa_name">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/about_qa_git"/>
+        </Preference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="about_external"
+        android:title="@string/about_external_category">
+
+        <Preference
+            android:key="site_pref"
+            android:title="@string/about_site_title"
+            android:summary="@string/about_site_summary">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/about_site_link"/>
+        </Preference>
+
+        <Preference
+            android:key="tg_pref"
+            android:title="@string/about_tg_title"
+            android:summary="@string/about_tg_summary">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/about_tg_link"/>
+        </Preference>
+
+        <Preference
+            android:key="wall_pref"
+            android:title="@string/about_wall_title"
+            android:summary="@string/about_wall_summary">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/about_wall_link"/>
+        </Preference>
+
+        <Preference
+            android:key="git_pref"
+            android:title="@string/about_git_title"
+            android:summary="@string/about_git_summary">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/about_git_link"/>
+        </Preference>
+
+        <Preference
+            android:key="devices_git_pref"
+            android:title="@string/about_devices_git_title"
+            android:summary="@string/about_devices_git_summary">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/about_devices_git_link"/>
+        </Preference>
+
+        <Preference
+            android:key="about_phone_pref"
+            android:title="@string/about_phone_title"
+            android:summary="@string/about_phone_summary"
+            android:fragment="com.android.settings.deviceinfo.aboutphone.MyDeviceInfoFragment"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
+
