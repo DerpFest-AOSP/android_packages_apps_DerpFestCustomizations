@@ -389,4 +389,11 @@
     <string name="about_device_fw">Erforderliche Firmware</string>
     <string name="about_device_recovery">Empfohlene Recovery</string>
 
+    <!-- About - Easter Egg -->
+    <plurals name="show_derped_countdown">
+        <item quantity="one">Du bist jetzt noch <xliff:g id="derp_count">%1$d</xliff:g> Schritt davon entfernt, gederpt zu werden.</item>
+        <item quantity="other">Du bist jetzt noch <xliff:g id="derp_count">%1$d</xliff:g> Schritte davon entfernt, gederpt zu werden.</item>
+    </plurals>
+    <string name="derpd_done">Du wurdest gederpt</string>
+
 </resources>
