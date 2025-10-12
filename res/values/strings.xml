@@ -416,6 +416,7 @@ The progress bar dynamically switches between media and download states, ensurin
     <!-- About -->
     <string name="about_title">About</string>
     <string name="about_summary">About DerpFest and useful links</string>
+    <string name="no_browser">Please choose a default browser</string>
     <string name="about_team_category">Our Team</string>
     <string name="about_external_category">External Links</string>
     <string name="about_dev_title">Lead Developer</string>
