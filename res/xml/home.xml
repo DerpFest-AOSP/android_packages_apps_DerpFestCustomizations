@@ -79,6 +79,14 @@
         app:summary="@string/misc_summary"
         app:icon="@drawable/ic_misc_category_expressive"
         app:fragment="org.derpfest.customizations.fragment.Misc"
+        app:cornerType="none" />
+
+    <org.derpfest.ui.preference.DerpFestCardPreference
+        app:key="about"
+        app:title="@string/about_title"
+        app:summary="@string/about_summary"
+        app:icon="@drawable/ic_info_category_expressive"
+        app:fragment="org.derpfest.customizations.fragment.About"
         app:cornerType="bottom" />
 
 </PreferenceScreen>
