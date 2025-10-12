@@ -362,6 +362,7 @@
     <!-- About -->
     <string name="about_title">Über</string>
     <string name="about_summary">Über DerpFest und nützliche Links</string>
+    <string name="no_browser">Bitte einen Standard-Browser auswählen</string>
     <string name="about_team_category">Unser Team</string>
     <string name="about_external_category">Externe Links</string>
     <string name="about_dev_title">Leitender Entwickler</string>

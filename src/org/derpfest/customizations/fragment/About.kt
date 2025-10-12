@@ -7,6 +7,9 @@ package org.derpfest.customizations.fragment
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent
 
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 
 import androidx.preference.Preference
@@ -42,6 +45,26 @@ class About : SettingsPreferenceFragment() {
 
         if (!hasFWLink && !hasRecoveryLink) {
             mDeviceLinks?.isVisible = false
+        } else {
+            var defaultBrowser: String? = null
+            try {
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://"))
+                val resolveInfo = activity?.packageManager?.resolveActivity(
+                    browserIntent,
+                    PackageManager.MATCH_DEFAULT_ONLY
+                )
+                defaultBrowser = resolveInfo?.activityInfo?.packageName
+            } catch (e: Exception) {
+                // nothing to do. defaultBrowser already set to null
+            }
+
+            // if we have no default browser set we disable the buttons and let the user know
+            if (defaultBrowser == null) {
+                mDeviceFW?.isEnabled = false
+                mDeviceFW?.summary = res.getString(R.string.no_browser)
+                mDeviceRecovery?.isEnabled = false
+                mDeviceRecovery?.summary = res.getString(R.string.no_browser)
+            }
         }
     }
 
