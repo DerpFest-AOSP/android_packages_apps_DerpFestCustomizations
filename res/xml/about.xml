@@ -38,6 +38,30 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="about_device_links"
+        android:title="@string/about_device_category">
+
+        <Preference
+            android:key="device_fw"
+            android:title="@string/about_device_fw"
+            android:summary="@string/about_device_fw_ver">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/about_device_fw_link"/>
+        </Preference>
+
+        <Preference
+            android:key="device_recovery"
+            android:title="@string/about_device_recovery"
+            android:summary="@string/about_device_recovery_ver">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/about_device_recovery_link"/>
+        </Preference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="about_external"
         android:title="@string/about_external_category">
 
