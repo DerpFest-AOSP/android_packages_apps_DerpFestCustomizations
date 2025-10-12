@@ -11,18 +11,24 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.widget.Toast
 
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 
 import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
+import com.android.settingslib.widget.LayoutPreference
 
-class About : SettingsPreferenceFragment() {
+class About : SettingsPreferenceFragment(), Preference.OnPreferenceClickListener {
 
+    private var mDerpLogo: LayoutPreference? = null
     private var mDeviceLinks: PreferenceCategory? = null
     private var mDeviceFW: Preference? = null
     private var mDeviceRecovery: Preference? = null
+    private var mDerpHitToast: Toast? = null
+
+    private var mDerpLogoHitCountdown = 10
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         addPreferencesFromResource(R.xml.about)
@@ -66,6 +72,39 @@ class About : SettingsPreferenceFragment() {
                 mDeviceRecovery?.summary = res.getString(R.string.no_browser)
             }
         }
+
+        mDerpLogo = findPreference("derp_logo")
+        mDerpLogo?.onPreferenceClickListener = this
+        mDerpHitToast = null
+    }
+
+    override fun onPreferenceClick(preference: Preference): Boolean {
+        if (mDerpLogoHitCountdown > 0) {
+            mDerpLogoHitCountdown--
+            if (mDerpLogoHitCountdown == 0) {
+                mDerpHitToast?.cancel()
+                mDerpHitToast = Toast.makeText(
+                    context,
+                    resources.getString(R.string.derpd_done),
+                    Toast.LENGTH_SHORT
+                )
+                mDerpHitToast?.show()
+                throw RuntimeException("BOOYAH!") // Crash :)
+            } else {
+                mDerpHitToast?.cancel()
+                mDerpHitToast = Toast.makeText(
+                    context,
+                    resources.getQuantityString(
+                        R.plurals.show_derped_countdown,
+                        mDerpLogoHitCountdown,
+                        mDerpLogoHitCountdown
+                    ),
+                    Toast.LENGTH_SHORT
+                )
+                mDerpHitToast?.show()
+            }
+        }
+        return true
     }
 
     override fun getMetricsCategory(): Int = MetricsEvent.DERPFEST

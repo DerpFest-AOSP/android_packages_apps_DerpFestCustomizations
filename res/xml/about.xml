@@ -8,10 +8,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:title="@string/about_title">
 
-    <Preference
-        android:layout="@layout/about_logo"
+    <com.android.settingslib.widget.LayoutPreference
         android:key="derp_logo"
-        android:selectable="false" />
+        android:layout="@layout/about_logo"
+        android:selectable="true" />
 
     <PreferenceCategory
         android:key="about_team"
