@@ -439,4 +439,13 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="about_devices_git_link" translatable="false">https://github.com/DerpFest-Devices</string>
     <string name="about_phone_title">About Phone</string>
     <string name="about_phone_summary">Open the system\'s about page</string>
+
+    <!-- About - Device specific links -->
+    <string name="about_device_category">Device Specific Links</string>
+    <string name="about_device_fw">Required firmware</string>
+    <string name="about_device_fw_ver" translatable="false"></string> <!-- Firmware version -->
+    <string name="about_device_fw_link" translatable="false"></string> <!-- Firmware link -->
+    <string name="about_device_recovery">Recommended Recovery</string>
+    <string name="about_device_recovery_ver" translatable="false"></string> <!-- Recovery version -->
+    <string name="about_device_recovery_link" translatable="false"></string> <!-- Recovery link -->
 </resources>

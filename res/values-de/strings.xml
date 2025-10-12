@@ -378,4 +378,9 @@
     <string name="about_devices_git_summary">Gerätequellen auf GitHub ansehen</string>
     <string name="about_phone_title">Telefoninfo</string>
     <string name="about_phone_summary">Systemeinstellungen „Über dieses Telefon" öffnen</string>
+
+    <!-- About - Device specific links -->
+    <string name="about_device_category">Gerätespezifische Links</string>
+    <string name="about_device_fw">Erforderliche Firmware</string>
+    <string name="about_device_recovery">Empfohlene Recovery</string>
 </resources>
