@@ -452,4 +452,11 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="about_device_recovery_ver" translatable="false"></string> <!-- Recovery version -->
     <string name="about_device_recovery_link" translatable="false"></string> <!-- Recovery link -->
 
+    <!-- About - Easter Egg -->
+    <plurals name="show_derped_countdown">
+        <item quantity="one">You are now <xliff:g id="derp_count">%1$d</xliff:g> step away from being derp\'d.</item>
+        <item quantity="other">You are now <xliff:g id="derp_count">%1$d</xliff:g> steps away from being derp\'d.</item>
+    </plurals>
+    <string name="derpd_done">You have been derp\'d</string>
+
 </resources>
