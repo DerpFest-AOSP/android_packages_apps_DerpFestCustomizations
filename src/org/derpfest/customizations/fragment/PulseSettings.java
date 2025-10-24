@@ -43,7 +43,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     private static final String PULSE_RENDER_CATEGORY_FADING = "pulse_fading_bars_category";
     private static final String PULSE_RENDER_MODE_KEY = "pulse_render_style";
     private static final String PULSE_CUSTOM_GRAVITY = "pulse_custom_gravity";
-    private static final String VISUALIZER_CENTER_MIRRORED = "visualizer_center_mirrored";
+    private static final String VISUALIZER_CENTER_MIRRORED = "pulse_center_mirrored";
     private static final String PULSE_VERTICAL_MIRROR = "pulse_vertical_mirror";
     private static final int RENDER_STYLE_FADING_BARS = 0;
     private static final int RENDER_STYLE_SOLID_LINES = 1;

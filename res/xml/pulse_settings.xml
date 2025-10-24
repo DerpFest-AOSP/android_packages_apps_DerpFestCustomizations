@@ -42,7 +42,7 @@
         android:defaultValue="0" />
 
     <org.derpfest.support.preferences.SecureSettingSwitchPreference
-        android:key="visualizer_center_mirrored"
+        android:key="pulse_center_mirrored"
         android:title="@string/visualizer_center_mirrored_title"
         android:summary="@string/visualizer_center_mirrored_summary"
         android:defaultValue="false" />
