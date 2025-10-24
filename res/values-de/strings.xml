@@ -129,6 +129,13 @@
     <string name="edge_light_style_title">Darstellungsstil</string>
     <string name="edge_light_style_default">Standard (links/rechts)</string>
     <string name="edge_light_style_frame">Rahmen (alle Seiten)</string>
+    <string name="edge_light_animation_effect_title">Animationseffekt</string>
+    <string name="edge_light_animation_effect_none">Standard</string>
+    <string name="edge_light_animation_effect_breathing">Atmend</string>
+    <string name="edge_light_animation_effect_wave">Welle</string>
+    <string name="edge_light_animation_effect_sparkle">Funkeln</string>
+    <string name="edge_light_animation_effect_chase">Verfolgung</string>
+    <string name="edge_light_animation_effect_comet">Komet</string>
 
     <!-- Fingerprint Ripple Effect -->
     <string name="enable_fingerprint_ripple_effect_title">Welleneffekt</string>
