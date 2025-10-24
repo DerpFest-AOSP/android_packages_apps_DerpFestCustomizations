@@ -50,14 +50,17 @@ public class AmbientEdgeLightSettings extends SettingsPreferenceFragment impleme
     private static final String PULSE_AMBIENT_LIGHT_COLOR_APP = "pulse_ambient_light_color_mode_app";
     private static final String PULSE_AMBIENT_LIGHT_COLOR_MANUAL = "pulse_ambient_light_color_mode_manual";
     private static final String PULSE_AMBIENT_LIGHT_COLOR_SELECTOR = "pulse_ambient_light_color_selector";
+    private static final String PULSE_AMBIENT_LIGHT_COLOR_RAINBOW = "pulse_ambient_light_color_mode_rainbow";
     private static final List<String> COLOR_MODES = Arrays.asList(PULSE_AMBIENT_LIGHT_COLOR_APP,
             PULSE_AMBIENT_LIGHT_COLOR_AUTO,
-            PULSE_AMBIENT_LIGHT_COLOR_MANUAL);
+            PULSE_AMBIENT_LIGHT_COLOR_MANUAL,
+            PULSE_AMBIENT_LIGHT_COLOR_RAINBOW);
 
     private MainSwitchPreference mMainSwitchPref;
     private SelectorWithWidgetPreference mLightColorAutoPref;
     private SelectorWithWidgetPreference mLightColorAppPref;
     private SelectorWithWidgetPreference mLightColorManualPref;
+    private SelectorWithWidgetPreference mLightColorRainbowPref;
     private LayoutPreference mColorSelectorPref;
     private RecyclerView mRecyclerView;
 
@@ -82,6 +85,8 @@ public class AmbientEdgeLightSettings extends SettingsPreferenceFragment impleme
         mLightColorAppPref.setOnClickListener(this);
         mLightColorManualPref = prefSet.findPreference(PULSE_AMBIENT_LIGHT_COLOR_MANUAL);
         mLightColorManualPref.setOnClickListener(this);
+        mLightColorRainbowPref = prefSet.findPreference(PULSE_AMBIENT_LIGHT_COLOR_RAINBOW);
+        mLightColorRainbowPref.setOnClickListener(this);
         mColorSelectorPref = prefSet.findPreference(PULSE_AMBIENT_LIGHT_COLOR_SELECTOR);
 
         // Setup manual color selector
@@ -148,6 +153,7 @@ public class AmbientEdgeLightSettings extends SettingsPreferenceFragment impleme
         mLightColorAutoPref.setChecked(selectedKey.equals(PULSE_AMBIENT_LIGHT_COLOR_AUTO));
         mLightColorAppPref.setChecked(selectedKey.equals(PULSE_AMBIENT_LIGHT_COLOR_APP));
         mLightColorManualPref.setChecked(selectedKey.equals(PULSE_AMBIENT_LIGHT_COLOR_MANUAL));
+        mLightColorRainbowPref.setChecked(selectedKey.equals(PULSE_AMBIENT_LIGHT_COLOR_RAINBOW));
         mColorSelectorPref.setVisible(selectedKey.equals(PULSE_AMBIENT_LIGHT_COLOR_MANUAL));
     }
 

@@ -44,6 +44,11 @@
                 android:title="@string/ambient_edge_light_color_mode_manual"
                 android:summary="@string/ambient_edge_light_color_mode_manual_summary" />
 
+            <com.android.settingslib.widget.SelectorWithWidgetPreference
+                android:key="pulse_ambient_light_color_mode_rainbow"
+                android:title="@string/ambient_edge_light_color_mode_rainbow"
+                android:summary="@string/ambient_edge_light_color_mode_rainbow_summary" />
+
             <com.android.settingslib.widget.LayoutPreference
                 android:key="pulse_ambient_light_color_selector"
                 android:layout="@layout/ambient_edge_light_color_selector_view" />
