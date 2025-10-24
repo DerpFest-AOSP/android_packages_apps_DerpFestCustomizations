@@ -124,6 +124,9 @@
     <string name="ambient_edge_light_width_title">Light width</string>
     <string name="ambient_edge_light_face_down_title">Flip to activate</string>
     <string name="ambient_edge_light_face_down_summary">Show edge light only when the phone is facedown</string>
+    <string name="edge_light_style_title">Render style</string>
+    <string name="edge_light_style_default">Default (left/right)</string>
+    <string name="edge_light_style_frame">Frame (all sides)</string>
 
     <!-- Fingerprint Ripple Effect -->
     <string name="enable_fingerprint_ripple_effect_title">Unlock animation</string>
