@@ -219,6 +219,7 @@
     <string name="pulse_render_mode_fading_bars">Verblassende Blöcke</string>
     <string name="pulse_render_mode_solid_lines">Durchgehende Balken</string>
     <string name="pulse_render_mode_neon">Neon Glow-Stil</string>
+    <string name="pulse_render_mode_particle">Partikelsystem</string>
     <string name="pulse_legacy_mode_advanced_category">Einstellungen für verblassende Blöcke</string>
     <string name="pulse_custom_fudge_factor">Empfindlichkeit</string>
     <string name="pulse_lavalamp_speed_title">Geschwindigkeit des Lavalampeneffekts</string>

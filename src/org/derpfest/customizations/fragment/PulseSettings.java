@@ -48,6 +48,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     private static final int RENDER_STYLE_FADING_BARS = 0;
     private static final int RENDER_STYLE_SOLID_LINES = 1;
     private static final int RENDER_STYLE_NEON = 2;
+    private static final int RENDER_STYLE_PARTICLE = 3;
     private static final int COLOR_TYPE_ACCENT = 0;
     private static final int COLOR_TYPE_USER = 1;
     private static final int COLOR_TYPE_LAVALAMP = 2;
@@ -219,7 +220,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
     private void updateRenderCategories(int mode) {
         mFadingBarsCat.setEnabled(mode == RENDER_STYLE_FADING_BARS);
-        mSolidBarsCat.setEnabled(mode == RENDER_STYLE_SOLID_LINES || mode == RENDER_STYLE_NEON);
+        mSolidBarsCat.setEnabled(mode == RENDER_STYLE_SOLID_LINES || mode == RENDER_STYLE_NEON || mode == RENDER_STYLE_PARTICLE);
     }
 
     @Override
