@@ -89,7 +89,7 @@
                 android:title="@string/ambient_edge_light_width_title"
                 android:max="150"
                 android:min="1"
-                android:defaultValue="125"
+                android:defaultValue="12"
                 android:dependency="pulse_ambient_light"
                 settings:units="px" />
 
