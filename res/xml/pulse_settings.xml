@@ -168,6 +168,33 @@
             android:dependency="pulse_2"/>
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="pulse_particle_category"
+        android:title="@string/pulse_particle_category_title">
+
+        <org.derpfest.support.preferences.SecureSettingSeekBarPreference
+            android:key="pulse_particle_count"
+            android:title="@string/pulse_particle_count_title"
+            android:summary="@string/pulse_particle_count_summary"
+            android:defaultValue="300"
+            android:max="500"
+            settings:min="50"
+            settings:interval="25"
+            settings:units="@string/unit_particles"
+            android:dependency="pulse_particle_category"/>
+
+        <org.derpfest.support.preferences.SecureSettingSeekBarPreference
+            android:key="pulse_particle_size"
+            android:title="@string/pulse_particle_size_title"
+            android:summary="@string/pulse_particle_size_summary"
+            android:defaultValue="3"
+            android:max="10"
+            settings:min="1"
+            settings:units="@string/unit_pixels"
+            android:dependency="pulse_particle_category"/>
+
+    </PreferenceCategory>
+
     <com.android.settingslib.widget.FooterPreference
         android:key="pulse_settings_footer"
         android:selectable="false"

@@ -71,6 +71,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
     private PreferenceCategory mFadingBarsCat;
     private PreferenceCategory mSolidBarsCat;
+    private PreferenceCategory mParticleCat;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -110,6 +111,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
                 PULSE_RENDER_CATEGORY_FADING);
         mSolidBarsCat = (PreferenceCategory) findPreference(
                 PULSE_RENDER_CATEGORY_SOLID);
+        mParticleCat = (PreferenceCategory) findPreference("pulse_particle_category");
 
         mPulseSmoothing = (SwitchPreferenceCompat) findPreference(PULSE_SMOOTHING_KEY);
 
@@ -192,6 +194,10 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         } else {
             mFadingBarsCat.setEnabled(false);
             mSolidBarsCat.setEnabled(false);
+            mParticleCat.setEnabled(false);
+            mFadingBarsCat.setVisible(false);
+            mSolidBarsCat.setVisible(false);
+            mParticleCat.setVisible(false);
         }
 
         mFooterPref.setEnabled(navbarPulse || lockscreenPulse || ambientPulse);
@@ -219,8 +225,18 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     }
 
     private void updateRenderCategories(int mode) {
-        mFadingBarsCat.setEnabled(mode == RENDER_STYLE_FADING_BARS);
-        mSolidBarsCat.setEnabled(mode == RENDER_STYLE_SOLID_LINES || mode == RENDER_STYLE_NEON || mode == RENDER_STYLE_PARTICLE);
+        boolean fadingEnabled = (mode == RENDER_STYLE_FADING_BARS);
+        boolean solidEnabled = (mode == RENDER_STYLE_SOLID_LINES || mode == RENDER_STYLE_NEON);
+        boolean particleEnabled = (mode == RENDER_STYLE_PARTICLE);
+        
+        mFadingBarsCat.setEnabled(fadingEnabled);
+        mSolidBarsCat.setEnabled(solidEnabled);
+        mParticleCat.setEnabled(particleEnabled);
+        
+        // Also update the visibility to make it clearer which category is active
+        mFadingBarsCat.setVisible(fadingEnabled);
+        mSolidBarsCat.setVisible(solidEnabled);
+        mParticleCat.setVisible(particleEnabled);
     }
 
     @Override

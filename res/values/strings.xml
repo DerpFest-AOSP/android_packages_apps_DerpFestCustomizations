@@ -270,9 +270,17 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="pulse_vertical_mirror_title">Vertical Mirror</string>
     <string name="pulse_vertical_mirror_summary">Create other pulse and flip vertically</string>
 
+    <!-- Particle system settings -->
+    <string name="pulse_particle_category_title">Particle system settings</string>
+    <string name="pulse_particle_count_title">Particle count</string>
+    <string name="pulse_particle_count_summary">Number of particles in the visualization (50-500)</string>
+    <string name="pulse_particle_size_title">Particle size</string>
+    <string name="pulse_particle_size_summary">Size of individual particles (1-10px)</string>
+
     <!-- Units -->
     <string name="unit_milliseconds">ms</string>
     <string name="unit_pixels">px</string>
+    <string name="unit_particles">particles</string>
 
     <!-- Single tap for keyguard affordance -->
     <string name="keyguard_affordance_single_tap_title">Keyguard affordance single tap</string>
