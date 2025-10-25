@@ -241,6 +241,13 @@
     <string name="pulse_solid_units_rounded_title">Abgerundete Ecken</string>
     <string name="pulse_solid_units_rounded_summary">Durchgezogene Linien mit abgerundeter Spitze</string>
 
+    <!-- Particle system settings -->
+    <string name="pulse_particle_category_title">Partikelsystem-Einstellungen</string>
+    <string name="pulse_particle_count_title">Partikelanzahl</string>
+    <string name="pulse_particle_count_summary">Anzahl der Partikel in der Visualisierung (50-500)</string>
+    <string name="pulse_particle_size_title">Partikelgröße</string>
+    <string name="pulse_particle_size_summary">Größe einzelner Partikel (1-10px)</string>
+
     <!-- Pulse Gravity and mirror options -->
     <string name="pulse_custom_gravity_title">Gravitation</string>
     <string name="pulse_custom_gravity_bottom">Unten</string>
@@ -254,6 +261,7 @@
     <!-- Units -->
     <string name="unit_milliseconds">ms</string>
     <string name="unit_pixels">px</string>
+    <string name="unit_particles">Partikel</string>
 
     <!-- Single tap for keyguard affordance -->
     <string name="keyguard_affordance_single_tap_title">Einmaliges Tippen für Sperrbildschirm-Schnellaktionen</string>
