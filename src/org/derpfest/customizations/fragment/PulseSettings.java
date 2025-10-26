@@ -49,6 +49,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     private static final int RENDER_STYLE_SOLID_LINES = 1;
     private static final int RENDER_STYLE_NEON = 2;
     private static final int RENDER_STYLE_PARTICLE = 3;
+    private static final int RENDER_STYLE_WAVEFORM = 4;
     private static final int COLOR_TYPE_ACCENT = 0;
     private static final int COLOR_TYPE_USER = 1;
     private static final int COLOR_TYPE_LAVALAMP = 2;
@@ -72,6 +73,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     private PreferenceCategory mFadingBarsCat;
     private PreferenceCategory mSolidBarsCat;
     private PreferenceCategory mParticleCat;
+    private PreferenceCategory mWaveformCat;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -112,6 +114,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         mSolidBarsCat = (PreferenceCategory) findPreference(
                 PULSE_RENDER_CATEGORY_SOLID);
         mParticleCat = (PreferenceCategory) findPreference("pulse_particle_category");
+        mWaveformCat = (PreferenceCategory) findPreference("pulse_waveform_category");
 
         mPulseSmoothing = (SwitchPreferenceCompat) findPreference(PULSE_SMOOTHING_KEY);
 
@@ -195,9 +198,11 @@ public class PulseSettings extends SettingsPreferenceFragment implements
             mFadingBarsCat.setEnabled(false);
             mSolidBarsCat.setEnabled(false);
             mParticleCat.setEnabled(false);
+            mWaveformCat.setEnabled(false);
             mFadingBarsCat.setVisible(false);
             mSolidBarsCat.setVisible(false);
             mParticleCat.setVisible(false);
+            mWaveformCat.setVisible(false);
         }
 
         mFooterPref.setEnabled(navbarPulse || lockscreenPulse || ambientPulse);
@@ -228,15 +233,18 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         boolean fadingEnabled = (mode == RENDER_STYLE_FADING_BARS);
         boolean solidEnabled = (mode == RENDER_STYLE_SOLID_LINES || mode == RENDER_STYLE_NEON);
         boolean particleEnabled = (mode == RENDER_STYLE_PARTICLE);
+        boolean waveformEnabled = (mode == RENDER_STYLE_WAVEFORM);
         
         mFadingBarsCat.setEnabled(fadingEnabled);
         mSolidBarsCat.setEnabled(solidEnabled);
         mParticleCat.setEnabled(particleEnabled);
+        mWaveformCat.setEnabled(waveformEnabled);
         
         // Also update the visibility to make it clearer which category is active
         mFadingBarsCat.setVisible(fadingEnabled);
         mSolidBarsCat.setVisible(solidEnabled);
         mParticleCat.setVisible(particleEnabled);
+        mWaveformCat.setVisible(waveformEnabled);
     }
 
     @Override

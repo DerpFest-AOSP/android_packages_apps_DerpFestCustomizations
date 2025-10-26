@@ -220,6 +220,7 @@
     <string name="pulse_render_mode_solid_lines">Durchgehende Balken</string>
     <string name="pulse_render_mode_neon">Neon Glow-Stil</string>
     <string name="pulse_render_mode_particle">Partikelsystem</string>
+    <string name="pulse_render_mode_waveform">Wellenform</string>
     <string name="pulse_legacy_mode_advanced_category">Einstellungen für verblassende Blöcke</string>
     <string name="pulse_custom_fudge_factor">Empfindlichkeit</string>
     <string name="pulse_lavalamp_speed_title">Geschwindigkeit des Lavalampeneffekts</string>
@@ -247,6 +248,15 @@
     <string name="pulse_particle_count_summary">Anzahl der Partikel in der Visualisierung (50-500)</string>
     <string name="pulse_particle_size_title">Partikelgröße</string>
     <string name="pulse_particle_size_summary">Größe einzelner Partikel (1-10px)</string>
+
+    <!-- Waveform settings -->
+    <string name="pulse_waveform_category_title">Wellenform-Einstellungen</string>
+    <string name="pulse_waveform_show_fill_title">Füllung anzeigen</string>
+    <string name="pulse_waveform_show_fill_summary">Gefüllten Bereich unter der Wellenform anzeigen</string>
+    <string name="pulse_waveform_show_outline_title">Umriss anzeigen</string>
+    <string name="pulse_waveform_show_outline_summary">Umriss der Wellenform anzeigen</string>
+    <string name="pulse_waveform_stroke_width_title">Strichbreite</string>
+    <string name="pulse_waveform_stroke_width_summary">Breite des Wellenform-Umrisses (1-8px)</string>
 
     <!-- Pulse Gravity and mirror options -->
     <string name="pulse_custom_gravity_title">Gravitation</string>

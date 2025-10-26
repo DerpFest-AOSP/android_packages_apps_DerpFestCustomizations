@@ -195,6 +195,33 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="pulse_waveform_category"
+        android:title="@string/pulse_waveform_category_title">
+
+        <org.derpfest.support.preferences.SecureSettingSwitchPreference
+            android:key="pulse_waveform_show_fill"
+            android:title="@string/pulse_waveform_show_fill_title"
+            android:summary="@string/pulse_waveform_show_fill_summary"
+            android:defaultValue="true"/>
+
+        <org.derpfest.support.preferences.SecureSettingSwitchPreference
+            android:key="pulse_waveform_show_outline"
+            android:title="@string/pulse_waveform_show_outline_title"
+            android:summary="@string/pulse_waveform_show_outline_summary"
+            android:defaultValue="true"/>
+
+        <org.derpfest.support.preferences.SecureSettingSeekBarPreference
+            android:key="pulse_waveform_stroke_width"
+            android:title="@string/pulse_waveform_stroke_width_title"
+            android:summary="@string/pulse_waveform_stroke_width_summary"
+            android:defaultValue="3"
+            android:max="8"
+            settings:min="1"
+            settings:units="@string/unit_pixels"/>
+
+    </PreferenceCategory>
+
     <com.android.settingslib.widget.FooterPreference
         android:key="pulse_settings_footer"
         android:selectable="false"
