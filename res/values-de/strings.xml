@@ -403,4 +403,8 @@
         <item quantity="other">Du bist jetzt noch <xliff:g id="derp_count">%1$d</xliff:g> Schritte davon entfernt, gederpt zu werden.</item>
     </plurals>
     <string name="derpd_done">Du wurdest gederpt</string>
+
+    <!-- chinese lunar calendar -->
+    <string name="qs_show_lunar_calendar_title">Chinesischer Mondkalender</string>
+    <string name="qs_show_lunar_calendar_summary">Mondkalender in den Schnelleinstellungen anzeigen</string>
 </resources>
