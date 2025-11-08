@@ -21,6 +21,12 @@
             android:entryValues="@array/qs_tile_shape_values"
             android:defaultValue="0" />
 
+         <org.derpfest.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_show_lunar_calendar"
+            android:title="@string/qs_show_lunar_calendar_title"
+            android:summary="@string/qs_show_lunar_calendar_summary"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
