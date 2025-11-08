@@ -490,4 +490,7 @@ The progress bar dynamically switches between media and download states, ensurin
     </plurals>
     <string name="derpd_done">You have been derp\'d</string>
 
+    <!-- chinese lunar calendar -->
+    <string name="qs_show_lunar_calendar_title">Chinese Lunar Calendar</string>
+    <string name="qs_show_lunar_calendar_summary">Show lunar calendar in Quick Settings</string>
 </resources>
