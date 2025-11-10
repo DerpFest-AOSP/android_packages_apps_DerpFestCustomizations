@@ -88,6 +88,12 @@
             android:defaultValue="0" />
 
         <org.derpfest.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_brightness_gradient_enabled"
+            android:title="@string/qs_brightness_gradient_enabled_title"
+            android:summary="@string/qs_brightness_gradient_enabled_summary"
+            android:defaultValue="true" />
+
+        <org.derpfest.support.preferences.SystemSettingSwitchPreference
             android:key="qs_brightness_position_bottom"
             android:title="@string/qs_brightness_position_position_title"
             android:summary="@string/qs_brightness_position_position_summary" 

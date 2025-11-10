@@ -297,6 +297,8 @@
     <string name="qs_show_brightness_hide">Ausblenden</string>
     <string name="qs_show_brightness_normal">Im QS-Panel anzeigen</string>
     <string name="qs_show_brightness_both">Im QS &amp; Quick QS Panel anzeigen</string>
+    <string name="qs_brightness_gradient_enabled_title">Gradient-Reglerhintergrund</string>
+    <string name="qs_brightness_gradient_enabled_summary">Gradient-Styling für den Helligkeitsregler aktivieren</string>
     <string name="qs_brightness_position_position_title">Nach unten verschieben</string>
     <string name="qs_brightness_position_position_summary">Helligkeitsregler am unteren Rand des QS-Panels anzeigen</string>
     <string name="qs_show_auto_brightness_title">Auto-Helligkeit-Symbol anzeigen</string>
