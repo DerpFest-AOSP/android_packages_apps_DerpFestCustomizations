@@ -5,7 +5,7 @@
     <string name="qs_header_shadow_title">Цень выявы загалоўка</string>
     <string name="qs_tile_shape_mode_all_squared">Усё квадратнае</string>
     <string name="qs_header_browse_title">Прагляд устаноўленых выяў загалоўкаў</string>
-    <string name="keybox_data_invalid">Несапраўдны XML-файл keybox'а</string>
+    <string name="keybox_data_invalid">Несапраўдны XML-файл keybox\'а</string>
     <string name="lockscreen_hide_status_bar_title">Схаваць радок стану</string>
     <string name="pulse_settings_summary">Аўдыявізуалізатар для панэлі навігацыі, экрана блакіроўкі і ambient-экрана</string>
     <string name="pulse_color_accent">Акцэнт</string>
@@ -57,7 +57,7 @@
     <string name="qs_show_power_menu_icon_summary">Паказаць значок меню сілкавання ў ніжняй частцы хуткіх налад</string>
     <string name="buttons_title">Кнопкі</string>
     <string name="pif_data_error">Не атрымалася загрузіць дадзеныя PIF</string>
-    <string name="keybox_summary">Кіраванне дадзенымі keybox'аў на прыладзе</string>
+    <string name="keybox_summary">Кіраванне дадзенымі keybox\'аў на прыладзе</string>
     <string name="monet_engine_color_source_both">Абодва (па змаўчанні)</string>
     <string name="footer_category_summary">Наладжванне элементаў ніжняга калонтытула панэлі хуткіх налад</string>
     <string name="progress_footer_text">"Чып дзеянняў у радку стану забяспечвае абнаўленне ў рэальным часе як для прайгравання медыя, так і для актыўных загрузак/выгрузак.\n\n    Прагрэс прайгравання:\n    - Адлюстроўвае прайграванне музыкі і відэа падчас прайгравання мультымедыя.\n    - Адзіночнае дакрананне адкрывае элементы кіравання прайграваннем (папярэдні ці наступны трэк).\n    - Падвойнае дакрананне пераключае прайграванне/паўзу.\n    - Свайп налева для пераходу да папярэдняга трэка.\n    - Свайп направа – пераход да наступнага трэка.\n    - Трохразовы націск адкрывае мультымедыйную праграму.\n\n    Прагрэс загрузкі/выгрузкі:\n    - Адлюстроўвае ход бягучых загрузак і выгрузак.\n    - Аўтаматычна хаваецца, калі не знойдзена ніякай актыўнай перадачы.\n    - Адзін націск адкрывае праграму, адказную за загрузку.\n\nІндыкатар прагрэсу дынамічна пераключаецца паміж станамі медыя і загрузкі, каб у вас заўсёды была самая актуальная інфармацыя."</string>
@@ -72,7 +72,7 @@
     <string name="pulse_visualizer_category_title">Візуалізатар Пульс</string>
     <string name="pulse_settings">Пульс</string>
     <string name="ambient_edge_light_color_mode_category_title">Колер</string>
-    <string name="keybox_data_delete_summary">Выдаліць бягучыя загружаныя дадзеныя keybox'а</string>
+    <string name="keybox_data_delete_summary">Выдаліць бягучыя загружаныя дадзеныя keybox\'а</string>
     <string name="ambient_edge_light_face_down_title">Перавярніце, каб актываваць</string>
     <string name="monet_engine_style_fruit_salad">Фруктовы салата</string>
     <string name="monet_engine_wallpaper_color_title">Выберыце іншы акцэнтны колер шпалер</string>
@@ -89,7 +89,7 @@
     <string name="monet_engine_color_override_title">Нестандартны колер</string>
     <string name="qs_title">Хуткія налады</string>
     <string name="ongoing_progress_settings_summary">Параметры індыкатара дзеянняў у радку стану</string>
-    <string name="keybox_data_error">Не атрымалася загрузіць дадзеныя keybox'а</string>
+    <string name="keybox_data_error">Не атрымалася загрузіць дадзеныя keybox\'а</string>
     <string name="qs_header_browse_summary">Праглядзець усе даступныя калекцыі выяў зверху хуткіх налад</string>
     <string name="pif_title">Play Integrity</string>
     <string name="misc_title">Рознае</string>
@@ -118,7 +118,7 @@
     <string name="general_category_summary">Агульныя сістэмныя налады</string>
     <string name="pulse_custom_fudge_factor">Адчувальнасць</string>
     <string name="unit_pixels">пкс</string>
-    <string name="keybox_data_loaded">Дадзеныя keybox'а паспяхова загружаныя</string>
+    <string name="keybox_data_loaded">Дадзеныя keybox\'а паспяхова загружаныя</string>
     <string name="pulse_custom_dimen">Шырыня ліній</string>
     <string name="pulse_ambient_edge_light_category_title">Імпульсная падсветка краёў</string>
     <string name="monet_engine_custom_color_summary">Выберыце свой колер для акцэнту</string>
@@ -158,7 +158,7 @@
     <string name="dark_mode_summary_default">Уключыць цёмную тэму сістэмы</string>
     <string name="monet_settings">Наладжванне Monet</string>
     <string name="pif_data_loaded">Дадзеныя PIF паспяхова загружаныя</string>
-    <string name="keybox_data_title">Загрузіць дадзеныя keybox'а</string>
+    <string name="keybox_data_title">Загрузіць дадзеныя keybox\'а</string>
     <string name="pulse_custom_div">Адлегласць паміж лініямі</string>
     <string name="buttons_summary">Усталюйце паводзіны і дзеянні для кнопак</string>
     <string name="pulse_solid_units_opacity">Непразрыстасць суцэльных ліній</string>
@@ -175,7 +175,7 @@
     <string name="qs_header_pick_title">Выберыце выяву загалоўка</string>
     <string name="keyguard_affordance_single_tap_title">Актываваць цэтлікі экрана блакіроўкі адным дакрананнем</string>
     <string name="ambient_edge_light_color_mode_auto_summary">Усталяваць колер падсвятлення краёў у колер сістэмы</string>
-    <string name="keybox_data_cleared">Дадзеныя keybox'а ачышчаныя</string>
+    <string name="keybox_data_cleared">Дадзеныя keybox\'а ачышчаныя</string>
     <string name="monet_engine_style_monochromatic">Манахромны</string>
     <string name="keybox_data_delete_title">Выдаліць дадзеныя keybox</string>
     <string name="show_ambient_pulse_title">Ambient-Пульс</string>
@@ -205,7 +205,7 @@
     <string name="qs_show_settings_icon_title">Паказаць іконку налад</string>
     <string name="pulse_color_user_title">Выбраць колер</string>
     <string name="qs_header_file_select_title">Выбраць выяву</string>
-    <string name="keybox_data_summary">Выберыце XML-файл keybox'а для загрузкі</string>
+    <string name="keybox_data_summary">Выберыце XML-файл keybox\'а для загрузкі</string>
     <string name="click_bluetooth_tile_behavior_title">Паводзіны пліткі Bluetooth па націску</string>
     <string name="pulse_legacy_mode_advanced_category">Налады рэжыму затухання блокаў</string>
     <string name="pulse_vertical_mirror_title">Адлюстраваць па вертыкалі</string>
