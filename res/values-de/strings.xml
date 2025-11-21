@@ -106,6 +106,10 @@
     <string name="gphotos_spoof_title">Unbegrenzter Fotospeicher</string>
     <string name="gphotos_spoof_summary">Gerät als Pixel XL für die Google Fotos-App spoofen, um unbegrenzten Speicherplatz für Backups zu erhalten</string>
 
+    <!-- Pixel Spoofing -->
+    <string name="pixel_spoofing_apps_title">Apps für Pixel-Spoofing</string>
+    <string name="pixel_spoofing_apps_summary">Apps auswählen, um sie als Pixel 10 Pro XL zu spoofen</string>
+
     <!-- Ambient edge lighting -->
     <string name="ambient_edge_light_action_title">Bildschirm-Seitenbeleuchtung bei Inaktivität</string>
     <string name="ambient_edge_light_title">Seitenbeleuchtung</string>

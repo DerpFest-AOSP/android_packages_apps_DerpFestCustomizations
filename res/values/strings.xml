@@ -435,6 +435,10 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="notification_row_transparency_context_title">Context-aware transparency</string>
     <string name="notification_row_transparency_context_summary">Apply transparency only in the notification shade. Disable to apply everywhere (including Heads-up and lockscreen).</string>
 
+    <!-- Spoofing -->
+    <string name="pixel_spoofing_apps_title">Pixel spoofing apps</string>
+    <string name="pixel_spoofing_apps_summary">Select apps to spoof as Pixel 10 Pro XL</string>
+
     <!-- Status Bar Ticker -->
     <string name="ticker_screen_title">Ticker</string>
     <string name="ticker_screen_summary">Show notifications ticker-style in status bar</string>
