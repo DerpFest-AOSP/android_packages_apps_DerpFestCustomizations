@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: DerpFest AOSP
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- App name --> 
+    <string name="customisation_settings_title">Настройки DerpFest</string>
+
+    <!-- Home page -->
+    <string name="monet_settings">Настройки Monet</string>
+    <string name="statusbar_title">Панель состояния</string>
+    <string name="statusbar_summary">Настройка элементов панели состояния</string>
+    <string name="qs_title">Панель быстрых настроек</string>
+    <string name="qs_summary">Настройка панели быстрых настроек</string>
+    <string name="notifications_title">Уведомления</string>
+    <string name="notifications_summary">Настройка параметров уведомлений</string>
+    <string name="buttons_title">Кнопки</string>
+    <string name="buttons_summary">Установка поведения и действий по умолчанию для клавиш</string>
+    <string name="lockscreen_title">Экран блокировки</string>
+    <string name="lockscreen_summary">Настройка параметров экрана блокировки и режима ожидания</string>
+    <string name="spoofing_title">Спуфинг</string>
+    <string name="spoofing_summary">Обход ограничений приложений путём спуфинга компонентов и данных</string>
+    <string name="misc_title">Разное</string>
+    <string name="misc_summary">Всё, что не подошло ни к одной из других категорий</string>
+
+    <string name="dark_mode_summary_default">Включить тёмную тему системы</string>
+    <string name="dark_mode_summary_powersave">Включён режим энергосбережения</string>
+
+    <!-- Categories -->
+    <string name="general_category_title">Общие</string>
+    <string name="general_category_summary">Общие глобальные настройки системы</string>
+    <string name="security_category_title">Безопасность</string>
+    <string name="security_category_summary">Настройки безопасности и конфиденциальности</string>
+    <string name="dashboard_category_title">Панель управления</string>
+    <string name="dashboard_category_summary">Настройки внешнего вида панели управления</string>
+    <string name="effects_category_title">Эффекты</string>
+    <string name="effects_category_summary">Визуальные эффекты и анимации</string>
+
+    <!-- Ignore window secure -->
+    <string name="ignore_window_secure_title">Игнорировать флаги безопасности окна</string>
+    <string name="ignore_window_secure_summary">Удаляет ограничения на скриншоты и запись экрана для всех приложений. Это может быть удобно в некоторых случаях, но может привести к утечкам конфиденциальности.</string>
+
+    <!-- Monet settings -->
+    <string name="monet_settings_title">Персонализация Monet</string>
+    <string name="monet_settings_sammary">Настройка динамического движка темы</string>
+    <string name="monet_engine_custom_color_title">Акцентный цвет</string>
+    <string name="monet_engine_custom_color_summary">Выбрать пользовательский акцентный цвет</string>
+    <string name="monet_engine_custom_bgcolor_title">Цвет фона</string>
+    <string name="monet_engine_custom_bgcolor_summary">Выбрать пользовательский цвет фона</string>
+    <string name="monet_engine_color_override_title">Пользовательский цвет</string>
+    <string name="monet_engine_luminance_factor_title">Яркость</string>
+    <string name="monet_engine_luminance_factor_summary">Более высокие значения дают более яркие цвета</string>
+    <string name="monet_engine_chroma_factor_title">Коэффициент насыщенности</string>
+    <string name="monet_engine_chroma_factor_summary">Более высокие значения дают более насыщенные цвета</string>
+    <string name="monet_engine_whole_palette_title">Вся палитра</string>
+    <string name="monet_engine_whole_palette_summary">Сделать так, чтобы выбор яркости и насыщенности влиял также на вторичные цвета</string>
+    <string name="monet_engine_tint_background_title">Тонировка фона</string>
+    <string name="monet_engine_tint_background_summary">Сделать так, чтобы выбор яркости и насыщенности влиял также на цвета фона</string>
+    <string name="monet_engine_style_title">Стиль темы</string>
+    <string name="monet_engine_style_tonal_spot">Тональное пятно (по умолчанию)</string>
+    <string name="monet_engine_style_vibrant">Яркий</string>
+    <string name="monet_engine_style_expressive">Выразительный</string>
+    <string name="monet_engine_style_spritz">Брызги</string>
+    <string name="monet_engine_style_rainbow">Радуга</string>
+    <string name="monet_engine_style_fruit_salad">Фруктовый салат</string>
+    <string name="monet_engine_style_content">Контент</string>
+    <string name="monet_engine_style_monochromatic">Монохромный</string>
+    <string name="monet_engine_color_source_title">Источник цвета</string>
+    <string name="monet_engine_color_source_both">Оба (по умолчанию)</string>
+    <string name="monet_engine_color_source_home">Обои главного экрана</string>
+    <string name="monet_engine_color_source_lock">Обои экрана блокировки</string>
+    <string name="monet_engine_color_source_preset">Предустановка</string>
+    <string name="monet_engine_wallpaper_color_title">Выберите другой акцентный цвет из обоев</string>
+    <string name="monet_engine_wallpaper_color_summary">Селектор цвета обоев</string>
+    <string name="monet_engine_wallpaper_color_not_available">Недоступно</string>
+
+    <!-- Keybox Data -->
+    <string name="keybox_data_title">Переопределение аттестации (Keybox)</string>
+    <string name="keybox_data_summary">Загрузить пользовательский XML keybox для переопределения аттестации ключа устройства</string>
+    <string name="keybox_data_loaded_summary">Загружен keybox %1$s с %2$d сертификатами (%3$s)</string>
+    <string name="keybox_delete_content_description">Очистить данные keybox</string>
+    <string name="keybox_toast_invalid_file_selected">Это не XML файл. Выберите синтаксически корректный XML keybox.</string>
+    <string name="keybox_toast_missing_data">Неверный XML keybox: отсутствуют обязательные поля</string>
+    <string name="keybox_toast_file_loaded">Keybox загружен</string>
+    <string name="keybox_toast_file_cleared">Keybox очищен</string>
+
+    <!-- Pif Data -->
+    <string name="pif_data_title">Выбрать PIF JSON для спуфинга (PIF)</string>
+    <string name="pif_data_summary">Выбрать PIF JSON, используемый для подмены аттестации свойств для Google Mobile Services и Play Store. Нажмите кнопку удаления, чтобы сбросить свойства данных PIF и использовать динамические свойства PIF, которые используются по умолчанию.</string>
+    <string name="pif_data_loaded_summary">Загружено %1$d свойств (%2$s)</string>
+    <string name="pif_delete_content_description">Очистить данные PIF</string>
+    <string name="pif_toast_invalid_file_selected">Это не JSON файл. Выберите синтаксически корректный PIF JSON.</string>
+    <string name="pif_toast_file_loaded">PIF JSON загружен</string>
+    <string name="pif_toast_file_cleared">PIF JSON очищен</string>
+
+    <!-- Spoofing Categories -->
+    <string name="spoofing_attestation_category_title">Аттестация</string>
+    <string name="spoofing_attestation_category_summary">Аттестация устройства и спуфинг сертификатов</string>
+    <string name="spoofing_apps_category_title">Подмена приложений</string>
+    <string name="spoofing_apps_category_summary">Подмена свойств устройства для конкретных приложений</string>
+
+    <!-- Google Photos Spoof -->
+    <string name="gphotos_spoof_title">Неограниченное хранилище фотографий</string>
+    <string name="gphotos_spoof_summary">Спуфинг вашего устройства как Pixel XL только для приложения Google Фото, чтобы обеспечить неограниченное хранилище для резервных копий</string>
+
+    <!-- Ambient edge lighting -->
+    <string name="ambient_edge_light_action_title">Подсветка краёв экрана</string>
+    <string name="ambient_edge_light_title">Подсветка краёв</string>
+    <string name="ambient_edge_light_enable_title">Включить подсветку краёв</string>
+    <string name="ambient_edge_light_summary">Подсвечивать боковые края экрана пульсом при получении уведомления</string>
+    <string name="ambient_edge_light_color_mode_category_title">Цвет</string>
+    <string name="ambient_edge_light_color_mode_auto">Авто</string>
+    <string name="ambient_edge_light_color_mode_app">Цвет приложения</string>
+    <string name="ambient_edge_light_color_mode_manual">Вручную</string>
+    <string name="ambient_edge_light_color_mode_rainbow">Радуга</string>
+    <string name="ambient_edge_light_color_mode_auto_summary">Установить цвет подсветки краёв на системный цвет</string>
+    <string name="ambient_edge_light_color_mode_app_summary">Установить цвет подсветки краёв в цвет приложения</string>
+    <string name="ambient_edge_light_color_mode_manual_summary">Выбрать цвет вручную</string>
+    <string name="ambient_edge_light_color_mode_rainbow_summary">Использовать градиентные цвета радуги</string>
+    <string name="ambient_edge_light_advanced_category_title">Дополнительно</string>
+    <string name="ambient_edge_light_duration_title">Длительность подсветки</string>
+    <string name="ambient_edge_light_repeat_count_title">Количество повторов</string>
+    <string name="ambient_edge_light_width_title">Ширина подсветки</string>
+    <string name="ambient_edge_light_face_down_title">Активация при перевороте</string>
+    <string name="ambient_edge_light_face_down_summary">Показывать подсветку краёв только когда телефон перевёрнут экраном вниз</string>
+    <string name="edge_light_style_title">Стиль отрисовки</string>
+    <string name="edge_light_style_default">По умолчанию (слева/справа)</string>
+    <string name="edge_light_style_frame">Рамка (все стороны)</string>
+    <string name="edge_light_animation_effect_title">Эффект анимации</string>
+    <string name="edge_light_animation_effect_none">Стандартный</string>
+    <string name="edge_light_animation_effect_breathing">Дыхание</string>
+    <string name="edge_light_animation_effect_wave">Волна</string>
+    <string name="edge_light_animation_effect_sparkle">Искры</string>
+    <string name="edge_light_animation_effect_chase">Чейзер</string>
+    <string name="edge_light_animation_effect_comet">Комета</string>
+
+    <!-- Fingerprint Ripple Effect -->
+    <string name="enable_fingerprint_ripple_effect_title">Анимация разблокировки</string>
+    <string name="enable_fingerprint_ripple_effect_summary">Показывать эффект ряби при разблокировке отпечатком пальца</string>
+
+    <!-- Ambient AOD -->
+    <string name="ambient_aod_title">Always On Display (AOD)</string>
+    <string name="ambient_aod_summary">Включить улучшения обоев и Always On Display (AOD) в режиме ожидания</string>
+
+    <!-- Ongoing action chip -->
+    <string name="ongoing_chip_category_title">Индикатор действий</string>
+    <string name="ongoing_progress_settings_title">Индикатор действий в панели состояния</string>
+    <string name="ongoing_progress_settings_summary">Параметры индикатора действий в панели состояния</string>
+    <string name="ongoing_action_chip_title">Индикатор текущих действий</string>
+    <string name="ongoing_action_chip_summary">Показывать индикатор прогресса в панели состояния для текущих действий, таких как загрузки</string>
+    <string name="show_media_progress_title">Показывать прогресс медиа</string>
+    <string name="show_media_progress_summary">Отображать прогресс воспроизведения медиа в панели состояния</string>
+    <string name="progress_footer_text">
+    "Индикатор действий в панели состояния предоставляет обновления в реальном времени как для воспроизведения медиа, так и для активных загрузок/выгрузок.
+
+    Прогресс медиа:
+    • Отображает прогресс воспроизведения музыки и видео, когда медиа воспроизводится.
+    • Одно нажатие открывает элементы управления воспроизведением (Предыдущий, Следующий трек).
+    • Двойное нажатие переключает воспроизведение/паузу.
+    • Свайп влево переходит к предыдущему треку.
+    • Свайп вправо переходит к следующему треку.
+    • Долгое нажатие открывает приложение медиа.
+
+    Прогресс загрузки/выгрузки:
+    • Показывает прогресс текущих загрузок и выгрузок.
+    • Автоматически скрывается, когда не обнаружено активных передач.
+    • Одно нажатие открывает приложение, отвечающее за загрузку.
+
+Индикатор прогресса динамически переключается между состояниями медиа и загрузки, обеспечивая наиболее актуальную информацию с первого взгляда."
+    </string>
+    <string name="compact_progress_mode_title">Компактный индикатор прогресса</string>
+    <string name="compact_progress_mode_summary">Использовать компактный круговой индикатор для текущих действий</string>
+
+    <!-- Heads-up -->
+    <string name="compact_heads_up_notifications_enabled_title">Компактные всплывающие уведомления</string>
+    <string name="compact_heads_up_notifications_enabled_summary">Отображать уведомления в компактном размере</string>
+
+    <!-- Hide statusbar on lockscreen -->
+    <string name="lockscreen_hide_status_bar_title">Скрыть панель состояния</string>
+    <string name="lockscreen_hide_status_bar_summary">При включении панель состояния будет скрыта на экране блокировки</string>
+
+    <!-- Island Notification -->
+    <string name="island_notifications_category_title">Островные уведомления (DynamicIsland)</string>
+    <string name="island_notification_title">Островное уведомление (Dynamic Island)</string>
+    <string name="island_notification_summary">Отображать всплывающие уведомления в стиле Dynamic Island</string>
+    <string name="island_notification_footer_text">
+        Функция уведомлений Dynamic Island, вдохновлённая Dynamic Island от iOS, преобразует всплывающие уведомления Android в компактную утилиту быстрого доступа.\n\nЭлементы управления быстрого доступа Dynamic Island включают следующие функции:\n1. Нажмите на островок для быстрого ответа на звонки.\n2. Долгое нажатие на уведомление для отклонения звонков.\n3. Долгое нажатие на уведомление для развёртывания предпросмотра уведомления.
+    </string>
+
+    <!-- Settings dashboard icon style -->
+    <string name="theming_settings_dashboard_icons_title">Иконки приложения настроек</string>
+    <string name="theming_settings_dashboard_icons_default">По умолчанию AOSP (естественная тематизация)</string>
+    <string name="theming_settings_dashboard_icons_white">Фон системы / Белый передний план</string>
+    <string name="theming_settings_dashboard_icons_accent">Акцентный фон / Прозрачный передний план</string>
+    <string name="theming_settings_dashboard_icons_plain">Прозрачный фон / Обычный передний план</string>
+    <string name="theming_settings_dashboard_icons_plain_accent">Прозрачный фон / Акцентный передний план</string>
+
+    <!-- QS Header -->
+    <string name="qs_header_image_title">Изображение заголовка быстрых настроек</string>
+    <string name="qs_header_image_summary">Выбрать фоновое изображение заголовка быстрых настроек</string>
+    <string name="qs_header_daylight_pack_title">Набор изображений заголовка</string>
+    <string name="qs_header_shadow_title">Тень изображения заголовка быстрых настроек</string>
+    <string name="qs_header_shadow_summary">Для лучшей видимости на ярких изображениях</string>
+    <string name="qs_header_static_provider_title">Статическое изображение</string>
+    <string name="qs_header_daylight_provider_title">Набор изображений</string>
+    <string name="qs_header_file_provider_title">Пользовательское изображение</string>
+    <string name="qs_header_provider_title">Источник заголовка</string>
+    <string name="qs_header_browse_title">Просмотр установленных заголовков</string>
+    <string name="qs_header_browse_summary">Просмотр всех доступных коллекций заголовков</string>
+    <string name="qs_header_pick_title">Выбрать изображение заголовка</string>
+    <string name="qs_header_pick_summary">Выбрать изображение для использования в статическом режиме</string>
+    <string name="qs_header_file_select_title">Выбрать изображение</string>
+    <string name="qs_header_file_select_summary">Выбрать пользовательское изображение</string>
+    <string name="qs_header_needs_gallery">Необходимо установить приложение галереи!</string>
+    <string name="enable">Включить</string>
+    <string name="qs_header_offset_title">Смещение изображения заголовка</string>
+    <string name="qs_header_offset_summary">Настроить размер смещения заголовка</string>
+    
+    <!-- Screen Off animation -->
+    <string name="screen_off_animation_title">Анимация выключения экрана</string>
+    <string name="screen_off_animation_default">По умолчанию</string>
+    <string name="screen_off_animation_crt">CRT</string>
+    <string name="screen_off_animation_scale">Масштаб</string>
+
+    <!-- Pulse music visualizer -->
+    <string name="pulse_help_policy_notice_title">О Pulse</string>
+    <string name="pulse_help_policy_notice_summary">Pulse — это блестящий аудиовизуализатор при воспроизведении музыки на устройстве</string>
+    <string name="pulse_ambient_edge_light_category_title">Подсветка краёв Pulse</string>
+    <string name="pulse_visualizer_category_title">Визуализатор Pulse</string>
+    <string name="pulse_settings">Pulse</string>
+    <string name="pulse_settings_summary">Аудиовизуализатор для экрана блокировки и Always On Display (AOD)</string>
+    <string name="show_navbar_pulse_title">Pulse на панели навигации</string>
+    <string name="show_navbar_pulse_summary">Аудиовизуализатор на панели навигации</string>
+    <string name="show_lockscreen_pulse_title">Pulse на экране блокировки (AOD)</string>
+    <string name="show_lockscreen_pulse_summary">Аудиовизуализатор на экране блокировки (AOD)</string>
+    <string name="show_ambient_pulse_title">Pulse в режиме ожидания (AOD)</string>
+    <string name="show_ambient_pulse_summary">Аудиовизуализатор на экране ожидания (AOD)</string>
+    <string name="pulse_render_mode_title">Режим отрисовки</string>
+    <string name="pulse_render_mode_fading_bars">Исчезающие блоки</string>
+    <string name="pulse_render_mode_solid_lines">Сплошные линии</string>
+    <string name="pulse_legacy_mode_advanced_category">Настройки режима исчезающих блоков</string>
+    <string name="pulse_custom_fudge_factor">Уровень чувствительности</string>
+    <string name="pulse_lavalamp_speed_title">Скорость лавовой лампы</string>
+    <string name="pulse_solid_units_count">Количество сплошных линий</string>
+    <string name="pulse_solid_units_opacity">Прозрачность сплошных линий</string>
+    <string name="pulse_solid_dimen_category">Настройки режима сплошных линий</string>
+    <string name="pulse_color_mode_title">Цвет</string>
+    <string name="pulse_color_accent">Акцентный</string>
+    <string name="pulse_color_custom">Пользовательский</string>
+    <string name="pulse_color_lava_lamp">Лавовая лампа</string>
+    <string name="pulse_color_auto">Системный цвет</string>
+    <string name="pulse_color_user_title">Выбрать цвет</string>
+    <string name="pulse_smoothing_enabled_title">Включить сглаживание</string>
+    <string name="pulse_smoothing_enabled_summary">Каждая полоса анимируется чуть более плавно</string>
+    <string name="pulse_custom_dimen">Ширина полосы</string>
+    <string name="pulse_custom_div">Расстояние между полосами</string>
+    <string name="pulse_filled_block_size">Размер блока</string>
+    <string name="pulse_empty_block_size">Расстояние между блоками</string>
+    <string name="pulse_solid_units_rounded_title">Скруглённые сплошные линии</string>
+    <string name="pulse_solid_units_rounded_summary">Скруглить сплошные линии</string>
+
+    <!-- Pulse Gravity and mirror options -->
+    <string name="pulse_custom_gravity_title">Гравитация</string>
+    <string name="pulse_custom_gravity_bottom">Внизу</string>
+    <string name="pulse_custom_gravity_top">Вверху</string>
+    <string name="pulse_custom_gravity_center">По центру</string>
+    <string name="visualizer_center_mirrored_title">Центральное зеркалирование</string>
+    <string name="visualizer_center_mirrored_summary">Установить визуализатор в режим центрального зеркалирования</string>
+    <string name="pulse_vertical_mirror_title">Вертикальное зеркалирование</string>
+    <string name="pulse_vertical_mirror_summary">Создать другой пульс и перевернуть вертикально</string>
+
+    <!-- Units -->
+    <string name="unit_milliseconds">мс</string>
+    <string name="unit_pixels">пкс</string>
+
+    <!-- Single tap for keyguard affordance -->
+    <string name="keyguard_affordance_single_tap_title">Одно нажатие для элементов экрана блокировки</string>
+    <string name="keyguard_affordance_single_tap_summary">Переключать элементы экрана блокировки одним нажатием</string>
+
+    <!-- Small landscape notifications -->
+    <string name="small_landscape_notification_title">Маленькие уведомления в альбомной ориентации</string>
+    <string name="small_landscape_notification_summary">Показывать уведомления меньшей ширины в панели уведомлений в альбомной ориентации, как задумано в AOSP</string>
+
+    <!-- Blur intensity -->
+    <string name="blur_intensity_title">Интенсивность размытия</string>
+    <string name="blur_intensity_summary" formatted="false">Управление интенсивностью эффектов размытия во всей системе.\n0% = без размытия, 100% = по умолчанию системы, 200% = двойная интенсивность.</string>
+
+    <!-- QS Panel -->
+    <string name="brightness_category_title">Ползунок яркости</string>
+    <string name="qs_show_brightness_title">Где показывать</string>
+    <string name="qs_show_brightness_hide">Скрыть</string>
+    <string name="qs_show_brightness_normal">Показывать в панели QS</string>
+    <string name="qs_show_brightness_both">Показывать в панели QS и быстрой панели QS</string>
+    <string name="qs_brightness_position_position_title">Переместить вниз</string>
+    <string name="qs_brightness_position_position_summary">Показывать ползунок яркости внизу панели QS</string>
+    <string name="qs_show_auto_brightness_title">Показывать иконку автояркости</string>
+    <string name="qs_show_auto_brightness_summary">Показывать иконку переключения автояркости в ползунке яркости</string>
+    <string name="qs_brightness_match_tile_shape_title">Соответствие формы ползунка яркости форме плитки</string>
+    <string name="qs_brightness_match_tile_shape_summary">Сделать так, чтобы ползунок яркости следовал выбранному режиму формы плитки</string>
+    <string name="qs_brightness_slider_shape_title">Форма ползунка яркости</string>
+    <string name="qs_brightness_slider_shape_summary">Выбрать форму ползунка яркости (только когда не соответствует форме плитки)</string>
+    <string name="qs_brightness_slider_shape_default">По умолчанию</string>
+    <string name="qs_brightness_slider_shape_circle">Круг</string>
+    <string name="qs_brightness_slider_shape_rounded_square">Скруглённый квадрат</string>
+    <string name="qs_show_settings_icon_title">Показывать иконку настроек</string>
+    <string name="qs_show_settings_icon_summary">Показывать иконку настроек в нижней части панели быстрых настроек</string>
+    <string name="qs_show_power_menu_icon_title">Показывать иконку меню питания</string>
+    <string name="qs_show_power_menu_icon_summary">Показывать иконку меню питания в нижней части панели быстрых настроек</string>
+    <string name="data_usage_category_title">Использование данных</string>
+    <string name="data_usage_category_summary">Настройка отображения использования данных в нижней части панели быстрых настроек</string>
+    <string name="footer_category_title">Элементы нижней части</string>
+    <string name="footer_category_summary">Настройка элементов нижней части панели быстрых настроек</string>
+
+    <!-- Data usage info in QS footer -->
+    <string name="qs_footer_datausage_title">Использование данных</string>
+    <string name="qs_footer_datausage_summary">Отображать сводку использования данных в нижней части панели быстрых настроек</string>
+    <string name="qs_footer_datausage_summary_daily">Отображать ежедневную сводку использования данных в нижней части панели быстрых настроек</string>
+    <string name="qs_footer_datausage_summary_weekly">Отображать еженедельную сводку использования данных в нижней части панели быстрых настроек</string>
+    <string name="qs_data_usage_cycle_type_title">Цикл использования данных</string>
+    <string name="qs_data_usage_cycle_type_summary">Выбрать между ежедневным или еженедельным отображением использования данных</string>
+    <string name="qs_data_usage_cycle_daily">Ежедневно</string>
+    <string name="qs_data_usage_cycle_weekly">Еженедельно</string>
+    <string name="qs_show_data_usage_cycle_info_title">Показывать информацию о цикле</string>
+    <string name="qs_show_data_usage_cycle_info_summary">Отображать дополнительную информацию о цикле использования данных</string>
+    <string name="qs_show_edit_button_title">Показывать кнопку редактирования</string>
+    <string name="qs_show_edit_button_summary">Показывать кнопку редактирования в панели быстрых настроек</string>
+    <string name="qs_enable_tile_squishing_title">Режим формы плитки</string>
+    <string name="qs_enable_tile_squishing_summary">Выбрать, как плитки отображаются в панели быстрых настроек</string>
+    <string name="qs_tile_shape_mode_normal">Обычный</string>
+    <string name="qs_tile_shape_mode_all_round">Все скруглённые</string>
+    <string name="qs_tile_shape_mode_all_squared">Все квадратные</string>
+
+    <!-- QS Layout Settings -->
+    <string name="qs_layout_settings_title">Макет быстрых настроек</string>
+    <!-- QS Notifications category -->
+    <string name="qs_notifications_category_title">Уведомления</string>
+    <string name="qs_layout_category_title">Макет панели быстрых настроек</string>
+    <string name="qs_layout_category_summary">Настроить макет панели быстрых настроек</string>
+    <string name="qs_layout_columns_title">Столбцы</string>
+    <string name="qs_layout_columns_summary">столбцов (влияет на панели быстрых настроек)</string>
+    <string name="qs_layout_rows_title">Строки</string>
+    <string name="qs_layout_rows_summary">строк</string>
+    <string name="qqs_layout_category_title">Макет быстрой панели быстрых настроек</string>
+    <string name="qqs_layout_category_summary">Настроить макет быстрой панели быстрых настроек (столбцы общие с быстрыми настройками)</string>
+    <string name="qqs_layout_rows_title">Строки</string>
+    <string name="qqs_layout_rows_summary">строк</string>
+    <string name="qs_layout_columns_landscape_title">Столбцы (альбомная ориентация)</string>
+    <string name="qs_layout_columns_landscape_summary">столбцов для альбомной ориентации (влияет на панели быстрых настроек)</string>
+    <string name="qs_layout_rows_landscape_title">Строки (альбомная ориентация)</string>
+    <string name="qs_layout_rows_landscape_summary">строк для альбомной ориентации</string>
+    <string name="qqs_layout_rows_landscape_title">Строки (альбомная ориентация)</string>
+    <string name="qqs_layout_rows_landscape_summary">строк для альбомной ориентации</string>
+    <string name="qs_media_respect_halving_title">Медиа с учётом деления пополам (быстрые настройки)</string>
+    <string name="qs_media_respect_halving_summary">При включении медиа в строке будет делить столбцы быстрых настроек пополам</string>
+    <string name="qs_layout_default">По умолчанию (система)</string>
+
+    <!-- Heads up -->
+    <string name="heads_up_notifications_title">Всплывающие уведомления</string>
+    <string name="heads_up_notifications_summary">Настроить параметры всплывающих уведомлений</string>
+    <string name="heads_up_notifications_enable">Включить всплывающие уведомления</string>
+    <string name="heads_up_stoplist_title">Список исключений приложений</string>
+    <string name="heads_up_stoplist_summary">Отключить все всплывающие уведомления в конкретных приложениях</string>
+    <string name="heads_up_blacklist_title">Чёрный список приложений</string>
+    <string name="heads_up_blacklist_summary">Отключить все всплывающие уведомления от конкретных приложений</string>
+
+    <!-- Heads up timeout -->
+    <string name="heads_up_time_out_title">Таймаут</string>
+    <string name="heads_up_time_out_summary">Всплывающие уведомления будут показываться <xliff:g id="number">%d</xliff:g> секунд</string>
+    <string name="heads_up_time_out_2sec">2 секунды</string>
+    <string name="heads_up_time_out_4sec">4 секунды</string>
+    <string name="heads_up_time_out_5sec">5 секунд</string>
+    <string name="heads_up_time_out_6sec">6 секунд</string>
+    <string name="heads_up_time_out_8sec">8 секунд</string>
+    <string name="heads_up_time_out_10sec">10 секунд</string>
+
+    <!-- Heads up snooze -->
+    <string name="heads_up_snooze_title">Таймер отложенных</string>
+    <string name="heads_up_snooze_summary_one_minute">Свайп вверх по всплывающим уведомлениям отложит всплывающие уведомления от этого приложения на 1 минуту</string>
+    <string name="heads_up_snooze_summary">Свайп вверх по всплывающим уведомлениям отложит всплывающие уведомления от этого приложения на <xliff:g id="number">%d</xliff:g> минут</string>
+    <string name="heads_up_snooze_disabled_summary">Таймер отложенных отключён</string>
+    <string name="heads_up_snooze_1min">1 минута</string>
+    <string name="heads_up_snooze_5min">5 минут</string>
+    <string name="heads_up_snooze_10min">10 минут</string>
+    <string name="heads_up_snooze_15min">15 минут</string>
+    <string name="heads_up_snooze_20min">20 минут</string>
+
+    <!-- Less boring heads up -->
+    <string name="less_boring_heads_up_title">Сделать всплывающие уведомления менее надоедливыми</string>
+    <string name="less_boring_heads_up_summary">Показывать всплывающие уведомления только для приложения звонков или сообщений, если они не на переднем плане</string>
+
+    <!-- Lock screen media art -->
+    <string name="ls_media_art_title">Обложка медиа</string>
+    <string name="ls_media_art_summary">Отображать обложку медиа, когда доступна</string>
+
+    <!-- Lock screen album art filter -->
+    <string name="ls_media_art_filter_title">Фильтр обложки медиа</string>
+    <string name="ls_media_art_filter_none">Нет</string>
+    <string name="ls_media_art_filter_blur">Размытие</string>
+    <string name="ls_media_art_filter_grayscale">Оттенки серого</string>
+    <string name="ls_media_art_filter_sepia">Сепия</string>
+    <string name="ls_media_art_filter_tint">Акцентная тонировка</string>
+    <string name="ls_media_art_filter_invert">Инверсия</string>
+    <string name="ls_media_art_filter_grayblur">Оттенки серого и размытие</string>
+
+    <!-- Lock screen media art fade level -->
+    <string name="ls_media_art_fade_level_title">Уровень затухания обложки медиа</string>
+    <string name="ls_media_art_fade_level_summary">Установить уровень затухания обложки медиа</string>
+    
+    <!-- Lock screen media art blur level -->
+    <string name="ls_media_art_blur_level_title">Уровень размытия обложки медиа</string>
+    <string name="ls_media_art_blur_level_summary">Интенсивность размытия при применении фильтра размытия</string>
+
+    <!-- Notification Row -->
+    <string name="notification_row_transparency_level_title">Уровень прозрачности</string>
+    <string name="notification_row_transparency_level_summary" formatted="false">Настроить прозрачность строки уведомления (0–100%). 0% = по умолчанию AOSP (полностью непрозрачно).</string>
+    <string name="notification_row_transparency_context_title">Контекстно-зависимая прозрачность</string>
+    <string name="notification_row_transparency_context_summary">Применять прозрачность только в шторке уведомлений. Отключить для применения везде (включая всплывающие уведомления и экран блокировки).</string>
+
+    <!-- GMS cert chain -->
+    <string name="gms_cert_chain_title">Отключить принудительную строгую целостность</string>
+    <string name="gms_cert_chain_summary">Принудительная строгая целостность ломает приложения, такие как Google Pay, включение этой опции исправляет такие приложения.</string>
+
+    <!-- About -->
+    <string name="about_title">О программе</string>
+    <string name="about_summary">О DerpFest и ссылки</string>
+    <string name="no_browser">Пожалуйста, выберите браузер по умолчанию</string>
+    <string name="about_team_category">Наша команда</string>
+    <string name="about_external_category">Внешние ссылки</string>
+    <string name="about_dev_title">Ведущий разработчик</string>
+    <string name="about_dev_name">Alexander Brunswig</string>
+    <string name="about_dev_git" translatable="false">https://github.com/NurKeinNeid</string>
+    <string name="about_qa_title">Руководитель тестирования</string>
+    <string name="about_qa_name">David Setiawan</string>
+    <string name="about_qa_git" translatable="false">https://github.com/fryevia</string>
+    <string name="about_site_title">Сайт</string>
+    <string name="about_site_summary">Посетить DerpFest.org</string>
+    <string name="about_site_link" translatable="false">https://derpfest.org/</string>
+    <string name="about_tg_title">Группа Telegram</string>
+    <string name="about_tg_summary">Официальная глобальная группа Telegram</string>
+    <string name="about_tg_link" translatable="false">https://t.me/DerpFestAOSP</string>
+    <string name="about_wall_title">Обои</string>
+    <string name="about_wall_summary">Канал Telegram с обоями, созданными сообществом DerpFest</string>
+    <string name="about_wall_link" translatable="false">https://t.me/DerpFestWalls</string>
+    <string name="about_git_title">Исходный код ROM</string>
+    <string name="about_git_summary">Просмотреть исходный код прошивки на GitHub</string>
+    <string name="about_git_link" translatable="false">https://github.com/DerpFest-AOSP</string>
+    <string name="about_devices_git_title">Исходный код устройств</string>
+    <string name="about_devices_git_summary">Просмотреть исходный код устройств DerpFest на GitHub</string>
+    <string name="about_devices_git_link" translatable="false">https://github.com/DerpFest-Devices</string>
+    <string name="about_phone_title">О телефоне</string>
+    <string name="about_phone_summary">Открыть системную страницу о телефоне</string>
+
+    <!-- About - Device specific links -->
+    <string name="about_device_category">Ссылки для конкретного устройства</string>
+    <string name="about_device_fw">Требуемая прошивка</string>
+    <string name="about_device_fw_ver" translatable="false"></string> <!-- Firmware version -->
+    <string name="about_device_fw_link" translatable="false"></string> <!-- Firmware link -->
+    <string name="about_device_recovery">Рекомендуемое Recovery</string>
+    <string name="about_device_recovery_ver" translatable="false"></string> <!-- Recovery version -->
+    <string name="about_device_recovery_link" translatable="false"></string> <!-- Recovery link -->
+
+    <!-- About - Easter Egg -->
+    <plurals name="show_derped_countdown">
+        <item quantity="one">Вам остался <xliff:g id="derp_count">%1$d</xliff:g> шаг до того, чтобы стать разрабом.</item>
+        <item quantity="few">Вам осталось <xliff:g id="derp_count">%1$d</xliff:g> шага до того, чтобы стать разрабом.</item>
+        <item quantity="many">Вам осталось <xliff:g id="derp_count">%1$d</xliff:g> шагов до того, чтобы стать разрабом.</item>
+        <item quantity="other">Вам осталось <xliff:g id="derp_count">%1$d</xliff:g> шагов до того, чтобы стать разрабом.</item>
+    </plurals>
+    <string name="derpd_done">Ты теперь разработчик!!!</string>
+
+    <!-- chinese lunar calendar -->
+    <string name="qs_show_lunar_calendar_title">Китайский лунный календарь</string>
+    <string name="qs_show_lunar_calendar_summary">Показывать лунный календарь в панели быстрых настроек</string>
+</resources>
+
