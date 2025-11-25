@@ -469,7 +469,7 @@
         <item quantity="many">Вам осталось <xliff:g id="derp_count">%1$d</xliff:g> шагов до того, чтобы стать разрабом.</item>
         <item quantity="other">Вам осталось <xliff:g id="derp_count">%1$d</xliff:g> шагов до того, чтобы стать разрабом.</item>
     </plurals>
-    <string name="derpd_done">Ты теперь разработчик!!!</string>
+    <string name="derpd_done">Ты теперь разработчик!</string>
 
     <!-- chinese lunar calendar -->
     <string name="qs_show_lunar_calendar_title">Китайский лунный календарь</string>
