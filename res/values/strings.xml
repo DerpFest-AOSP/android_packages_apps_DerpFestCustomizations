@@ -175,6 +175,8 @@ The progress bar dynamically switches between media and download states, ensurin
     </string>
     <string name="compact_progress_mode_title">Compact Progress Indicator</string>
     <string name="compact_progress_mode_summary">Use a compact circular indicator for ongoing actions</string>
+    <string name="progress_bar_opacity_title">Action chip opacity</string>
+    <string name="progress_bar_opacity_summary">Adjust the opacity of the action chip</string>
 
     <!-- Heads-up -->
     <string name="compact_heads_up_notifications_enabled_title">Compact heads-up</string>
