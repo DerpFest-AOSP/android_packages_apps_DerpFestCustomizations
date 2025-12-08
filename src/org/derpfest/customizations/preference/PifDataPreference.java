@@ -49,6 +49,7 @@ public class PifDataPreference extends Preference {
     public void onBindViewHolder(PreferenceViewHolder holder) {
         super.onBindViewHolder(holder);
         final Context ctx = getContext();
+        if (ctx == null) return;
         final ContentResolver cr = ctx.getContentResolver();
 
         TextView title = (TextView) holder.findViewById(R.id.title);
@@ -85,7 +86,6 @@ public class PifDataPreference extends Preference {
         });
 
         deleteButton.setOnClickListener(v -> {
-            if (!callChangeListener(Boolean.FALSE)) return;
             Settings.Secure.putString(cr, Settings.Secure.PIF_DATA, null);
             Settings.Secure.putString(cr, Settings.Secure.PIF_DATA_TIMESTAMP, null);
             Toast.makeText(ctx, ctx.getString(R.string.pif_toast_file_cleared), Toast.LENGTH_SHORT).show();
@@ -96,6 +96,7 @@ public class PifDataPreference extends Preference {
 
     public void handleFileSelected(Uri uri) {
         final Context ctx = getContext();
+        if (ctx == null) return;
         final ContentResolver cr = ctx.getContentResolver();
 
         if (uri == null) {
@@ -125,7 +126,6 @@ public class PifDataPreference extends Preference {
 
             String json = jsonContent.toString();
 
-            if (!callChangeListener(Boolean.TRUE)) return;
             Settings.Secure.putString(cr, Settings.Secure.PIF_DATA, json);
             String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()).format(new Date());
             Settings.Secure.putString(cr, Settings.Secure.PIF_DATA_TIMESTAMP, timestamp);
@@ -161,8 +161,10 @@ public class PifDataPreference extends Preference {
     }
 
     private void killPackages() {
+        final Context ctx = getContext();
+        if (ctx == null) return;
         try {
-            ActivityManager am = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
+            ActivityManager am = (ActivityManager) ctx.getSystemService(Context.ACTIVITY_SERVICE);
             String[] packages = { "com.google.android.gms", "com.android.vending" };
             for (String pkg : packages) {
                 am.getClass()

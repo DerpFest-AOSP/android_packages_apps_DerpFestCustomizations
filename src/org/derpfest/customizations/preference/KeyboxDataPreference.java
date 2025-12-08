@@ -48,6 +48,7 @@ public class KeyboxDataPreference extends Preference {
     public void onBindViewHolder(PreferenceViewHolder holder) {
         super.onBindViewHolder(holder);
         final Context ctx = getContext();
+        if (ctx == null) return;
         final ContentResolver cr = ctx.getContentResolver();
 
         TextView title = (TextView) holder.findViewById(R.id.title);
@@ -89,7 +90,6 @@ public class KeyboxDataPreference extends Preference {
         });
 
         deleteButton.setOnClickListener(v -> {
-            if (!callChangeListener(Boolean.FALSE)) return;
             Settings.Secure.putString(cr, Settings.Secure.KEYBOX_DATA, null);
             Settings.Secure.putString(cr, Settings.Secure.KEYBOX_DATA_TIMESTAMP, null);
             Toast.makeText(ctx, ctx.getString(R.string.keybox_toast_file_cleared), Toast.LENGTH_SHORT).show();
@@ -100,6 +100,7 @@ public class KeyboxDataPreference extends Preference {
 
     public void handleFileSelected(Uri uri) {
         final Context ctx = getContext();
+        if (ctx == null) return;
         final ContentResolver cr = ctx.getContentResolver();
 
         if (uri == null) {
@@ -133,7 +134,6 @@ public class KeyboxDataPreference extends Preference {
                 return;
             }
 
-            if (!callChangeListener(Boolean.TRUE)) return;
             Settings.Secure.putString(cr, Settings.Secure.KEYBOX_DATA, xml);
             String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()).format(new Date());
             Settings.Secure.putString(cr, Settings.Secure.KEYBOX_DATA_TIMESTAMP, timestamp);
