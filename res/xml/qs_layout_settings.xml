@@ -22,7 +22,7 @@
             android:max="6"
             settings:min="2"
             settings:interval="1"
-            settings:units=" columns" />
+            settings:units="@string/qs_layout_columns_units" />
 
         <org.derpfest.support.preferences.ProperSeekBarPreference
             android:key="qs_layout_rows"
@@ -32,7 +32,7 @@
             android:max="7"
             settings:min="1"
             settings:interval="1"
-            settings:units=" rows" />
+            settings:units="@string/qs_layout_rows_units" />
 
         <org.derpfest.support.preferences.ProperSeekBarPreference
             android:key="qs_layout_columns_landscape"
@@ -42,7 +42,7 @@
             android:max="6"
             settings:min="2"
             settings:interval="1"
-            settings:units=" columns" />
+            settings:units="@string/qs_layout_columns_landscape_units" />
 
         <org.derpfest.support.preferences.ProperSeekBarPreference
             android:key="qs_layout_rows_landscape"
@@ -52,7 +52,7 @@
             android:max="7"
             settings:min="1"
             settings:interval="1"
-            settings:units=" rows" />
+            settings:units="@string/qs_layout_rows_landscape_units" />
 
         <org.derpfest.support.preferences.SystemSettingSwitchPreference
             android:key="qs_media_respect_halving"
@@ -76,7 +76,7 @@
             android:max="4"
             settings:min="1"
             settings:interval="1"
-            settings:units=" rows" />
+            settings:units="@string/qqs_layout_rows_units" />
 
         <org.derpfest.support.preferences.ProperSeekBarPreference
             android:key="qqs_layout_rows_landscape"
@@ -86,7 +86,7 @@
             android:max="4"
             settings:min="1"
             settings:interval="1"
-            settings:units=" rows" />
+            settings:units="@string/qqs_layout_rows_landscape_units" />
 
     </PreferenceCategory>
 
