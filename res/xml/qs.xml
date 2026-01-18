@@ -67,11 +67,13 @@
         android:key="brightness_category"
         android:title="@string/brightness_category_title" >
 
-	    <org.derpfest.support.preferences.SystemSettingListPreference
-            android:key="qs_show_brightness"
-            android:title="@string/qs_show_brightness_title"
-            android:entries="@array/qs_show_brightness_entries"
-            android:entryValues="@array/qs_show_brightness_values"
+        <lineageos.preference.LineageSecureSettingListPreference
+            android:key="qs_show_brightness_slider"
+            android:title="@string/qs_show_brightness_slider_title"
+            android:dialogTitle="@string/qs_show_brightness_slider_title"
+            android:summary="%s"
+            android:entries="@array/qs_show_brightness_slider_entries"
+            android:entryValues="@array/qs_show_brightness_slider_values"
             android:defaultValue="1" />
 
         <org.derpfest.support.preferences.SystemSettingListPreference
@@ -81,13 +83,16 @@
             android:entryValues="@array/qs_brightness_slider_shape_values"
             android:defaultValue="0" />
 
-        <org.derpfest.support.preferences.SystemSettingSwitchPreference
-            android:key="qs_brightness_position_bottom"
-            android:title="@string/qs_brightness_position_position_title"
-            android:summary="@string/qs_brightness_position_position_summary" 
-            android:defaultValue="false" />
+        <lineageos.preference.LineageSecureSettingListPreference
+            android:key="qs_brightness_slider_position"
+            android:title="@string/qs_brightness_slider_position_title"
+            android:dialogTitle="@string/qs_brightness_slider_position_title"
+            android:summary="%s"
+            android:entries="@array/qs_brightness_slider_position_entries"
+            android:entryValues="@array/qs_brightness_slider_position_values"
+            android:defaultValue="0" />
 
-        <org.derpfest.support.preferences.SystemSettingSwitchPreference
+        <lineageos.preference.LineageSecureSettingSwitchPreference
             android:key="qs_show_auto_brightness"
             android:title="@string/qs_show_auto_brightness_title"
             android:summary="@string/qs_show_auto_brightness_summary"
