@@ -269,4 +269,11 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="qs_footer_datausage_summary">Display data usage summary in quick settings footer</string>
     <string name="qs_show_edit_button_title">Show edit button</string>
     <string name="qs_show_edit_button_summary">Show the edit button in the quick settings panel</string>
+
+    <!-- QS Tiles Style -->
+    <string name="qs_tile_shape_title">QS tiles shape</string>
+    <string name="qs_tile_shape_dynamic">Dynamic</string>
+    <string name="qs_tile_shape_circle">Circle</string>
+    <string name="qs_tile_shape_rounded_square_smooth">Rounded square (smooth)</string>
+    <string name="qs_tile_shape_rounded_square">Rounded square</string>
 </resources>

@@ -255,4 +255,11 @@
     <string name="qs_footer_datausage_summary">Tägliche Mobilfunk-/WLAN-Datennutzung in der QS-Fußzeile anzeigen</string>
     <string name="qs_show_edit_button_title">Bearbeiten-Button anzeigen</string>
     <string name="qs_show_edit_button_summary">Den Bearbeiten-Button im Schnelleinstellungen-Panel anzeigen</string>
+
+    <!-- QS Tiles Style -->
+    <string name="qs_tile_shape_title">Form der Schnelleinstellungskacheln</string>
+    <string name="qs_tile_shape_dynamic">Dynamisch</string>
+    <string name="qs_tile_shape_circle">Kreis</string>
+    <string name="qs_tile_shape_rounded_square_smooth">Abgerundetes Quadrat (sanft)</string>
+    <string name="qs_tile_shape_rounded_square">Abgerundetes Quadrat</string>
 </resources>

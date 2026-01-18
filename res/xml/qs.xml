@@ -10,6 +10,20 @@
     android:title="@string/qs_title" >
 
     <PreferenceCategory
+        android:key="general_category"
+        android:title="@string/general_category_title"
+        android:summary="@string/general_category_summary" >
+
+        <org.derpfest.support.preferences.SystemSettingListPreference
+            android:key="qs_tile_shape"
+            android:title="@string/qs_tile_shape_title"
+            android:entries="@array/qs_tile_shape_entries"
+            android:entryValues="@array/qs_tile_shape_values"
+            android:defaultValue="0" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="brightness_category"
         android:title="@string/brightness_category_title" >
 
