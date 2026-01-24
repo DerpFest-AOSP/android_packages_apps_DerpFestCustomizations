@@ -31,13 +31,9 @@
 
     <!-- Categories -->
     <string name="general_category_title">Allgemein</string>
-    <string name="general_category_summary">Allgemeine globale Systemeinstellungen</string>
     <string name="security_category_title">Sicherheit</string>
-    <string name="security_category_summary">Sicherheits- und Datenschutzeinstellungen</string>
     <string name="dashboard_category_title">Dashboard</string>
-    <string name="dashboard_category_summary">Dashboard-Erscheinungseinstellungen</string>
     <string name="effects_category_title">Effekte</string>
-    <string name="effects_category_summary">Visuelle Effekte und Animationen</string>
 
     <!-- Ignore window secure -->
     <string name="ignore_window_secure_title">Flag für sichere Fenster ignorieren</string>
@@ -98,9 +94,7 @@
 
     <!-- Spoofing Categories -->
     <string name="spoofing_attestation_category_title">Attestation</string>
-    <string name="spoofing_attestation_category_summary">Geräte-Attestation und Zertifikat-Spoofing</string>
     <string name="spoofing_apps_category_title">App-Spoofing</string>
-    <string name="spoofing_apps_category_summary">Geräteeigenschaften für bestimmte Anwendungen spoofen</string>
 
     <!-- Google Photos Spoof -->
     <string name="gphotos_spoof_title">Unbegrenzter Fotospeicher</string>
@@ -312,9 +306,7 @@
     <string name="qs_show_power_menu_icon_title">Power-Menü-Symbol anzeigen</string>
     <string name="qs_show_power_menu_icon_summary">Das Power-Menü-Symbol in der Schnelleinstellungen-Fußzeile anzeigen</string>
     <string name="data_usage_category_title">Datennutzung</string>
-    <string name="data_usage_category_summary">Datennutzungsanzeige in der Schnelleinstellungen-Fußzeile konfigurieren</string>
     <string name="footer_category_title">Fußzeilen-Elemente</string>
-    <string name="footer_category_summary">Schnelleinstellungen-Fußzeilen-Elemente anpassen</string>
 
     <!-- Data usage info in QS footer -->
     <string name="qs_footer_datausage_title">Datennutzung anzeigen</string>
@@ -352,7 +344,6 @@
     <string name="qs_layout_rows_title">Zeilen</string>
     <string name="qs_layout_rows_summary">Zeilen</string>
     <string name="qqs_layout_category_title">Quick QS-Layout</string>
-    <string name="qqs_layout_category_summary">Layout des Quick QS-Panels konfigurieren (Spalten werden mit QS geteilt)</string>
     <string name="qqs_layout_rows_title">Zeilen</string>
     <string name="qqs_layout_rows_summary">Zeilen</string>
     <string name="qs_layout_columns_landscape_title">Spalten (Querformat)</string>
@@ -386,10 +377,10 @@
     <string name="ls_media_art_blur_level_summary">Unschärfe-Intensität beim Anwenden des Unschärfe-Filters</string>
 
     <!-- Notification Row -->
-    <string name="notification_row_transparency_level_title">Transparenzstufe</string>
-    <string name="notification_row_transparency_level_summary" formatted="false">Transparenz der Benachrichtigungszeilen anpassen (0–100%). 0% = AOSP-Standard (vollständig undurchsichtig).</string>
-    <string name="notification_row_transparency_context_title">Kontextabhängige Transparenz</string>
-    <string name="notification_row_transparency_context_summary">Transparenz nur im Benachrichtigungsbereich anwenden. Deaktivieren, um überall anzuwenden (inkl. Heads-up und Sperrbildschirm).</string>
+    <string name="notification_row_transparency_title">Durchsichtige Benachrichtigungen</string>
+    <string name="notification_row_transparency_summary">Durchsichtigen Hintergrund für Benachrichtigungen in Schnelleinst. festlegen</string>
+    <string name="notification_row_transparency_lockscreen_title">Durchsichtige Sperrbildschirmbenachrichtigungen</string>
+    <string name="notification_row_transparency_lockscreen_summary">Durchsichtigen Hintergrund für Benachrichtigungen auf Sperrbildschirm festlegen</string>
 
     <!-- Status Bar Ticker -->
     <string name="ticker_screen_title">Ticker</string>

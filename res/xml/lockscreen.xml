@@ -11,8 +11,7 @@
 
     <PreferenceCategory
         android:key="general_category"
-        android:title="@string/general_category_title"
-        android:summary="@string/general_category_summary" >
+        android:title="@string/general_category_title" >
 
         <org.derpfest.support.preferences.SystemSettingSwitchPreference
             android:key="hide_lockscreen_status_bar"

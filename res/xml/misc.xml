@@ -10,8 +10,7 @@
     android:title="@string/misc_title" >
 
     <PreferenceCategory
-        android:title="@string/security_category_title"
-        android:summary="@string/security_category_summary">
+        android:title="@string/security_category_title">
 
         <org.derpfest.support.preferences.GlobalSettingSwitchPreference
             android:key="window_ignore_secure"
@@ -22,8 +21,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="@string/dashboard_category_title"
-        android:summary="@string/dashboard_category_summary">
+        android:title="@string/dashboard_category_title">
 
         <org.derpfest.support.preferences.SystemSettingIntListPreference
             android:key="theming_settings_dashboard_icons"
@@ -35,8 +33,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="@string/effects_category_title"
-        android:summary="@string/effects_category_summary">
+        android:title="@string/effects_category_title">
 
         <org.derpfest.support.preferences.SystemSettingSeekBarPreference
             android:key="blur_intensity"

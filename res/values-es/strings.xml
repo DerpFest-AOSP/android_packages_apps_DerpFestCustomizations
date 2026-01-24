@@ -31,7 +31,6 @@
 
     <!-- Categories -->
     <string name="general_category_title">General</string>
-    <string name="general_category_summary">Ajustes generales del sistema</string>
 
     <!-- Ignore window secure -->
     <string name="ignore_window_secure_title">Ignorar indicadores de seguridad de ventana</string>
