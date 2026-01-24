@@ -31,13 +31,9 @@
 
     <!-- Categories -->
     <string name="general_category_title">General</string>
-    <string name="general_category_summary">General global system settings</string>
     <string name="security_category_title">Security</string>
-    <string name="security_category_summary">Security and privacy related settings</string>
     <string name="dashboard_category_title">Dashboard</string>
-    <string name="dashboard_category_summary">Dashboard appearance settings</string>
     <string name="effects_category_title">Effects</string>
-    <string name="effects_category_summary">Visual effects and animations</string>
 
     <!-- Ignore window secure -->
     <string name="ignore_window_secure_title">Ignore window secure flags</string>
@@ -98,9 +94,7 @@
 
     <!-- Spoofing Categories -->
     <string name="spoofing_attestation_category_title">Attestation</string>
-    <string name="spoofing_attestation_category_summary">Device attestation and certificate spoofing</string>
     <string name="spoofing_apps_category_title">App Spoofing</string>
-    <string name="spoofing_apps_category_summary">Spoof device properties for specific applications</string>
 
     <!-- Google Photos Spoof -->
     <string name="gphotos_spoof_title">Unlimited Photos storage</string>
@@ -326,9 +320,7 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="qs_show_power_menu_icon_title">Show power menu icon</string>
     <string name="qs_show_power_menu_icon_summary">Show the power menu icon in the quick settings footer</string>
     <string name="data_usage_category_title">Data usage</string>
-    <string name="data_usage_category_summary">Configure data usage display in quick settings footer</string>
     <string name="footer_category_title">Footer items</string>
-    <string name="footer_category_summary">Customize quick settings footer items</string>
 
     <!-- Data usage info in QS footer -->
     <string name="qs_footer_datausage_title">Data usage</string>
@@ -366,7 +358,6 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="qs_layout_rows_title">Rows</string>
     <string name="qs_layout_rows_summary">rows</string>
     <string name="qqs_layout_category_title">Quick Quick Settings Layout</string>
-    <string name="qqs_layout_category_summary">Configure the layout of the quick quick settings panel (columns are shared with QS)</string>
     <string name="qqs_layout_rows_title">Rows</string>
     <string name="qqs_layout_rows_summary">rows</string>
     <string name="qs_layout_columns_landscape_title">Columns (Landscape)</string>

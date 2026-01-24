@@ -59,7 +59,6 @@
     <string name="pif_data_error">Не вдалося завантажити дані PIF</string>
     <string name="keybox_summary">Керування даними keybox\'ів на пристрої</string>
     <string name="monet_engine_color_source_both">Обидва (за замовчуванням)</string>
-    <string name="footer_category_summary">Налаштувати елементи нижнього колонтитула панелі швидких налаштувань</string>
     <string name="progress_footer_text">"Чип дій у рядку стану забезпечує оновлення в реальному часі як для відтворення медіа, так і для активних завантажень/вивантажень.\n\n    Прогрес відтворення:\n    - Відображає хід відтворення музики та відео під час відтворення медіафайлів.\n    - Поодинокий дотик відкриває елементи керування відтворенням (попередній чи наступний трек).\n    - Подвійний дотик перемикає відтворення/паузу.\n    - Свайп вліво для переходу до попередньої доріжки.\n    - Свайп вправо - перехід до наступної доріжки.\n    - Тривале натискання відкриває мультимедійну програму.\n\n    Прогрес завантаження/вивантаження:\n    - Відображає хід поточних завантажень і вивантажень.\n    - Автоматично ховається, якщо не виявлено жодної активної передачі.\n    - Одноразове натискання відкриває програму, відповідальну за завантаження.\n\nІндикатор прогресу динамічно перемикається між станами медіа та завантаження, щоб ви завжди мали найактуальнішу інформацію."</string>
     <string name="ambient_edge_light_enable_title">Увімкнути підсвічування країв</string>
     <string name="location_privacy_indicator_title">Геодані</string>
@@ -115,7 +114,6 @@
     <string name="monet_engine_style_content">Зміст</string>
     <string name="pulse_color_lava_lamp">Лава-лампа</string>
     <string name="compact_progress_mode_title">Компактний індикатор прогресу</string>
-    <string name="general_category_summary">Загальні системні налаштування</string>
     <string name="pulse_custom_fudge_factor">Рівень нормальності</string>
     <string name="unit_pixels">px</string>
     <string name="keybox_data_loaded">Дані keybox\'а успішно завантажено</string>

@@ -11,8 +11,7 @@
 
     <PreferenceCategory
         android:key="general_category"
-        android:title="@string/general_category_title"
-        android:summary="@string/general_category_summary" >
+        android:title="@string/general_category_title" >
 
         <org.derpfest.support.preferences.SystemSettingListPreference
             android:key="qs_tile_shape"
@@ -37,8 +36,7 @@
 
     <PreferenceCategory
         android:key="layout_category"
-        android:title="@string/qs_layout_settings_title"
-        android:summary="@string/qs_layout_category_summary" >
+        android:title="@string/qs_layout_settings_title" >
 
         <Preference
             android:key="qs_layout_settings"
@@ -103,8 +101,7 @@
 
     <PreferenceCategory
         android:key="data_usage_category"
-        android:title="@string/data_usage_category_title"
-        android:summary="@string/data_usage_category_summary" >
+        android:title="@string/data_usage_category_title" >
 
         <org.derpfest.support.preferences.SecureSettingSwitchPreference
             android:key="qs_show_data_usage"
@@ -123,8 +120,7 @@
 
     <PreferenceCategory
         android:key="footer_category"
-        android:title="@string/footer_category_title"
-        android:summary="@string/footer_category_summary" >
+        android:title="@string/footer_category_title" >
 
         <org.derpfest.support.preferences.SystemSettingSwitchPreference
             android:key="qs_show_edit_button"

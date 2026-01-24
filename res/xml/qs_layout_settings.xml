@@ -11,8 +11,7 @@
 
     <PreferenceCategory
         android:key="qs_layout_category"
-        android:title="@string/qs_layout_category_title"
-        android:summary="@string/qs_layout_category_summary" >
+        android:title="@string/qs_layout_category_title" >
 
         <org.derpfest.support.preferences.ProperSeekBarPreference
             android:key="qs_tiles_columns"
@@ -58,8 +57,7 @@
 
     <PreferenceCategory
         android:key="qqs_layout_category"
-        android:title="@string/qqs_layout_category_title"
-        android:summary="@string/qqs_layout_category_summary" >
+        android:title="@string/qqs_layout_category_title" >
 
 
         <org.derpfest.support.preferences.ProperSeekBarPreference

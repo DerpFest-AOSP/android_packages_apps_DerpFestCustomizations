@@ -10,8 +10,7 @@
     android:title="@string/spoofing_title" >
 
     <PreferenceCategory
-        android:title="@string/spoofing_attestation_category_title"
-        android:summary="@string/spoofing_attestation_category_summary">
+        android:title="@string/spoofing_attestation_category_title">
 
         <org.derpfest.customizations.preference.KeyboxDataPreference
             android:key="keybox_data_setting"
@@ -24,8 +23,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="@string/spoofing_apps_category_title"
-        android:summary="@string/spoofing_apps_category_summary">
+        android:title="@string/spoofing_apps_category_title">
 
         <!-- Google Photos spoof -->
         <org.derpfest.support.preferences.SystemPropertySwitchPreference

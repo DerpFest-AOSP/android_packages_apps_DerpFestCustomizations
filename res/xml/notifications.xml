@@ -11,8 +11,7 @@
 
     <PreferenceCategory
         android:key="general_category"
-        android:title="@string/general_category_title"
-        android:summary="@string/general_category_summary" >
+        android:title="@string/general_category_title" >
 
         <Preference
             android:key="heads_up_notifications"
