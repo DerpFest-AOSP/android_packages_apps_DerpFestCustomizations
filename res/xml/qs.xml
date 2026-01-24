@@ -36,27 +36,6 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="notifications_category"
-        android:title="@string/qs_notifications_category_title" >
-
-        <org.derpfest.support.preferences.SecureSettingSeekBarPreference
-            android:key="notification_row_transparency_level"
-            android:title="@string/notification_row_transparency_level_title"
-            android:summary="@string/notification_row_transparency_level_summary"
-            android:defaultValue="15"
-            android:max="100"
-            settings:min="0"
-            settings:units="%" />
-
-        <org.derpfest.support.preferences.SecureSettingSwitchPreference
-            android:key="notification_row_transparency_context_aware"
-            android:title="@string/notification_row_transparency_context_title"
-            android:summary="@string/notification_row_transparency_context_summary"
-            android:defaultValue="true" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
         android:key="layout_category"
         android:title="@string/qs_layout_settings_title"
         android:summary="@string/qs_layout_category_summary" >

@@ -390,10 +390,10 @@
     <string name="ls_media_art_blur_level_summary">Unschärfe-Intensität beim Anwenden des Unschärfe-Filters</string>
 
     <!-- Notification Row -->
-    <string name="notification_row_transparency_level_title">Transparenzstufe</string>
-    <string name="notification_row_transparency_level_summary" formatted="false">Transparenz der Benachrichtigungszeilen anpassen (0–100%). 0% = AOSP-Standard (vollständig undurchsichtig).</string>
-    <string name="notification_row_transparency_context_title">Kontextabhängige Transparenz</string>
-    <string name="notification_row_transparency_context_summary">Transparenz nur im Benachrichtigungsbereich anwenden. Deaktivieren, um überall anzuwenden (inkl. Heads-up und Sperrbildschirm).</string>
+    <string name="notification_row_transparency_title">Durchsichtige Benachrichtigungen</string>
+    <string name="notification_row_transparency_summary">Durchsichtigen Hintergrund für Benachrichtigungen in Schnelleinst. festlegen</string>
+    <string name="notification_row_transparency_lockscreen_title">Durchsichtige Sperrbildschirmbenachrichtigungen</string>
+    <string name="notification_row_transparency_lockscreen_summary">Durchsichtigen Hintergrund für Benachrichtigungen auf Sperrbildschirm festlegen</string>
 
     <!-- Status Bar Ticker -->
     <string name="ticker_screen_title">Ticker</string>
