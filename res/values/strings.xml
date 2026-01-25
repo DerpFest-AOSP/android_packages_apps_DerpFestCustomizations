@@ -100,6 +100,11 @@
     <string name="gphotos_spoof_title">Unlimited Photos storage</string>
     <string name="gphotos_spoof_summary">Spoof your device as Pixel XL for Google Photos app only to provide unlimited storage for backup</string>
 
+    <!-- Google Play Integrity Spoof -->
+    <string name="spoofing_integrity_category_title">Google Play Integrity</string>
+    <string name="pi_spoof_title">Google Play Integrity spoof</string>
+    <string name="pi_spoof_summary">Spoof your device as different model for Google Play Integrity</string>
+
     <!-- Ambient edge lighting -->
     <string name="ambient_edge_light_action_title">Ambient edge lighting</string>
     <string name="ambient_edge_light_title">Edge lighting</string>

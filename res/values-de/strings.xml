@@ -100,6 +100,10 @@
     <string name="gphotos_spoof_title">Unbegrenzter Fotospeicher</string>
     <string name="gphotos_spoof_summary">Gerät als Pixel XL für die Google Fotos-App spoofen, um unbegrenzten Speicherplatz für Backups zu erhalten</string>
 
+    <string name="spoofing_integrity_category_title">Google Play Integrität</string>
+    <string name="pi_spoof_title">Google-Play-Integrität-Spoof</string>
+    <string name="pi_spoof_summary">Gerät als anderes Modell für Google Play Integrität spoofen</string>
+
     <!-- Pixel Spoofing -->
     <string name="pixel_spoofing_apps_title">Apps für Pixel-Spoofing</string>
     <string name="pixel_spoofing_apps_summary">Apps auswählen, um sie als Pixel 10 Pro XL zu spoofen</string>
