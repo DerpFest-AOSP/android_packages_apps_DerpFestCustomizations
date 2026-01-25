@@ -10,6 +10,17 @@
     android:title="@string/spoofing_title" >
 
     <PreferenceCategory
+        android:title="@string/spoofing_integrity_category_title">
+
+        <org.derpfest.support.preferences.SystemPropertySwitchPreference
+            android:key="persist.sys.pihooks.pi"
+            android:title="@string/pi_spoof_title"
+            android:summary="@string/pi_spoof_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:title="@string/spoofing_attestation_category_title">
 
         <org.derpfest.customizations.preference.KeyboxDataPreference
