@@ -372,6 +372,8 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="qs_layout_rows_landscape_summary">rows for landscape orientation</string>
     <string name="qqs_layout_rows_landscape_title">Rows (Landscape)</string>
     <string name="qqs_layout_rows_landscape_summary">rows for landscape orientation</string>
+    <string name="qs_media_respect_halving_title">Halve columns when media in row</string>
+    <string name="qs_media_respect_halving_summary">When enabled, QS columns are halved when media controls are shown in the same row as tiles</string>
     <string name="qs_layout_default">Default (System)</string>
 
     <!-- Heads up -->
