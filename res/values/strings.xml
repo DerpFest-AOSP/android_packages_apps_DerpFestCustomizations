@@ -173,6 +173,8 @@ The progress bar dynamically switches between media and download states, ensurin
     </string>
     <string name="compact_progress_mode_title">Compact Progress Indicator</string>
     <string name="compact_progress_mode_summary">Use a compact circular indicator for ongoing actions</string>
+    <string name="progress_bar_opacity_title">Action chip opacity</string>
+    <string name="progress_bar_opacity_summary">Adjust the opacity of the action chip</string>
 
     <!-- Heads-up -->
     <string name="compact_heads_up_notifications_enabled_title">Compact heads-up</string>
@@ -340,19 +342,25 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="qs_layout_category_title">Quick Settings Layout</string>
     <string name="qs_layout_category_summary">Configure the layout of the quick settings panel</string>
     <string name="qs_layout_columns_title">Columns</string>
+    <string name="qs_layout_columns_units"> columns</string>
     <string name="qs_layout_columns_summary">columns (affects both QS and QQS panels)</string>
     <string name="qs_layout_rows_title">Rows</string>
     <string name="qs_layout_rows_summary">rows</string>
+    <string name="qs_layout_rows_units"> rows</string>
     <string name="qqs_layout_category_title">Quick Quick Settings Layout</string>
     <string name="qqs_layout_category_summary">Configure the layout of the quick quick settings panel (columns are shared with QS)</string>
     <string name="qqs_layout_rows_title">Rows</string>
     <string name="qqs_layout_rows_summary">rows</string>
+    <string name="qqs_layout_rows_units"> rows</string>
     <string name="qs_layout_columns_landscape_title">Columns (Landscape)</string>
+    <string name="qs_layout_columns_landscape_units"> columns</string>
     <string name="qs_layout_columns_landscape_summary">columns for landscape orientation (affects both QS and QQS panels)</string>
     <string name="qs_layout_rows_landscape_title">Rows (Landscape)</string>
     <string name="qs_layout_rows_landscape_summary">rows for landscape orientation</string>
+    <string name="qs_layout_rows_landscape_units"> rows</string>
     <string name="qqs_layout_rows_landscape_title">Rows (Landscape)</string>
     <string name="qqs_layout_rows_landscape_summary">rows for landscape orientation</string>
+    <string name="qqs_layout_rows_landscape_units"> rows</string>
     <string name="qs_media_respect_halving_title">Media respect halving</string>
     <string name="qs_media_respect_halving_summary">When enabled, media-in-row will halve QS columns</string>
     <string name="qs_layout_default">Default (System)</string>

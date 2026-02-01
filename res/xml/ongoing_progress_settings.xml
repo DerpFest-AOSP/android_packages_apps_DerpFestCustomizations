@@ -40,8 +40,8 @@
 
     <org.derpfest.support.preferences.SystemSettingSeekBarPreference
         android:key="progress_bar_opacity"
-        android:title="Action chip opacity"
-        android:summary="Adjust the opacity of the action chip"
+        android:title="@string/progress_bar_opacity_title"
+        android:summary="@string/progress_bar_opacity_summary"
         android:defaultValue="100"
         settings:units="%"
         settings:interval="1"   
