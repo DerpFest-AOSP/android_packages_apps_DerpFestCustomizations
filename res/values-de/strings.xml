@@ -210,7 +210,7 @@
     <string name="pulse_ambient_edge_light_category_title">Seitenbeleuchtung</string>
     <string name="pulse_visualizer_category_title">Audiovisualisierung</string>
     <string name="pulse_settings">Pulse</string>
-    <string name="pulse_settings_summary">Audiovisualisierung für Navigationsleiste, Sperrbildschirm und Ambient Screen</string>
+    <string name="pulse_settings_summary">Audiovisualisierung für Sperrbildschirm und Ambient Screen</string>
     <string name="show_navbar_pulse_title">Pulse für Navigationsleiste</string>
     <string name="show_navbar_pulse_summary">Visualisiert Audio in der Navigationsleiste</string>
     <string name="show_lockscreen_pulse_title">Pulse auf Sperrbildschirm</string>
