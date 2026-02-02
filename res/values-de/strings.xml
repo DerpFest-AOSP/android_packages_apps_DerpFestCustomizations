@@ -169,6 +169,10 @@
     <string name="lockscreen_hide_status_bar_title">Statusleiste ausblenden</string>
     <string name="lockscreen_hide_status_bar_summary">Wenn aktiviert, wird die Statusleiste auf dem Sperrbildschirm ausgeblendet</string>
 
+    <!-- Bouncer user switcher -->
+    <string name="bouncer_user_switcher_title">Benutzerumschalter auf Sperrbildschirm</string>
+    <string name="bouncer_user_switcher_summary">Benutzerumschalter im Keyguard-Bouncer anzeigen (große Bildschirme)</string>
+
     <!-- Island Notification -->
     <string name="island_notifications_category_title">Island-Benachrichtigungen</string>
     <string name="island_notification_title">Island-Benachrichtigungen</string>

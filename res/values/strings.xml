@@ -184,6 +184,10 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="lockscreen_hide_status_bar_title">Hide Statusbar</string>
     <string name="lockscreen_hide_status_bar_summary">When enabled, statusbar will be hidden on lockscreen</string>
 
+    <!-- Bouncer user switcher -->
+    <string name="bouncer_user_switcher_title">User switcher on lockscreen</string>
+    <string name="bouncer_user_switcher_summary">Show user switcher on the keyguard bouncer (large screens)</string>
+
     <!-- Island Notification -->
     <string name="island_notifications_category_title">Island Notifications</string>
     <string name="island_notification_title">Island notification</string>
