@@ -504,4 +504,8 @@ The progress bar dynamically switches between media and download states, ensurin
     <!-- chinese lunar calendar -->
     <string name="qs_show_lunar_calendar_title">Chinese Lunar Calendar</string>
     <string name="qs_show_lunar_calendar_summary">Show lunar calendar in Quick Settings</string>
+
+    <!-- Lock screen media art on Ambient Display -->
+    <string name="ambient_media_art_title">Ambient media cover art</string>
+    <string name="ambient_media_art_summary">Display media cover art on Ambient display when available</string>
 </resources>

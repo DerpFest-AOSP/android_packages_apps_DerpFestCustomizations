@@ -436,4 +436,7 @@
     </plurals>
     <string name="derpd_done">Du wurdest gederpt</string>
 
+    <!-- Lock screen media art on Ambient Display -->
+    <string name="ambient_media_art_title">Medien-Coverbild auf Inaktivitätsdisplay</string>
+    <string name="ambient_media_art_summary">Medien-Coverbild auf Inaktivitätsdisplay anzeigen, sofern vorhanden</string>
 </resources>
