@@ -143,6 +143,12 @@
     <string name="enable_fingerprint_ripple_effect_title">Welleneffekt</string>
     <string name="enable_fingerprint_ripple_effect_summary">Welleneffekt zeigen bei Entsperrung mit Fingerabdruck</string>
 
+    <!-- Fingerprint authentication vibration -->
+    <string name="fp_success_vibrate_title">Vibration bei Fingerabdruckerkennung</string>
+    <string name="fp_success_vibrate_summary">Bei erfolgreicher Fingerabdruckerkennung vibrieren</string>
+    <string name="fp_error_vibrate_title">Vibration bei Fingerabdruckfehler</string>
+    <string name="fp_error_vibrate_summary">Bei fehlgeschlagener Fingerabdruckerkennung vibrieren</string>
+
     <!-- Ongoing action chip -->
     <string name="ongoing_chip_category_title">Laufende Aktionen</string>
     <string name="ongoing_progress_settings_title">Fortschrittsanzeige für laufende Aktionen</string>
