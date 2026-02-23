@@ -37,6 +37,14 @@
         app:cornerType="none" />
 
     <org.derpfest.ui.preference.DerpFestCardPreference
+        app:key="gradients"
+        app:title="@string/gradients_title"
+        app:summary="@string/gradients_summary"
+        app:icon="@drawable/ic_gradient_category_expressive"
+        app:fragment="org.derpfest.customizations.fragment.GradientSettings"
+        app:cornerType="none" />
+
+    <org.derpfest.ui.preference.DerpFestCardPreference
         app:key="notifications"
         app:title="@string/notifications_title"
         app:summary="@string/notifications_summary"

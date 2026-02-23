@@ -20,12 +20,6 @@
             android:entryValues="@array/qs_tile_shape_values"
             android:defaultValue="0" />
 
-        <org.derpfest.support.preferences.SystemSettingSwitchPreference
-            android:key="qs_tile_gradient_enabled"
-            android:title="@string/qs_tile_gradient_enabled_title"
-            android:summary="@string/qs_tile_gradient_enabled_summary"
-            android:defaultValue="true" />
-
          <org.derpfest.support.preferences.SystemSettingSwitchPreference
             android:key="qs_show_lunar_calendar"
             android:title="@string/qs_show_lunar_calendar_title"
@@ -65,12 +59,6 @@
             android:entries="@array/qs_brightness_slider_shape_entries"
             android:entryValues="@array/qs_brightness_slider_shape_values"
             android:defaultValue="0" />
-
-        <org.derpfest.support.preferences.SystemSettingSwitchPreference
-            android:key="qs_brightness_gradient_enabled"
-            android:title="@string/qs_brightness_gradient_enabled_title"
-            android:summary="@string/qs_brightness_gradient_enabled_summary"
-            android:defaultValue="true" />
 
         <lineageos.preference.LineageSecureSettingListPreference
             android:key="qs_brightness_slider_position"

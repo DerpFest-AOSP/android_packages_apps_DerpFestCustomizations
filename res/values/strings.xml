@@ -29,6 +29,18 @@
     <string name="dark_mode_summary_default">Enable system dark theme</string>
     <string name="dark_mode_summary_powersave">Power saver is enabled</string>
 
+    <!-- Gradients -->
+    <string name="gradients_title">Gradients</string>
+    <string name="gradients_summary">Customize gradient colors for tiles, brightness and volume sliders</string>
+    <string name="gradient_toggles_category_title">Gradient toggles</string>
+    <string name="gradient_colors_category_title">Custom colors</string>
+    <string name="gradient_start_color_title">Gradient start color</string>
+    <string name="gradient_start_color_summary">Set to 0 or reset to use default. Applied when any gradient above is enabled.</string>
+    <string name="gradient_end_color_title">Gradient end color</string>
+    <string name="gradient_end_color_summary">Set to 0 or reset to use default. Applied when any gradient above is enabled.</string>
+    <string name="volume_slider_gradient_title">Volume slider gradient</string>
+    <string name="volume_slider_gradient_summary">Show gradient styling on the volume slider in the volume dialog</string>
+
     <!-- Categories -->
     <string name="general_category_title">General</string>
     <string name="security_category_title">Security</string>

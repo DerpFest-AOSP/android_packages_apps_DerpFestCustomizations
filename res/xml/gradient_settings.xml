@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: DerpFest AOSP
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/gradients_title">
+
+    <PreferenceCategory
+        android:key="gradient_toggles_category"
+        android:title="@string/gradient_toggles_category_title">
+
+        <org.derpfest.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_tile_gradient_enabled"
+            android:title="@string/qs_tile_gradient_enabled_title"
+            android:summary="@string/qs_tile_gradient_enabled_summary"
+            android:defaultValue="true" />
+
+        <org.derpfest.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_brightness_gradient_enabled"
+            android:title="@string/qs_brightness_gradient_enabled_title"
+            android:summary="@string/qs_brightness_gradient_enabled_summary"
+            android:defaultValue="true" />
+
+        <org.derpfest.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_volume_gradient_enabled"
+            android:title="@string/volume_slider_gradient_title"
+            android:summary="@string/volume_slider_gradient_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="gradient_colors_category"
+        android:title="@string/gradient_colors_category_title">
+
+        <org.derpfest.support.colorpicker.ColorPickerSystemPreference
+            android:key="gradient_start_color"
+            android:title="@string/gradient_start_color_title"
+            android:summary="@string/gradient_start_color_summary"
+            android:defaultValue="0"
+            settings:showReset="true"
+            settings:showPreview="true" />
+
+        <org.derpfest.support.colorpicker.ColorPickerSystemPreference
+            android:key="gradient_end_color"
+            android:title="@string/gradient_end_color_title"
+            android:summary="@string/gradient_end_color_summary"
+            android:defaultValue="0"
+            settings:showReset="true"
+            settings:showPreview="true" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
