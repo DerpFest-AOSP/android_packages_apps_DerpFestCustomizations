@@ -6,6 +6,7 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/gradients_title">
 
@@ -42,6 +43,7 @@
             android:title="@string/gradient_start_color_title"
             android:summary="@string/gradient_start_color_summary"
             android:defaultValue="0"
+            app:defaultDisplayColorRes="@*android:color/bootleg_accent_gradient_end_color"
             settings:showReset="true"
             settings:showPreview="true" />
 
@@ -50,6 +52,7 @@
             android:title="@string/gradient_end_color_title"
             android:summary="@string/gradient_end_color_summary"
             android:defaultValue="0"
+            app:defaultDisplayColorRes="@*android:color/accent_device_default"
             settings:showReset="true"
             settings:showPreview="true" />
 

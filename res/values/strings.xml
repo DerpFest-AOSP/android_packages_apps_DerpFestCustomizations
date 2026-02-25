@@ -375,6 +375,8 @@ The progress bar dynamically switches between media and download states, ensurin
 
     <!-- Brightness Slider Style -->
     <string name="qs_brightness_slider_shape_title">Brightness slider shape</string>
+    <string name="qs_brightness_use_new_tint_title">Accent tint for brightness slider</string>
+    <string name="qs_brightness_use_new_tint_summary">Use accent color for the brightness slider track</string>
     <string name="default_value">Default</string>
 
     <!-- QS Layout Settings -->
@@ -532,6 +534,8 @@ The progress bar dynamically switches between media and download states, ensurin
     <!-- chinese lunar calendar -->
     <string name="qs_show_lunar_calendar_title">Chinese Lunar Calendar</string>
     <string name="qs_show_lunar_calendar_summary">Show lunar calendar in Quick Settings</string>
+    <string name="qs_panel_bg_use_new_tint_title">Accent tint for QS tiles</string>
+    <string name="qs_panel_bg_use_new_tint_summary">Use accent color for active tiles and bolder labels</string>
 
     <!-- Lock screen media art on Ambient Display -->
     <string name="ambient_media_art_title">Ambient media cover art</string>
