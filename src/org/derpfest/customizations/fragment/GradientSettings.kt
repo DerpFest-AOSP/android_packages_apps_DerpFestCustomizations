@@ -32,10 +32,11 @@ class GradientSettings : SettingsPreferenceFragment(), OnPreferenceChangeListene
     }
 
     override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
-        updateColorPickersAvailability()
+        updateColorPickersAvailability(changedKey = preference.key, newValue = newValue)
         return true
     }
 
+    /** True when at least one of the three gradient toggles is enabled. */
     private fun isAnyGradientEnabled(): Boolean {
         val cr = requireContext().contentResolver
         val tile = Settings.System.getInt(cr, "qs_tile_gradient_enabled", 1) != 0
@@ -44,8 +45,30 @@ class GradientSettings : SettingsPreferenceFragment(), OnPreferenceChangeListene
         return tile || brightness || volume
     }
 
-    private fun updateColorPickersAvailability() {
-        gradientColorsCategory?.isEnabled = isAnyGradientEnabled()
+    /**
+     * Updates gradient start/end availability. When called from onPreferenceChange, the changed
+     * preference is not yet written to Settings, so we pass [changedKey] and [newValue] to use
+     * the new value for that toggle and avoid wrong availability (e.g. needing two toggles to
+     * enable, or category staying enabled when all are turned off).
+     */
+    private fun updateColorPickersAvailability(changedKey: String? = null, newValue: Any? = null) {
+        val cr = requireContext().contentResolver
+        val tile = if (changedKey == "qs_tile_gradient_enabled") {
+            newValue as? Boolean ?: (Settings.System.getInt(cr, "qs_tile_gradient_enabled", 1) != 0)
+        } else {
+            Settings.System.getInt(cr, "qs_tile_gradient_enabled", 1) != 0
+        }
+        val brightness = if (changedKey == "qs_brightness_gradient_enabled") {
+            newValue as? Boolean ?: (Settings.System.getInt(cr, "qs_brightness_gradient_enabled", 1) != 0)
+        } else {
+            Settings.System.getInt(cr, "qs_brightness_gradient_enabled", 1) != 0
+        }
+        val volume = if (changedKey == "qs_volume_gradient_enabled") {
+            newValue as? Boolean ?: (Settings.System.getInt(cr, "qs_volume_gradient_enabled", 1) != 0)
+        } else {
+            Settings.System.getInt(cr, "qs_volume_gradient_enabled", 1) != 0
+        }
+        gradientColorsCategory?.isEnabled = tile || brightness || volume
     }
 
     override fun getMetricsCategory(): Int = MetricsEvent.DERPFEST
