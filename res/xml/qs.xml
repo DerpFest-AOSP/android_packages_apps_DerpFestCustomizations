@@ -24,7 +24,7 @@
             android:key="qs_panel_bg_use_new_tint"
             android:title="@string/qs_panel_bg_use_new_tint_title"
             android:summary="@string/qs_panel_bg_use_new_tint_summary"
-            android:defaultValue="true" />
+            android:defaultValue="false" />
 
          <org.derpfest.support.preferences.SystemSettingSwitchPreference
             android:key="qs_show_lunar_calendar"
@@ -70,7 +70,7 @@
             android:key="qs_brightness_use_new_tint"
             android:title="@string/qs_brightness_use_new_tint_title"
             android:summary="@string/qs_brightness_use_new_tint_summary"
-            android:defaultValue="true" />
+            android:defaultValue="false" />
 
         <lineageos.preference.LineageSecureSettingListPreference
             android:key="qs_brightness_slider_position"
