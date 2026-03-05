@@ -24,18 +24,18 @@
         android:key="ongoing_action_chip"
         android:title="@string/ongoing_action_chip_title"
         android:summary="@string/ongoing_action_chip_summary"
-        android:defaultValue="true" />
-
-     <org.derpfest.support.preferences.SystemSettingSwitchPreference
-         android:key="compact_progress_mode"
-         android:title="@string/compact_progress_mode_title"
-         android:summary="@string/compact_progress_mode_summary"
-         android:defaultValue="false" />
+        android:defaultValue="false" />
 
     <org.derpfest.support.preferences.SystemSettingSwitchPreference
-        android:key="show_media_progress"
+        android:key="ongoing_media_progress"
         android:title="@string/show_media_progress_title"
         android:summary="@string/show_media_progress_summary"
+        android:defaultValue="false" />
+
+    <org.derpfest.support.preferences.SystemSettingSwitchPreference
+        android:key="ongoing_compact_mode"
+        android:title="@string/compact_progress_mode_title"
+        android:summary="@string/compact_progress_mode_summary"
         android:defaultValue="false" />
 
     <org.derpfest.support.preferences.SystemSettingSeekBarPreference
@@ -44,12 +44,12 @@
         android:summary="@string/progress_bar_opacity_summary"
         android:defaultValue="100"
         settings:units="%"
-        settings:interval="1"   
+        settings:interval="1"
         android:max="100"
         android:min="0" />
 
     <com.android.settingslib.widget.FooterPreference
-        android:key="progress_footer"
+        android:key="ongoing_progress_footer"
         android:title="@string/progress_footer_text"
         android:selectable="false"
         settings:searchable="false" />

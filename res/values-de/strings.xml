@@ -151,15 +151,15 @@
 
     <!-- Ongoing action chip -->
     <string name="ongoing_chip_category_title">Laufende Aktionen</string>
-    <string name="ongoing_progress_settings_title">Fortschrittsanzeige für laufende Aktionen</string>
-    <string name="ongoing_progress_settings_summary">Fortschrittsanzeige in der Statusleiste für laufende Aktionen wie Downloads anzeigen</string>
-    <string name="ongoing_action_chip_title">Fortschrittsanzeige für laufende Aktionen</string>
-    <string name="ongoing_action_chip_summary">Fortschrittsanzeige in der Statusleiste für laufende Aktionen wie Downloads anzeigen</string>
-    <string name="show_media_progress_title">Medienfortschritt anzeigen</string>
-    <string name="show_media_progress_summary">Den Fortschritt der Medienwiedergabe in der Statusleiste anzeigen</string>
+    <string name="ongoing_progress_settings_title">Statusleisten-Aktivitätschip</string>
+    <string name="ongoing_progress_settings_summary">Aktivitätschip mit einer Fortschrittsanzeige versehen</string>
+    <string name="ongoing_action_chip_title">Chip für laufende Aktivitäten</string>
+    <string name="ongoing_action_chip_summary">Statusanzeige für laufende Aktionen wie Downloads anzeigen</string>
+    <string name="show_media_progress_title">Medienfortschritt</string>
+    <string name="show_media_progress_summary">Wiedergabefortschritt von Medien anzeigen</string>
     <string name="progress_footer_text">Der Aktionschip in der Statusleiste bietet Echtzeit-Updates sowohl für die Medienwiedergabe als auch für aktive Downloads/Uploads.\n\nMedienfortschritt:\n• Zeigt den Wiedergabefortschritt für Musik und Videos an, wenn Medien abgespielt werden.\n• Durch einmaliges Tippen werden die Wiedergabesteuerungen geöffnet (Vorheriger, Nächster Titel).\n• Doppeltippen schaltet zwischen Wiedergabe und Pause um.\n• Durch Wischen nach links wird zum vorherigen Titel gesprungen.\n• Durch Wischen nach rechts wird zum nächsten Titel gesprungen.\n• Langes Drücken öffnet die Medien-App.\n\nDownload-/Upload-Fortschritt:\n• Zeigt den Fortschritt laufender Downloads und Uploads an.\n• Wird automatisch ausgeblendet, wenn keine aktiven Übertragungen erkannt werden.\n• Durch einmaliges Tippen wird die für den Download zuständige App geöffnet.\n\nDer Fortschrittsbalken wechselt dynamisch zwischen Medien- und Downloadstatus, sodass Sie immer die wichtigsten Informationen auf einen Blick haben.</string>
     <string name="compact_progress_mode_title">Kompakte Fortschrittsanzeige</string>
-    <string name="compact_progress_mode_summary">Einen kompakten kreisförmigen Indikator für laufende Aktionen verwenden</string>
+    <string name="compact_progress_mode_summary">Kompakte, kreisförmige Anzeige für laufende Aktivitäten verwenden</string>
 
     <!-- Heads-up -->
     <string name="compact_heads_up_notifications_enabled_title">Kompakte Pop-ups</string>
