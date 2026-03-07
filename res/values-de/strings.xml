@@ -76,6 +76,7 @@
     <string name="monet_engine_style_fruit_salad">Obstsalat</string>
     <string name="monet_engine_style_content">Inhalt</string>
     <string name="monet_engine_style_monochromatic">Einfarbig</string>
+    <string name="monet_engine_style_fidelity">Fidelity</string>
     <string name="monet_engine_color_source_title">Farbquelle</string>
     <string name="monet_engine_color_source_both">Beide (Standard)</string>
     <string name="monet_engine_color_source_home">Hintergrundbild des Startbildschirms</string>
@@ -176,8 +177,36 @@
     <string name="ongoing_chip_color_mode_accent">Systemakzentfarbe</string>
     <string name="ongoing_chip_color_mode_icon">Farbe des App-Symbols</string>
     <string name="ongoing_chip_color_mode_album_art">Farbe des Albumcovers</string>
+    <string name="progress_bar_opacity_title">Aktivitätschip-Deckkraft</string>
+    <string name="progress_bar_opacity_summary">Deckkraft des Aktivitätschips anpassen</string>
 
     <!-- Heads-up -->
+    <string name="heads_up_notifications_title">Pop-up-Benachrichtigungen</string>
+    <string name="heads_up_notifications_summary">Einstellungen für Pop-up-Benachrichtigungen anpassen</string>
+    <string name="heads_up_notifications_enable">Pop-ups aktivieren</string>
+    <string name="heads_up_stoplist_title">Stoplist-Apps</string>
+    <string name="heads_up_stoplist_summary">Pop-up-Benachrichtigungen in bestimmten Apps deaktivieren</string>
+    <string name="heads_up_blacklist_title">Blacklist-Apps</string>
+    <string name="heads_up_blacklist_summary">Pop-up-Benachrichtigungen von bestimmten Apps deaktivieren</string>
+    <string name="heads_up_time_out_title">Anzeigedauer</string>
+    <string name="heads_up_time_out_summary">Peeking-Benachrichtigungen werden <xliff:g id="number">%d</xliff:g> Sekunden angezeigt</string>
+    <string name="heads_up_time_out_2sec">2 Sekunden</string>
+    <string name="heads_up_time_out_4sec">4 Sekunden</string>
+    <string name="heads_up_time_out_5sec">5 Sekunden</string>
+    <string name="heads_up_time_out_6sec">6 Sekunden</string>
+    <string name="heads_up_time_out_8sec">8 Sekunden</string>
+    <string name="heads_up_time_out_10sec">10 Sekunden</string>
+    <string name="heads_up_snooze_title">Snooze-Zeit</string>
+    <string name="heads_up_snooze_summary_one_minute">Wischen nach oben bei Peeking-Benachrichtigungen snoozt Pop-ups dieser App für 1 Minute</string>
+    <string name="heads_up_snooze_summary">Wischen nach oben bei Peeking-Benachrichtigungen snoozt Pop-ups dieser App für <xliff:g id="number">%d</xliff:g> Minuten</string>
+    <string name="heads_up_snooze_disabled_summary">Snooze-Zeit ist deaktiviert</string>
+    <string name="heads_up_snooze_1min">1 Minute</string>
+    <string name="heads_up_snooze_5min">5 Minuten</string>
+    <string name="heads_up_snooze_10min">10 Minuten</string>
+    <string name="heads_up_snooze_15min">15 Minuten</string>
+    <string name="heads_up_snooze_20min">20 Minuten</string>
+    <string name="less_boring_heads_up_title">Pop-ups weniger störend machen</string>
+    <string name="less_boring_heads_up_summary">Pop-ups nur für Telefon- oder Nachrichten-App anzeigen, wenn sie nicht im Vordergrund sind</string>
     <string name="compact_heads_up_notifications_enabled_title">Kompakte Pop-ups</string>
     <string name="compact_heads_up_notifications_enabled_summary">Kompakte Benachrichtigungsanzeige</string>
 
@@ -364,6 +393,8 @@
     <string name="qs_tile_shape_rounded_square">Abgerundetes Quadrat</string>
     <string name="qs_panel_bg_use_new_tint_title">Akzentfarbe für QS-Kacheln</string>
     <string name="qs_panel_bg_use_new_tint_summary">Akzentfarbe für aktive Kacheln und kräftigere Beschriftung verwenden</string>
+    <string name="qs_show_lunar_calendar_title">Chinesischer Mondkalender</string>
+    <string name="qs_show_lunar_calendar_summary">Mondkalender in Schnelleinstellungen anzeigen</string>
 
     <!-- Brightness Slider Style -->
     <string name="qs_brightness_slider_shape_title">Form des Helligkeitsreglers</string>
@@ -390,6 +421,14 @@
     <string name="qs_layout_rows_landscape_summary">Zeilen für Querformat</string>
     <string name="qqs_layout_rows_landscape_title">Zeilen (Querformat)</string>
     <string name="qqs_layout_rows_landscape_summary">Zeilen für Querformat</string>
+    <string name="qs_layout_columns_units"> Spalten</string>
+    <string name="qs_layout_rows_units"> Zeilen</string>
+    <string name="qqs_layout_rows_units"> Zeilen</string>
+    <string name="qs_layout_columns_landscape_units"> Spalten</string>
+    <string name="qs_layout_rows_landscape_units"> Zeilen</string>
+    <string name="qqs_layout_rows_landscape_units"> Zeilen</string>
+    <string name="qs_media_respect_halving_title">Spalten halbieren bei Medien in Zeile</string>
+    <string name="qs_media_respect_halving_summary">Wenn aktiviert, werden die QS-Spalten halbiert, wenn Mediensteuerung in derselben Zeile wie Kacheln angezeigt wird</string>
     <string name="qs_layout_default">Standard (System)</string>
 
     <!-- Lock screen media art -->
