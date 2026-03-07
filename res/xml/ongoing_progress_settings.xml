@@ -32,6 +32,15 @@
         android:summary="@string/show_media_progress_summary"
         android:defaultValue="false" />
 
+    <org.derpfest.support.preferences.SystemSettingListPreference
+        android:key="ongoing_chip_color_mode"
+        android:title="@string/ongoing_chip_color_mode_title"
+        android:summary="%s"
+        android:entries="@array/ongoing_chip_color_mode_entries"
+        android:entryValues="@array/ongoing_chip_color_mode_values"
+        android:defaultValue="0"
+        android:dependency="ongoing_media_progress" />
+
     <org.derpfest.support.preferences.SystemSettingSwitchPreference
         android:key="ongoing_compact_mode"
         android:title="@string/compact_progress_mode_title"
