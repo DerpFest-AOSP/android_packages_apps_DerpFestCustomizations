@@ -26,6 +26,18 @@
     <string name="misc_title">Sonstiges</string>
     <string name="misc_summary">Alles, was woanders nicht hinpasst</string>
 
+    <!-- Gradients -->
+    <string name="gradients_title">Gradienten</string>
+    <string name="gradients_summary">Gradientfarben für Kacheln, Helligkeits- und Lautstärkeregler anpassen</string>
+    <string name="gradient_toggles_category_title">Gradient-Schalter</string>
+    <string name="gradient_colors_category_title">Benutzerdefinierte Farben</string>
+    <string name="gradient_start_color_title">Gradient-Startfarbe</string>
+    <string name="gradient_start_color_summary">Auf 0 setzen oder zurücksetzen für Standard. Wird angewendet, wenn ein Gradient oben aktiviert ist.</string>
+    <string name="gradient_end_color_title">Gradient-Endfarbe</string>
+    <string name="gradient_end_color_summary">Auf 0 setzen oder zurücksetzen für Standard. Wird angewendet, wenn ein Gradient oben aktiviert ist.</string>
+    <string name="volume_slider_gradient_title">Lautstärkeregler-Gradient</string>
+    <string name="volume_slider_gradient_summary">Gradient-Styling am Lautstärkeregler im Lautstärkedialog anzeigen</string>
+
     <string name="dark_mode_summary_default">Dunkles Systemdesign aktivieren</string>
     <string name="dark_mode_summary_powersave">Energiesparen ist aktiviert</string>
 
