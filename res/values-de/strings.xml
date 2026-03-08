@@ -27,16 +27,16 @@
     <string name="misc_summary">Alles, was woanders nicht hinpasst</string>
 
     <!-- Gradients -->
-    <string name="gradients_title">Gradienten</string>
-    <string name="gradients_summary">Gradientfarben für Kacheln, Helligkeits- und Lautstärkeregler anpassen</string>
-    <string name="gradient_toggles_category_title">Gradient-Schalter</string>
+    <string name="gradients_title">Farbverlauf</string>
+    <string name="gradients_summary">Farbverlauf auf verschiedene Systemelemente anwenden</string>
+    <string name="gradient_toggles_category_title">Farbverlauf</string>
     <string name="gradient_colors_category_title">Benutzerdefinierte Farben</string>
-    <string name="gradient_start_color_title">Gradient-Startfarbe</string>
+    <string name="gradient_start_color_title">Farbverlauf-Startfarbe</string>
     <string name="gradient_start_color_summary">Auf 0 setzen oder zurücksetzen für Standard. Wird angewendet, wenn ein Gradient oben aktiviert ist.</string>
-    <string name="gradient_end_color_title">Gradient-Endfarbe</string>
+    <string name="gradient_end_color_title">Farbverlauf-Endfarbe</string>
     <string name="gradient_end_color_summary">Auf 0 setzen oder zurücksetzen für Standard. Wird angewendet, wenn ein Gradient oben aktiviert ist.</string>
-    <string name="volume_slider_gradient_title">Lautstärkeregler-Gradient</string>
-    <string name="volume_slider_gradient_summary">Gradient-Styling am Lautstärkeregler im Lautstärkedialog anzeigen</string>
+    <string name="volume_slider_gradient_title">Lautstärkeregler-Farbverlauf</string>
+    <string name="volume_slider_gradient_summary">Farbverlauf in Lautstärkeregler aktivieren</string>
 
     <string name="dark_mode_summary_default">Dunkles Systemdesign aktivieren</string>
     <string name="dark_mode_summary_powersave">Energiesparen ist aktiviert</string>
@@ -355,15 +355,15 @@
     <string name="qs_show_brightness_slider_expanded">Anzeigen, wenn aufgeklappt</string>
     <string name="qs_show_brightness_slider_always">Immer anzeigen</string>
     <string name="qs_show_brightness_slider_not_expanded">Anzeigen, wenn nicht aufgeklappt</string>
-    <string name="qs_brightness_gradient_enabled_title">Gradient-Reglerhintergrund</string>
-    <string name="qs_brightness_gradient_enabled_summary">Gradient-Styling für den Helligkeitsregler aktivieren</string>
+    <string name="qs_brightness_gradient_enabled_title">Schnelleinstellungs-Helligkeitsregler-Farbverlauf</string>
+    <string name="qs_brightness_gradient_enabled_summary">Farbverlauf in Schnelleinstellungs-Helligkeitsregler aktivieren</string>
     <string name="qs_brightness_slider_position_title">Position</string>
     <string name="qs_brightness_slider_position_top">Oben</string>
     <string name="qs_brightness_slider_position_bottom">Unten</string>
     <string name="qs_show_auto_brightness_title">Symbol für autom. Helligkeit</string>
     <string name="qs_show_auto_brightness_summary">Schalter für autom. Helligkeit neben dem Helligkeitsregler anzeigen</string>
-    <string name="qs_tile_gradient_enabled_title">Gradient-Kachelhintergründe</string>
-    <string name="qs_tile_gradient_enabled_summary">Gradient-Hintergründe für Schnelleinstellungs-Kacheln aktivieren</string>
+    <string name="qs_tile_gradient_enabled_title">Schnelleinstellungskacheln-Farbverlauf</string>
+    <string name="qs_tile_gradient_enabled_summary">Farbverlauf in Schnelleinstellungskacheln aktivieren</string>
     <string name="qs_show_settings_icon_title">Einstellungen-Symbol anzeigen</string>
     <string name="qs_show_settings_icon_summary">Das Einstellungen-Symbol in der Schnelleinstellungen-Fußzeile anzeigen</string>
     <string name="qs_show_power_menu_icon_title">Power-Menü-Symbol anzeigen</string>
