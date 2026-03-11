@@ -48,6 +48,13 @@
             android:title="@string/pixel_spoofing_apps_title"
             android:summary="@string/pixel_spoofing_apps_summary"
             android:fragment="org.derpfest.customizations.fragment.PixelSpoofingAppsSettings" />
+            
+        <!-- App Spoofing -->
+        <Preference
+            android:key="user_selectable_app_spoofing"
+            android:title="@string/user_selectable_app_spoofing_title"
+            android:summary="@string/user_selectable_app_spoofing_summary"
+            android:fragment="org.derpfest.customizations.fragment.UserSelectedAppSpoofSettings" />
 
     </PreferenceCategory>
 
