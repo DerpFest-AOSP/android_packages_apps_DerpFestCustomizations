@@ -30,14 +30,10 @@
             android:defaultValue="false"
             app:isPreferenceVisible="false" />
 
-        <org.derpfest.support.preferences.SecureSettingListPreference
+        <org.derpfest.customizations.preference.QsTileIconShapePreference
             android:key="qs_tile_icon_shape"
             android:title="@string/qs_tile_icon_shape_title"
-            android:dialogTitle="@string/qs_tile_icon_shape_title"
             android:summary="%s"
-            android:entries="@array/qs_tile_icon_shape_entries"
-            android:entryValues="@array/qs_tile_icon_shape_values"
-            android:defaultValue="circle"
             app:isPreferenceVisible="false" />
 
         <org.derpfest.support.preferences.SystemSettingListPreference
