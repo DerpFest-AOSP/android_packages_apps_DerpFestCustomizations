@@ -389,6 +389,8 @@
     <string name="qs_panel_style_title">QS-Panel-Stil</string>
     <string name="qs_panel_style_card">Karten</string>
     <string name="qs_panel_style_circular">Kreisförmig</string>
+    <string name="qs_tile_label_hide_title">Kachelbeschriftungen ausblenden</string>
+    <string name="qs_tile_label_hide_summary">Im Kreis-Stil nur Symbole ohne Text anzeigen</string>
 
     <!-- QS Tiles Style -->
     <string name="qs_tile_shape_title">Form der Schnelleinstellungskacheln</string>

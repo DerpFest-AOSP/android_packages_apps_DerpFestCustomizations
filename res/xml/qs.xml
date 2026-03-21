@@ -6,6 +6,7 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/qs_title" >
 
@@ -21,6 +22,13 @@
             android:entries="@array/qs_panel_style_entries"
             android:entryValues="@array/qs_panel_style_values"
             android:defaultValue="0" />
+
+        <org.derpfest.support.preferences.SecureSettingSwitchPreference
+            android:key="qs_tile_label_hide"
+            android:title="@string/qs_tile_label_hide_title"
+            android:summary="@string/qs_tile_label_hide_summary"
+            android:defaultValue="false"
+            app:isPreferenceVisible="false" />
 
         <org.derpfest.support.preferences.SystemSettingListPreference
             android:key="qs_tile_shape"
