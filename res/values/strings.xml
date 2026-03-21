@@ -370,6 +370,11 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="qs_show_edit_button_title">Show edit button</string>
     <string name="qs_show_edit_button_summary">Show the edit button in the quick settings panel</string>
 
+    <!-- QS panel style (Settings.Secure qs_panel_style; SystemUI) -->
+    <string name="qs_panel_style_title">QS panel style</string>
+    <string name="qs_panel_style_card">Card</string>
+    <string name="qs_panel_style_circular">Circular</string>
+
     <!-- QS Tiles Style -->
     <string name="qs_tile_shape_title">QS tiles shape</string>
     <string name="qs_tile_shape_dynamic">Dynamic</string>

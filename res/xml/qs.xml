@@ -13,6 +13,15 @@
         android:key="general_category"
         android:title="@string/general_category_title" >
 
+        <org.derpfest.support.preferences.SecureSettingListPreference
+            android:key="qs_panel_style"
+            android:title="@string/qs_panel_style_title"
+            android:dialogTitle="@string/qs_panel_style_title"
+            android:summary="%s"
+            android:entries="@array/qs_panel_style_entries"
+            android:entryValues="@array/qs_panel_style_values"
+            android:defaultValue="0" />
+
         <org.derpfest.support.preferences.SystemSettingListPreference
             android:key="qs_tile_shape"
             android:title="@string/qs_tile_shape_title"
