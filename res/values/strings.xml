@@ -377,6 +377,31 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="qs_tile_label_hide_title">Hide tile labels</string>
     <string name="qs_tile_label_hide_summary">Show only icons without labels in circular style</string>
 
+    <!-- Classic QS tile icon shape (Settings.Secure qs_tile_icon_shape; same keys as Launcher3 ShapesProvider) -->
+    <string name="qs_tile_icon_shape_title">Classic tile icon shape</string>
+    <string name="qs_tile_icon_shape_circle">Circle</string>
+    <string name="qs_tile_icon_shape_square">Square</string>
+    <string name="qs_tile_icon_shape_four_sided_cookie">4-sided cookie</string>
+    <string name="qs_tile_icon_shape_seven_sided_cookie">7-sided cookie</string>
+    <string name="qs_tile_icon_shape_arch">Arch</string>
+    <string name="qs_tile_icon_shape_ios_rounded_square">iOS rounded square</string>
+    <string name="qs_tile_icon_shape_meow">Meow</string>
+    <string name="qs_tile_icon_shape_flower">Flower</string>
+    <string name="qs_tile_icon_shape_heart">Heart</string>
+    <string name="qs_tile_icon_shape_hexagon">Hexagon</string>
+    <string name="qs_tile_icon_shape_leaf">Leaf</string>
+    <string name="qs_tile_icon_shape_cloudy">Cloudy</string>
+    <string name="qs_tile_icon_shape_cylindrical">Cylindrical</string>
+    <string name="qs_tile_icon_shape_stretched">Stretched</string>
+    <string name="qs_tile_icon_shape_pebble">Pebble</string>
+    <string name="qs_tile_icon_shape_rice_balls">Rice balls</string>
+    <string name="qs_tile_icon_shape_rounded_rect">Rounded rectangle</string>
+    <string name="qs_tile_icon_shape_squircle">Squircle</string>
+    <string name="qs_tile_icon_shape_tapered_rect">Tapered rect</string>
+    <string name="qs_tile_icon_shape_teardrop">Teardrop</string>
+    <string name="qs_tile_icon_shape_vessel">Vessel</string>
+    <string name="qs_tile_icon_shape_rounded_hexagon">Rounded hexagon</string>
+
     <!-- QS Tiles Style -->
     <string name="qs_tile_shape_title">QS tiles shape</string>
     <string name="qs_tile_shape_dynamic">Dynamic</string>

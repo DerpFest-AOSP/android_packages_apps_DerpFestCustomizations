@@ -23,12 +23,14 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
     private lateinit var mDataUsagePreference: Preference
     private lateinit var mDataUsageCycleTypePreference: ListPreference
     private var mTileLabelHide: Preference? = null
+    private var mTileIconShape: Preference? = null
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         addPreferencesFromResource(R.xml.qs)
 
         findPreference<Preference>(KEY_QS_PANEL_STYLE)?.setOnPreferenceChangeListener(this)
         mTileLabelHide = findPreference(KEY_TILE_LABEL_HIDE)
+        mTileIconShape = findPreference(KEY_QS_TILE_ICON_SHAPE)
         val style = Settings.Secure.getIntForUser(
             requireContext().contentResolver,
             KEY_QS_PANEL_STYLE,
@@ -62,6 +64,7 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
 
     private fun updateCircularPrefs(circular: Boolean) {
         mTileLabelHide?.isVisible = circular
+        mTileIconShape?.isVisible = circular
     }
 
     private fun updateDataUsageSummary(cycleTypeValue: String? = null) {
@@ -87,5 +90,6 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
 
         private const val KEY_QS_PANEL_STYLE = "qs_panel_style"
         private const val KEY_TILE_LABEL_HIDE = "qs_tile_label_hide"
+        private const val KEY_QS_TILE_ICON_SHAPE = "qs_tile_icon_shape"
     }
 }

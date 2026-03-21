@@ -182,6 +182,57 @@
         <item>1</item>
     </string-array>
 
+    <!-- Classic QS tile icon mask (Settings.Secure qs_tile_icon_shape; SystemUI QSTileIconShapes) -->
+    <string-array name="qs_tile_icon_shape_entries" translatable="false">
+        <item>@string/qs_tile_icon_shape_circle</item>
+        <item>@string/qs_tile_icon_shape_square</item>
+        <item>@string/qs_tile_icon_shape_four_sided_cookie</item>
+        <item>@string/qs_tile_icon_shape_seven_sided_cookie</item>
+        <item>@string/qs_tile_icon_shape_arch</item>
+        <item>@string/qs_tile_icon_shape_ios_rounded_square</item>
+        <item>@string/qs_tile_icon_shape_meow</item>
+        <item>@string/qs_tile_icon_shape_flower</item>
+        <item>@string/qs_tile_icon_shape_heart</item>
+        <item>@string/qs_tile_icon_shape_hexagon</item>
+        <item>@string/qs_tile_icon_shape_leaf</item>
+        <item>@string/qs_tile_icon_shape_cloudy</item>
+        <item>@string/qs_tile_icon_shape_cylindrical</item>
+        <item>@string/qs_tile_icon_shape_stretched</item>
+        <item>@string/qs_tile_icon_shape_pebble</item>
+        <item>@string/qs_tile_icon_shape_rice_balls</item>
+        <item>@string/qs_tile_icon_shape_rounded_rect</item>
+        <item>@string/qs_tile_icon_shape_squircle</item>
+        <item>@string/qs_tile_icon_shape_tapered_rect</item>
+        <item>@string/qs_tile_icon_shape_teardrop</item>
+        <item>@string/qs_tile_icon_shape_vessel</item>
+        <item>@string/qs_tile_icon_shape_rounded_hexagon</item>
+    </string-array>
+
+    <string-array name="qs_tile_icon_shape_values" translatable="false">
+        <item>circle</item>
+        <item>square</item>
+        <item>four_sided_cookie</item>
+        <item>seven_sided_cookie</item>
+        <item>arch</item>
+        <item>ios_rounded_square</item>
+        <item>meow</item>
+        <item>flower</item>
+        <item>heart</item>
+        <item>hexagon</item>
+        <item>leaf</item>
+        <item>cloudy</item>
+        <item>cylindrical</item>
+        <item>stretched</item>
+        <item>pebble</item>
+        <item>rice_balls</item>
+        <item>rounded_rect</item>
+        <item>squircle</item>
+        <item>tapered_rect</item>
+        <item>teardrop</item>
+        <item>vessel</item>
+        <item>rounded_hexagon</item>
+    </string-array>
+
     <!-- QS Tiles Shape -->
     <string-array name="qs_tile_shape_entries" translatable="false">
         <item>@string/qs_tile_shape_dynamic</item>
