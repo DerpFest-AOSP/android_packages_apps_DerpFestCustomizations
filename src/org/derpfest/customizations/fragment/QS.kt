@@ -16,8 +16,6 @@ import androidx.preference.Preference
 import androidx.preference.ListPreference
 import androidx.preference.PreferenceCategory
 
-import org.derpfest.support.preferences.ProperSeekBarPreference
-
 import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
 
@@ -30,14 +28,6 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
     private var mClassicLayoutCategory: PreferenceCategory? = null
     private var mTileShape: Preference? = null
     private var mLayoutCategory: PreferenceCategory? = null
-    private lateinit var mQsColumnsClassic: ProperSeekBarPreference
-    private lateinit var mQsColumnsLandscapeClassic: ProperSeekBarPreference
-    private lateinit var mQqsColumnsClassic: ProperSeekBarPreference
-    private lateinit var mQqsColumnsLandscapeClassic: ProperSeekBarPreference
-    private lateinit var mQsRowsClassic: ProperSeekBarPreference
-    private lateinit var mQsRowsLandscapeClassic: ProperSeekBarPreference
-    private lateinit var mQqsRowsClassic: ProperSeekBarPreference
-    private lateinit var mQqsRowsLandscapeClassic: ProperSeekBarPreference
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         addPreferencesFromResource(R.xml.qs)
@@ -48,25 +38,6 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
         mClassicLayoutCategory = findPreference(KEY_CLASSIC_LAYOUT_CATEGORY)
         mTileShape = findPreference(KEY_QS_TILE_SHAPE)
         mLayoutCategory = findPreference(KEY_LAYOUT_CATEGORY)
-        mQsColumnsClassic = findPreference(KEY_QS_TILES_COLUMNS_CLASSIC)!!
-        mQsColumnsLandscapeClassic = findPreference(KEY_QS_TILES_COLUMNS_LANDSCAPE_CLASSIC)!!
-        mQqsColumnsClassic = findPreference(KEY_QQS_TILES_COLUMNS_CLASSIC)!!
-        mQqsColumnsLandscapeClassic = findPreference(KEY_QQS_TILES_COLUMNS_LANDSCAPE_CLASSIC)!!
-        mQsRowsClassic = findPreference(KEY_QS_TILES_ROWS_CLASSIC)!!
-        mQsRowsLandscapeClassic = findPreference(KEY_QS_TILES_ROWS_LANDSCAPE_CLASSIC)!!
-        mQqsRowsClassic = findPreference(KEY_QQS_TILES_ROWS_CLASSIC)!!
-        mQqsRowsLandscapeClassic = findPreference(KEY_QQS_TILES_ROWS_LANDSCAPE_CLASSIC)!!
-
-        listOf(
-            mQsColumnsClassic,
-            mQsColumnsLandscapeClassic,
-            mQqsColumnsClassic,
-            mQqsColumnsLandscapeClassic,
-            mQsRowsClassic,
-            mQsRowsLandscapeClassic,
-            mQqsRowsClassic,
-            mQqsRowsLandscapeClassic,
-        ).forEach { it.setOnPreferenceChangeListener(this) }
 
         val style = Settings.Secure.getIntForUser(
             requireContext().contentResolver,
@@ -85,7 +56,6 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
     }
 
     override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
-        val cr = requireContext().contentResolver
         when (preference.key) {
             KEY_QS_PANEL_STYLE -> {
                 val style = (newValue as? String)?.toIntOrNull() ?: 0
@@ -96,74 +66,13 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
                 updateDataUsageSummary(newValue as? String)
                 return true
             }
-            KEY_QS_TILES_COLUMNS_CLASSIC -> {
-                val v = newValue as? Int ?: return false
-                Settings.System.putInt(cr, SYSTEM_QS_LAYOUT_COLUMNS_CLASSIC, v)
-                mQsColumnsClassic.setValue(v)
-                return true
-            }
-            KEY_QS_TILES_COLUMNS_LANDSCAPE_CLASSIC -> {
-                val v = newValue as? Int ?: return false
-                Settings.System.putInt(cr, SYSTEM_QS_LAYOUT_COLUMNS_LANDSCAPE_CLASSIC, v)
-                mQsColumnsLandscapeClassic.setValue(v)
-                return true
-            }
-            KEY_QQS_TILES_COLUMNS_CLASSIC -> {
-                val v = newValue as? Int ?: return false
-                Settings.System.putInt(cr, SYSTEM_QQS_LAYOUT_COLUMNS_CLASSIC, v)
-                mQqsColumnsClassic.setValue(v)
-                return true
-            }
-            KEY_QQS_TILES_COLUMNS_LANDSCAPE_CLASSIC -> {
-                val v = newValue as? Int ?: return false
-                Settings.System.putInt(cr, SYSTEM_QQS_LAYOUT_COLUMNS_LANDSCAPE_CLASSIC, v)
-                mQqsColumnsLandscapeClassic.setValue(v)
-                return true
-            }
-            KEY_QS_TILES_ROWS_CLASSIC -> {
-                val v = newValue as? Int ?: return false
-                Settings.System.putInt(cr, SYSTEM_QS_LAYOUT_ROWS_CLASSIC, v)
-                mQsRowsClassic.setValue(v)
-                return true
-            }
-            KEY_QS_TILES_ROWS_LANDSCAPE_CLASSIC -> {
-                val v = newValue as? Int ?: return false
-                Settings.System.putInt(cr, SYSTEM_QS_LAYOUT_ROWS_LANDSCAPE_CLASSIC, v)
-                mQsRowsLandscapeClassic.setValue(v)
-                return true
-            }
-            KEY_QQS_TILES_ROWS_CLASSIC -> {
-                val v = newValue as? Int ?: return false
-                Settings.System.putInt(cr, SYSTEM_QQS_LAYOUT_ROWS_CLASSIC, v)
-                mQqsRowsClassic.setValue(v)
-                return true
-            }
-            KEY_QQS_TILES_ROWS_LANDSCAPE_CLASSIC -> {
-                val v = newValue as? Int ?: return false
-                Settings.System.putInt(cr, SYSTEM_QQS_LAYOUT_ROWS_LANDSCAPE_CLASSIC, v)
-                mQqsRowsLandscapeClassic.setValue(v)
-                return true
-            }
         }
         return true
     }
 
-    override fun onResume() {
-        super.onResume()
-        if (Settings.Secure.getIntForUser(
-                requireContext().contentResolver,
-                KEY_QS_PANEL_STYLE,
-                0,
-                UserHandle.USER_CURRENT,
-            ) == 1
-        ) {
-            setInitialClassicLayoutValues()
-        }
-    }
-
     /**
-     * Circular (classic) panel: tile label hide, icon mask shape, and classic rows/columns.
-     * Card (infinite grid) panel: tile shape and main QS layout (rows/columns) screen.
+     * Circular (classic) panel: tile label hide, icon mask shape, and link to classic layout.
+     * Card (infinite grid) panel: tile shape and link to QS layout (rows/columns).
      */
     private fun updatePanelStyleDependentPrefs(styleIsCircular: Boolean) {
         mTileLabelHide?.isVisible = styleIsCircular
@@ -171,53 +80,6 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
         mClassicLayoutCategory?.isVisible = styleIsCircular
         mTileShape?.isVisible = !styleIsCircular
         mLayoutCategory?.isVisible = !styleIsCircular
-        if (styleIsCircular) {
-            setInitialClassicLayoutValues()
-        }
-    }
-
-    private fun setInitialClassicLayoutValues() {
-        val cr = requireContext().contentResolver
-        val qsPort =
-            Settings.System.getInt(cr, SYSTEM_QS_LAYOUT_COLUMNS_CLASSIC, 0).let {
-                if (it > 0) it else DEFAULT_QS_CLASSIC_COLUMNS_PORT
-            }
-        val qsLand =
-            Settings.System.getInt(cr, SYSTEM_QS_LAYOUT_COLUMNS_LANDSCAPE_CLASSIC, 0).let {
-                if (it > 0) it else DEFAULT_QS_CLASSIC_COLUMNS_LAND
-            }
-        val qqsPort =
-            Settings.System.getInt(cr, SYSTEM_QQS_LAYOUT_COLUMNS_CLASSIC, 0).let {
-                if (it > 0) it else DEFAULT_QQS_CLASSIC_COLUMNS_PORT
-            }
-        val qqsLand =
-            Settings.System.getInt(cr, SYSTEM_QQS_LAYOUT_COLUMNS_LANDSCAPE_CLASSIC, 0).let {
-                if (it > 0) it else DEFAULT_QQS_CLASSIC_COLUMNS_LAND
-            }
-        val qsRowsPort =
-            Settings.System.getInt(cr, SYSTEM_QS_LAYOUT_ROWS_CLASSIC, 0).let {
-                if (it > 0) it else DEFAULT_QS_CLASSIC_ROWS_PORT
-            }
-        val qsRowsLand =
-            Settings.System.getInt(cr, SYSTEM_QS_LAYOUT_ROWS_LANDSCAPE_CLASSIC, 0).let {
-                if (it > 0) it else DEFAULT_QS_CLASSIC_ROWS_LAND
-            }
-        val qqsRowsPort =
-            Settings.System.getInt(cr, SYSTEM_QQS_LAYOUT_ROWS_CLASSIC, 0).let {
-                if (it > 0) it else DEFAULT_QQS_CLASSIC_ROWS_PORT
-            }
-        val qqsRowsLand =
-            Settings.System.getInt(cr, SYSTEM_QQS_LAYOUT_ROWS_LANDSCAPE_CLASSIC, 0).let {
-                if (it > 0) it else DEFAULT_QQS_CLASSIC_ROWS_LAND
-            }
-        mQsColumnsClassic.setValue(qsPort)
-        mQsColumnsLandscapeClassic.setValue(qsLand)
-        mQqsColumnsClassic.setValue(qqsPort)
-        mQqsColumnsLandscapeClassic.setValue(qqsLand)
-        mQsRowsClassic.setValue(qsRowsPort)
-        mQsRowsLandscapeClassic.setValue(qsRowsLand)
-        mQqsRowsClassic.setValue(qqsRowsPort)
-        mQqsRowsLandscapeClassic.setValue(qqsRowsLand)
     }
 
     private fun updateDataUsageSummary(cycleTypeValue: String? = null) {
@@ -247,40 +109,5 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
         private const val KEY_QS_TILE_SHAPE = "qs_tile_shape"
         private const val KEY_LAYOUT_CATEGORY = "layout_category"
         private const val KEY_CLASSIC_LAYOUT_CATEGORY = "qs_classic_layout_category"
-        private const val KEY_QS_TILES_COLUMNS_CLASSIC = "qs_tiles_columns_classic"
-        private const val KEY_QS_TILES_COLUMNS_LANDSCAPE_CLASSIC =
-            "qs_tiles_columns_landscape_classic"
-        private const val KEY_QQS_TILES_COLUMNS_CLASSIC = "qqs_tiles_columns_classic"
-        private const val KEY_QQS_TILES_COLUMNS_LANDSCAPE_CLASSIC =
-            "qqs_tiles_columns_landscape_classic"
-        private const val KEY_QS_TILES_ROWS_CLASSIC = "qs_tiles_rows_classic"
-        private const val KEY_QS_TILES_ROWS_LANDSCAPE_CLASSIC =
-            "qs_tiles_rows_landscape_classic"
-        private const val KEY_QQS_TILES_ROWS_CLASSIC = "qqs_tiles_rows_classic"
-        private const val KEY_QQS_TILES_ROWS_LANDSCAPE_CLASSIC =
-            "qqs_tiles_rows_landscape_classic"
-
-        /** Matches [android.provider.Settings.System] keys consumed by SystemUI. */
-        private const val SYSTEM_QS_LAYOUT_COLUMNS_CLASSIC = "qs_layout_columns_classic"
-        private const val SYSTEM_QS_LAYOUT_COLUMNS_LANDSCAPE_CLASSIC =
-            "qs_layout_columns_landscape_classic"
-        private const val SYSTEM_QQS_LAYOUT_COLUMNS_CLASSIC = "qqs_layout_columns_classic"
-        private const val SYSTEM_QQS_LAYOUT_COLUMNS_LANDSCAPE_CLASSIC =
-            "qqs_layout_columns_landscape_classic"
-        private const val SYSTEM_QS_LAYOUT_ROWS_CLASSIC = "qs_layout_rows_classic"
-        private const val SYSTEM_QS_LAYOUT_ROWS_LANDSCAPE_CLASSIC =
-            "qs_layout_rows_landscape_classic"
-        private const val SYSTEM_QQS_LAYOUT_ROWS_CLASSIC = "qqs_layout_rows_classic"
-        private const val SYSTEM_QQS_LAYOUT_ROWS_LANDSCAPE_CLASSIC =
-            "qqs_layout_rows_landscape_classic"
-
-        private const val DEFAULT_QS_CLASSIC_COLUMNS_PORT = 4
-        private const val DEFAULT_QS_CLASSIC_COLUMNS_LAND = 6
-        private const val DEFAULT_QQS_CLASSIC_COLUMNS_PORT = 4
-        private const val DEFAULT_QQS_CLASSIC_COLUMNS_LAND = 6
-        private const val DEFAULT_QS_CLASSIC_ROWS_PORT = 3
-        private const val DEFAULT_QS_CLASSIC_ROWS_LAND = 2
-        private const val DEFAULT_QQS_CLASSIC_ROWS_PORT = 2
-        private const val DEFAULT_QQS_CLASSIC_ROWS_LAND = 1
     }
 }

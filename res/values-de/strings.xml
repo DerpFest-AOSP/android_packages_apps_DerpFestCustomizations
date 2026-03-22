@@ -392,6 +392,8 @@
     <string name="qs_tile_label_hide_title">Kachelbeschriftungen ausblenden</string>
     <string name="qs_tile_label_hide_summary">Im Kreis-Stil nur Symbole ohne Text anzeigen</string>
     <string name="qs_tile_icon_shape_title">Form klassischer Kachelsymbole</string>
+    <string name="qs_classic_layout_category_title">Kreisförmiges Layout</string>
+    <string name="qs_classic_layout_category_summary">Zeilen und Spalten für kreisförmige Schnelleinstellungen konfigurieren</string>
 
     <!-- QS Tiles Style -->
     <string name="qs_tile_shape_title">Form der Schnelleinstellungskacheln</string>

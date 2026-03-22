@@ -404,6 +404,7 @@ The progress bar dynamically switches between media and download states, ensurin
 
     <!-- Classic circular QS column layout (Settings.System qs_layout_*_classic / qqs_layout_*_classic; SystemUI) -->
     <string name="qs_classic_layout_category_title">Circular layout columns</string>
+    <string name="qs_classic_layout_category_summary">Configure rows and columns for circular Quick Settings</string>
     <string name="qs_classic_layout_columns_title">QS columns (portrait)</string>
     <string name="qs_classic_layout_columns_summary">Expanded Quick Settings grid when using circular style</string>
     <string name="qs_classic_layout_columns_landscape_title">QS columns (landscape)</string>

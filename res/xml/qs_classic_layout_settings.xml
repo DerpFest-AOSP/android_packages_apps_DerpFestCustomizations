@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: DerpFest AOSP
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/qs_classic_layout_category_title" >
+
+    <PreferenceCategory
+        android:key="qs_classic_qs_category"
+        android:title="@string/qs_layout_category_title" >
+
+        <org.derpfest.support.preferences.ProperSeekBarPreference
+            android:key="qs_tiles_columns_classic"
+            android:title="@string/qs_classic_layout_columns_title"
+            android:summary="@string/qs_classic_layout_columns_summary"
+            android:defaultValue="4"
+            android:max="5"
+            settings:min="2"
+            settings:interval="1"
+            settings:units="@string/qs_layout_columns_units" />
+
+        <org.derpfest.support.preferences.ProperSeekBarPreference
+            android:key="qs_tiles_columns_landscape_classic"
+            android:title="@string/qs_classic_layout_columns_landscape_title"
+            android:summary="@string/qs_classic_layout_columns_landscape_summary"
+            android:defaultValue="6"
+            android:max="6"
+            settings:min="2"
+            settings:interval="1"
+            settings:units="@string/qs_layout_columns_landscape_units" />
+
+        <org.derpfest.support.preferences.ProperSeekBarPreference
+            android:key="qs_tiles_rows_classic"
+            android:title="@string/qs_classic_layout_rows_title"
+            android:summary="@string/qs_classic_layout_rows_summary"
+            android:defaultValue="3"
+            android:max="5"
+            settings:min="2"
+            settings:interval="1"
+            settings:units="@string/qs_layout_rows_units" />
+
+        <org.derpfest.support.preferences.ProperSeekBarPreference
+            android:key="qs_tiles_rows_landscape_classic"
+            android:title="@string/qs_classic_layout_rows_landscape_title"
+            android:summary="@string/qs_classic_layout_rows_landscape_summary"
+            android:defaultValue="2"
+            android:max="3"
+            settings:min="1"
+            settings:interval="1"
+            settings:units="@string/qs_layout_rows_landscape_units" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="qs_classic_qqs_category"
+        android:title="@string/qqs_layout_category_title" >
+
+        <org.derpfest.support.preferences.ProperSeekBarPreference
+            android:key="qqs_tiles_columns_classic"
+            android:title="@string/qqs_classic_layout_columns_title"
+            android:summary="@string/qqs_classic_layout_columns_summary"
+            android:defaultValue="4"
+            android:max="5"
+            settings:min="2"
+            settings:interval="1"
+            settings:units="@string/qs_layout_columns_units" />
+
+        <org.derpfest.support.preferences.ProperSeekBarPreference
+            android:key="qqs_tiles_columns_landscape_classic"
+            android:title="@string/qqs_classic_layout_columns_landscape_title"
+            android:summary="@string/qqs_classic_layout_columns_landscape_summary"
+            android:defaultValue="6"
+            android:max="6"
+            settings:min="2"
+            settings:interval="1"
+            settings:units="@string/qs_layout_columns_landscape_units" />
+
+        <org.derpfest.support.preferences.ProperSeekBarPreference
+            android:key="qqs_tiles_rows_classic"
+            android:title="@string/qqs_classic_layout_rows_title"
+            android:summary="@string/qqs_classic_layout_rows_summary"
+            android:defaultValue="2"
+            android:max="3"
+            settings:min="1"
+            settings:interval="1"
+            settings:units="@string/qqs_layout_rows_units" />
+
+        <org.derpfest.support.preferences.ProperSeekBarPreference
+            android:key="qqs_tiles_rows_landscape_classic"
+            android:title="@string/qqs_classic_layout_rows_landscape_title"
+            android:summary="@string/qqs_classic_layout_rows_landscape_summary"
+            android:defaultValue="1"
+            android:max="3"
+            settings:min="1"
+            settings:interval="1"
+            settings:units="@string/qqs_layout_rows_landscape_units" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
