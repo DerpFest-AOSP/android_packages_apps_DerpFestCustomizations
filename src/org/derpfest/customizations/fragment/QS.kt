@@ -28,6 +28,8 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
     private var mTileLabelHide: Preference? = null
     private var mTileIconShape: Preference? = null
     private var mClassicLayoutCategory: PreferenceCategory? = null
+    private var mTileShape: Preference? = null
+    private var mLayoutCategory: PreferenceCategory? = null
     private lateinit var mQsColumnsClassic: ProperSeekBarPreference
     private lateinit var mQsColumnsLandscapeClassic: ProperSeekBarPreference
     private lateinit var mQqsColumnsClassic: ProperSeekBarPreference
@@ -44,6 +46,8 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
         mTileLabelHide = findPreference(KEY_TILE_LABEL_HIDE)
         mTileIconShape = findPreference(KEY_QS_TILE_ICON_SHAPE)
         mClassicLayoutCategory = findPreference(KEY_CLASSIC_LAYOUT_CATEGORY)
+        mTileShape = findPreference(KEY_QS_TILE_SHAPE)
+        mLayoutCategory = findPreference(KEY_LAYOUT_CATEGORY)
         mQsColumnsClassic = findPreference(KEY_QS_TILES_COLUMNS_CLASSIC)!!
         mQsColumnsLandscapeClassic = findPreference(KEY_QS_TILES_COLUMNS_LANDSCAPE_CLASSIC)!!
         mQqsColumnsClassic = findPreference(KEY_QQS_TILES_COLUMNS_CLASSIC)!!
@@ -70,7 +74,7 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
             0,
             UserHandle.USER_CURRENT,
         )
-        updateCircularPrefs(style == 1)
+        updatePanelStyleDependentPrefs(style == 1)
 
         mDataUsagePreference = findPreference("qs_show_data_usage")!!
         mDataUsageCycleTypePreference = findPreference("qs_data_usage_cycle_type")!!
@@ -85,7 +89,7 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
         when (preference.key) {
             KEY_QS_PANEL_STYLE -> {
                 val style = (newValue as? String)?.toIntOrNull() ?: 0
-                updateCircularPrefs(style == 1)
+                updatePanelStyleDependentPrefs(style == 1)
                 return true
             }
             "qs_data_usage_cycle_type" -> {
@@ -157,11 +161,17 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
         }
     }
 
-    private fun updateCircularPrefs(circular: Boolean) {
-        mTileLabelHide?.isVisible = circular
-        mTileIconShape?.isVisible = circular
-        mClassicLayoutCategory?.isVisible = circular
-        if (circular) {
+    /**
+     * Circular (classic) panel: tile label hide, icon mask shape, and classic rows/columns.
+     * Card (infinite grid) panel: tile shape and main QS layout (rows/columns) screen.
+     */
+    private fun updatePanelStyleDependentPrefs(styleIsCircular: Boolean) {
+        mTileLabelHide?.isVisible = styleIsCircular
+        mTileIconShape?.isVisible = styleIsCircular
+        mClassicLayoutCategory?.isVisible = styleIsCircular
+        mTileShape?.isVisible = !styleIsCircular
+        mLayoutCategory?.isVisible = !styleIsCircular
+        if (styleIsCircular) {
             setInitialClassicLayoutValues()
         }
     }
@@ -234,6 +244,8 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
         private const val KEY_QS_PANEL_STYLE = "qs_panel_style"
         private const val KEY_TILE_LABEL_HIDE = "qs_tile_label_hide"
         private const val KEY_QS_TILE_ICON_SHAPE = "qs_tile_icon_shape"
+        private const val KEY_QS_TILE_SHAPE = "qs_tile_shape"
+        private const val KEY_LAYOUT_CATEGORY = "layout_category"
         private const val KEY_CLASSIC_LAYOUT_CATEGORY = "qs_classic_layout_category"
         private const val KEY_QS_TILES_COLUMNS_CLASSIC = "qs_tiles_columns_classic"
         private const val KEY_QS_TILES_COLUMNS_LANDSCAPE_CLASSIC =
