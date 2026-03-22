@@ -334,6 +334,7 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="blur_intensity_summary" formatted="false">Control the intensity of blur effects throughout the system.\n0% = no blur, 100% = system default, 200% = double intensity.</string>
 
     <!-- QS Panel -->
+    <string name="qs_appearance_category_title">Appearance</string>
     <string name="brightness_category_title">Brightness slider</string>
     <string name="qs_show_brightness_slider_title">When to show</string>
     <string name="qs_show_brightness_slider_never">Never show</string>

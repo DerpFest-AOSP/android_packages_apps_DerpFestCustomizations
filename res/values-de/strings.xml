@@ -406,6 +406,8 @@
     <string name="qs_show_lunar_calendar_title">Chinesischer Mondkalender</string>
     <string name="qs_show_lunar_calendar_summary">Mondkalender in Schnelleinstellungen anzeigen</string>
 
+    <string name="qs_appearance_category_title">Darstellung</string>
+
     <!-- Brightness Slider Style -->
     <string name="qs_brightness_slider_shape_title">Form des Helligkeitsreglers</string>
     <string name="qs_brightness_use_new_tint_title">Akzentfarbe für Helligkeitsregler</string>

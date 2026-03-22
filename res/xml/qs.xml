@@ -68,13 +68,19 @@
 
         </PreferenceCategory>
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="qs_appearance_category"
+        android:title="@string/qs_appearance_category_title" >
+
         <org.derpfest.support.preferences.SystemSettingSwitchPreference
             android:key="qs_panel_bg_use_new_tint"
             android:title="@string/qs_panel_bg_use_new_tint_title"
             android:summary="@string/qs_panel_bg_use_new_tint_summary"
             android:defaultValue="false" />
 
-         <org.derpfest.support.preferences.SystemSettingSwitchPreference
+        <org.derpfest.support.preferences.SystemSettingSwitchPreference
             android:key="qs_show_lunar_calendar"
             android:title="@string/qs_show_lunar_calendar_title"
             android:summary="@string/qs_show_lunar_calendar_summary"
