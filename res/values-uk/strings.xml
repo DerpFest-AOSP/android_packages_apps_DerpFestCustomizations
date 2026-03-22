@@ -386,6 +386,7 @@
     <string name="qs_layout_rows_units">рядки</string>
     <!-- QS Layout Settings -->
     <string name="qs_layout_settings_title">Макет QS</string>
+    <string name="qs_layout_settings_summary">Налаштуйте рядки та стовпці для швидких налаштувань</string>
     <string name="qs_media_respect_halving_summary">Якщо ввімкнено, стовпці QS зменшуються вдвічі, коли елементи керування медіа відображаються в тому ж рядку, що й плитки.</string>
     <string name="qs_media_respect_halving_title">Розділити стовпці навпіл, коли медіафайли знаходяться в рядку</string>
     <!-- QS Notifications category -->

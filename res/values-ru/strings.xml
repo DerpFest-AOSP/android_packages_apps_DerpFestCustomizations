@@ -256,6 +256,7 @@
     <string name="qs_data_usage_cycle_weekly">Еженедельно</string>
     <string name="qs_show_data_usage_cycle_info_title">Показывать информацию о периоде</string>
     <string name="qs_layout_settings_title">Макет быстрых настроек</string>
+    <string name="qs_layout_settings_summary">Настройте строки и столбцы для быстрых настроек</string>
     <string name="qs_notifications_category_title">Уведомления</string>
     <string name="qs_layout_category_title">Макет быстрых настроек</string>
     <string name="qs_layout_category_summary">Настройте макет панели быстрых настроек</string>
