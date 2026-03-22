@@ -402,6 +402,17 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="qs_tile_icon_shape_vessel">Vessel</string>
     <string name="qs_tile_icon_shape_rounded_hexagon">Rounded hexagon</string>
 
+    <!-- Classic circular QS column layout (Settings.System qs_layout_*_classic / qqs_layout_*_classic; SystemUI) -->
+    <string name="qs_classic_layout_category_title">Circular layout columns</string>
+    <string name="qs_classic_layout_columns_title">QS columns (portrait)</string>
+    <string name="qs_classic_layout_columns_summary">Expanded Quick Settings grid when using circular style</string>
+    <string name="qs_classic_layout_columns_landscape_title">QS columns (landscape)</string>
+    <string name="qs_classic_layout_columns_landscape_summary">Expanded Quick Settings grid in landscape</string>
+    <string name="qqs_classic_layout_columns_title">QQS columns (portrait)</string>
+    <string name="qqs_classic_layout_columns_summary">Collapsed Quick Settings row when using circular style</string>
+    <string name="qqs_classic_layout_columns_landscape_title">QQS columns (landscape)</string>
+    <string name="qqs_classic_layout_columns_landscape_summary">Collapsed Quick Settings in landscape</string>
+
     <!-- QS Tiles Style -->
     <string name="qs_tile_shape_title">QS tiles shape</string>
     <string name="qs_tile_shape_dynamic">Dynamic</string>
