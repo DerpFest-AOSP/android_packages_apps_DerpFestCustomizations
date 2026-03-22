@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2023-2024 The risingOS Android Project
+     SPDX-FileCopyrightText: DerpFest AOSP
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/lockscreen_custom_clock_style_title">
+
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="clock_preview"
+        android:layout="@layout/lockscreen_clock_preview"
+        android:selectable="false"
+        app:allowDividerAbove="false"
+        app:allowDividerBelow="true"
+        settings:searchable="false" />
+
+    <org.derpfest.support.preferences.SecureSettingListPreference
+        android:key="lock_screen_custom_clock_color_mode"
+        android:title="@string/lockscreen_custom_clock_color_mode_title"
+        android:summary="%s"
+        android:entries="@array/lockscreen_custom_clock_color_mode_entries"
+        android:entryValues="@array/lockscreen_custom_clock_color_mode_values"
+        android:defaultValue="default" />
+
+    <org.derpfest.support.colorpicker.SecureSettingColorPickerPreference
+        android:key="lock_screen_custom_clock_custom_color"
+        android:title="@string/lockscreen_clock_custom_color_title"
+        android:defaultValue="0xFFFFFFFF" />
+
+    <org.derpfest.support.preferences.SecureSettingSeekBarPreference
+        android:key="lock_screen_custom_clock_opacity"
+        android:title="@string/lockscreen_custom_clock_opacity_title"
+        android:summary="@string/lockscreen_custom_clock_opacity_summary"
+        android:defaultValue="100"
+        android:max="100"
+        settings:min="10"
+        settings:interval="1"
+        settings:units="%" />
+
+    <org.derpfest.support.preferences.SecureSettingSeekBarPreference
+        android:key="lock_screen_custom_clock_margin_top"
+        android:title="@string/lockscreen_custom_clock_frame_margin_top_title"
+        android:summary="@string/lockscreen_custom_clock_frame_margin_top_summary"
+        android:defaultValue="15"
+        android:max="100"
+        settings:min="0"
+        settings:interval="1"
+        settings:units="@string/unit_pixels" />
+
+    <com.android.settingslib.widget.FooterPreference
+        android:key="custom_clock_style_info"
+        android:title="@string/lockscreen_custom_clock_style_info"
+        android:selectable="false"
+        settings:searchable="false" />
+</PreferenceScreen>
