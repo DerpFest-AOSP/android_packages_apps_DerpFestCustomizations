@@ -32,6 +32,10 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
     private lateinit var mQsColumnsLandscapeClassic: ProperSeekBarPreference
     private lateinit var mQqsColumnsClassic: ProperSeekBarPreference
     private lateinit var mQqsColumnsLandscapeClassic: ProperSeekBarPreference
+    private lateinit var mQsRowsClassic: ProperSeekBarPreference
+    private lateinit var mQsRowsLandscapeClassic: ProperSeekBarPreference
+    private lateinit var mQqsRowsClassic: ProperSeekBarPreference
+    private lateinit var mQqsRowsLandscapeClassic: ProperSeekBarPreference
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         addPreferencesFromResource(R.xml.qs)
@@ -44,12 +48,20 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
         mQsColumnsLandscapeClassic = findPreference(KEY_QS_TILES_COLUMNS_LANDSCAPE_CLASSIC)!!
         mQqsColumnsClassic = findPreference(KEY_QQS_TILES_COLUMNS_CLASSIC)!!
         mQqsColumnsLandscapeClassic = findPreference(KEY_QQS_TILES_COLUMNS_LANDSCAPE_CLASSIC)!!
+        mQsRowsClassic = findPreference(KEY_QS_TILES_ROWS_CLASSIC)!!
+        mQsRowsLandscapeClassic = findPreference(KEY_QS_TILES_ROWS_LANDSCAPE_CLASSIC)!!
+        mQqsRowsClassic = findPreference(KEY_QQS_TILES_ROWS_CLASSIC)!!
+        mQqsRowsLandscapeClassic = findPreference(KEY_QQS_TILES_ROWS_LANDSCAPE_CLASSIC)!!
 
         listOf(
             mQsColumnsClassic,
             mQsColumnsLandscapeClassic,
             mQqsColumnsClassic,
             mQqsColumnsLandscapeClassic,
+            mQsRowsClassic,
+            mQsRowsLandscapeClassic,
+            mQqsRowsClassic,
+            mQqsRowsLandscapeClassic,
         ).forEach { it.setOnPreferenceChangeListener(this) }
 
         val style = Settings.Secure.getIntForUser(
@@ -104,6 +116,30 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
                 mQqsColumnsLandscapeClassic.setValue(v)
                 return true
             }
+            KEY_QS_TILES_ROWS_CLASSIC -> {
+                val v = newValue as? Int ?: return false
+                Settings.System.putInt(cr, SYSTEM_QS_LAYOUT_ROWS_CLASSIC, v)
+                mQsRowsClassic.setValue(v)
+                return true
+            }
+            KEY_QS_TILES_ROWS_LANDSCAPE_CLASSIC -> {
+                val v = newValue as? Int ?: return false
+                Settings.System.putInt(cr, SYSTEM_QS_LAYOUT_ROWS_LANDSCAPE_CLASSIC, v)
+                mQsRowsLandscapeClassic.setValue(v)
+                return true
+            }
+            KEY_QQS_TILES_ROWS_CLASSIC -> {
+                val v = newValue as? Int ?: return false
+                Settings.System.putInt(cr, SYSTEM_QQS_LAYOUT_ROWS_CLASSIC, v)
+                mQqsRowsClassic.setValue(v)
+                return true
+            }
+            KEY_QQS_TILES_ROWS_LANDSCAPE_CLASSIC -> {
+                val v = newValue as? Int ?: return false
+                Settings.System.putInt(cr, SYSTEM_QQS_LAYOUT_ROWS_LANDSCAPE_CLASSIC, v)
+                mQqsRowsLandscapeClassic.setValue(v)
+                return true
+            }
         }
         return true
     }
@@ -148,10 +184,30 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
             Settings.System.getInt(cr, SYSTEM_QQS_LAYOUT_COLUMNS_LANDSCAPE_CLASSIC, 0).let {
                 if (it > 0) it else DEFAULT_QQS_CLASSIC_COLUMNS_LAND
             }
+        val qsRowsPort =
+            Settings.System.getInt(cr, SYSTEM_QS_LAYOUT_ROWS_CLASSIC, 0).let {
+                if (it > 0) it else DEFAULT_QS_CLASSIC_ROWS_PORT
+            }
+        val qsRowsLand =
+            Settings.System.getInt(cr, SYSTEM_QS_LAYOUT_ROWS_LANDSCAPE_CLASSIC, 0).let {
+                if (it > 0) it else DEFAULT_QS_CLASSIC_ROWS_LAND
+            }
+        val qqsRowsPort =
+            Settings.System.getInt(cr, SYSTEM_QQS_LAYOUT_ROWS_CLASSIC, 0).let {
+                if (it > 0) it else DEFAULT_QQS_CLASSIC_ROWS_PORT
+            }
+        val qqsRowsLand =
+            Settings.System.getInt(cr, SYSTEM_QQS_LAYOUT_ROWS_LANDSCAPE_CLASSIC, 0).let {
+                if (it > 0) it else DEFAULT_QQS_CLASSIC_ROWS_LAND
+            }
         mQsColumnsClassic.setValue(qsPort)
         mQsColumnsLandscapeClassic.setValue(qsLand)
         mQqsColumnsClassic.setValue(qqsPort)
         mQqsColumnsLandscapeClassic.setValue(qqsLand)
+        mQsRowsClassic.setValue(qsRowsPort)
+        mQsRowsLandscapeClassic.setValue(qsRowsLand)
+        mQqsRowsClassic.setValue(qqsRowsPort)
+        mQqsRowsLandscapeClassic.setValue(qqsRowsLand)
     }
 
     private fun updateDataUsageSummary(cycleTypeValue: String? = null) {
@@ -185,6 +241,12 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
         private const val KEY_QQS_TILES_COLUMNS_CLASSIC = "qqs_tiles_columns_classic"
         private const val KEY_QQS_TILES_COLUMNS_LANDSCAPE_CLASSIC =
             "qqs_tiles_columns_landscape_classic"
+        private const val KEY_QS_TILES_ROWS_CLASSIC = "qs_tiles_rows_classic"
+        private const val KEY_QS_TILES_ROWS_LANDSCAPE_CLASSIC =
+            "qs_tiles_rows_landscape_classic"
+        private const val KEY_QQS_TILES_ROWS_CLASSIC = "qqs_tiles_rows_classic"
+        private const val KEY_QQS_TILES_ROWS_LANDSCAPE_CLASSIC =
+            "qqs_tiles_rows_landscape_classic"
 
         /** Matches [android.provider.Settings.System] keys consumed by SystemUI. */
         private const val SYSTEM_QS_LAYOUT_COLUMNS_CLASSIC = "qs_layout_columns_classic"
@@ -193,10 +255,20 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
         private const val SYSTEM_QQS_LAYOUT_COLUMNS_CLASSIC = "qqs_layout_columns_classic"
         private const val SYSTEM_QQS_LAYOUT_COLUMNS_LANDSCAPE_CLASSIC =
             "qqs_layout_columns_landscape_classic"
+        private const val SYSTEM_QS_LAYOUT_ROWS_CLASSIC = "qs_layout_rows_classic"
+        private const val SYSTEM_QS_LAYOUT_ROWS_LANDSCAPE_CLASSIC =
+            "qs_layout_rows_landscape_classic"
+        private const val SYSTEM_QQS_LAYOUT_ROWS_CLASSIC = "qqs_layout_rows_classic"
+        private const val SYSTEM_QQS_LAYOUT_ROWS_LANDSCAPE_CLASSIC =
+            "qqs_layout_rows_landscape_classic"
 
         private const val DEFAULT_QS_CLASSIC_COLUMNS_PORT = 4
         private const val DEFAULT_QS_CLASSIC_COLUMNS_LAND = 6
         private const val DEFAULT_QQS_CLASSIC_COLUMNS_PORT = 4
         private const val DEFAULT_QQS_CLASSIC_COLUMNS_LAND = 6
+        private const val DEFAULT_QS_CLASSIC_ROWS_PORT = 3
+        private const val DEFAULT_QS_CLASSIC_ROWS_LAND = 2
+        private const val DEFAULT_QQS_CLASSIC_ROWS_PORT = 2
+        private const val DEFAULT_QQS_CLASSIC_ROWS_LAND = 1
     }
 }

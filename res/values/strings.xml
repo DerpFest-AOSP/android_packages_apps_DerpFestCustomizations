@@ -412,6 +412,14 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="qqs_classic_layout_columns_summary">Collapsed Quick Settings row when using circular style</string>
     <string name="qqs_classic_layout_columns_landscape_title">QQS columns (landscape)</string>
     <string name="qqs_classic_layout_columns_landscape_summary">Collapsed Quick Settings in landscape</string>
+    <string name="qs_classic_layout_rows_title">QS rows (portrait)</string>
+    <string name="qs_classic_layout_rows_summary">Rows per page in expanded Quick Settings (circular style)</string>
+    <string name="qs_classic_layout_rows_landscape_title">QS rows (landscape)</string>
+    <string name="qs_classic_layout_rows_landscape_summary">Rows per page in expanded Quick Settings in landscape</string>
+    <string name="qqs_classic_layout_rows_title">QQS rows (portrait)</string>
+    <string name="qqs_classic_layout_rows_summary">Rows in collapsed Quick Settings (circular style)</string>
+    <string name="qqs_classic_layout_rows_landscape_title">QQS rows (landscape)</string>
+    <string name="qqs_classic_layout_rows_landscape_summary">Collapsed Quick Settings rows in landscape</string>
 
     <!-- QS Tiles Style -->
     <string name="qs_tile_shape_title">QS tiles shape</string>

@@ -81,6 +81,46 @@
                 settings:interval="1"
                 settings:units="@string/qs_layout_columns_landscape_units" />
 
+            <org.derpfest.support.preferences.ProperSeekBarPreference
+                android:key="qs_tiles_rows_classic"
+                android:title="@string/qs_classic_layout_rows_title"
+                android:summary="@string/qs_classic_layout_rows_summary"
+                android:defaultValue="3"
+                android:max="5"
+                settings:min="2"
+                settings:interval="1"
+                settings:units="@string/qs_layout_rows_units" />
+
+            <org.derpfest.support.preferences.ProperSeekBarPreference
+                android:key="qs_tiles_rows_landscape_classic"
+                android:title="@string/qs_classic_layout_rows_landscape_title"
+                android:summary="@string/qs_classic_layout_rows_landscape_summary"
+                android:defaultValue="2"
+                android:max="3"
+                settings:min="1"
+                settings:interval="1"
+                settings:units="@string/qs_layout_rows_landscape_units" />
+
+            <org.derpfest.support.preferences.ProperSeekBarPreference
+                android:key="qqs_tiles_rows_classic"
+                android:title="@string/qqs_classic_layout_rows_title"
+                android:summary="@string/qqs_classic_layout_rows_summary"
+                android:defaultValue="2"
+                android:max="3"
+                settings:min="1"
+                settings:interval="1"
+                settings:units="@string/qqs_layout_rows_units" />
+
+            <org.derpfest.support.preferences.ProperSeekBarPreference
+                android:key="qqs_tiles_rows_landscape_classic"
+                android:title="@string/qqs_classic_layout_rows_landscape_title"
+                android:summary="@string/qqs_classic_layout_rows_landscape_summary"
+                android:defaultValue="1"
+                android:max="3"
+                settings:min="1"
+                settings:interval="1"
+                settings:units="@string/qqs_layout_rows_landscape_units" />
+
         </PreferenceCategory>
 
         <org.derpfest.support.preferences.SystemSettingListPreference
