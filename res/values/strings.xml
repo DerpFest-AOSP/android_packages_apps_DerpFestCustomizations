@@ -418,6 +418,12 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="qs_tile_icon_shape_teardrop">Teardrop</string>
     <string name="qs_tile_icon_shape_vessel">Vessel</string>
     <string name="qs_tile_icon_shape_rounded_hexagon">Rounded hexagon</string>
+    <string name="qs_tile_icon_shape_just_icons">Just icons</string>
+    <string name="qs_tile_icon_shape_pokesign">Pokésign</string>
+    <string name="qs_tile_icon_shape_ninja">Ninja</string>
+    <string name="qs_tile_icon_shape_dotted_circle">Dotted circle</string>
+    <string name="qs_tile_icon_shape_outline_style">Outline style</string>
+    <string name="qs_tile_icon_shape_squaremedo">Squaremedo</string>
 
     <!-- QS layout entry screens (qs_layout_settings, qs_classic_layout_settings) -->
     <string name="qs_layout_settings_title">QS Layout</string>

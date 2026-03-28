@@ -86,8 +86,10 @@ public class QsTileIconShapePreference extends Preference {
     }
 
     private Drawable createPreviewDrawable(String shapeKey) {
-        String pathData = QsTileIconShapePathData.pathStringForKey(shapeKey);
-        return new TileIconShapePreviewDrawable(pathData, getThemeIconColor());
+        String pathData = QsTileIconShapePathData.pathDataForPreview(shapeKey);
+        float viewBox = QsTileIconShapePathData.viewBoxForPreview(shapeKey);
+        float strokeFrac = QsTileIconShapePathData.previewStrokeFractionFor(shapeKey);
+        return new TileIconShapePreviewDrawable(pathData, viewBox, getThemeIconColor(), strokeFrac);
     }
 
     private String getCurrentShapeKey() {
@@ -271,12 +273,15 @@ public class QsTileIconShapePreference extends Preference {
     }
 
     private static final class TileIconShapePreviewDrawable extends Drawable {
-        private static final float VIEWBOX = 100f;
+        private final float mViewBox;
+        private final float mStrokeFraction;
 
         private final Path mPath;
         private final Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
-        TileIconShapePreviewDrawable(String pathData, int color) {
+        TileIconShapePreviewDrawable(String pathData, float viewBox, int color, float strokeFraction) {
+            mViewBox = viewBox > 0f ? viewBox : 100f;
+            mStrokeFraction = strokeFraction;
             Path path;
             try {
                 path = PathParser.createPathFromPathData(pathData);
@@ -286,8 +291,14 @@ public class QsTileIconShapePreference extends Preference {
                                 QsTileIconShapePathData.DEFAULT_KEY));
             }
             mPath = path;
-            mPaint.setStyle(Paint.Style.FILL);
             mPaint.setColor(color);
+            if (strokeFraction > 0f) {
+                mPaint.setStyle(Paint.Style.STROKE);
+                mPaint.setStrokeJoin(Paint.Join.ROUND);
+                mPaint.setStrokeCap(Paint.Cap.ROUND);
+            } else {
+                mPaint.setStyle(Paint.Style.FILL);
+            }
         }
 
         @Override
@@ -295,10 +306,15 @@ public class QsTileIconShapePreference extends Preference {
             Rect b = getBounds();
             if (b.isEmpty()) return;
             canvas.save();
-            float sx = b.width() / VIEWBOX;
-            float sy = b.height() / VIEWBOX;
+            float sx = b.width() / mViewBox;
+            float sy = b.height() / mViewBox;
             canvas.translate(b.left, b.top);
             canvas.scale(sx, sy);
+            if (mStrokeFraction > 0f) {
+                float minPx = Math.min(b.width(), b.height());
+                float strokePath = (minPx * mStrokeFraction) / Math.min(sx, sy);
+                mPaint.setStrokeWidth(strokePath);
+            }
             canvas.drawPath(mPath, mPaint);
             canvas.restore();
         }
