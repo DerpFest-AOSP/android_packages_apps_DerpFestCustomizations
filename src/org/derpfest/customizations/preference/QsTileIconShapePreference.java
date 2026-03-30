@@ -10,6 +10,8 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PixelFormat;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.provider.Settings;
@@ -86,6 +88,16 @@ public class QsTileIconShapePreference extends Preference {
     }
 
     private Drawable createPreviewDrawable(String shapeKey) {
+        if ("just_icons".equals(shapeKey)) {
+            Drawable d = getContext().getDrawable(R.drawable.ic_signal_flashlight);
+            if (d != null) {
+                d = d.mutate();
+                d.setColorFilter(
+                        new PorterDuffColorFilter(getThemeIconColor(), PorterDuff.Mode.SRC_IN));
+                return d;
+            }
+            // Missing on some variants: fall back to mask path preview.
+        }
         String pathData = QsTileIconShapePathData.pathDataForPreview(shapeKey);
         float viewBox = QsTileIconShapePathData.viewBoxForPreview(shapeKey);
         float strokeFrac = QsTileIconShapePathData.previewStrokeFractionFor(shapeKey);
