@@ -36,7 +36,9 @@
     <string name="lockscreen_custom_clock_opacity_summary">Transparenz der benutzerdefinierten Sperrbildschirm-Uhr anpassen</string>
     <string name="lockscreen_custom_clock_frame_margin_top_title">Position der Uhr</string>
     <string name="lockscreen_custom_clock_frame_margin_top_summary">Vertikale Position der benutzerdefinierten Uhr anpassen</string>
-    <string name="lockscreen_custom_clock_style_info">Die benutzerdefinierte Uhr ersetzt die Standard-Uhrstile. Smartspace kann ausgeblendet werden, solange eine benutzerdefinierte Uhr aktiv ist.</string>
+    <string name="lockscreen_custom_clock_smartspace_title">Smartspace-Datum &amp; Wetter anzeigen</string>
+    <string name="lockscreen_custom_clock_smartspace_summary">System-Datum und Wetterzeile unter der Uhr anzeigen, wenn ein benutzerdefiniertes Zifferblatt aktiv ist. Deaktivieren, um nur Datum oder Wetter aus dem Uhr-Layout zu nutzen (falls vorhanden).</string>
+    <string name="lockscreen_custom_clock_style_info">Die benutzerdefinierte Uhr ersetzt die Standard-Uhrstile. Smartspace-Datum und -Wetter sind standardmäßig aus; aktiviere „Smartspace-Datum &amp; Wetter anzeigen“, um sie unter der Uhr zu zeigen.</string>
     <string name="spoofing_title">Spoofing</string>
     <string name="spoofing_summary">Umgehen von App-Einschränkungen durch Spoofing von Komponenten</string>
     <string name="misc_title">Sonstiges</string>

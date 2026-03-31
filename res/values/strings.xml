@@ -36,7 +36,9 @@
     <string name="lockscreen_custom_clock_opacity_summary">Adjust transparency of the custom lock screen clock</string>
     <string name="lockscreen_custom_clock_frame_margin_top_title">Custom clock position</string>
     <string name="lockscreen_custom_clock_frame_margin_top_summary">Adjust vertical position of the custom clock</string>
-    <string name="lockscreen_custom_clock_style_info">Custom clock replaces default lock screen clock styles. Smartspace may be hidden while a custom clock is used.</string>
+    <string name="lockscreen_custom_clock_smartspace_title">Show Smartspace date &amp; weather</string>
+    <string name="lockscreen_custom_clock_smartspace_summary">Show the system date and weather row below the clock when a custom clock style is applied. Disable to rely only on date or weather built into the clock layout (if any).</string>
+    <string name="lockscreen_custom_clock_style_info">Custom clock replaces default lock screen clock styles. Smartspace date and weather are off by default; enable Show Smartspace date &amp; weather if you want them below the clock.</string>
     <string name="spoofing_title">Spoofing</string>
     <string name="spoofing_summary">Bypass app restrictions by spoofing components</string>
     <string name="misc_title">Miscellaneous</string>
