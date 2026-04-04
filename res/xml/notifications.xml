@@ -52,18 +52,6 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="island_notifications_category"
-        android:title="@string/island_notifications_category_title" >
-
-        <Preference
-            android:key="island_notification"
-            android:title="@string/island_notification_title"
-            android:summary="@string/island_notification_summary"
-            android:fragment="org.derpfest.customizations.fragment.IslandSettings" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
         android:key="pulse_ambient_edge_light_category"
         android:title="@string/pulse_ambient_edge_light_category_title" >
 

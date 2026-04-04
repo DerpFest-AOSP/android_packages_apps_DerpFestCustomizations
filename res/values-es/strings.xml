@@ -143,18 +143,6 @@ La barra de progreso cambia dinámicamente entre estados de medios y descarga, p
     <string name="lockscreen_hide_status_bar_title">Ocultar barra de estado</string>
     <string name="lockscreen_hide_status_bar_summary">Si se activa, se ocultará la barra de estado en la pantalla de bloqueo</string>
 
-    <!-- Island Notification -->
-    <string name="island_notification_title">Notificación tipo Isla</string>
-    <string name="island_notification_summary">Mostrar avisos emergentes al estilo Dynamic Island</string>
-    <string name="island_notification_footer_text">
-        La función de notificación tipo Isla, inspirada en Dynamic Island de iOS, transforma los avisos emergentes de Android en una utilidad compacta y de acceso rápido.
-
-Los controles de acceso rápido de la Isla incluyen las siguientes funciones:
-1. Toca la notificación de la Isla para contestar rápidamente llamadas telefónicas.
-2. Mantén pulsada la notificación de la Isla para rechazar llamadas telefónicas.
-3. Mantén pulsada la notificación de la Isla para ampliar la vista previa de la notificación.
-    </string>
-
     <!-- Settings dashboard icon style -->
     <string name="theming_settings_dashboard_icons_title">Iconos del panel de Ajustes</string>
     <string name="theming_settings_dashboard_icons_default">Predeterminado de AOSP (tematizado natural)</string>

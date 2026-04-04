@@ -178,14 +178,6 @@
     <string name="lockscreen_hide_status_bar_title">隐藏状态栏</string>
     <string name="lockscreen_hide_status_bar_summary">启用后，锁屏界面将隐藏状态栏</string>
 
-    <!-- Island Notification -->
-    <string name="island_notifications_category_title">灵动岛式通知</string>
-    <string name="island_notification_title">灵动岛式通知</string>
-    <string name="island_notification_summary">以灵动岛样式显示通知</string>
-    <string name="island_notification_footer_text">
-        受 iOS 中的灵动岛启发，灵动岛式通知功能可将 Android 的通知转化为更紧凑、更便捷的通知形式。\n\n灵动岛快捷控制具备以下功能：\n1. 轻点灵动岛通知，快速接听来电。\n2. 长按灵动岛通知，直接拒接来电。\n3. 长按灵动岛通知，展开完整预览。
-    </string>
-
     <!-- Settings dashboard icon style -->
     <string name="theming_settings_dashboard_icons_title">设置主界面图标</string>
     <string name="theming_settings_dashboard_icons_default">AOSP 默认（自然主题）</string>

@@ -186,14 +186,6 @@
     <string name="lockscreen_hide_status_bar_title">隱藏狀態列</string>
     <string name="lockscreen_hide_status_bar_summary">啟用後，狀態列將在鎖定畫面隱藏</string>
 
-    <!-- Island Notification -->
-    <string name="island_notifications_category_title">動態島通知</string>
-    <string name="island_notification_title">動態島通知</string>
-    <string name="island_notification_summary">以動態島風格顯示懸浮通知</string>
-    <string name="island_notification_footer_text">
-        動態島通知功能受 iOS 的 Dynamic Island 啟發，將 Android 的懸浮通知轉化為快速存取且精簡的通知工具。\n\n動態島快速存取控制包含以下功能：\n1. 點擊動態島通知可快速接聽電話。\n2. 長按動態島通知可拒接電話。\n3. 長按動態島通知可展開通知預覽。
-    </string>
-
     <!-- Settings dashboard icon style -->
     <string name="theming_settings_dashboard_icons_title">設定儀錶板圖示</string>
     <string name="theming_settings_dashboard_icons_default">AOSP 預設 (原生風格)</string>

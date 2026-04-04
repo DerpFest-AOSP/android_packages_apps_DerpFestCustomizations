@@ -224,14 +224,6 @@ The progress bar dynamically switches between media and download states, ensurin
     <string name="bouncer_user_switcher_title">User switcher on lockscreen</string>
     <string name="bouncer_user_switcher_summary">Show user switcher on the keyguard bouncer (large screens)</string>
 
-    <!-- Island Notification -->
-    <string name="island_notifications_category_title">Island Notifications</string>
-    <string name="island_notification_title">Island notification</string>
-    <string name="island_notification_summary">Display heads-up notification in Dynamic Island style</string>
-    <string name="island_notification_footer_text">
-        The Island notification feature, inspired by iOS\'s Dynamic Island, transforms Android\'s heads-up notifications into quick-access and compact notification utility.\n\nIsland Quick Access Controls includes the following features:\n1. Tap island notification to quick answer phone calls.\n2. Long press island notification to reject phone calls.\n3. Long press island notification to expand the island notification preview.
-    </string>
-
     <!-- Settings dashboard icon style -->
     <string name="theming_settings_dashboard_icons_title">Settings dashboard icons</string>
     <string name="theming_settings_dashboard_icons_default">AOSP default (natural theming)</string>

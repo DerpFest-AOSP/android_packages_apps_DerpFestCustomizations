@@ -124,13 +124,6 @@ La barra di progresso cambia dinamicamente tra multimedia e download/upload, ass
     <string name="compact_heads_up_notifications_enabled_title">Heads-up compatto</string>
     <string name="compact_heads_up_notifications_enabled_summary">Mostra notifiche in un formato più compatto</string>
 
-    <!-- Island Notification -->
-    <string name="island_notification_title">Notifiche a isola</string>
-    <string name="island_notification_summary">Mostra notifiche heads-up in stile Dynamic Island</string>
-    <string name="island_notification_footer_text">
-        La funzionalità Island notification, ispirata dalla Dynamic Island di iOS, trasforma le notifiche heads-up di Android in notifiche compatte e ad accesso rapido.\n\nIsland Quick Access Controls include le seguenti funzionalità:\n1. Tocca la notifica per rispondere velocemente a una chiamata.\n2. Tieni premuta la notifica per rifiutare una chiamata.\n3. Tieni premuta la notifica per espandere la preview.
-    </string>
-
     <!-- QS Header -->
     <string name="qs_header_image_title">Immagine intestazione impostazioni rapide</string>
     <string name="qs_header_image_summary">Seleziona l\'immagine d\'intestazione delle impostazioni rapide</string>

@@ -134,11 +134,6 @@
     <string name="ignore_window_secure_summary">Прибирає обмеження на знімки екрана та запис екрану для всіх програм. Це може бути зручно в деяких випадках, але може призвести до витоку конфіденційності.</string>
     <!-- Ignore window secure -->
     <string name="ignore_window_secure_title">Ігнорувати прапорці безпеки вікон</string>
-    <string name="island_notification_footer_text">Функція сповіщень Island, натхненна Dynamic Island в iOS, перетворює сповіщення Android на швидкий та компактний інструмент для швидкого доступу до сповіщень.\n\nШвидке керування Island включає такі функції:\n1. Натисніть на сповіщення Island, щоб швидко відповісти на телефонний дзвінок.\n2. Натисніть та утримуйте сповіщення Island, щоб відхилити телефонний дзвінок.\n3. Натисніть та утримуйте сповіщення Island, щоб розгорнути попередній перегляд сповіщення.</string>
-    <!-- Island Notification -->
-    <string name="island_notifications_category_title">Сповіщення Island</string>
-    <string name="island_notification_summary">Відображати сповіщення heads-up в стилі Dynamic Island</string>
-    <string name="island_notification_title">Сповіщення в стилі Island</string>
     <string name="keybox_data_cleared">Дані keybox\'а очищені</string>
     <string name="keybox_data_delete_summary">Видалити поточно завантажені дані keybox\'а</string>
     <string name="keybox_data_delete_title">Видалити дані keybox\'а</string>
