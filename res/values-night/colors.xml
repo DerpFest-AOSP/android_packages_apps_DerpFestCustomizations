@@ -5,7 +5,5 @@
 -->
 <resources>
 
-    <color name="ambient_edge_light_color_selector_item_outer_bg_color">#FF2B2930</color>
-
     <color name="qs_tile_icon_shape_item_selected_bg">#26FFFFFF</color>
 </resources>

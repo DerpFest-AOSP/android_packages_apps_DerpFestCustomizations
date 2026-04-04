@@ -33,26 +33,6 @@
     <string name="about_wall_link">https://t.me/DerpFestWalls</string>
     <string name="about_wall_summary">Канал шпалер спільноти в Telegram</string>
     <string name="about_wall_title">Шпалери</string>
-    <!-- Ambient edge lighting -->
-    <string name="ambient_edge_light_action_title">Підсвічування країв дисплею</string>
-    <string name="ambient_edge_light_advanced_category_title">Просунуті</string>
-    <string name="ambient_edge_light_color_mode_app">Колір програми</string>
-    <string name="ambient_edge_light_color_mode_app_summary">Встановити колір підсвічування країв дисплею як колір програми</string>
-    <string name="ambient_edge_light_color_mode_auto">Автоматично</string>
-    <string name="ambient_edge_light_color_mode_auto_summary">Встановити колір підсвічування країв на колір системи</string>
-    <string name="ambient_edge_light_color_mode_category_title">Колір</string>
-    <string name="ambient_edge_light_color_mode_manual">Вручну</string>
-    <string name="ambient_edge_light_color_mode_manual_summary">Виберіть колір вручну</string>
-    <string name="ambient_edge_light_color_mode_rainbow">Веселка</string>
-    <string name="ambient_edge_light_color_mode_rainbow_summary">Використовувати кольори градієнта веселки</string>
-    <string name="ambient_edge_light_duration_title">Тривалість підсвічування</string>
-    <string name="ambient_edge_light_enable_title">Увімкнути підсвічування країв</string>
-    <string name="ambient_edge_light_face_down_summary">Показувати підсвітку країв дисплею лише тоді, коли телефон екраном донизу</string>
-    <string name="ambient_edge_light_face_down_title">Переверніть, щоб активувати</string>
-    <string name="ambient_edge_light_repeat_count_title">Кількість повторів</string>
-    <string name="ambient_edge_light_summary">Підсвічувати краї екрана під час пульсації сповіщення</string>
-    <string name="ambient_edge_light_title">Підсвічування країв екрана</string>
-    <string name="ambient_edge_light_width_title">Ширина підсвічування</string>
     <string name="ambient_media_art_summary">Відображати обкладинки медіафайлів на екрані Ambient, якщо доступно</string>
     <!-- Lock screen media art on Ambient Display -->
     <string name="ambient_media_art_title">Обкладинка медіа на Ambient </string>
@@ -78,16 +58,6 @@
     <string name="data_usage_category_title">Використання даних</string>
     <string name="default_value">За замовчуванням</string>
     <string name="derpd_done">Тебе derpнули.</string>
-    <string name="edge_light_animation_effect_breathing">Дихаючий</string>
-    <string name="edge_light_animation_effect_chase">Погоня</string>
-    <string name="edge_light_animation_effect_comet">Комета</string>
-    <string name="edge_light_animation_effect_none">Стандартний</string>
-    <string name="edge_light_animation_effect_sparkle">Іскри</string>
-    <string name="edge_light_animation_effect_title">Ефект анімації</string>
-    <string name="edge_light_animation_effect_wave">Хвиля</string>
-    <string name="edge_light_style_default">За замовчуванням (ліворуч/праворуч)</string>
-    <string name="edge_light_style_frame">Рама (з усіх боків)</string>
-    <string name="edge_light_style_title">Стиль рендерингу</string>
     <string name="effects_category_title">Ефекти</string>
     <string name="enable">Увімкнути</string>
     <string name="enable_fingerprint_ripple_effect_summary">Показувати ефект хвиль при розблокуванні відбитком пальця</string>
@@ -265,7 +235,6 @@
     <string name="progress_bar_opacity_summary">Налаштувати непрозорість чіпа поточної дії</string>
     <string name="progress_bar_opacity_title">Непрозорість чіпа дії</string>
     <string name="progress_footer_text">Чип дій у рядку стану забезпечує оновлення в реальному часі як для відтворення медіа, так і для активних завантажень/вивантажень.\n\n"    "Прогрес відтворення:\n"    "- Відображає хід відтворення музики та відео під час відтворення медіафайлів.\n"    "- Поодинокий дотик відкриває елементи керування відтворенням (попередній чи наступний трек).\n"    "- Подвійний дотик перемикає відтворення/паузу.\n"    "- Свайп вліво для переходу до попередньої доріжки.\n"    "- Свайп вправо - перехід до наступної доріжки.\n"    "- Тривале натискання відкриває мультимедійну програму.\n\n"    "Прогрес завантаження/вивантаження:\n"    "- Відображає хід поточних завантажень і вивантажень.\n"    "- Автоматично ховається, якщо не виявлено жодної активної передачі.\n"    "- Одноразове натискання відкриває програму, відповідальну за завантаження.\n\nІндикатор прогресу динамічно перемикається між станами медіа та завантаження, щоб ви завжди мали найактуальнішу інформацію.</string>
-    <string name="pulse_ambient_edge_light_category_title">Імпульсне підсвічування країв</string>
     <string name="pulse_color_accent">Акцент</string>
     <string name="pulse_color_auto">Авто</string>
     <string name="pulse_color_custom">Нестандартний</string>

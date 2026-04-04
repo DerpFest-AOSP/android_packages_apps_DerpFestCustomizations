@@ -36,25 +36,6 @@
     <string name="ignore_window_secure_title">Ignora flag di sicurezza delle finestre</string>
     <string name="ignore_window_secure_summary">Rimuove limiti di screenshot e registrazione schermo a tutte le app. Ciò torna utile in alcuni casi, ma potrebbe rendere meno sicure alcune informazioni.</string>
 
-    <!-- Ambient edge lighting -->
-    <string name="ambient_edge_light_action_title">Illuminazione bordi in ambient</string>
-    <string name="ambient_edge_light_title">Illuminazione bordi</string>
-    <string name="ambient_edge_light_enable_title">Abilita l\'illuminazione bordi</string>
-    <string name="ambient_edge_light_summary">Illumina i lati dello schermo quando arriva una notifica</string>
-    <string name="ambient_edge_light_color_mode_category_title">Colore</string>
-    <string name="ambient_edge_light_color_mode_auto">Automatico</string>
-    <string name="ambient_edge_light_color_mode_app">Colore app</string>
-    <string name="ambient_edge_light_color_mode_manual">Manuale</string>
-    <string name="ambient_edge_light_color_mode_auto_summary">Imposta il colore dell\'illuminazione bordi a quello di sistema</string>
-    <string name="ambient_edge_light_color_mode_app_summary">Imposta il colore dell\'illuminazione bordi a quello dell\'app</string>
-    <string name="ambient_edge_light_color_mode_manual_summary">Scegli un colore manualmente</string>
-    <string name="ambient_edge_light_advanced_category_title">Avanzate</string>
-    <string name="ambient_edge_light_duration_title">Durata illuminazione</string>
-    <string name="ambient_edge_light_repeat_count_title">Numero di ripetizioni</string>
-    <string name="ambient_edge_light_width_title">Spessore illuminazione</string>
-    <string name="ambient_edge_light_face_down_title">Capovolgi per attivare</string>
-    <string name="ambient_edge_light_face_down_summary">Mostra l\'illuminazione bordi solo a faccia in giù</string>
-
     <!-- Fingerprint Ripple Effect -->
     <string name="enable_fingerprint_ripple_effect_title">Animazione sblocco schermo</string>
     <string name="enable_fingerprint_ripple_effect_summary">Mostra effetto onda allo sblocco con impronta digitale</string>

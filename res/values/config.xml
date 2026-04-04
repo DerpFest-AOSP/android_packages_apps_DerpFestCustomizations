@@ -6,9 +6,6 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Whether to show Ambient Edge Light feature in Settings Options -->
-    <bool name="config_show_ambient_edge_light">true</bool>
-
     <!-- List of system apps that are allowed to configure heads up settings -->
     <string-array name="config_headsUpConfAllowedSystemApps" translatable="false">
         <item>com.android.chrome</item>

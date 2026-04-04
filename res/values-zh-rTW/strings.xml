@@ -106,37 +106,6 @@
     <string name="pi_spoof_title">Google Play Integrity 偽裝</string>
     <string name="pi_spoof_summary">針對 Google Play Integrity 將裝置偽裝成不同型號</string>
 
-    <!-- Ambient edge lighting -->
-    <string name="ambient_edge_light_action_title">環境側邊燈光</string>
-    <string name="ambient_edge_light_title">側邊燈光</string>
-    <string name="ambient_edge_light_enable_title">啟用側邊燈光</string>
-    <string name="ambient_edge_light_summary">收到通知時點亮螢幕側邊</string>
-    <string name="ambient_edge_light_color_mode_category_title">顏色</string>
-    <string name="ambient_edge_light_color_mode_auto">自動</string>
-    <string name="ambient_edge_light_color_mode_app">應用程式顏色</string>
-    <string name="ambient_edge_light_color_mode_manual">手動</string>
-    <string name="ambient_edge_light_color_mode_rainbow">彩虹</string>
-    <string name="ambient_edge_light_color_mode_auto_summary">設定側邊燈光顏色為系統色</string>
-    <string name="ambient_edge_light_color_mode_app_summary">設定側邊燈光顏色為應用程式顏色</string>
-    <string name="ambient_edge_light_color_mode_manual_summary">手動選擇顏色</string>
-    <string name="ambient_edge_light_color_mode_rainbow_summary">使用彩虹漸層色</string>
-    <string name="ambient_edge_light_advanced_category_title">進階</string>
-    <string name="ambient_edge_light_duration_title">燈光持續時間</string>
-    <string name="ambient_edge_light_repeat_count_title">重複次數</string>
-    <string name="ambient_edge_light_width_title">燈光寬度</string>
-    <string name="ambient_edge_light_face_down_title">翻面啟用</string>
-    <string name="ambient_edge_light_face_down_summary">僅在手機正面朝下時顯示側邊燈光</string>
-    <string name="edge_light_style_title">繪製風格</string>
-    <string name="edge_light_style_default">預設 (左/右)</string>
-    <string name="edge_light_style_frame">邊框 (四周)</string>
-    <string name="edge_light_animation_effect_title">動畫效果</string>
-    <string name="edge_light_animation_effect_none">標準</string>
-    <string name="edge_light_animation_effect_breathing">呼吸</string>
-    <string name="edge_light_animation_effect_wave">波浪</string>
-    <string name="edge_light_animation_effect_sparkle">閃爍</string>
-    <string name="edge_light_animation_effect_chase">追逐</string>
-    <string name="edge_light_animation_effect_comet">彗星</string>
-
     <!-- Fingerprint Ripple Effect -->
     <string name="enable_fingerprint_ripple_effect_title">解鎖動畫</string>
     <string name="enable_fingerprint_ripple_effect_summary">指紋解鎖時顯示漣漪效果</string>
@@ -224,7 +193,6 @@
     <!-- Pulse music visualizer -->
     <string name="pulse_help_policy_notice_title">關於 Pulse</string>
     <string name="pulse_help_policy_notice_summary">Pulse 是當裝置播放音樂時的絕佳音訊視覺化工具</string>
-    <string name="pulse_ambient_edge_light_category_title">Pulse 環境側邊燈光</string>
     <string name="pulse_visualizer_category_title">Pulse 視覺化工具</string>
     <string name="pulse_settings">Pulse</string>
     <string name="pulse_settings_summary">用於鎖定畫面與環境顯示的音訊視覺化工具</string>

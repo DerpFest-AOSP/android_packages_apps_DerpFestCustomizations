@@ -84,25 +84,6 @@
     <string name="pif_data_title">Seleccionar JSON de PIF para suplantar</string>
     <string name="pif_data_summary">Selecciona el JSON de PIF usado para la suplantación de atestación de propiedades en los servicios móviles de Google y Play Store. Pulsa el botón de borrar para restablecer las propiedades PIF y usar propiedades PIF dinámicas, que se usan de forma predeterminada.</string>
 
-    <!-- Ambient edge lighting -->
-    <string name="ambient_edge_light_action_title">Iluminación de bordes en ambiente</string>
-    <string name="ambient_edge_light_title">Iluminación de bordes</string>
-    <string name="ambient_edge_light_enable_title">Activar iluminación de bordes</string>
-    <string name="ambient_edge_light_summary">Ilumina los bordes de la pantalla al recibir una notificación</string>
-    <string name="ambient_edge_light_color_mode_category_title">Color</string>
-    <string name="ambient_edge_light_color_mode_auto">Automático</string>
-    <string name="ambient_edge_light_color_mode_app">Color de la app</string>
-    <string name="ambient_edge_light_color_mode_manual">Manual</string>
-    <string name="ambient_edge_light_color_mode_auto_summary">Usar el color del sistema para la luz de borde</string>
-    <string name="ambient_edge_light_color_mode_app_summary">Usar el color de la app para la luz de borde</string>
-    <string name="ambient_edge_light_color_mode_manual_summary">Elegir un color manualmente</string>
-    <string name="ambient_edge_light_advanced_category_title">Avanzado</string>
-    <string name="ambient_edge_light_duration_title">Duración de la luz</string>
-    <string name="ambient_edge_light_repeat_count_title">Número de repeticiones</string>
-    <string name="ambient_edge_light_width_title">Anchura de la luz</string>
-    <string name="ambient_edge_light_face_down_title">Boca abajo para activar</string>
-    <string name="ambient_edge_light_face_down_summary">Mostrar la luz de borde solo cuando el teléfono esté boca abajo</string>
-
     <!-- Fingerprint Ripple Effect -->
     <string name="enable_fingerprint_ripple_effect_title">Animación de desbloqueo</string>
     <string name="enable_fingerprint_ripple_effect_summary">Mostrar efecto de ondas al desbloquear con huella</string>
