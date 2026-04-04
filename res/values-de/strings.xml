@@ -135,6 +135,25 @@
     <string name="pi_spoof_title">Google-Play-Integrität-Spoof</string>
     <string name="pi_spoof_summary">Gerät als anderes Modell für Google Play Integrität spoofen</string>
 
+    <!-- Edge light -->
+    <string name="edge_light_title">Seitenlicht</string>
+    <string name="edge_light_summary">Bei Benachrichtigung-Puls leuchten die Seitenkanten des Bildschirms auf</string>
+    <string name="edge_light_color_mode_title">Farbmodus</string>
+    <string name="edge_light_pulse_count_title">Impulsanzahl</string>
+    <string name="edge_light_pulse_count_summary">Anzahl der Seitenlichtimpulse</string>
+    <string name="edge_light_stroke_width_title">Strichbreite</string>
+    <string name="edge_light_stroke_width_summary">Stärke der Seitenlichtbalken anpassen</string>
+    <string name="edge_light_style_title">Anzeigestil</string>
+    <string name="edge_light_style_default">Standard (links/rechts)</string>
+    <string name="edge_light_style_frame">Rahmen (alle Seiten)</string>
+    <string name="edge_light_animation_effect_title">Animationseffekt</string>
+    <string name="edge_light_animation_effect_none">Standard</string>
+    <string name="edge_light_animation_effect_breathing">Atmung</string>
+    <string name="edge_light_animation_effect_wave">Welle</string>
+    <string name="edge_light_animation_effect_sparkle">Glitzer</string>
+    <string name="edge_light_animation_effect_chase">Verfolgung</string>
+    <string name="edge_light_animation_effect_comet">Komet</string>
+
     <!-- Pixel Spoofing -->
     <string name="pixel_spoofing_apps_title">Apps für Pixel-Spoofing</string>
     <string name="pixel_spoofing_apps_summary">Apps auswählen, um sie als Pixel 10 Pro XL zu spoofen</string>
