@@ -106,7 +106,15 @@ public class QsTileIconShapePreference extends Preference {
 
     private String getCurrentShapeKey() {
         String raw = Settings.Secure.getString(getContext().getContentResolver(), SETTING_KEY);
-        if (raw == null || !QsTileIconShapePathData.isKnownKey(raw)) {
+        if (raw == null) {
+            return QsTileIconShapePathData.DEFAULT_KEY;
+        }
+        if (!QsTileIconShapePathData.isKnownKey(raw)) {
+            // Removed shapes: migrate stored value to default.
+            if ("pokesign".equals(raw) || "ninja".equals(raw)) {
+                Settings.Secure.putString(
+                        getContext().getContentResolver(), SETTING_KEY, QsTileIconShapePathData.DEFAULT_KEY);
+            }
             return QsTileIconShapePathData.DEFAULT_KEY;
         }
         return raw;

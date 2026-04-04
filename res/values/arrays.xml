@@ -207,8 +207,6 @@
         <item>@string/qs_tile_icon_shape_vessel</item>
         <item>@string/qs_tile_icon_shape_rounded_hexagon</item>
         <item>@string/qs_tile_icon_shape_just_icons</item>
-        <item>@string/qs_tile_icon_shape_pokesign</item>
-        <item>@string/qs_tile_icon_shape_ninja</item>
         <item>@string/qs_tile_icon_shape_dotted_circle</item>
         <item>@string/qs_tile_icon_shape_outline_style</item>
         <item>@string/qs_tile_icon_shape_squaremedo</item>
@@ -238,8 +236,6 @@
         <item>vessel</item>
         <item>rounded_hexagon</item>
         <item>just_icons</item>
-        <item>pokesign</item>
-        <item>ninja</item>
         <item>dotted_circle</item>
         <item>outline_style</item>
         <item>squaremedo</item>
