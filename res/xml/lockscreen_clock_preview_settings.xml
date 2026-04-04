@@ -51,10 +51,10 @@
         settings:units="@string/unit_pixels" />
 
     <org.derpfest.support.preferences.SecureSettingSwitchPreference
-        android:key="lock_screen_custom_clock_smartspace"
-        android:title="@string/lockscreen_custom_clock_smartspace_title"
-        android:summary="@string/lockscreen_custom_clock_smartspace_summary"
-        android:defaultValue="false" />
+        android:key="lock_screen_custom_clock_show_embedded_date_weather"
+        android:title="@string/lockscreen_custom_clock_embedded_date_weather_title"
+        android:summary="@string/lockscreen_custom_clock_embedded_date_weather_summary"
+        android:defaultValue="true" />
 
     <com.android.settingslib.widget.FooterPreference
         android:key="custom_clock_style_info"
