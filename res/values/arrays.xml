@@ -194,6 +194,7 @@
         <item>@string/qs_tile_icon_shape_just_icons</item>
         <item>@string/qs_tile_icon_shape_dotted_circle</item>
         <item>@string/qs_tile_icon_shape_outline_style</item>
+        <item>@string/qs_tile_icon_shape_outline_style_dark</item>
         <item>@string/qs_tile_icon_shape_squaremedo</item>
     </string-array>
 
@@ -223,6 +224,7 @@
         <item>just_icons</item>
         <item>dotted_circle</item>
         <item>outline_style</item>
+        <item>outline_style_dark</item>
         <item>squaremedo</item>
     </string-array>
 

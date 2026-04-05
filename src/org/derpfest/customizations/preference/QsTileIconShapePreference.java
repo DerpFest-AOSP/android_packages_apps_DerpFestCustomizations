@@ -7,13 +7,17 @@ package org.derpfest.customizations.preference;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PixelFormat;
+import android.graphics.Shader;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.PathParser;
@@ -27,6 +31,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.graphics.ColorUtils;
 import androidx.preference.Preference;
 
 import com.android.settings.R;
@@ -46,6 +51,15 @@ public class QsTileIconShapePreference extends Preference {
     private static final int WINDOW_BG_ALPHA_NO_BLUR = 255;
     private static final float DIM_AMOUNT_WITH_BLUR = 0.1f;
     private static final float DIM_AMOUNT_NO_BLUR = 0.4f;
+
+    /**
+     * Solid fill behind ring in list preview for outline_style_dark when QS tile gradient is off
+     * (matches SystemUI surface fill).
+     */
+    private static final int OUTLINE_DARK_PREVIEW_BACKDROP_ARGB = 0xFF2C2C2E;
+
+    /** Matches {@code CommonTileDefaults.ClassicOutlineDarkGradientWashAlpha} in SystemUI. */
+    private static final float OUTLINE_DARK_PREVIEW_GRADIENT_WASH_ALPHA = 0.22f;
 
     private Drawable mWindowBackgroundDrawable;
     private Drawable mDecorBackgroundDrawable;
@@ -87,6 +101,68 @@ public class QsTileIconShapePreference extends Preference {
         return 0xff000000;
     }
 
+    private boolean isQsTileGradientEnabled() {
+        try {
+            return Settings.System.getIntForUser(
+                            getContext().getContentResolver(),
+                            Settings.System.QS_TILE_GRADIENT_ENABLED,
+                            1,
+                            UserHandle.USER_CURRENT)
+                    == 1;
+        } catch (Throwable t) {
+            return true;
+        }
+    }
+
+    private int readGradientStartArgbSetting() {
+        try {
+            return Settings.System.getIntForUser(
+                    getContext().getContentResolver(),
+                    Settings.System.GRADIENT_START_COLOR,
+                    0,
+                    UserHandle.USER_CURRENT);
+        } catch (Throwable t) {
+            return 0;
+        }
+    }
+
+    private int readGradientEndArgbSetting() {
+        try {
+            return Settings.System.getIntForUser(
+                    getContext().getContentResolver(),
+                    Settings.System.GRADIENT_END_COLOR,
+                    0,
+                    UserHandle.USER_CURRENT);
+        } catch (Throwable t) {
+            return 0;
+        }
+    }
+
+    /**
+     * Same RGB-only convention as SystemUI {@code gradientSettingArgbToColor}: alpha 0 in settings
+     * means full-opacity RGB.
+     */
+    private static int normalizeQsGradientStopArgb(int settingArgb, int fallbackArgb) {
+        if (settingArgb == 0) {
+            return fallbackArgb;
+        }
+        int a = (settingArgb >>> 24) & 0xFF;
+        if (a == 0) {
+            return (0xFF << 24) | (settingArgb & 0x00FFFFFF);
+        }
+        return settingArgb;
+    }
+
+    private int[] resolveOutlineDarkGradientStopsForPreview() {
+        int theme = getThemeIconColor();
+        int fallbackStart = ColorUtils.blendARGB(theme, Color.WHITE, 0.25f);
+        int fallbackEnd = ColorUtils.blendARGB(theme, Color.BLACK, 0.35f);
+        return new int[] {
+            normalizeQsGradientStopArgb(readGradientStartArgbSetting(), fallbackStart),
+            normalizeQsGradientStopArgb(readGradientEndArgbSetting(), fallbackEnd)
+        };
+    }
+
     private Drawable createPreviewDrawable(String shapeKey) {
         if ("just_icons".equals(shapeKey)) {
             Drawable d = getContext().getDrawable(R.drawable.ic_signal_flashlight);
@@ -101,7 +177,31 @@ public class QsTileIconShapePreference extends Preference {
         String pathData = QsTileIconShapePathData.pathDataForPreview(shapeKey);
         float viewBox = QsTileIconShapePathData.viewBoxForPreview(shapeKey);
         float strokeFrac = QsTileIconShapePathData.previewStrokeFractionFor(shapeKey);
-        return new TileIconShapePreviewDrawable(pathData, viewBox, getThemeIconColor(), strokeFrac);
+        if ("outline_style_dark".equals(shapeKey)) {
+            if (isQsTileGradientEnabled()) {
+                int[] stops = resolveOutlineDarkGradientStopsForPreview();
+                return new TileIconShapePreviewDrawable(
+                        pathData,
+                        viewBox,
+                        getThemeIconColor(),
+                        strokeFrac,
+                        0,
+                        true,
+                        stops[0],
+                        stops[1]);
+            }
+            return new TileIconShapePreviewDrawable(
+                    pathData,
+                    viewBox,
+                    getThemeIconColor(),
+                    strokeFrac,
+                    OUTLINE_DARK_PREVIEW_BACKDROP_ARGB,
+                    false,
+                    0,
+                    0);
+        }
+        return new TileIconShapePreviewDrawable(
+                pathData, viewBox, getThemeIconColor(), strokeFrac, 0, false, 0, 0);
     }
 
     private String getCurrentShapeKey() {
@@ -295,13 +395,33 @@ public class QsTileIconShapePreference extends Preference {
     private static final class TileIconShapePreviewDrawable extends Drawable {
         private final float mViewBox;
         private final float mStrokeFraction;
+        private final int mStrokeColor;
+        /** 0 = no fill (stroke-only or solid fill preview). */
+        private final int mBackdropArgb;
+        /** When true, draw low-alpha vertical gradient wash (QS gradient on). */
+        private final boolean mOutlineDarkGradientWash;
+        private final int mGradientStartArgb;
+        private final int mGradientEndArgb;
 
         private final Path mPath;
         private final Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
-        TileIconShapePreviewDrawable(String pathData, float viewBox, int color, float strokeFraction) {
+        TileIconShapePreviewDrawable(
+                String pathData,
+                float viewBox,
+                int color,
+                float strokeFraction,
+                int backdropArgb,
+                boolean outlineDarkGradientWash,
+                int gradientStartArgb,
+                int gradientEndArgb) {
             mViewBox = viewBox > 0f ? viewBox : 100f;
             mStrokeFraction = strokeFraction;
+            mStrokeColor = color;
+            mBackdropArgb = backdropArgb;
+            mOutlineDarkGradientWash = outlineDarkGradientWash;
+            mGradientStartArgb = gradientStartArgb;
+            mGradientEndArgb = gradientEndArgb;
             Path path;
             try {
                 path = PathParser.createPathFromPathData(pathData);
@@ -311,7 +431,6 @@ public class QsTileIconShapePreference extends Preference {
                                 QsTileIconShapePathData.DEFAULT_KEY));
             }
             mPath = path;
-            mPaint.setColor(color);
             if (strokeFraction > 0f) {
                 mPaint.setStyle(Paint.Style.STROKE);
                 mPaint.setStrokeJoin(Paint.Join.ROUND);
@@ -319,6 +438,7 @@ public class QsTileIconShapePreference extends Preference {
             } else {
                 mPaint.setStyle(Paint.Style.FILL);
             }
+            mPaint.setColor(color);
         }
 
         @Override
@@ -330,10 +450,40 @@ public class QsTileIconShapePreference extends Preference {
             float sy = b.height() / mViewBox;
             canvas.translate(b.left, b.top);
             canvas.scale(sx, sy);
+            if (mOutlineDarkGradientWash) {
+                mPaint.setStyle(Paint.Style.FILL);
+                // Align with Compose Brush.linearGradient(colors): top-left → bottom-right in tile.
+                Shader shader =
+                        new LinearGradient(
+                                0,
+                                0,
+                                mViewBox,
+                                mViewBox,
+                                mGradientStartArgb,
+                                mGradientEndArgb,
+                                Shader.TileMode.CLAMP);
+                mPaint.setShader(shader);
+                mPaint.setAlpha(
+                        Math.round(OUTLINE_DARK_PREVIEW_GRADIENT_WASH_ALPHA * 255f));
+                canvas.drawPath(mPath, mPaint);
+                mPaint.setShader(null);
+                mPaint.setAlpha(255);
+            } else if (mBackdropArgb != 0) {
+                mPaint.setStyle(Paint.Style.FILL);
+                mPaint.setColor(mBackdropArgb);
+                mPaint.setAlpha(255);
+                canvas.drawPath(mPath, mPaint);
+            }
+            mPaint.setColor(mStrokeColor);
             if (mStrokeFraction > 0f) {
+                mPaint.setStyle(Paint.Style.STROKE);
+                mPaint.setStrokeJoin(Paint.Join.ROUND);
+                mPaint.setStrokeCap(Paint.Cap.ROUND);
                 float minPx = Math.min(b.width(), b.height());
                 float strokePath = (minPx * mStrokeFraction) / Math.min(sx, sy);
                 mPaint.setStrokeWidth(strokePath);
+            } else {
+                mPaint.setStyle(Paint.Style.FILL);
             }
             canvas.drawPath(mPath, mPaint);
             canvas.restore();

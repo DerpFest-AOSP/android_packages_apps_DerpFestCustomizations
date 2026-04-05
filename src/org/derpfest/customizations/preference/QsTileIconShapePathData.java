@@ -163,6 +163,7 @@ final class QsTileIconShapePathData {
         m.put("just_icons", new MaskSpec(JUST_ICONS_CLIP_PATH));
         m.put("dotted_circle", new MaskSpec(CIRCLE_PATH));
         m.put("outline_style", new MaskSpec(CIRCLE_PATH));
+        m.put("outline_style_dark", new MaskSpec(CIRCLE_PATH));
         m.put("solid_circle_ring", new MaskSpec(CIRCLE_PATH)); // legacy; same as outline_style
         m.put("squaremedo", new MaskSpec(IOS_ROUNDED_SQUARE_PATH));
         SPEC_BY_KEY = Collections.unmodifiableMap(m);
@@ -190,6 +191,11 @@ final class QsTileIconShapePathData {
     /** Matches SystemUI classicOrnamentStrokeWidthFraction for outline_style. */
     static final float PREVIEW_OUTLINE_STROKE_FRACTION = 0.022f;
 
+    private static final float PREVIEW_CLASSIC_CIRCLE_DP = 56f;
+
+    /** ~2.2dp ring; matches SystemUI outline_style_dark. */
+    static final float PREVIEW_OUTLINE_STYLE_DARK_STROKE_FRAC = 2.2f / PREVIEW_CLASSIC_CIRCLE_DP;
+
     /** Path for list preview; dotted / squaremedo use ornament artwork, not the filled mask. */
     static String pathDataForPreview(String shapeKey) {
         if ("dotted_circle".equals(shapeKey)) {
@@ -212,6 +218,9 @@ final class QsTileIconShapePathData {
     static float previewStrokeFractionFor(String shapeKey) {
         if ("outline_style".equals(shapeKey) || "solid_circle_ring".equals(shapeKey)) {
             return PREVIEW_OUTLINE_STROKE_FRACTION;
+        }
+        if ("outline_style_dark".equals(shapeKey)) {
+            return PREVIEW_OUTLINE_STYLE_DARK_STROKE_FRAC;
         }
         return 0f;
     }
