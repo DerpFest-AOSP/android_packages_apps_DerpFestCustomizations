@@ -116,37 +116,6 @@
     <string name="fp_error_vibrate_title">指紋辨識失敗震動</string>
     <string name="fp_error_vibrate_summary">指紋辨識失敗時震動</string>
 
-    <!-- Ongoing action chip -->
-    <string name="ongoing_chip_category_title">動態指示</string>
-    <string name="ongoing_progress_settings_title">狀態列動態指示</string>
-    <string name="ongoing_progress_settings_summary">狀態列動態指示選項</string>
-    <string name="ongoing_action_chip_title">進行中動態指示</string>
-    <string name="ongoing_action_chip_summary">在狀態列顯示媒體播放或下載等進行中動作的進度</string>
-    <string name="show_media_progress_title">顯示媒體進度</string>
-    <string name="show_media_progress_summary">在狀態列顯示媒體播放進度</string>
-    <string name="progress_footer_text">
-    "狀態列動態指示可為媒體播放及進行中的下載/上傳提供即時更新。
-
-    媒體進度：
-    • 媒體播放時顯示音樂與影片的播放進度。
-    • 單擊開啟播放控制（上一首、下一首）。
-    • 雙擊切換播放/暫停。
-    • 向左滑動跳至上一首。
-    • 向右滑動跳至下一首。
-    • 長按開啟媒體應用程式。 
-
-    下載/上傳進度：
-    • 顯示進行中下載與上傳的進度。
-    • 在無活躍傳輸時自動隱藏。
-    • 單擊開啟負責該下載的應用程式。
-
-進度列會在媒體與下載狀態之間動態切換，確保您隨時掌握最相關的資訊。"
-    </string>
-    <string name="compact_progress_mode_title">精簡型進度指示器</string>
-    <string name="compact_progress_mode_summary">針對進行中的動作使用精簡的圓形指示器</string>
-    <string name="progress_bar_opacity_title">操作晶片透明度</string>
-    <string name="progress_bar_opacity_summary">調整操作晶片的透明度</string>
-
     <!-- Heads-up -->
     <string name="compact_heads_up_notifications_enabled_title">精簡懸浮通知</string>
     <string name="compact_heads_up_notifications_enabled_summary">以精簡尺寸顯示通知</string>

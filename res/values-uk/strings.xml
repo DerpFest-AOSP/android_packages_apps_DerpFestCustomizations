@@ -48,8 +48,6 @@
     <string name="compact_heads_up_notifications_enabled_summary">Відображати сповіщення в зменшеному розмірі</string>
     <!-- Heads-up -->
     <string name="compact_heads_up_notifications_enabled_title">Компактні сповіщення</string>
-    <string name="compact_progress_mode_summary">Використовувати компактний круглий індикатор для поточних дій</string>
-    <string name="compact_progress_mode_title">Компактний індикатор прогресу</string>
     <!-- App name -->
     <string name="customisation_settings_title">Кастомізації DerpFest</string>
     <string name="dark_mode_summary_default">Увімкнути темну тему системи</string>
@@ -202,12 +200,6 @@
     <string name="notification_row_transparency_title">Напівпрозорі сповіщення</string>
     <string name="notifications_summary">Налаштуйте параметри сповіщень</string>
     <string name="notifications_title">Сповіщення</string>
-    <string name="ongoing_action_chip_summary">Відображати індикатор прогресу в рядку стану для поточних дій, таких як завантаження</string>
-    <string name="ongoing_action_chip_title">Індикатор поточних дій</string>
-    <!-- Ongoing action chip -->
-    <string name="ongoing_chip_category_title">Індикатор прогресу</string>
-    <string name="ongoing_progress_settings_summary">Параметри індикатору дій у рядку стану</string>
-    <string name="ongoing_progress_settings_title">Прогрес дій у рядку стану</string>
     <string name="pif_data_cleared">Очищено дані PIF</string>
     <string name="pif_data_delete_summary">Видалити поточно завантажені дані PIF</string>
     <string name="pif_data_delete_title">Видалити дані PIF</string>
@@ -232,9 +224,6 @@
     <string name="pixel_spoofing_apps_title">Програми зі спуфом</string>
     <string name="privacy_indicators_summary">Показувати індикатори, коли програми використовують камеру, мікрофон або місцезнаходження</string>
     <string name="privacy_indicators_title">Індикатори конфіденційності</string>
-    <string name="progress_bar_opacity_summary">Налаштувати непрозорість чіпа поточної дії</string>
-    <string name="progress_bar_opacity_title">Непрозорість чіпа дії</string>
-    <string name="progress_footer_text">Чип дій у рядку стану забезпечує оновлення в реальному часі як для відтворення медіа, так і для активних завантажень/вивантажень.\n\n"    "Прогрес відтворення:\n"    "- Відображає хід відтворення музики та відео під час відтворення медіафайлів.\n"    "- Поодинокий дотик відкриває елементи керування відтворенням (попередній чи наступний трек).\n"    "- Подвійний дотик перемикає відтворення/паузу.\n"    "- Свайп вліво для переходу до попередньої доріжки.\n"    "- Свайп вправо - перехід до наступної доріжки.\n"    "- Тривале натискання відкриває мультимедійну програму.\n\n"    "Прогрес завантаження/вивантаження:\n"    "- Відображає хід поточних завантажень і вивантажень.\n"    "- Автоматично ховається, якщо не виявлено жодної активної передачі.\n"    "- Одноразове натискання відкриває програму, відповідальну за завантаження.\n\nІндикатор прогресу динамічно перемикається між станами медіа та завантаження, щоб ви завжди мали найактуальнішу інформацію.</string>
     <string name="pulse_color_accent">Акцент</string>
     <string name="pulse_color_auto">Авто</string>
     <string name="pulse_color_custom">Нестандартний</string>
@@ -405,8 +394,6 @@
     </plurals>
     <string name="show_lockscreen_pulse_summary">Аудіовізуалізатор на екрані блокування</string>
     <string name="show_lockscreen_pulse_title">Пульс на екрані блокування</string>
-    <string name="show_media_progress_summary">Показувати прогрес відтворення медіа в рядку стану</string>
-    <string name="show_media_progress_title">Показати медіапрогрес</string>
     <string name="show_navbar_pulse_summary">Аудіовізуалізатор на панелі навігації</string>
     <string name="show_navbar_pulse_title">Пульс навігаційної панелі</string>
     <string name="small_landscape_notification_summary">Відображає сповіщення меншої ширини на панелі сповіщень у горизонтальному режимі, а саме як це передбачено AOSP</string>

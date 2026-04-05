@@ -110,35 +110,6 @@
     <string name="enable_fingerprint_ripple_effect_title">解锁动画</string>
     <string name="enable_fingerprint_ripple_effect_summary">使用指纹解锁时显示涟漪效果</string>
 
-    <!-- Ongoing action chip -->
-    <string name="ongoing_chip_category_title">动态提示</string>
-    <string name="ongoing_progress_settings_title">状态栏动态提示</string>
-    <string name="ongoing_progress_settings_summary">状态栏动态提示选项</string>
-    <string name="ongoing_action_chip_title">实时任务提示</string>
-    <string name="ongoing_action_chip_summary">在状态栏显示下载等后台任务的进度提示</string>
-    <string name="show_media_progress_title">显示媒体进度</string>
-    <string name="show_media_progress_summary">在状态栏显示媒体播放进度</string>
-    <string name="progress_footer_text">
-    "状态栏动态提示可为媒体播放、正在进行的的下载/上传任务提供实时状态更新。
-
-    媒体进度：
-    • 显示音乐和视频播放时的进度。
-    • 单击打开播放控制（上一曲、下一曲）。
-    • 双击切换播放/暂停。
-    • 向左滑动跳至上一曲。
-    • 向右滑动跳至下一曲。
-    • 长按打开媒体应用。
-
-    下载/上传进度：
-    • 显示正在进行的下载和上传进度。
-    • 无正在进行的传输时自动隐藏。
-    • 单击打开正在下载的应用。
-
-该进度条会智能切换显示媒体和下载状态，确保您随时轻松掌握最新动态。"
-    </string>
-    <string name="compact_progress_mode_title">紧凑型进度显示</string>
-    <string name="compact_progress_mode_summary">对正在进行的操作使用紧凑型圆形指示器</string>
-
     <!-- Heads-up -->
     <string name="compact_heads_up_notifications_enabled_title">紧凑型通知</string>
     <string name="compact_heads_up_notifications_enabled_summary">以紧凑形式显示通知</string>

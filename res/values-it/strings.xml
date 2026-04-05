@@ -73,34 +73,6 @@
     <string name="monet_engine_wallpaper_color_summary">Selettore colori sfondo</string>
     <string name="monet_engine_wallpaper_color_not_available">Non disponibile</string>
 
-    <!-- Ongoing action chip -->
-    <string name="ongoing_progress_settings_title">Chip azione della barra di stato</string>
-    <string name="ongoing_progress_settings_summary">Opzioni della Chip azione della barra di stato</string>
-    <string name="ongoing_action_chip_title">Chip azioni in corso</string>
-    <string name="ongoing_action_chip_summary">Mostra un indicatore di progresso nella barra di stato per azioni con progresso come i download</string>
-    <string name="show_media_progress_title">Mostra progresso multimedia</string>
-    <string name="show_media_progress_summary">Mostra progresso di riproduzione multimedia nella barra di stato</string>
-    <string name="progress_footer_text">
-    "La Chip azione della barra di stato fornisce aggiornamenti in tempo reale per riproduzione multimediale e download/upload in corso.
-
-    Riproduzione multimediale:
-    • Mostra progresso di musica e video in riproduzione.
-    • Un tap apre i controlli di riproduzione (Traccia precedente, successiva).
-    • Due tap pausano/riprendono.
-    • Scorrimento a sinistra torna alla traccia precedente.
-    • Scorrimento a destra passa alla traccia successiva.
-    • Tenere premuto apre l\'app multimediale. 
-
-    Progresso Download/Upload:
-    • Mostra progresso di download/upload in corso.
-    • Si nasconde automaticamente quando non ci sono operazioni in corso.
-    • Un tap apre l\'app responsabile del download/upload corrente.
-
-La barra di progresso cambia dinamicamente tra multimedia e download/upload, assicurandoti di avere sempre l\'informazione più rilevante a portata di vista."
-    </string>
-    <string name="compact_progress_mode_title">Indicatore di progresso compatto</string>
-    <string name="compact_progress_mode_summary">Usa un indicatore compatto circolare per azioni in corso</string>
-
     <!-- Heads-up -->
     <string name="compact_heads_up_notifications_enabled_title">Heads-up compatto</string>
     <string name="compact_heads_up_notifications_enabled_summary">Mostra notifiche in un formato più compatto</string>

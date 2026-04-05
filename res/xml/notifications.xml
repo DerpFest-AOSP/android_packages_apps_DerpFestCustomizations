@@ -63,16 +63,4 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:key="ongoing_chip_category"
-        android:title="@string/ongoing_chip_category_title" >
-
-        <Preference
-            android:key="ongoing_progress_settings"
-            android:title="@string/ongoing_progress_settings_title"
-            android:summary="@string/ongoing_progress_settings_summary"
-            android:fragment="org.derpfest.customizations.fragment.OngoingProgressBar" />
-
-    </PreferenceCategory>
-
 </PreferenceScreen>

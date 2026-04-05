@@ -51,7 +51,6 @@
     <string name="buttons_title">Кнопки</string>
     <string name="monet_engine_color_source_both">Оба (по умолчанию)</string>
     <string name="footer_category_summary">Настройте элементы нижней части нбыстрых настроек</string>
-    <string name="progress_footer_text">Строка состояния отображает в реальном времени информацию о ходе воспроизведения медиафайлов и активных загрузках/выгрузках.\n\n    Прогресс медиа:\n    - Отображает прогресс воспроизведения музыки и видео при воспроизведении медиафайлов.\n    - При однократном нажатии открываются элементы управления воспроизведением (предыдущая, следующая дорожка).\n    - Двойное нажатие переключает воспроизведение/паузу.\n    - Свайп влево переводит к предыдущей дорожке.\n    - Свайп вправо переключает на следующую дорожку.\n    - Длительное нажатие открывает медиаприложение.\n\n    Прогресс загрузки/выгрузки:\n    - Показывает прогресс текущих загрузок и выгрузок.\n    - Автоматически скрывается, если не обнаружено активных загрузок/выгрузок.\n    - При однократном нажатии открывается приложение, выполняющее загрузку/выгрузку.\n\nИндикатор прогресса динамически переключается между состояниями медиа и загрузки, что позволяет всегда иметь в поле зрения самую актуальную информацию.</string>
     <string name="qs_show_settings_icon_summary">Показывать значок настроек внижней части быстрых настроек</string>
     <string name="qs_header_static_provider_title">Статическое изображение</string>
     <string name="screen_off_animation_crt">Старый телевизор</string>
@@ -71,7 +70,6 @@
     <string name="visualizer_center_mirrored_summary">Установите визуализатор в режим зеркального отображения по центру</string>
     <string name="monet_engine_color_override_title">Выбранный цвет</string>
     <string name="qs_title">Быстрые настройки</string>
-    <string name="ongoing_progress_settings_summary">Параметры чипа прогресса в строке состояния</string>
     <string name="qs_header_browse_summary">Обзор всех доступный коллекций изображений заголовка</string>
     <string name="spoofing_summary">Обходите ограничения приложений, подменяя компоненты</string>
     <string name="misc_title">Прочее</string>
@@ -88,18 +86,14 @@
     <string name="general_category_title">Основное</string>
     <string name="qs_tile_shape_mode_all_round">Все округлые</string>
     <string name="monet_engine_color_source_home">Обои рабочего стола</string>
-    <string name="ongoing_action_chip_summary">Показывать индикатор прогресса в строке состояния для текущих действия, таких как загрузка.</string>
-    <string name="show_media_progress_title">Показать прогресс воспроизведения медиа</string>
     <string name="pulse_custom_gravity_bottom">Снизу</string>
     <string name="monet_engine_style_content">Контекстный</string>
     <string name="pulse_color_lava_lamp">Наложение цвета</string>
-    <string name="compact_progress_mode_title">Компактный индикатор прогресса</string>
     <string name="general_category_summary">Основные глобальные системные настройки</string>
     <string name="pulse_custom_fudge_factor">Уровень чувствительности</string>
     <string name="unit_pixels">px</string>
     <string name="pulse_custom_dimen">Ширина линий</string>
     <string name="monet_engine_custom_color_summary">Выберите акцентный цвет</string>
-    <string name="ongoing_action_chip_title">Чип прогресса текущих действий</string>
     <string name="pulse_help_policy_notice_summary">Pulse - это великолепный аудио-графический визуализатор, работающий при воспроизведении музыки на устройстве</string>
     <string name="qs_brightness_position_position_title">Переместить вниз</string>
     <string name="ignore_window_secure_summary">Убирает ограничения приложений на скриншоты и запись экрана. Это может быть удобно, но может нарушить конфиденциальность.</string>
@@ -113,13 +107,9 @@
     <string name="pulse_solid_units_rounded_summary">Закругления углов сплошных линий</string>
     <string name="screen_off_animation_title">Анимация выключения экрана</string>
     <string name="ambient_aod_summary">Включить улучшения фоновых обоев и Активного экрана</string>
-    <string name="ongoing_chip_category_title">Чип прогресса</string>
     <string name="small_landscape_notification_title">Небольшие уведомления в альбомном положении</string>
     <string name="screen_off_animation_default">По умолчанию</string>
     <string name="monet_engine_wallpaper_color_summary">Выбор цвета обоев</string>
-    <string name="compact_progress_mode_summary">Используйте компактный круглый индикатор прогресса</string>
-    <string name="progress_bar_opacity_title">Прозрачность чипа прогресса</string>
-    <string name="progress_bar_opacity_summary">Отрегулируйте прозрачность чипа прогресса</string>
     <string name="show_lockscreen_pulse_title">Pulse на экране блокировки</string>
     <string name="enable">Включить</string>
     <string name="pulse_custom_gravity_center">По центру</string>
@@ -154,7 +144,6 @@
     <string name="monet_engine_whole_palette_summary">Сделать, чтобы выбор яркости и насыщенности влияли и на вторичные цвета</string>
     <string name="enable_fingerprint_ripple_effect_title">Анимация разблокировки</string>
     <string name="gphotos_spoof_summary">Подмена Вашего устройства как Pixel XL для приложения Google Фото, обеспечивающая безлимитное хранилище резервной копии фото</string>
-    <string name="show_media_progress_summary">Показывать индикатор прогресса воспроизведения мультимедия в строке состояния</string>
     <string name="theming_settings_dashboard_icons_plain_accent">Прозрачный фон / Акцентный передний план</string>
     <string name="qs_header_image_title">Изображение заголовка Быстрых настроек</string>
     <string name="compact_heads_up_notifications_enabled_title">Компактные всплывающие уведомления</string>
@@ -174,7 +163,6 @@
     <string name="pulse_vertical_mirror_title">Зеркально по вертикали</string>
     <string name="show_ambient_pulse_summary">Аудио визуализатор на Активном экране</string>
     <string name="notifications_summary">Настройте параметры уведомлений</string>
-    <string name="ongoing_progress_settings_title">Чип прогресса в строке состояния</string>
     <string name="monet_engine_color_source_lock">Обои экрана блокировки</string>
     <string name="qs_show_power_menu_icon_title">Показать значок Меню питания</string>
     <string name="lockscreen_summary">Настройте параметры экрана блокировки</string>
