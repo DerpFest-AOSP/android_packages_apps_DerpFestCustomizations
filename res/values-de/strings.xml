@@ -496,6 +496,7 @@
         <item quantity="other">Du bist jetzt noch <xliff:g id="derp_count">%1$d</xliff:g> Schritte davon entfernt, gederpt zu werden.</item>
     </plurals>
     <string name="derpd_done">Du wurdest gederpt</string>
+    <string name="about_easter_egg_got_it">Verstanden</string>
 
     <!-- Lock screen media art on Ambient Display -->
     <string name="ambient_media_art_title">Medien-Coverbild auf Inaktivitätsdisplay</string>

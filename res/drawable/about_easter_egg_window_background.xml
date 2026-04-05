@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: DerpFest AOSP
+     SPDX-License-Identifier: Apache-2.0
+
+     Fullscreen scrim for Easter egg dialog; alpha is set in code (matches
+     dialog_qs_tile_icon_shape_window_background + QsTileIconShapePreference blur).
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#F5F5F5" />
+</shape>

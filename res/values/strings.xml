@@ -562,6 +562,8 @@
         <item quantity="other">You are now <xliff:g id="derp_count">%1$d</xliff:g> steps away from being derp\'d.</item>
     </plurals>
     <string name="derpd_done">You have been derp\'d</string>
+    <string name="about_easter_egg_title" translatable="false">BOOYAH!</string>
+    <string name="about_easter_egg_got_it">Got it</string>
 
     <!-- chinese lunar calendar -->
     <string name="qs_show_lunar_calendar_title">Chinese Lunar Calendar</string>
