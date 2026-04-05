@@ -16,15 +16,20 @@
         android:padding="16dp"
         android:gravity="top">
 
-        <TextView
-            android:id="@+id/step_number"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:gravity="center"
-            android:background="@drawable/circle_primary_container"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textStyle="bold"
-            android:textColor="?android:attr/textColorPrimaryInverse" />
+        <FrameLayout
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/circle_primary_container">
+
+            <ImageView
+                android:id="@+id/step_icon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8dp"
+                android:scaleType="fitCenter"
+                android:contentDescription="@null"
+                android:tint="?android:attr/textColorPrimaryInverse" />
+        </FrameLayout>
 
         <Space
             android:layout_width="12dp"
