@@ -17,18 +17,45 @@
         android:gravity="top">
 
         <FrameLayout
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/circle_primary_container">
+            android:layout_width="44dp"
+            android:layout_height="44dp">
 
-            <ImageView
-                android:id="@+id/step_icon"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="8dp"
-                android:scaleType="fitCenter"
-                android:contentDescription="@null"
-                android:tint="?android:attr/textColorPrimaryInverse" />
+            <FrameLayout
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:background="@drawable/circle_primary_container">
+
+                <ImageView
+                    android:id="@+id/step_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@null"
+                    android:tint="?android:attr/textColorPrimaryInverse" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/step_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="-2dp"
+                android:layout_marginBottom="-2dp"
+                android:minWidth="18dp"
+                android:minHeight="18dp"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:paddingTop="1dp"
+                android:paddingBottom="1dp"
+                android:background="@drawable/dynamic_bar_guide_step_badge"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:textColor="?android:attr/colorAccent" />
         </FrameLayout>
 
         <Space

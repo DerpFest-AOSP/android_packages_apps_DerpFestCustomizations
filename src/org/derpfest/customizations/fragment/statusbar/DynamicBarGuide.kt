@@ -72,6 +72,7 @@ class DynamicBarGuide : SettingsPreferenceFragment() {
             val stepView = layoutPref.findViewById<android.view.View>(stepViewIds[index])
                 ?: return@forEachIndexed
             stepView.findViewById<ImageView>(R.id.step_icon)?.setImageResource(step.iconRes)
+            stepView.findViewById<TextView>(R.id.step_number)?.text = "${index + 1}"
             stepView.findViewById<TextView>(R.id.step_title)?.setText(step.titleRes)
             stepView.findViewById<TextView>(R.id.step_body)?.setText(step.bodyRes)
         }
