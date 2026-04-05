@@ -52,6 +52,18 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="dynamic_bar_category"
+        android:title="@string/dynamic_bar_category_title">
+
+        <Preference
+            android:key="dynamic_bar"
+            android:title="@string/dynamic_bar"
+            android:summary="@string/dynamic_bar_enable_summary"
+            android:fragment="org.derpfest.customizations.fragment.statusbar.DynamicBar" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="edge_light_category"
         android:title="@string/edge_light_category_title" >
 
