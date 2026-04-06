@@ -43,6 +43,12 @@
             android:summary="@string/notification_row_transparency_lockscreen_summary"
             android:defaultValue="true" />
 
+        <org.derpfest.support.preferences.SystemSettingSwitchPreference
+            android:key="notification_bubble_apps"
+            android:title="@string/notification_bubble_apps_title"
+            android:summary="@string/notification_bubble_apps_summary"
+            android:defaultValue="false" />
+
         <Preference
             android:key="ticker_settings"
             android:title="@string/ticker_screen_title"

@@ -502,6 +502,10 @@
     <string name="notification_row_transparency_lockscreen_title">Translucent lockscreen notifications</string>
     <string name="notification_row_transparency_lockscreen_summary">Set translucent background for notifications in lockscreen</string>
 
+    <!-- Notification bubbles -->
+    <string name="notification_bubble_apps_title">Bubble Notifications</string>
+    <string name="notification_bubble_apps_summary">Launch apps in a bubble when clicking their notifications</string>
+
     <!-- Spoofing -->
     <string name="pixel_spoofing_apps_title">Pixel spoofing apps</string>
     <string name="pixel_spoofing_apps_summary">Select apps to spoof as Pixel 10 Pro XL</string>

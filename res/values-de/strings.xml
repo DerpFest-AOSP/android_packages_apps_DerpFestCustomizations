@@ -480,6 +480,10 @@
     <string name="notification_row_transparency_lockscreen_title">Durchsichtige Sperrbildschirmbenachrichtigungen</string>
     <string name="notification_row_transparency_lockscreen_summary">Durchsichtigen Hintergrund für Benachrichtigungen auf Sperrbildschirm festlegen</string>
 
+    <!-- Notification bubbles -->
+    <string name="notification_bubble_apps_title">Benachrichtigungsblasen</string>
+    <string name="notification_bubble_apps_summary">Beim Antippen von Benachrichtigungen Apps in einer Blase öffnen</string>
+
     <!-- Status Bar Ticker -->
     <string name="ticker_screen_title">Ticker</string>
     <string name="ticker_screen_summary">Benachrichtigungen im Ticker-Stil in der Statusleiste anzeigen</string>
