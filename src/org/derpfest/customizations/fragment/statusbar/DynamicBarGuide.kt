@@ -38,7 +38,7 @@ class DynamicBarGuide : SettingsPreferenceFragment() {
         GuideStep(
             R.string.dynamic_bar_guide_dismiss_title,
             R.string.dynamic_bar_guide_dismiss,
-            R.drawable.ic_swap_horiz,
+            R.drawable.ic_expand_less,
         ),
         GuideStep(
             R.string.dynamic_bar_guide_keyguard_title,
