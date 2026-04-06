@@ -373,6 +373,33 @@
     <string name="qs_tile_label_hide_title">Kachelbeschriftungen ausblenden</string>
     <string name="qs_tile_label_hide_summary">Im Kreis-Stil nur Symbole ohne Text anzeigen</string>
     <string name="qs_tile_icon_shape_title">Form klassischer Kachelsymbole</string>
+    <string name="qs_tile_icon_shape_circle">Kreis</string>
+    <string name="qs_tile_icon_shape_square">Quadrat</string>
+    <string name="qs_tile_icon_shape_four_sided_cookie">Viereckiger Keks</string>
+    <string name="qs_tile_icon_shape_seven_sided_cookie">Siebeneckiger Keks</string>
+    <string name="qs_tile_icon_shape_arch">Bogen</string>
+    <string name="qs_tile_icon_shape_ios_rounded_square">Abgerundet (iOS)</string>
+    <string name="qs_tile_icon_shape_meow">Miau</string>
+    <string name="qs_tile_icon_shape_flower">Blume</string>
+    <string name="qs_tile_icon_shape_heart">Herz</string>
+    <string name="qs_tile_icon_shape_hexagon">Sechseck</string>
+    <string name="qs_tile_icon_shape_leaf">Laubblatt</string>
+    <string name="qs_tile_icon_shape_cloudy">Wolkig</string>
+    <string name="qs_tile_icon_shape_cylindrical">Zylindrisch</string>
+    <string name="qs_tile_icon_shape_stretched">Gedehnt</string>
+    <string name="qs_tile_icon_shape_pebble">Steinchen</string>
+    <string name="qs_tile_icon_shape_rice_balls">Reisbällchen</string>
+    <string name="qs_tile_icon_shape_rounded_rect">Abgerundetes Rechteck</string>
+    <string name="qs_tile_icon_shape_squircle">Quadratkreis</string>
+    <string name="qs_tile_icon_shape_tapered_rect">Trapezförmig</string>
+    <string name="qs_tile_icon_shape_teardrop">Tränenform</string>
+    <string name="qs_tile_icon_shape_vessel">Vessel</string>
+    <string name="qs_tile_icon_shape_rounded_hexagon">Abgerundetes Sechseck</string>
+    <string name="qs_tile_icon_shape_just_icons">Nur Symbole</string>
+    <string name="qs_tile_icon_shape_outline_style">Konturstil</string>
+    <string name="qs_tile_icon_shape_outline_style_dark">Konturstil 2</string>
+    <string name="qs_tile_icon_shape_dotted_circle">Kreis (gepunktet)</string>
+    <string name="qs_tile_icon_shape_squaremedo">Squaremedo</string>
 
     <!-- QS layout entry screens (qs_layout_settings, qs_classic_layout_settings) -->
     <string name="qs_layout_settings_title">QS-Layout</string>
