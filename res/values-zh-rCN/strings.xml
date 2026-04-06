@@ -370,17 +370,6 @@
     <string name="pixel_spoofing_apps_title">对应用伪装为 Pixel</string>
     <string name="pixel_spoofing_apps_summary">选择要对其伪装为 Pixel 10 Pro XL 的应用</string>
 
-    <!-- Status Bar Ticker -->
-    <string name="ticker_screen_title">滚动通知</string>
-    <string name="ticker_screen_summary">在状态栏以滚动样式显示通知</string>
-    <string name="ticker_screen_footer">仅当未显示悬浮通知时，滚动通知才可见。</string>
-    <string name="ticker_title">状态栏滚动通知</string>
-    <string name="ticker_summary">启用状态栏滚动通知</string>
-    <string name="ticker_animation_mode_title">滚动通知动画样式</string>
-    <string name="ticker_animation_mode_alpha_fade">淡入淡出</string>
-    <string name="ticker_animation_mode_scroll">滚动</string>
-    <string name="ticker_tick_duration_title">滚动通知显示时长</string>
-
     <!-- About -->
     <string name="about_title">关于</string>
     <string name="about_summary">关于 DerpFest 与一些有用的链接</string>

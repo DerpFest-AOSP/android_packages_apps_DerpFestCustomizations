@@ -415,16 +415,6 @@
     <!-- Settings dashboard icon style -->
     <string name="theming_settings_dashboard_icons_title">Іконки дешборда налаштувань</string>
     <string name="theming_settings_dashboard_icons_white">Системний фон / Білий передній план</string>
-    <string name="ticker_animation_mode_alpha_fade">Фейд</string>
-    <string name="ticker_animation_mode_scroll">Прокрутка</string>
-    <string name="ticker_animation_mode_title">Стиль анімації тікера</string>
-    <string name="ticker_screen_footer">Тікер видно лише тоді, коли не відображається сповіщення heads up.</string>
-    <string name="ticker_screen_summary">Показувати сповіщення у стилі тікера в рядку стану</string>
-    <!-- Status Bar Ticker -->
-    <string name="ticker_screen_title">Тікер</string>
-    <string name="ticker_summary">Увімкнути тікер рядка стану</string>
-    <string name="ticker_tick_duration_title">Тривалість тікера</string>
-    <string name="ticker_title">Тікер рядка стану</string>
     <!-- Units -->
     <string name="unit_milliseconds">мс</string>
     <string name="unit_particles">частинки</string>

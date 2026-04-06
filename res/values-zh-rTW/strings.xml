@@ -382,17 +382,6 @@
     <string name="pixel_spoofing_apps_title">Pixel 偽裝應用程式</string>
     <string name="pixel_spoofing_apps_summary">選擇要偽裝成 Pixel 10 Pro XL 的應用程式</string>
 
-    <!-- Status Bar Ticker -->
-    <string name="ticker_screen_title">跑馬燈</string>
-    <string name="ticker_screen_summary">在狀態列顯示跑馬燈風格的通知</string>
-    <string name="ticker_screen_footer">僅在懸浮通知未顯示時，跑馬燈才會出現。</string>
-    <string name="ticker_title">狀態列跑馬燈</string>
-    <string name="ticker_summary">啟用狀態列跑馬燈</string>
-    <string name="ticker_animation_mode_title">跑馬燈動畫風格</string>
-    <string name="ticker_animation_mode_alpha_fade">淡入淡出</string>
-    <string name="ticker_animation_mode_scroll">捲動</string>
-    <string name="ticker_tick_duration_title">跑馬燈持續時間</string>
-
     <!-- About -->
     <string name="about_title">關於</string>
     <string name="about_summary">關於 DerpFest 與實用連結</string>

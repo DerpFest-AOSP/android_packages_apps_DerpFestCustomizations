@@ -49,12 +49,6 @@
             android:summary="@string/notification_bubble_apps_summary"
             android:defaultValue="false" />
 
-        <Preference
-            android:key="ticker_settings"
-            android:title="@string/ticker_screen_title"
-            android:summary="@string/ticker_screen_summary"
-            android:fragment="org.derpfest.customizations.fragment.Ticker"/>
-
     </PreferenceCategory>
 
     <PreferenceCategory

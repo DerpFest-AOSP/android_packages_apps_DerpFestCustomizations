@@ -510,17 +510,6 @@
     <string name="pixel_spoofing_apps_title">Pixel spoofing apps</string>
     <string name="pixel_spoofing_apps_summary">Select apps to spoof as Pixel 10 Pro XL</string>
 
-    <!-- Status Bar Ticker -->
-    <string name="ticker_screen_title">Ticker</string>
-    <string name="ticker_screen_summary">Show notifications ticker-style in status bar</string>
-    <string name="ticker_screen_footer">Ticker is visible only when notification heads-up is not shown.</string>
-    <string name="ticker_title">Status bar ticker</string>
-    <string name="ticker_summary">Enable the status bar ticker</string>
-    <string name="ticker_animation_mode_title">Ticker animation style</string>
-    <string name="ticker_animation_mode_alpha_fade">Fade</string>
-    <string name="ticker_animation_mode_scroll">Scroll</string>
-    <string name="ticker_tick_duration_title">Ticker duration</string>
-
     <!-- About -->
     <string name="about_title">About</string>
     <string name="about_summary">About DerpFest and useful links</string>
