@@ -55,7 +55,6 @@
     <string name="dashboard_category_title">Інформаційна панель</string>
     <string name="data_usage_category_title">Використання даних</string>
     <string name="default_value">За замовчуванням</string>
-    <string name="derpd_done">Тебе derpнули.</string>
     <string name="effects_category_title">Ефекти</string>
     <string name="enable">Увімкнути</string>
     <string name="enable_fingerprint_ripple_effect_summary">Показувати ефект хвиль при розблокуванні відбитком пальця</string>

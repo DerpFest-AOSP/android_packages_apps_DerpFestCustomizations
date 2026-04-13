@@ -16,6 +16,8 @@ import androidx.preference.Preference
 import androidx.preference.ListPreference
 import androidx.preference.PreferenceCategory
 
+import org.derpfest.customizations.DerpfestEasterEggPrefs
+
 import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
 
@@ -28,6 +30,7 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
     private var mClassicLayoutCategory: PreferenceCategory? = null
     private var mTileShape: Preference? = null
     private var mLayoutCategory: PreferenceCategory? = null
+    private var mClassicRandomAccent: Preference? = null
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         addPreferencesFromResource(R.xml.qs)
@@ -38,6 +41,7 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
         mClassicLayoutCategory = findPreference(KEY_CLASSIC_LAYOUT_CATEGORY)
         mTileShape = findPreference(KEY_QS_TILE_SHAPE)
         mLayoutCategory = findPreference(KEY_LAYOUT_CATEGORY)
+        mClassicRandomAccent = findPreference(KEY_QS_TILES_CLASSIC_RANDOM_ACCENT)
 
         val style = Settings.Secure.getIntForUser(
             requireContext().contentResolver,
@@ -53,6 +57,17 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
         mDataUsageCycleTypePreference.setOnPreferenceChangeListener(this)
 
         updateDataUsageSummary()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val style = Settings.Secure.getIntForUser(
+            requireContext().contentResolver,
+            KEY_QS_PANEL_STYLE,
+            0,
+            UserHandle.USER_CURRENT,
+        )
+        updateClassicRandomAccentVisibility(style == 1)
     }
 
     override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
@@ -80,6 +95,15 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
         mClassicLayoutCategory?.isVisible = styleIsCircular
         mTileShape?.isVisible = !styleIsCircular
         mLayoutCategory?.isVisible = !styleIsCircular
+        updateClassicRandomAccentVisibility(styleIsCircular)
+    }
+
+    /**
+     * Hidden until the About Derp logo easter egg is completed; only relevant for circular QS.
+     */
+    private fun updateClassicRandomAccentVisibility(styleIsCircular: Boolean) {
+        val unlocked = DerpfestEasterEggPrefs.isAboutLogoEasterEggFinished(requireContext())
+        mClassicRandomAccent?.isVisible = unlocked && styleIsCircular
     }
 
     private fun updateDataUsageSummary(cycleTypeValue: String? = null) {
@@ -109,5 +133,6 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
         private const val KEY_QS_TILE_SHAPE = "qs_tile_shape"
         private const val KEY_LAYOUT_CATEGORY = "layout_category"
         private const val KEY_CLASSIC_LAYOUT_CATEGORY = "qs_classic_layout_category"
+        private const val KEY_QS_TILES_CLASSIC_RANDOM_ACCENT = "qs_tiles_classic_random_accent"
     }
 }

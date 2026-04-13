@@ -403,7 +403,6 @@
         <item quantity="one">现在只需再执行 <xliff:g id="derp_count">%1$d</xliff:g> 步操作，即可被「Derp 化」。</item>
         <item quantity="other">现在只需再执行 <xliff:g id="derp_count">%1$d</xliff:g> 步操作，即可被「Derp 化」。</item>
     </plurals>
-    <string name="derpd_done">你已成为被 Derp 化的一员！</string>
 
     <!-- chinese lunar calendar -->
     <string name="qs_show_lunar_calendar_title">显示农历</string>

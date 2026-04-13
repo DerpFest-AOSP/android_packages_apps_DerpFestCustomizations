@@ -312,7 +312,6 @@
         <item quantity="few">You are now <xliff:g id="derp_count">%1$d</xliff:g> шага осталось чтобы стать о\'derp\'ленным.</item>
         <item quantity="many">You are now <xliff:g id="derp_count">%1$d</xliff:g> шагов осталось чтобы стать о\'derp\'ленным.</item>
     </plurals>
-    <string name="derpd_done">Вы о\'derp\'лены</string>
     <string name="qs_show_lunar_calendar_title">Китайский Лунный календарь</string>
     <string name="qs_show_lunar_calendar_summary">Показать лунный календарь в быстрых настройках</string>
 </resources>

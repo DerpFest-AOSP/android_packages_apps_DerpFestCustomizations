@@ -554,7 +554,7 @@
         <item quantity="one">You are now <xliff:g id="derp_count">%1$d</xliff:g> step away from being derp\'d.</item>
         <item quantity="other">You are now <xliff:g id="derp_count">%1$d</xliff:g> steps away from being derp\'d.</item>
     </plurals>
-    <string name="derpd_done">You have been derp\'d</string>
+    <string name="about_easter_egg_unlock_bonus">You unlocked another useless feature.</string>
     <string name="about_easter_egg_title" translatable="false">BOOYAH!</string>
     <string name="about_easter_egg_got_it">Got it</string>
 
@@ -563,6 +563,8 @@
     <string name="qs_show_lunar_calendar_summary">Show lunar calendar in Quick Settings</string>
     <string name="qs_panel_bg_use_new_tint_title">Accent tint for QS tiles</string>
     <string name="qs_panel_bg_use_new_tint_summary">Use accent color for active tiles and bolder labels</string>
+    <string name="qs_tiles_classic_random_accent_title">QS Tile Disco</string>
+    <string name="qs_tiles_classic_random_accent_summary">Make your QS Tiles colorful!</string>
 
     <!-- Lock screen media art on Ambient Display -->
     <string name="ambient_media_art_title">Ambient media cover art</string>

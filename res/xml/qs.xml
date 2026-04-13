@@ -86,6 +86,13 @@
             android:summary="@string/qs_show_lunar_calendar_summary"
             android:defaultValue="false" />
 
+        <org.derpfest.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_tiles_classic_random_accent"
+            android:title="@string/qs_tiles_classic_random_accent_title"
+            android:summary="@string/qs_tiles_classic_random_accent_summary"
+            android:defaultValue="false"
+            app:isPreferenceVisible="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

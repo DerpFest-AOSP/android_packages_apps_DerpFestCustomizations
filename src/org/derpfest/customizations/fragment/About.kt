@@ -30,6 +30,8 @@ import java.util.function.Consumer
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 
+import org.derpfest.customizations.DerpfestEasterEggPrefs
+
 import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
 import com.android.settingslib.widget.LayoutPreference
@@ -137,7 +139,7 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceClickListener
         val message = content.findViewById<TextView>(R.id.easter_egg_message)
         val gotIt = content.findViewById<View>(R.id.easter_egg_got_it)
 
-        message.text = getString(R.string.derpd_done)
+        message.text = getString(R.string.about_easter_egg_unlock_bonus)
 
         val dialog = Dialog(ctx)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -178,6 +180,7 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceClickListener
 
         gotIt.setOnClickListener { view ->
             view.performHapticFeedback(HapticFeedbackConstants.CONFIRM)
+            DerpfestEasterEggPrefs.setAboutLogoEasterEggFinished(ctx)
             dialog.dismiss()
         }
 
