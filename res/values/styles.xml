@@ -12,4 +12,14 @@
         <item name="android:windowElevation">4dp</item>
     </style>
 
+    <!-- Fullscreen blur scrim: must be translucent + non-floating or window blur stays opaque. -->
+    <style name="AboutEasterEggDialogTheme" parent="Theme.MaterialComponents.DayNight.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
 </resources>

@@ -11,7 +11,7 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.drawable.ColorDrawable
+import android.graphics.PixelFormat
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
@@ -141,14 +141,16 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceClickListener
 
         message.text = getString(R.string.about_easter_egg_unlock_bonus)
 
-        val dialog = Dialog(ctx)
+        val dialog = Dialog(ctx, R.style.AboutEasterEggDialogTheme)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(content)
         dialog.setCancelable(true)
         dialog.setCanceledOnTouchOutside(true)
+        // Must be set before setupEasterEggWindowBlur so updateEasterEggWindowForBlur can run.
+        mEasterEggDialog = dialog
         dialog.window?.let { window ->
             window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-            window.setBackgroundDrawable(ColorDrawable(0x00000000))
+            window.setFormat(PixelFormat.TRANSLUCENT)
             setupEasterEggWindowBlur(window, ctx)
         }
 
@@ -159,6 +161,13 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceClickListener
         gotIt.alpha = 0f
 
         dialog.setOnShowListener {
+            dialog.window?.let { window ->
+                clearEasterEggDialogPanelBackgrounds(window, content)
+                updateEasterEggWindowForBlur(
+                    window,
+                    window.windowManager.isCrossWindowBlurEnabled,
+                )
+            }
             title.animate()
                 .alpha(1f)
                 .scaleX(1f)
@@ -196,7 +205,6 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceClickListener
             mEasterEggDialog = null
         }
 
-        mEasterEggDialog = dialog
         dialog.show()
     }
 
@@ -210,7 +218,6 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceClickListener
             decor.clipToOutline = true
         }
         window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
-        window.setBackgroundBlurRadius(EASTER_EGG_BG_BLUR_RADIUS)
         window.setDimAmount(DIM_AMOUNT_WITH_BLUR)
         mEasterEggWindowBg?.alpha = WINDOW_BG_ALPHA_WITH_BLUR
         mEasterEggDecorBg?.alpha = WINDOW_BG_ALPHA_WITH_BLUR
@@ -221,25 +228,45 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceClickListener
     }
 
     private fun updateEasterEggWindowForBlur(window: Window, blursEnabled: Boolean) {
-        if (mEasterEggDialog?.isShowing != true) {
+        if (mEasterEggDialog == null) {
             return
         }
-        val alpha = if (blursEnabled && EASTER_EGG_BG_BLUR_RADIUS > 0) {
+        val useBlur = blursEnabled && EASTER_EGG_BG_BLUR_RADIUS > 0
+        val alpha = if (useBlur) {
             WINDOW_BG_ALPHA_WITH_BLUR
         } else {
             WINDOW_BG_ALPHA_NO_BLUR
         }
         mEasterEggWindowBg?.alpha = alpha
         mEasterEggDecorBg?.alpha = alpha
-        window.setDimAmount(
-            if (blursEnabled && EASTER_EGG_BG_BLUR_RADIUS > 0) {
-                DIM_AMOUNT_WITH_BLUR
-            } else {
-                DIM_AMOUNT_NO_BLUR
-            },
-        )
-        window.setBackgroundBlurRadius(EASTER_EGG_BG_BLUR_RADIUS)
-        window.attributes = window.attributes
+        window.setDimAmount(if (useBlur) DIM_AMOUNT_WITH_BLUR else DIM_AMOUNT_NO_BLUR)
+        val bgBlur = if (useBlur) EASTER_EGG_BG_BLUR_RADIUS else 0
+        window.setBackgroundBlurRadius(bgBlur)
+        // Commit blur into LayoutParams (matches QsTileIconShapePreference).
+        window.setAttributes(window.attributes)
+    }
+
+    /**
+     * Material dialog decor adds opaque panel backgrounds; they block cross-window blur unless
+     * cleared (same idea as [QsTileIconShapePreference.clearDialogSolidBackgrounds]).
+     */
+    private fun clearEasterEggDialogPanelBackgrounds(window: Window, ourContentRoot: View) {
+        val decor = window.decorView as? ViewGroup ?: return
+        for (i in 0 until decor.childCount) {
+            clearOpaqueBackgroundsExceptSubtree(decor.getChildAt(i), ourContentRoot)
+        }
+    }
+
+    private fun clearOpaqueBackgroundsExceptSubtree(view: View, excludeSubtree: View) {
+        if (view === excludeSubtree) {
+            return
+        }
+        view.setBackgroundResource(android.R.color.transparent)
+        if (view is ViewGroup) {
+            for (i in 0 until view.childCount) {
+                clearOpaqueBackgroundsExceptSubtree(view.getChildAt(i), excludeSubtree)
+            }
+        }
     }
 
     override fun getMetricsCategory(): Int = MetricsEvent.DERPFEST
