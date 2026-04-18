@@ -14,7 +14,9 @@ import android.content.pm.PackageManager
 import android.graphics.PixelFormat
 import android.graphics.drawable.Drawable
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.view.Gravity
 import android.view.HapticFeedbackConstants
 import android.view.LayoutInflater
 import android.view.View
@@ -27,6 +29,7 @@ import android.widget.Toast
 
 import java.util.function.Consumer
 
+import androidx.appcompat.app.AlertDialog
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 
@@ -141,15 +144,15 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceClickListener
 
         message.text = getString(R.string.about_easter_egg_unlock_bonus)
 
-        val dialog = Dialog(ctx, R.style.AboutEasterEggDialogTheme)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(content)
-        dialog.setCancelable(true)
+        val dialog = AlertDialog.Builder(ctx, R.style.AboutEasterEggDialogTheme)
+            .setView(content)
+            .setCancelable(true)
+            .create()
         dialog.setCanceledOnTouchOutside(true)
         // Must be set before setupEasterEggWindowBlur so updateEasterEggWindowForBlur can run.
         mEasterEggDialog = dialog
         dialog.window?.let { window ->
-            window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+            reassertEasterEggWindowForShow(window)
             window.setFormat(PixelFormat.TRANSLUCENT)
             setupEasterEggWindowBlur(window, ctx)
         }
@@ -162,6 +165,7 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceClickListener
 
         dialog.setOnShowListener {
             dialog.window?.let { window ->
+                reassertEasterEggWindowForShow(window)
                 clearEasterEggDialogPanelBackgrounds(window, content)
                 updateEasterEggWindowForBlur(
                     window,
@@ -208,6 +212,22 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceClickListener
         dialog.show()
     }
 
+    /**
+     * Fills the screen while keeping a standard floating dialog window. True fullscreen
+     * (non-floating) windows are treated differently by the blur path on API 31+.
+     */
+    private fun reassertEasterEggWindowForShow(window: Window) {
+        window.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.MATCH_PARENT,
+        )
+        val lp = window.attributes
+        lp.width = ViewGroup.LayoutParams.MATCH_PARENT
+        lp.height = ViewGroup.LayoutParams.MATCH_PARENT
+        lp.gravity = Gravity.FILL
+        window.attributes = lp
+    }
+
     private fun setupEasterEggWindowBlur(window: Window, ctx: Context) {
         mEasterEggWindowBg = ctx.getDrawable(R.drawable.about_easter_egg_window_background)?.mutate()
         mEasterEggDecorBg = ctx.getDrawable(R.drawable.about_easter_egg_window_background)?.mutate()
@@ -242,8 +262,16 @@ class About : SettingsPreferenceFragment(), Preference.OnPreferenceClickListener
         window.setDimAmount(if (useBlur) DIM_AMOUNT_WITH_BLUR else DIM_AMOUNT_NO_BLUR)
         val bgBlur = if (useBlur) EASTER_EGG_BG_BLUR_RADIUS else 0
         window.setBackgroundBlurRadius(bgBlur)
-        // Commit blur into LayoutParams (matches QsTileIconShapePreference).
-        window.setAttributes(window.attributes)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            // Blurs the task under this dialog; ignored for "fullscreen" windows, but we are
+            // a MATCH_PARENT *floating* dialog so the activity behind should blur (API 31+).
+            val lp = window.attributes
+            lp.blurBehindRadius = bgBlur
+            window.attributes = lp
+        } else {
+            // Commit background blur (matches [QsTileIconShapePreference]).
+            window.setAttributes(window.attributes)
+        }
     }
 
     /**

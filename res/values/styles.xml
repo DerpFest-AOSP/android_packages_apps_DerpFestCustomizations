@@ -12,14 +12,17 @@
         <item name="android:windowElevation">4dp</item>
     </style>
 
-    <!-- Fullscreen blur scrim: must be translucent + non-floating or window blur stays opaque. -->
-    <style name="AboutEasterEggDialogTheme" parent="Theme.MaterialComponents.DayNight.Dialog">
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowIsFloating">false</item>
+    <!--
+        Same base as [QsTileIconShapeDialogTheme] (blur works). Keep windowIsFloating true:
+        for API 31+, LayoutParams#blurBehindRadius and some blur paths are a no-op on true
+        fullscreen (non-floating) windows, so a MATCH_PARENT *floating* dialog is used in code
+        to fill the screen and still get blur.
+    -->
+    <style name="AboutEasterEggDialogTheme" parent="Theme.MaterialComponents.DayNight.Dialog.Alert">
+        <item name="android:windowIsFloating">true</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowContentOverlay">@null</item>
-        <item name="android:backgroundDimEnabled">true</item>
     </style>
 
 </resources>
