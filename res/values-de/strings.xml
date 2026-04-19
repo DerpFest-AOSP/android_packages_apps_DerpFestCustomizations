@@ -536,6 +536,8 @@
     <string name="dynamic_bar_keyguard_battery_chip_disabled">Nie anzeigen</string>
     <string name="dynamic_bar_keyguard_battery_chip_charging">Nur beim Laden</string>
     <string name="dynamic_bar_keyguard_battery_chip_always">Immer anzeigen</string>
+    <string name="dynamic_bar_keyguard_music_pill">Musik-Pille auf dem Sperrbildschirm</string>
+    <string name="dynamic_bar_keyguard_music_pill_summary">Musikplayer auf dem Sperrbildschirm als Pille anzeigen</string>
     <string name="dynamic_bar_keyguard_compact_chip">Kompakter Sperrbildschirm-Chip</string>
     <string name="dynamic_bar_keyguard_compact_chip_summary">Immer den kompakten Chip-Stil auf dem Sperrbildschirm verwenden. Wenn deaktiviert, wird der Kompaktmodus nur bei begrenztem Platz genutzt.</string>
     <string name="dynamic_bar_events">Ereignisse</string>

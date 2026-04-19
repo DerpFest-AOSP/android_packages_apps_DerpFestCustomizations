@@ -78,6 +78,7 @@ class DynamicBar : SettingsPreferenceFragment() {
 
     private fun updateKeyguardSubPrefsVisibility(keyguardEnabled: Boolean) {
         findPreference<Preference>(SETTINGS_KEY_BATTERY_CHIP_MODE)?.isVisible = keyguardEnabled
+        findPreference<Preference>(SETTINGS_KEY_MUSIC_PILL)?.isVisible = keyguardEnabled
     }
 
     private fun setupEventToggles() {
@@ -157,6 +158,7 @@ class DynamicBar : SettingsPreferenceFragment() {
         private const val SETTINGS_KEY_KEYGUARD_ENABLED = "ax_dynamic_bar_keyguard_enabled"
         private const val SETTINGS_KEY_EVENTS = "ax_dynamic_bar_events"
         private const val SETTINGS_KEY_BATTERY_CHIP_MODE = "ax_dynamic_bar_keyguard_battery_chip_mode"
+        private const val SETTINGS_KEY_MUSIC_PILL = "ax_dynamic_bar_keyguard_music_pill"
 
         @JvmStatic
         fun reset(context: Context) {
@@ -167,6 +169,10 @@ class DynamicBar : SettingsPreferenceFragment() {
             )
             Settings.Secure.putIntForUser(
                 resolver, SETTINGS_KEY_KEYGUARD_ENABLED, 1,
+                UserHandle.USER_CURRENT
+            )
+            Settings.Secure.putIntForUser(
+                resolver, SETTINGS_KEY_MUSIC_PILL, 0,
                 UserHandle.USER_CURRENT
             )
             Settings.Secure.putIntForUser(
