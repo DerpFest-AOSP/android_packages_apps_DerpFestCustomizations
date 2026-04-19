@@ -28,7 +28,7 @@ class DynamicBarGuide : SettingsPreferenceFragment() {
         GuideStep(
             R.string.dynamic_bar_guide_swipe_title,
             R.string.dynamic_bar_guide_swipe,
-            R.drawable.ic_swap_horiz,
+            R.drawable.ic_dynamic_bar_swap_horiz,
         ),
         GuideStep(
             R.string.dynamic_bar_guide_expand_title,
@@ -43,7 +43,7 @@ class DynamicBarGuide : SettingsPreferenceFragment() {
         GuideStep(
             R.string.dynamic_bar_guide_keyguard_title,
             R.string.dynamic_bar_guide_keyguard,
-            R.drawable.ic_notifications,
+            R.drawable.ic_dynamic_bar_notifications,
         ),
     )
 

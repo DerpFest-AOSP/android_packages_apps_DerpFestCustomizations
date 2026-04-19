@@ -78,7 +78,7 @@
             android:key="event_notification"
             android:title="@string/dynamic_bar_event_notification"
             android:summary="@string/dynamic_bar_event_notification_summary"
-            android:icon="@drawable/ic_notifications"
+            android:icon="@drawable/ic_dynamic_bar_notifications"
             android:defaultValue="true" />
 
         <org.derpfest.support.preferences.SecureSettingSwitchPreference
@@ -128,7 +128,7 @@
             android:key="event_hotspot"
             android:title="@string/dynamic_bar_event_hotspot"
             android:summary="@string/dynamic_bar_event_hotspot_summary"
-            android:icon="@drawable/ic_wifi_tethering"
+            android:icon="@drawable/ic_dynamic_bar_wifi_tethering"
             android:defaultValue="true" />
 
         <SwitchPreferenceCompat
@@ -142,7 +142,7 @@
             android:key="event_vpn"
             android:title="@string/dynamic_bar_event_vpn"
             android:summary="@string/dynamic_bar_event_vpn_summary"
-            android:icon="@drawable/ic_vpn_key"
+            android:icon="@drawable/ic_dynamic_bar_vpn_key"
             android:defaultValue="true" />
 
         <SwitchPreferenceCompat
@@ -170,7 +170,7 @@
             android:key="event_promoted_ongoing"
             android:title="@string/dynamic_bar_event_ongoing"
             android:summary="@string/dynamic_bar_event_ongoing_summary"
-            android:icon="@drawable/ic_notifications"
+            android:icon="@drawable/ic_dynamic_bar_notifications"
             android:defaultValue="true" />
 
         <SwitchPreferenceCompat
@@ -184,14 +184,14 @@
             android:key="event_app_switch"
             android:title="@string/dynamic_bar_event_app_switch"
             android:summary="@string/dynamic_bar_event_app_switch_summary"
-            android:icon="@drawable/ic_swap_horiz"
+            android:icon="@drawable/ic_dynamic_bar_swap_horiz"
             android:defaultValue="true" />
 
         <SwitchPreferenceCompat
             android:key="event_biometric_unlock"
             android:title="@string/dynamic_bar_event_biometric"
             android:summary="@string/dynamic_bar_event_biometric_summary"
-            android:icon="@drawable/ic_fingerprint"
+            android:icon="@drawable/ic_dynamic_bar_fingerprint"
             android:defaultValue="true" />
     </PreferenceCategory>
 
@@ -211,7 +211,7 @@
             android:key="dynamic_bar_footer"
             android:title="@string/dynamic_bar_footer_title"
             android:summary="@string/dynamic_bar_footer_body"
-            android:icon="@drawable/ic_info"
+            android:icon="@drawable/ic_dynamic_bar_info"
             android:selectable="false" />
     </PreferenceCategory>
 
