@@ -539,10 +539,6 @@
     <string name="dynamic_bar_keyguard_compact_chip">Kompakter Sperrbildschirm-Chip</string>
     <string name="dynamic_bar_keyguard_compact_chip_summary">Immer den kompakten Chip-Stil auf dem Sperrbildschirm verwenden. Wenn deaktiviert, wird der Kompaktmodus nur bei begrenztem Platz genutzt.</string>
     <string name="dynamic_bar_events">Ereignisse</string>
-    <string name="dynamic_bar_event_recording">Bildschirmaufnahme</string>
-    <string name="dynamic_bar_event_recording_summary">Aktiver Indikator für Bildschirmaufnahme</string>
-    <string name="dynamic_bar_event_privacy">Datenschutzindikatoren</string>
-    <string name="dynamic_bar_event_privacy_summary">Hinweise auf Kamera- und Mikrofonzugriff</string>
     <string name="dynamic_bar_event_audio_recording">Audioaufnahme</string>
     <string name="dynamic_bar_event_audio_recording_summary">Sprachrekorder und Audioaufnahme</string>
     <string name="dynamic_bar_event_media">Medienwiedergabe</string>
@@ -551,8 +547,6 @@
     <string name="dynamic_bar_event_call_summary">Eingehende und laufende Anrufe</string>
     <string name="dynamic_bar_event_notification">Benachrichtigungen</string>
     <string name="dynamic_bar_event_notification_summary">Eingehende Benachrichtigungshinweise</string>
-    <string name="dynamic_bar_compact_notifications">Kompakte Benachrichtigungen</string>
-    <string name="dynamic_bar_compact_notifications_summary">Benachrichtigungen zuerst als kleinen Chip anzeigen, zum Erweitieren tippen</string>
     <string name="dynamic_bar_event_timer">Timer</string>
     <string name="dynamic_bar_event_timer_summary">Countdown-Timer aus der Uhr-App</string>
     <string name="dynamic_bar_event_stopwatch">Stoppuhr</string>
@@ -573,8 +567,6 @@
     <string name="dynamic_bar_event_clipboard_summary">Kopierte Texte und Bildvorschau</string>
     <string name="dynamic_bar_event_torch">Taschenlampe</string>
     <string name="dynamic_bar_event_torch_summary">Taschenlampe ein/aus und Helligkeit</string>
-    <string name="dynamic_bar_event_casting">Übertragung</string>
-    <string name="dynamic_bar_event_casting_summary">Status von Bildschirm- und Medienübertragung</string>
     <string name="dynamic_bar_event_ongoing">Laufende Aktivitäten</string>
     <string name="dynamic_bar_event_ongoing_summary">Navigation, Lieferungen und andere Live-Aktivitäten</string>
     <string name="dynamic_bar_event_sports">Sport</string>

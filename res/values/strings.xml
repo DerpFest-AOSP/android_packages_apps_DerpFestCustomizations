@@ -585,10 +585,6 @@
     <string name="dynamic_bar_keyguard_compact_chip">Compact lock screen chip</string>
     <string name="dynamic_bar_keyguard_compact_chip_summary">Always use the compact chip style on the lockscreen. When disabled, compact mode is used only when space is limited.</string>
     <string name="dynamic_bar_events">Events</string>
-    <string name="dynamic_bar_event_recording">Screen recording</string>
-    <string name="dynamic_bar_event_recording_summary">Active screen recording indicator</string>
-    <string name="dynamic_bar_event_privacy">Privacy indicators</string>
-    <string name="dynamic_bar_event_privacy_summary">Camera and microphone access alerts</string>
     <string name="dynamic_bar_event_audio_recording">Audio recording</string>
     <string name="dynamic_bar_event_audio_recording_summary">Voice recorder and audio capture</string>
     <string name="dynamic_bar_event_media">Media playback</string>
@@ -597,8 +593,6 @@
     <string name="dynamic_bar_event_call_summary">Incoming and active calls</string>
     <string name="dynamic_bar_event_notification">Notifications</string>
     <string name="dynamic_bar_event_notification_summary">Incoming notification alerts</string>
-    <string name="dynamic_bar_compact_notifications">Compact notifications</string>
-    <string name="dynamic_bar_compact_notifications_summary">Show notifications as a small chip first, tap to expand</string>
     <string name="dynamic_bar_event_timer">Timer</string>
     <string name="dynamic_bar_event_timer_summary">Countdown timer from clock app</string>
     <string name="dynamic_bar_event_stopwatch">Stopwatch</string>
@@ -619,8 +613,6 @@
     <string name="dynamic_bar_event_clipboard_summary">Copied text and image preview</string>
     <string name="dynamic_bar_event_torch">Flashlight</string>
     <string name="dynamic_bar_event_torch_summary">Flashlight toggle and brightness</string>
-    <string name="dynamic_bar_event_casting">Casting</string>
-    <string name="dynamic_bar_event_casting_summary">Screen cast and media cast status</string>
     <string name="dynamic_bar_event_ongoing">Ongoing activities</string>
     <string name="dynamic_bar_event_ongoing_summary">Navigation, deliveries, and other live activities</string>
     <string name="dynamic_bar_event_sports">Sports</string>
