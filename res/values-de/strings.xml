@@ -547,6 +547,8 @@
     <string name="dynamic_bar_event_audio_recording_summary">Sprachrekorder und Audioaufnahme</string>
     <string name="dynamic_bar_event_media">Medienwiedergabe</string>
     <string name="dynamic_bar_event_media_summary">Aktuell laufende Musik und Mediensteuerung</string>
+    <string name="dynamic_bar_event_call">Laufender Anruf</string>
+    <string name="dynamic_bar_event_call_summary">Eingehende und laufende Anrufe</string>
     <string name="dynamic_bar_event_notification">Benachrichtigungen</string>
     <string name="dynamic_bar_event_notification_summary">Eingehende Benachrichtigungshinweise</string>
     <string name="dynamic_bar_compact_notifications">Kompakte Benachrichtigungen</string>

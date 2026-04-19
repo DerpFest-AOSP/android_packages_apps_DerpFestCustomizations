@@ -35,6 +35,7 @@ class DynamicBar : SettingsPreferenceFragment() {
         "privacy",
         "audio_recording",
         "media",
+        "call",
         "notification",
         "timer",
         "stopwatch",
