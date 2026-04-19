@@ -23,7 +23,7 @@ class DynamicBarGuide : SettingsPreferenceFragment() {
         GuideStep(
             R.string.dynamic_bar_guide_chip_title,
             R.string.dynamic_bar_guide_chip,
-            R.drawable.ic_fiber_manual_record,
+            R.drawable.ic_dynamic_bar_fiber_manual_record,
         ),
         GuideStep(
             R.string.dynamic_bar_guide_swipe_title,
@@ -33,12 +33,12 @@ class DynamicBarGuide : SettingsPreferenceFragment() {
         GuideStep(
             R.string.dynamic_bar_guide_expand_title,
             R.string.dynamic_bar_guide_expand,
-            R.drawable.ic_touch_app,
+            R.drawable.ic_dynamic_bar_touch_app,
         ),
         GuideStep(
             R.string.dynamic_bar_guide_dismiss_title,
             R.string.dynamic_bar_guide_dismiss,
-            R.drawable.ic_expand_less,
+            R.drawable.ic_dynamic_bar_expand_less,
         ),
         GuideStep(
             R.string.dynamic_bar_guide_keyguard_title,

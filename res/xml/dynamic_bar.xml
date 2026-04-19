@@ -43,35 +43,35 @@
             android:key="event_screen_recording"
             android:title="@string/dynamic_bar_event_recording"
             android:summary="@string/dynamic_bar_event_recording_summary"
-            android:icon="@drawable/ic_fiber_manual_record"
+            android:icon="@drawable/ic_dynamic_bar_fiber_manual_record"
             android:defaultValue="true" />
 
         <SwitchPreferenceCompat
             android:key="event_privacy"
             android:title="@string/dynamic_bar_event_privacy"
             android:summary="@string/dynamic_bar_event_privacy_summary"
-            android:icon="@drawable/ic_videocam"
+            android:icon="@drawable/ic_dynamic_bar_videocam"
             android:defaultValue="true" />
 
         <SwitchPreferenceCompat
             android:key="event_audio_recording"
             android:title="@string/dynamic_bar_event_audio_recording"
             android:summary="@string/dynamic_bar_event_audio_recording_summary"
-            android:icon="@drawable/ic_mic"
+            android:icon="@drawable/ic_dynamic_bar_mic"
             android:defaultValue="true" />
 
         <SwitchPreferenceCompat
             android:key="event_media"
             android:title="@string/dynamic_bar_event_media"
             android:summary="@string/dynamic_bar_event_media_summary"
-            android:icon="@drawable/ic_music_note"
+            android:icon="@drawable/ic_dynamic_bar_music_note"
             android:defaultValue="true" />
 
         <SwitchPreferenceCompat
             android:key="event_call"
             android:title="@string/dynamic_bar_event_call"
             android:summary="@string/dynamic_bar_event_call_summary"
-            android:icon="@drawable/ic_call_ring"
+            android:icon="@drawable/ic_dynamic_bar_call_ring"
             android:defaultValue="true" />
 
         <SwitchPreferenceCompat
@@ -85,7 +85,7 @@
             android:key="ax_dynamic_bar_compact_notifications"
             android:title="@string/dynamic_bar_compact_notifications"
             android:summary="@string/dynamic_bar_compact_notifications_summary"
-            android:icon="@drawable/ic_compact_notifications"
+            android:icon="@drawable/ic_dynamic_bar_compact_notifications"
             android:defaultValue="true"
             android:dependency="event_notification" />
 
@@ -93,35 +93,35 @@
             android:key="event_timer"
             android:title="@string/dynamic_bar_event_timer"
             android:summary="@string/dynamic_bar_event_timer_summary"
-            android:icon="@drawable/ic_timer"
+            android:icon="@drawable/ic_dynamic_bar_timer"
             android:defaultValue="true" />
 
         <SwitchPreferenceCompat
             android:key="event_stopwatch"
             android:title="@string/dynamic_bar_event_stopwatch"
             android:summary="@string/dynamic_bar_event_stopwatch_summary"
-            android:icon="@drawable/ic_timer"
+            android:icon="@drawable/ic_dynamic_bar_timer"
             android:defaultValue="true" />
 
         <SwitchPreferenceCompat
             android:key="event_alarm"
             android:title="@string/dynamic_bar_event_alarm"
             android:summary="@string/dynamic_bar_event_alarm_summary"
-            android:icon="@drawable/ic_alarm"
+            android:icon="@drawable/ic_dynamic_bar_alarm"
             android:defaultValue="true" />
 
         <SwitchPreferenceCompat
             android:key="event_charging"
             android:title="@string/dynamic_bar_event_charging"
             android:summary="@string/dynamic_bar_event_charging_summary"
-            android:icon="@drawable/ic_battery_charging_full"
+            android:icon="@drawable/ic_dynamic_bar_battery_charging_full"
             android:defaultValue="true" />
 
         <SwitchPreferenceCompat
             android:key="event_bluetooth"
             android:title="@string/dynamic_bar_event_bluetooth"
             android:summary="@string/dynamic_bar_event_bluetooth_summary"
-            android:icon="@drawable/ic_bluetooth"
+            android:icon="@drawable/ic_dynamic_bar_bluetooth"
             android:defaultValue="true" />
 
         <SwitchPreferenceCompat
@@ -135,7 +135,7 @@
             android:key="event_ringer"
             android:title="@string/dynamic_bar_event_ringer"
             android:summary="@string/dynamic_bar_event_ringer_summary"
-            android:icon="@drawable/ic_vibration"
+            android:icon="@drawable/ic_dynamic_bar_vibration"
             android:defaultValue="true" />
 
         <SwitchPreferenceCompat
@@ -149,21 +149,21 @@
             android:key="event_clipboard"
             android:title="@string/dynamic_bar_event_clipboard"
             android:summary="@string/dynamic_bar_event_clipboard_summary"
-            android:icon="@drawable/ic_content_copy"
+            android:icon="@drawable/ic_dynamic_bar_content_copy"
             android:defaultValue="true" />
 
         <SwitchPreferenceCompat
             android:key="event_torch"
             android:title="@string/dynamic_bar_event_torch"
             android:summary="@string/dynamic_bar_event_torch_summary"
-            android:icon="@drawable/ic_flashlight_on"
+            android:icon="@drawable/ic_dynamic_bar_flashlight_on"
             android:defaultValue="true" />
 
         <SwitchPreferenceCompat
             android:key="event_casting"
             android:title="@string/dynamic_bar_event_casting"
             android:summary="@string/dynamic_bar_event_casting_summary"
-            android:icon="@drawable/ic_cast"
+            android:icon="@drawable/ic_dynamic_bar_cast"
             android:defaultValue="true" />
 
         <SwitchPreferenceCompat
@@ -177,7 +177,7 @@
             android:key="event_sports"
             android:title="@string/dynamic_bar_event_sports"
             android:summary="@string/dynamic_bar_event_sports_summary"
-            android:icon="@drawable/ic_sports_score"
+            android:icon="@drawable/ic_dynamic_bar_sports_score"
             android:defaultValue="true" />
 
         <SwitchPreferenceCompat
@@ -201,7 +201,7 @@
             android:key="dynamic_bar_guide"
             android:title="@string/dynamic_bar_guide_title"
             android:summary="@string/dynamic_bar_guide_chip"
-            android:icon="@drawable/ic_touch_app"
+            android:icon="@drawable/ic_dynamic_bar_touch_app"
             android:fragment="org.derpfest.customizations.fragment.statusbar.DynamicBarGuide" />
     </PreferenceCategory>
 

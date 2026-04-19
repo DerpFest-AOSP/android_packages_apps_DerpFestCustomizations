@@ -24,7 +24,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:background="@drawable/circle_primary_container">
+                android:background="@drawable/dynamic_bar_circle_primary_container">
 
                 <ImageView
                     android:id="@+id/step_icon"
