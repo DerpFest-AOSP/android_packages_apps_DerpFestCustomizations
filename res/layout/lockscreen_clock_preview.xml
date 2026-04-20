@@ -4,8 +4,7 @@
      SPDX-FileCopyrightText: DerpFest AOSP
      SPDX-License-Identifier: Apache-2.0
 
-     Extended FAB uses Theme.CollapsingToolbar.Settings (same pattern as dream_preview_button)
-     so Material components inflate under the Settings activity theme.
+     Extended FAB uses Theme.CollapsingToolbar.Settings (same pattern as dream_preview_button).
 -->
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -64,19 +63,89 @@
                 </FrameLayout>
             </com.google.android.material.card.MaterialCardView>
 
+            <!-- Rounded shell: inside fill matches SettingsLib expressive switch rows (surface bright). -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="4dp"
+                android:layout_marginTop="12dp"
+                android:clipChildren="false"
+                app:cardBackgroundColor="@color/settingslib_materialColorSurfaceBright"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="0dp"
+                app:contentPaddingBottom="2dp"
+                app:contentPaddingEnd="12dp"
+                app:contentPaddingStart="12dp"
+                app:contentPaddingTop="2dp"
+                app:strokeWidth="0dp">
+
+                <!-- Match strip to card (same as preference row fill under Theme.CollapsingToolbar.Settings). -->
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/clock_section_tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:background="@color/settingslib_materialColorSurfaceBright"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:theme="@style/Theme.CollapsingToolbar.Settings"
+                    app:tabBackground="@drawable/clock_tab_background"
+                    app:tabGravity="start"
+                    app:tabIndicatorColor="@android:color/transparent"
+                    app:tabIndicatorFullWidth="false"
+                    app:tabIndicatorHeight="0dp"
+                    app:tabMode="scrollable"
+                    app:tabPaddingBottom="4dp"
+                    app:tabPaddingEnd="6dp"
+                    app:tabPaddingStart="6dp"
+                    app:tabPaddingTop="4dp"
+                    app:tabSelectedTextColor="@color/settingslib_btn_colored_text_material"
+                    app:tabTextColor="@color/colorOnSurfaceVariant">
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lockscreen_clock_section_system" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lockscreen_clock_section_stylish" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lockscreen_clock_section_text" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lockscreen_clock_section_analog" />
+                </com.google.android.material.tabs.TabLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- MaterialComponents extended FAB (not Icon): SubSettings + Theme.CollapsingToolbar.Settings
+                 is M2-based; Widget.Material3.* FAB crashes ThemeEnforcement. Same theme as dream_preview_button. -->
             <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
                 android:id="@+id/apply_extended_fab"
+                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="24dp"
                 android:gravity="center"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
                 android:text="@string/apply"
+                android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="@color/settingslib_btn_colored_text_material"
                 android:theme="@style/Theme.CollapsingToolbar.Settings"
                 app:backgroundTint="@color/settingslib_btn_colored_background_material"
-                app:fabSize="normal" />
+                app:fabSize="normal"
+                app:iconPadding="0dp" />
         </LinearLayout>
 
         <FrameLayout

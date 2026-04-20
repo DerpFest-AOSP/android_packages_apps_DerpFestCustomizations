@@ -39,6 +39,11 @@
     <string name="lockscreen_custom_clock_embedded_date_weather_title">Datum &amp; Wetter in der Uhr anzeigen</string>
     <string name="lockscreen_custom_clock_embedded_date_weather_summary">Datum und Wetter im benutzerdefinierten Uhr-Layout anzeigen. Aus, um sie auszublenden (fügt keine separate Smartspace-Zeile hinzu).</string>
     <string name="lockscreen_custom_clock_style_info">Die benutzerdefinierte Uhr ersetzt die Standard-Uhrstile. Mit „Datum &amp; Wetter in der Uhr anzeigen“ blendest du eingebettetes Datum und Wetter im Uhr-Layout ein oder aus.</string>
+    <string name="lockscreen_clock_section_all">Alle</string>
+    <string name="lockscreen_clock_section_system">System</string>
+    <string name="lockscreen_clock_section_stylish">Stilvoll</string>
+    <string name="lockscreen_clock_section_text">Text &amp; Zahlen</string>
+    <string name="lockscreen_clock_section_analog">Analog &amp; mehr</string>
     <string name="spoofing_title">Spoofing</string>
     <string name="spoofing_summary">Umgehen von App-Einschränkungen durch Spoofing von Komponenten</string>
     <string name="misc_title">Sonstiges</string>
