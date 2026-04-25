@@ -411,6 +411,16 @@
     <string name="qs_tile_shape_rounded_square_smooth">Rounded square (smooth)</string>
     <string name="qs_tile_shape_rounded_square">Rounded square</string>
 
+    <!-- QS tile animation style -->
+    <string name="qs_tile_animation_style_title">Tile toggle animation</string>
+    <string name="qs_tile_animation_style_none">None</string>
+    <string name="qs_tile_animation_style_bounce">Bounce</string>
+    <string name="qs_tile_animation_style_ripple">Ripple</string>
+    <string name="qs_tile_animation_style_flip">Flip</string>
+    <string name="qs_tile_animation_style_fade">Fade</string>
+    <string name="qs_tile_animation_style_pulse">Pulse</string>
+    <string name="qs_tile_animation_style_shake">Shake</string>
+
     <!-- Brightness Slider Style -->
     <string name="qs_brightness_slider_shape_title">Brightness slider shape</string>
     <string name="qs_brightness_use_new_tint_title">Accent tint for brightness slider</string>

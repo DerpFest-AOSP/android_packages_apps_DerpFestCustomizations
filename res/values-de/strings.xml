@@ -416,6 +416,14 @@
     <string name="qs_tile_shape_circle">Kreis</string>
     <string name="qs_tile_shape_rounded_square_smooth">Abgerundetes Quadrat (sanft)</string>
     <string name="qs_tile_shape_rounded_square">Abgerundetes Quadrat</string>
+    <string name="qs_tile_animation_style_title">Kachel-Umschaltanimation</string>
+    <string name="qs_tile_animation_style_none">Keine</string>
+    <string name="qs_tile_animation_style_bounce">Aufprall</string>
+    <string name="qs_tile_animation_style_ripple">Welle</string>
+    <string name="qs_tile_animation_style_flip">Drehung</string>
+    <string name="qs_tile_animation_style_fade">Ein-/Ausblenden</string>
+    <string name="qs_tile_animation_style_pulse">Pulsieren</string>
+    <string name="qs_tile_animation_style_shake">Wackeln</string>
     <string name="qs_panel_bg_use_new_tint_title">Akzentfarbe für QS-Kacheln</string>
     <string name="qs_panel_bg_use_new_tint_summary">Akzentfarbe für aktive Kacheln und kräftigere Beschriftung verwenden</string>
     <string name="qs_tiles_classic_random_accent_title">QS-Kachel-Disco</string>
