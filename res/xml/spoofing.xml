@@ -56,6 +56,16 @@
             android:summary="@string/user_selectable_app_spoofing_summary"
             android:fragment="org.derpfest.customizations.fragment.UserSelectedAppSpoofSettings" />
 
+        <Preference
+            android:key="applocker_sandbox_settings"
+            android:title="@string/applocker_sandbox_title"
+            android:summary="@string/applocker_sandbox_summary">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.axion.sandbox"
+                android:targetClass="com.android.axion.sandbox.MainActivity" />
+        </Preference>
+
     </PreferenceCategory>
 
 </PreferenceScreen>

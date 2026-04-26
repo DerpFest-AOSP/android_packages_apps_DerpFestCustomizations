@@ -680,4 +680,8 @@
     <string name="app_spoofing_longpress_hint">Long press to quickly reassign profile</string>
     <string name="app_spoofing_remove_title">Remove app?</string>
     <string name="app_spoofing_remove_confirm">Remove %1$s from the spoofing list?</string>
+
+    <!-- AppLock and Sandbox -->
+    <string name="applocker_sandbox_title">AppLock and Sandbox</string>
+    <string name="applocker_sandbox_summary">Open the AppLock and Sandbox management app</string>
 </resources>
