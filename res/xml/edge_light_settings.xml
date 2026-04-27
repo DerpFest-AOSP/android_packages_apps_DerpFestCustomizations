@@ -8,6 +8,13 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/edge_light_title">
 
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="edge_light_preview"
+        android:layout="@layout/edge_light_preview"
+        android:selectable="false"
+        app:allowDividerBelow="false"
+        settings:searchable="false" />
+
     <org.derpfest.support.preferences.SystemSettingMainSwitchPreference
         android:key="edge_light_enabled"
         android:title="@string/enable" />

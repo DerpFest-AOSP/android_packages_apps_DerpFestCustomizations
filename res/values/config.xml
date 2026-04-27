@@ -19,4 +19,7 @@
         <item>com.google.android.gm</item>
         <item>com.google.android.googlequicksearchbox</item>
     </string-array>
+
+    <!-- Edge light preview pulse loop duration -->
+    <integer name="edge_light_preview_pulse_duration_ms">6000</integer>
 </resources>
