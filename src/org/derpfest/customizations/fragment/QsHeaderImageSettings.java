@@ -17,6 +17,7 @@ package org.derpfest.customizations.fragment;
 
 import android.app.Activity;
 import android.content.ContentResolver;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -74,7 +75,6 @@ public class QsHeaderImageSettings extends SettingsPreferenceFragment implements
         ContentResolver resolver = getContext().getContentResolver();
 
         mHeaderBrowse = findPreference(CUSTOM_HEADER_BROWSE);
-        mHeaderBrowse.setEnabled(isBrowseHeaderAvailable());
 
         mDaylightHeaderPack = (ListPreference) findPreference(DAYLIGHT_HEADER_PACK);
 
@@ -93,7 +93,7 @@ public class QsHeaderImageSettings extends SettingsPreferenceFragment implements
         if (providerName == null) {
             providerName = mDaylightHeaderProvider;
         }
-        mHeaderBrowse.setEnabled(isBrowseHeaderAvailable() && !providerName.equals(mFileHeaderProvider));
+        updateBrowsePreferenceAvailability(providerName);
 
         mHeaderProvider = (ListPreference) findPreference(CUSTOM_HEADER_PROVIDER);
         int valueIndex = mHeaderProvider.findIndexOfValue(providerName);
@@ -135,7 +135,7 @@ public class QsHeaderImageSettings extends SettingsPreferenceFragment implements
                 int valueIndex = mHeaderProvider.findIndexOfValue(value);
                 mHeaderProvider.setSummary(mHeaderProvider.getEntries()[valueIndex]);
                 mDaylightHeaderPack.setEnabled(value.equals(mDaylightHeaderProvider));
-                mHeaderBrowse.setEnabled(!value.equals(mFileHeaderProvider));
+                updateBrowsePreferenceAvailability(value);
                 mHeaderBrowse.setTitle(valueIndex == 0 ? R.string.qs_header_browse_title : R.string.qs_header_pick_title);
                 mHeaderBrowse.setSummary(valueIndex == 0 ? R.string.qs_header_browse_summary : R.string.qs_header_pick_summary);
                 mFileHeader.setEnabled(value.equals(mFileHeaderProvider));
@@ -144,6 +144,30 @@ public class QsHeaderImageSettings extends SettingsPreferenceFragment implements
             default:
                 return false;
         }
+    }
+
+    /**
+     * Enables browse/pick only when Omni Style is installed and the header provider is not
+     * &quot;custom image&quot; (file picker handles that).
+     */
+    private void updateBrowsePreferenceAvailability(String headerProvider) {
+        if (mHeaderBrowse == null) {
+            return;
+        }
+        mHeaderBrowse.setEnabled(isBrowseHeaderAvailable()
+                && !mFileHeaderProvider.equals(headerProvider));
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ContentResolver resolver = getContext().getContentResolver();
+        String providerName = Settings.System.getString(resolver,
+                Settings.System.STATUS_BAR_CUSTOM_HEADER_PROVIDER);
+        if (providerName == null) {
+            providerName = mDaylightHeaderProvider;
+        }
+        updateBrowsePreferenceAvailability(providerName);
     }
 
     @Override
@@ -157,8 +181,19 @@ public class QsHeaderImageSettings extends SettingsPreferenceFragment implements
             } catch (Exception e) {
                 Toast.makeText(getContext(), R.string.qs_header_needs_gallery, Toast.LENGTH_LONG).show();
             }
+        } else if (preference == mHeaderBrowse && !isBrowseHeaderAvailable()) {
+            Toast.makeText(getContext(), R.string.qs_header_needs_omnistyle, Toast.LENGTH_LONG).show();
+            return true;
         }
-        return super.onPreferenceTreeClick(preference);
+        try {
+            return super.onPreferenceTreeClick(preference);
+        } catch (ActivityNotFoundException e) {
+            if (preference == mHeaderBrowse) {
+                Toast.makeText(getContext(), R.string.qs_header_needs_omnistyle, Toast.LENGTH_LONG).show();
+                return true;
+            }
+            throw e;
+        }
     }
 
     private boolean isBrowseHeaderAvailable() {
