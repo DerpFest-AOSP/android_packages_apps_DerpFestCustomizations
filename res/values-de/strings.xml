@@ -395,6 +395,8 @@
     <string name="qs_appearance_category_title">Darstellung</string>
     <string name="pulse_qs_title">Pulse im QS-Panel anzeigen</string>
     <string name="pulse_qs_summary">Pulse-Visualisierung im Schnelleinstellungen-Panel anzeigen</string>
+    <string name="pulse_haptics_title">Pulse-Bass-Haptik</string>
+    <string name="pulse_haptics_summary">Leichte Vibration bei starken Bass-Schlägen, solange Pulse aktiv ist (begrenzte Rate)</string>
 
     <!-- Brightness Slider Style -->
     <string name="qs_brightness_slider_shape_title">Form des Helligkeitsreglers</string>
