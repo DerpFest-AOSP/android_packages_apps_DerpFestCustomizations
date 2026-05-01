@@ -267,6 +267,7 @@
     <string name="pulse_renderer_neon_glow">Neonleuchten</string>
     <string name="pulse_renderer_retro_vu_meter">Retro-VU-Meter</string>
     <string name="pulse_renderer_minimal_wave">Minimale Welle</string>
+    <string name="pulse_renderer_sparkle">Glitzer</string>
 
     <!-- Units -->
     <string name="unit_milliseconds">ms</string>
