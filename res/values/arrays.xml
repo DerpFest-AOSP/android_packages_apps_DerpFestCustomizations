@@ -101,6 +101,16 @@
         <item>accent</item>
     </string-array>
 
+    <string-array name="pulse_renderer_entries">
+        <item>@string/pulse_renderer_solid</item>
+        <item>@string/pulse_renderer_fading</item>
+    </string-array>
+
+    <string-array name="pulse_renderer_values" translatable="false">
+        <item>solid</item>
+        <item>fading</item>
+    </string-array>
+
     <!-- Quick Settings brightness slider -->
     <string-array name="qs_show_brightness_slider_entries" translatable="false">
         <item>@string/qs_show_brightness_slider_never</item>

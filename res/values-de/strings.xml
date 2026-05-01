@@ -255,12 +255,15 @@
     <string name="pulse_rounded_bars_title">Abgerundete Balken</string>
     <string name="pulse_rounded_bars_summary">Visualisierungsbalken mit abgerundeten Ecken darstellen</string>
     <string name="pulse_color">Visualisierungsfarbe</string>
-    <string name="pulse_bar_count_title">Anzahl der Balken</string>
-    <string name="pulse_bar_count_summary">Legen Sie fest, wie viele Balken in der Visualisierung angezeigt werden</string>
-    <string name="pulse_bar_count_units">Balken</string>
     <string name="pulse_color_lavalamp">Lavalampe</string>
     <string name="pulse_color_album">Album-Cover</string>
     <string name="pulse_color_accent">Akzentfarbe</string>
+    <string name="pulse_bar_count_title">Anzahl der Balken</string>
+    <string name="pulse_bar_count_summary">Legen Sie fest, wie viele Balken in der Visualisierung angezeigt werden</string>
+    <string name="pulse_bar_count_units">Balken</string>
+    <string name="pulse_renderer">Visualisierungsstil</string>
+    <string name="pulse_renderer_solid">Durchgehende Balken</string>
+    <string name="pulse_renderer_fading">Verblassende Blöcke</string>
 
     <!-- Units -->
     <string name="unit_milliseconds">ms</string>
