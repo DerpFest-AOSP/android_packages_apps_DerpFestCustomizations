@@ -264,6 +264,9 @@
     <string name="pulse_renderer">Visualisierungsstil</string>
     <string name="pulse_renderer_solid">Durchgehende Balken</string>
     <string name="pulse_renderer_fading">Verblassende Blöcke</string>
+    <string name="pulse_renderer_neon_glow">Neonleuchten</string>
+    <string name="pulse_renderer_retro_vu_meter">Retro-VU-Meter</string>
+    <string name="pulse_renderer_minimal_wave">Minimale Welle</string>
 
     <!-- Units -->
     <string name="unit_milliseconds">ms</string>
