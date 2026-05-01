@@ -14,6 +14,13 @@
         android:title="@string/enable"
         android:defaultValue="false" />
 
+    <org.derpfest.support.preferences.SecureSettingSwitchPreference
+        android:key="ambient_pulse_enabled"
+        android:title="@string/ambient_pulse_enabled_title"
+        android:summary="@string/ambient_pulse_enabled_summary"
+        android:defaultValue="true"
+        android:dependency="lockscreen_pulse_enabled" />
+
     <org.derpfest.support.preferences.SecureSettingListPreference
         android:key="pulse_renderer"
         android:title="@string/pulse_renderer"
