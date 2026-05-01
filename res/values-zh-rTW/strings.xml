@@ -159,76 +159,9 @@
     <string name="screen_off_animation_crt">CRT 映像管</string>
     <string name="screen_off_animation_scale">縮放</string>
 
-    <!-- Pulse music visualizer -->
-    <string name="pulse_help_policy_notice_title">關於 Pulse</string>
-    <string name="pulse_help_policy_notice_summary">Pulse 是當裝置播放音樂時的絕佳音訊視覺化工具</string>
-    <string name="pulse_visualizer_category_title">Pulse 視覺化工具</string>
-    <string name="pulse_settings">Pulse</string>
-    <string name="pulse_settings_summary">用於鎖定畫面與環境顯示的音訊視覺化工具</string>
-    <string name="show_navbar_pulse_title">導覽列 Pulse</string>
-    <string name="show_navbar_pulse_summary">在導覽列顯示音訊視覺化效果</string>
-    <string name="show_lockscreen_pulse_title">鎖定畫面 Pulse</string>
-    <string name="show_lockscreen_pulse_summary">在鎖定畫面顯示音訊視覺化效果</string>
-    <string name="show_ambient_pulse_title">環境螢幕 Pulse</string>
-    <string name="show_ambient_pulse_summary">在環境螢幕顯示音訊視覺化效果</string>
-    <string name="pulse_render_mode_title">繪製模式</string>
-    <string name="pulse_render_mode_fading_bars">淡入淡出長條</string>
-    <string name="pulse_render_mode_solid_lines">實線</string>
-    <string name="pulse_render_mode_neon">霓虹光效</string>
-    <string name="pulse_render_mode_particle">粒子系統</string>
-    <string name="pulse_render_mode_waveform">波形</string>
-    <string name="pulse_legacy_mode_advanced_category">淡入淡出長條模式設定</string>
-    <string name="pulse_custom_fudge_factor">靈敏度</string>
-    <string name="pulse_lavalamp_speed_title">熔岩燈速度</string>
-    <string name="pulse_solid_units_count">實線數量</string>
-    <string name="pulse_solid_units_opacity">實線透明度</string>
-    <string name="pulse_solid_dimen_category">實線與霓虹模式設定</string>
-    <string name="pulse_color_mode_title">顏色</string>
-    <string name="pulse_color_accent">強調色</string>
-    <string name="pulse_color_custom">自訂</string>
-    <string name="pulse_color_lava_lamp">熔岩燈</string>
-    <string name="pulse_color_auto">專輯封面</string>
-    <string name="pulse_color_gradient">彩虹漸層</string>
-    <string name="pulse_color_user_title">選擇顏色</string>
-    <string name="pulse_smoothing_enabled_title">開啟平滑化</string>
-    <string name="pulse_smoothing_enabled_summary">使每個長條的動畫更流暢</string>
-    <string name="pulse_custom_dimen">長條寬度</string>
-    <string name="pulse_custom_div">長條間距</string>
-    <string name="pulse_filled_block_size">方塊大小</string>
-    <string name="pulse_empty_block_size">方塊間距</string>
-    <string name="pulse_solid_units_rounded_title">實線圓角</string>
-    <string name="pulse_solid_units_rounded_summary">將實線設為圓角</string>
-
-    <!-- Pulse Gravity and mirror options -->
-    <string name="pulse_custom_gravity_title">重力</string>
-    <string name="pulse_custom_gravity_bottom">底部</string>
-    <string name="pulse_custom_gravity_top">頂部</string>
-    <string name="pulse_custom_gravity_center">中央</string>
-    <string name="visualizer_center_mirrored_title">中央鏡像</string>
-    <string name="visualizer_center_mirrored_summary">將視覺化工具設為中央鏡像模式</string>
-    <string name="pulse_vertical_mirror_title">垂直鏡像</string>
-    <string name="pulse_vertical_mirror_summary">建立另一個 Pulse 並進行垂直翻轉</string>
-
-    <!-- Particle system settings -->
-    <string name="pulse_particle_category_title">粒子系統設定</string>
-    <string name="pulse_particle_count_title">粒子數量</string>
-    <string name="pulse_particle_count_summary">視覺化效果中的粒子數量 (50-500)</string>
-    <string name="pulse_particle_size_title">粒子大小</string>
-    <string name="pulse_particle_size_summary">單個粒子的大小 (1-10px)</string>
-    
-    <!-- Waveform settings -->
-    <string name="pulse_waveform_category_title">波形設定</string>
-    <string name="pulse_waveform_show_fill_title">顯示填充</string>
-    <string name="pulse_waveform_show_fill_summary">顯示波形下方的填充區域</string>
-    <string name="pulse_waveform_show_outline_title">顯示外框</string>
-    <string name="pulse_waveform_show_outline_summary">顯示波形外框筆觸</string>
-    <string name="pulse_waveform_stroke_width_title">筆觸寬度</string>
-    <string name="pulse_waveform_stroke_width_summary">波形外框的寬度 (1-8px)</string>
-
     <!-- Units -->
     <string name="unit_milliseconds">毫秒</string>
     <string name="unit_pixels">像素</string>
-    <string name="unit_particles">個粒子</string>
 
     <!-- Single tap for keyguard affordance -->
     <string name="keyguard_affordance_single_tap_title">鎖定畫面快捷功能單擊</string>

@@ -88,51 +88,6 @@
         <item>2</item>
     </string-array>
 
-    <!-- Pulse music visualizer -->
-    <string-array name="pulse_render_mode_entries">
-       <item>@string/pulse_render_mode_fading_bars</item>
-       <item>@string/pulse_render_mode_solid_lines</item>
-       <item>@string/pulse_render_mode_neon</item>
-       <item>@string/pulse_render_mode_particle</item>
-       <item>@string/pulse_render_mode_waveform</item>
-    </string-array>
-
-    <string-array name="pulse_render_mode_values" translatable="false">
-      <item>0</item>
-      <item>1</item>
-      <item>2</item>
-      <item>3</item>
-      <item>4</item>
-    </string-array>
-
-    <string-array name="pulse_color_mode_entries">
-       <item>@string/pulse_color_accent</item>
-       <item>@string/pulse_color_custom</item>
-       <item>@string/pulse_color_lava_lamp</item>
-       <item>@string/pulse_color_auto</item>
-       <item>@string/pulse_color_gradient</item>
-    </string-array>
-
-    <string-array name="pulse_color_mode_values" translatable="false">
-      <item>0</item>
-      <item>1</item>
-      <item>2</item>
-      <item>3</item>
-      <item>4</item>
-    </string-array>
-
-    <string-array name="pulse_custom_gravity_entries">
-        <item>@string/pulse_custom_gravity_bottom</item>
-        <item>@string/pulse_custom_gravity_top</item>
-        <item>@string/pulse_custom_gravity_center</item>
-    </string-array>
-
-    <string-array name="pulse_custom_gravity_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
     <!-- Quick Settings brightness slider -->
     <string-array name="qs_show_brightness_slider_entries" translatable="false">
         <item>@string/qs_show_brightness_slider_never</item>

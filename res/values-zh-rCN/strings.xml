@@ -153,76 +153,9 @@
     <string name="screen_off_animation_crt">CRT</string>
     <string name="screen_off_animation_scale">缩放</string>
 
-    <!-- Pulse music visualizer -->
-    <string name="pulse_help_policy_notice_title">关于律动脉冲</string>
-    <string name="pulse_help_policy_notice_summary">律动脉冲是设备播放音乐时炫酷的音频可视化工具</string>
-    <string name="pulse_visualizer_category_title">律动脉冲</string>
-    <string name="pulse_settings">律动脉冲</string>
-    <string name="pulse_settings_summary">在锁屏和息屏显示音频可视化效果</string>
-    <string name="show_navbar_pulse_title">导航栏律动</string>
-    <string name="show_navbar_pulse_summary">在导航栏显示音频可视化效果</string>
-    <string name="show_lockscreen_pulse_title">锁屏律动</string>
-    <string name="show_lockscreen_pulse_summary">在锁屏上显示音频可视化效果</string>
-    <string name="show_ambient_pulse_title">息屏律动</string>
-    <string name="show_ambient_pulse_summary">在息屏时显示音频可视化效果</string>
-    <string name="pulse_render_mode_title">渲染模式</string>
-    <string name="pulse_render_mode_fading_bars">渐隐方块式</string>
-    <string name="pulse_render_mode_solid_lines">线条式</string>
-    <string name="pulse_render_mode_neon">霓虹灯式</string>
-    <string name="pulse_render_mode_particle">粒子系统</string>
-    <string name="pulse_render_mode_waveform">波形</string>
-    <string name="pulse_legacy_mode_advanced_category">渐隐方块式 - 设置</string>
-    <string name="pulse_custom_fudge_factor">灵敏度</string>
-    <string name="pulse_lavalamp_speed_title">熔岩灯速度</string>
-    <string name="pulse_solid_units_count">线条数量</string>
-    <string name="pulse_solid_units_opacity">线条透明度</string>
-    <string name="pulse_solid_dimen_category">线条式与霓虹灯式 - 设置</string>
-    <string name="pulse_color_mode_title">颜色</string>
-    <string name="pulse_color_accent">强调色</string>
-    <string name="pulse_color_custom">自定义</string>
-    <string name="pulse_color_lava_lamp">熔岩灯</string>
-    <string name="pulse_color_auto">专辑封面</string>
-    <string name="pulse_color_gradient">彩虹渐变</string>
-    <string name="pulse_color_user_title">选择颜色</string>
-    <string name="pulse_smoothing_enabled_title">启用平滑动画</string>
-    <string name="pulse_smoothing_enabled_summary">使线条动画更加平滑</string>
-    <string name="pulse_custom_dimen">线条宽度</string>
-    <string name="pulse_custom_div">线条间距</string>
-    <string name="pulse_filled_block_size">方块大小</string>
-    <string name="pulse_empty_block_size">方块间距</string>
-    <string name="pulse_solid_units_rounded_title">圆角线条</string>
-    <string name="pulse_solid_units_rounded_summary">使线条圆角化</string>
-
-    <!-- Pulse Gravity and mirror options -->
-    <string name="pulse_custom_gravity_title">对齐方式</string>
-    <string name="pulse_custom_gravity_bottom">底部</string>
-    <string name="pulse_custom_gravity_top">顶部</string>
-    <string name="pulse_custom_gravity_center">居中</string>
-    <string name="visualizer_center_mirrored_title">中心镜像</string>
-    <string name="visualizer_center_mirrored_summary">将可视化设置为中心镜像模式</string>
-    <string name="pulse_vertical_mirror_title">垂直镜像</string>
-    <string name="pulse_vertical_mirror_summary">创建另一个垂直翻转的律动效果</string>
-
-    <!-- Particle system settings -->
-    <string name="pulse_particle_category_title">粒子系统 - 设置</string>
-    <string name="pulse_particle_count_title">粒子数量</string>
-    <string name="pulse_particle_count_summary">可见的粒子数量（50-500）</string>
-    <string name="pulse_particle_size_title">粒子大小</string>
-    <string name="pulse_particle_size_summary">每个粒子的大小（1-10px）</string>
-
-    <!-- Waveform settings -->
-    <string name="pulse_waveform_category_title">波形 - 设置</string>
-    <string name="pulse_waveform_show_fill_title">显示填充区域</string>
-    <string name="pulse_waveform_show_fill_summary">显示波形下的填充区域</string>
-    <string name="pulse_waveform_show_outline_title">显示轮廓</string>
-    <string name="pulse_waveform_show_outline_summary">显示波形轮廓描边</string>
-    <string name="pulse_waveform_stroke_width_title">轮廓宽度</string>
-    <string name="pulse_waveform_stroke_width_summary">波形轮廓的宽度（1-8px）</string>
-
     <!-- Units -->
     <string name="unit_milliseconds">ms</string>
     <string name="unit_pixels">px</string>
-    <string name="unit_particles">个粒子</string>
 
     <!-- Single tap for keyguard affordance -->
     <string name="keyguard_affordance_single_tap_title">锁屏快捷操作单击触发</string>

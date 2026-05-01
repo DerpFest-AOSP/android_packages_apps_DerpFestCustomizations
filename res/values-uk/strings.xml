@@ -223,60 +223,6 @@
     <string name="pixel_spoofing_apps_title">Програми зі спуфом</string>
     <string name="privacy_indicators_summary">Показувати індикатори, коли програми використовують камеру, мікрофон або місцезнаходження</string>
     <string name="privacy_indicators_title">Індикатори конфіденційності</string>
-    <string name="pulse_color_accent">Акцент</string>
-    <string name="pulse_color_auto">Авто</string>
-    <string name="pulse_color_custom">Нестандартний</string>
-    <string name="pulse_color_gradient">Райдужний градієнт</string>
-    <string name="pulse_color_lava_lamp">Лава-лампа</string>
-    <string name="pulse_color_mode_title">Колір</string>
-    <string name="pulse_color_user_title">Обрати колір</string>
-    <string name="pulse_custom_dimen">Ширина ліній</string>
-    <string name="pulse_custom_div">Відстань між лініями</string>
-    <string name="pulse_custom_fudge_factor">Рівень нормальності</string>
-    <string name="pulse_custom_gravity_bottom">Знизу</string>
-    <string name="pulse_custom_gravity_center">Центр</string>
-    <!-- Pulse Gravity and mirror options -->
-    <string name="pulse_custom_gravity_title">Гравітація</string>
-    <string name="pulse_custom_gravity_top">Зверху</string>
-    <string name="pulse_empty_block_size">Відстань між блоками</string>
-    <string name="pulse_filled_block_size">Розмір блоку</string>
-    <string name="pulse_help_policy_notice_summary">Pulse - це чудовий візуалізатор для музики, що грає на пристрої</string>
-    <!-- Pulse music visualizer -->
-    <string name="pulse_help_policy_notice_title">Про Пульс</string>
-    <string name="pulse_lavalamp_speed_title">Швидкість лава-лампи</string>
-    <string name="pulse_legacy_mode_advanced_category">Налаштування режиму затухання блоків</string>
-    <!-- Particle system settings -->
-    <string name="pulse_particle_category_title">Налаштування системи частинок</string>
-    <string name="pulse_particle_count_summary">Кількість частинок у візуалізації (50-500)</string>
-    <string name="pulse_particle_count_title">Кількість частинок</string>
-    <string name="pulse_particle_size_summary">Розмір окремих частинок (1-10 пікселів)</string>
-    <string name="pulse_particle_size_title">Розмір частинок</string>
-    <string name="pulse_render_mode_fading_bars">Затухаючі блоки</string>
-    <string name="pulse_render_mode_neon">Стиль неонового сяйва</string>
-    <string name="pulse_render_mode_particle">Система частинок</string>
-    <string name="pulse_render_mode_solid_lines">Суцільні лінії</string>
-    <string name="pulse_render_mode_title">Режим рендерингу</string>
-    <string name="pulse_render_mode_waveform">Форма хвилі</string>
-    <string name="pulse_settings">Пульс</string>
-    <string name="pulse_settings_summary">Аудіовізуалізатор для навігаційної панелі, екрану блокування та ambient-екрану</string>
-    <string name="pulse_smoothing_enabled_summary">Кожен бар анімується більш плавно</string>
-    <string name="pulse_smoothing_enabled_title">Увімкнути згладжування</string>
-    <string name="pulse_solid_dimen_category">Налаштування режиму суцільних ліній</string>
-    <string name="pulse_solid_units_count">Суцільні лінії рахуються</string>
-    <string name="pulse_solid_units_opacity">Непрозорість суцільних ліній</string>
-    <string name="pulse_solid_units_rounded_summary">Заокруглює суцільні лінії (хто б міг подумати!)</string>
-    <string name="pulse_solid_units_rounded_title">Закруглення суцільних ліній</string>
-    <string name="pulse_vertical_mirror_summary">Створює другий Пульс з іншої сторони</string>
-    <string name="pulse_vertical_mirror_title">Віддзеркалити вертикально</string>
-    <string name="pulse_visualizer_category_title">Візуалізатор Пульс</string>
-    <!-- Waveform settings -->
-    <string name="pulse_waveform_category_title">Налаштування форми хвилі</string>
-    <string name="pulse_waveform_show_fill_summary">Показувати заповнену область під формою хвилі</string>
-    <string name="pulse_waveform_show_fill_title">Показати заливку</string>
-    <string name="pulse_waveform_show_outline_summary">Показувати контур форми хвилі</string>
-    <string name="pulse_waveform_show_outline_title">Показати контур</string>
-    <string name="pulse_waveform_stroke_width_summary">Ширина контуру форми хвилі (1-8 пікселів)</string>
-    <string name="pulse_waveform_stroke_width_title">Ширина штриха</string>
     <string name="qqs_layout_category_title">Швидкий макет швидких налаштувань</string>
     <string name="qqs_layout_rows_landscape_summary">рядки для альбомної орієнтації</string>
     <string name="qqs_layout_rows_landscape_title">Рядки (альбомна орієнтація)</string>
@@ -382,8 +328,6 @@
     <!-- Screen Off animation -->
     <string name="screen_off_animation_title">Анімація вимкнення екрану</string>
     <string name="security_category_title">Безпека</string>
-    <string name="show_ambient_pulse_summary">Аудіовізуалізатор на ambient-екрані</string>
-    <string name="show_ambient_pulse_title">Ambient-Пульс</string>
     <!-- About - Easter Egg -->
     <plurals name="show_derped_countdown">
         <item quantity="one">Тепер вам залишився %d крок від того, щоб вас derpнули.</item>
@@ -391,10 +335,6 @@
         <item quantity="many">Тепер вам залишилося %d кроків від того, щоб вас derpнули.</item>
         <item quantity="other">Тепер вам залишилося %d кроків, щоб вас derpнули.</item>
     </plurals>
-    <string name="show_lockscreen_pulse_summary">Аудіовізуалізатор на екрані блокування</string>
-    <string name="show_lockscreen_pulse_title">Пульс на екрані блокування</string>
-    <string name="show_navbar_pulse_summary">Аудіовізуалізатор на панелі навігації</string>
-    <string name="show_navbar_pulse_title">Пульс навігаційної панелі</string>
     <string name="small_landscape_notification_summary">Відображає сповіщення меншої ширини на панелі сповіщень у горизонтальному режимі, а саме як це передбачено AOSP</string>
     <!-- Small landscape notifications -->
     <string name="small_landscape_notification_title">Невеликі сповіщення у ландшафтному режимі</string>
@@ -416,8 +356,5 @@
     <string name="theming_settings_dashboard_icons_white">Системний фон / Білий передній план</string>
     <!-- Units -->
     <string name="unit_milliseconds">мс</string>
-    <string name="unit_particles">частинки</string>
     <string name="unit_pixels">px</string>
-    <string name="visualizer_center_mirrored_summary">Переведіть візуалізатор у режим відображення, віддзеркаленого по центру</string>
-    <string name="visualizer_center_mirrored_title">Центральне віддзеркалення</string>
 </resources>
