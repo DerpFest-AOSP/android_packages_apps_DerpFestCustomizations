@@ -246,6 +246,22 @@
     <string name="screen_off_animation_crt">CRT</string>
     <string name="screen_off_animation_scale">Skalieren</string>
 
+    <!-- Pulse music visualizer -->
+    <string name="pulse_visualizer_category_title">Pulse-Visualisierung</string>
+    <string name="pulse_settings_title">Visualisierung mit Pulse</string>
+    <string name="pulse_settings_summary">Visualisiert Audio in Navigationsleiste und auf Sperrbildschirm</string>
+    <string name="ambient_pulse_enabled_title">Ambient Pulse</string>
+    <string name="ambient_pulse_enabled_summary">Visualisierung im Inaktivitätsdisplay zeigen</string>
+    <string name="pulse_rounded_bars_title">Abgerundete Balken</string>
+    <string name="pulse_rounded_bars_summary">Visualisierungsbalken mit abgerundeten Ecken darstellen</string>
+    <string name="pulse_color">Visualisierungsfarbe</string>
+    <string name="pulse_bar_count_title">Anzahl der Balken</string>
+    <string name="pulse_bar_count_summary">Legen Sie fest, wie viele Balken in der Visualisierung angezeigt werden</string>
+    <string name="pulse_bar_count_units">Balken</string>
+    <string name="pulse_color_lavalamp">Lavalampe</string>
+    <string name="pulse_color_album">Album-Cover</string>
+    <string name="pulse_color_accent">Akzentfarbe</string>
+
     <!-- Units -->
     <string name="unit_milliseconds">ms</string>
     <string name="unit_pixels">px</string>

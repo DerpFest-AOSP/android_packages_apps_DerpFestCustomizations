@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: DerpFest AOSP
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/pulse_settings_title" >
+
+    <org.derpfest.support.preferences.SecureSettingSwitchPreference
+        android:key="lockscreen_pulse_enabled"
+        android:title="@string/pulse_settings_title"
+        android:summary="@string/pulse_settings_summary"
+        android:defaultValue="false" />
+
+    <org.derpfest.support.preferences.SecureSettingSwitchPreference
+        android:key="pulse_rounded_bars"
+        android:title="@string/pulse_rounded_bars_title"
+        android:summary="@string/pulse_rounded_bars_summary"
+        android:defaultValue="false"
+        android:dependency="lockscreen_pulse_enabled" />
+
+    <org.derpfest.support.preferences.SecureSettingListPreference
+        android:key="pulse_color"
+        android:title="@string/pulse_color"
+        android:summary="%s"
+        android:dialogTitle="@string/pulse_color"
+        android:entries="@array/pulse_color_entries"
+        android:entryValues="@array/pulse_color_values"
+        android:defaultValue="lavalamp"
+        android:dependency="lockscreen_pulse_enabled" />
+
+    <org.derpfest.support.preferences.SecureSettingSeekBarPreference
+        android:key="pulse_bar_count"
+        android:title="@string/pulse_bar_count_title"
+        android:summary="@string/pulse_bar_count_summary"
+        android:defaultValue="32"
+        android:max="64"
+        settings:min="8"
+        settings:interval="4"
+        settings:units="@string/pulse_bar_count_units"
+        android:dependency="lockscreen_pulse_enabled" />
+</PreferenceScreen>
