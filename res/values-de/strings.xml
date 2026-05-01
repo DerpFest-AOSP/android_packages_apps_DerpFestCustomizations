@@ -269,6 +269,10 @@
     <string name="pulse_renderer_minimal_wave">Minimale Welle</string>
     <string name="pulse_renderer_sparkle">Glitzer</string>
     <string name="pulse_renderer_matrix">Matrix</string>
+    <string name="pulse_renderer_particle">Partikelsystem</string>
+    <string name="pulse_renderer_waveform">Wellenform</string>
+    <string name="pulse_smoothing_enabled_title">Sanftere Partikelerzeugung</string>
+    <string name="pulse_smoothing_enabled_summary">Höhere Partikel-Erzeugungsrate für den Partikel-Stil</string>
 
     <!-- Units -->
     <string name="unit_milliseconds">ms</string>

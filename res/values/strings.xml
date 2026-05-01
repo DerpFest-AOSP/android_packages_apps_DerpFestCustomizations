@@ -247,6 +247,10 @@
     <string name="pulse_renderer_minimal_wave">Minimal wave</string>
     <string name="pulse_renderer_sparkle">Sparkle</string>
     <string name="pulse_renderer_matrix">Matrix</string>
+    <string name="pulse_renderer_particle">Particle system</string>
+    <string name="pulse_renderer_waveform">Waveform</string>
+    <string name="pulse_smoothing_enabled_title">Smooth particle spawn</string>
+    <string name="pulse_smoothing_enabled_summary">Use a higher particle spawn rate when using the particle visualizer style</string>
 
     <!-- Units -->
     <string name="unit_milliseconds">ms</string>

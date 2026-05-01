@@ -32,6 +32,13 @@
         android:dependency="lockscreen_pulse_enabled" />
 
     <org.derpfest.support.preferences.SecureSettingSwitchPreference
+        android:key="pulse_smoothing_enabled"
+        android:title="@string/pulse_smoothing_enabled_title"
+        android:summary="@string/pulse_smoothing_enabled_summary"
+        android:defaultValue="false"
+        android:dependency="lockscreen_pulse_enabled" />
+
+    <org.derpfest.support.preferences.SecureSettingSwitchPreference
         android:key="pulse_rounded_bars"
         android:title="@string/pulse_rounded_bars_title"
         android:summary="@string/pulse_rounded_bars_summary"
