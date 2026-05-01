@@ -270,6 +270,8 @@
 
     <!-- QS Panel -->
     <string name="qs_appearance_category_title">Appearance</string>
+    <string name="pulse_qs_title">Show pulse on QS panel</string>
+    <string name="pulse_qs_summary">Show pulse visualizer on QS panel</string>
     <string name="brightness_category_title">Brightness slider</string>
     <string name="qs_show_brightness_slider_title">When to show</string>
     <string name="qs_show_brightness_slider_never">Never show</string>

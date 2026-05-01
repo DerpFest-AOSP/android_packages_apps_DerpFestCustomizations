@@ -393,6 +393,8 @@
     <string name="qs_show_lunar_calendar_summary">Mondkalender in Schnelleinstellungen anzeigen</string>
 
     <string name="qs_appearance_category_title">Darstellung</string>
+    <string name="pulse_qs_title">Pulse im QS-Panel anzeigen</string>
+    <string name="pulse_qs_summary">Pulse-Visualisierung im Schnelleinstellungen-Panel anzeigen</string>
 
     <!-- Brightness Slider Style -->
     <string name="qs_brightness_slider_shape_title">Form des Helligkeitsreglers</string>
