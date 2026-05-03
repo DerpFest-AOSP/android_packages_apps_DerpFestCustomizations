@@ -21,11 +21,14 @@
         android:defaultValue="true"
         android:dependency="lockscreen_pulse_enabled" />
 
-    <org.derpfest.support.preferences.SecureSettingSwitchPreference
+    <org.derpfest.support.preferences.SecureSettingListPreference
         android:key="pulse_haptics_enabled"
         android:title="@string/pulse_haptics_title"
-        android:summary="@string/pulse_haptics_summary"
-        android:defaultValue="false"
+        android:summary="%s"
+        android:dialogTitle="@string/pulse_haptics_title"
+        android:entries="@array/pulse_haptics_mode_entries"
+        android:entryValues="@array/pulse_haptics_mode_values"
+        android:defaultValue="0"
         android:dependency="lockscreen_pulse_enabled" />
 
     <org.derpfest.support.preferences.SecureSettingListPreference

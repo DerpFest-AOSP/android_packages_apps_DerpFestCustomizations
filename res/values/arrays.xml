@@ -125,6 +125,18 @@
         <item>waveform</item>
     </string-array>
 
+    <string-array name="pulse_haptics_mode_entries" translatable="false">
+        <item>@string/pulse_haptics_off</item>
+        <item>@string/pulse_haptics_while_visualizer</item>
+        <item>@string/pulse_haptics_while_media</item>
+    </string-array>
+
+    <string-array name="pulse_haptics_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
     <!-- Quick Settings brightness slider -->
     <string-array name="qs_show_brightness_slider_entries" translatable="false">
         <item>@string/qs_show_brightness_slider_never</item>
