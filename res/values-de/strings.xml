@@ -385,6 +385,12 @@
     <string name="qs_tile_animation_style_fade">Ein-/Ausblenden</string>
     <string name="qs_tile_animation_style_pulse">Pulsieren</string>
     <string name="qs_tile_animation_style_shake">Wackeln</string>
+    <string name="qs_tile_animation_style_wobble">Taumeln</string>
+    <string name="qs_tile_animation_style_spin">Drehen</string>
+    <string name="qs_tile_animation_style_squish">Stauchen</string>
+    <string name="qs_tile_animation_style_tilt">Kippen</string>
+    <string name="qs_tile_animation_style_heartbeat">Herzschlag</string>
+    <string name="qs_tile_animation_style_swing">Schwingen</string>
     <string name="qs_panel_bg_use_new_tint_title">Akzentfarbe für QS-Kacheln</string>
     <string name="qs_panel_bg_use_new_tint_summary">Akzentfarbe für aktive Kacheln und kräftigere Beschriftung verwenden</string>
     <string name="qs_tiles_classic_random_accent_title">QS-Kachel-Disco</string>
