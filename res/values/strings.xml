@@ -225,6 +225,14 @@
     <string name="screen_off_animation_crt">CRT</string>
     <string name="screen_off_animation_scale">Scale</string>
 
+    <!-- Charging animation -->
+    <string name="charging_animation_title">Charging animation</string>
+    <string name="charging_animation_style_none">None</string>
+    <string name="charging_animation_style_ripple">Ripple</string>
+    <string name="charging_animation_style_flash">Flash</string>
+    <string name="charging_animation_style_glow">Glow pulse</string>
+    <string name="charging_animation_style_battery">Battery fill</string>
+
     <!-- Pulse music visualizer -->
     <string name="pulse_visualizer_category_title">Pulse visualizer</string>
     <string name="pulse_settings_title">Pulse Visualizer</string>

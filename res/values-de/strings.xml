@@ -246,6 +246,14 @@
     <string name="screen_off_animation_crt">CRT</string>
     <string name="screen_off_animation_scale">Skalieren</string>
 
+    <!-- Charging animation -->
+    <string name="charging_animation_title">Ladeanimation</string>
+    <string name="charging_animation_style_none">Keine</string>
+    <string name="charging_animation_style_ripple">Welleneffekt</string>
+    <string name="charging_animation_style_flash">Blitz</string>
+    <string name="charging_animation_style_glow">Leuchtpuls</string>
+    <string name="charging_animation_style_battery">Batteriefüllung</string>
+
     <!-- Pulse music visualizer -->
     <string name="pulse_visualizer_category_title">Pulse-Visualisierung</string>
     <string name="pulse_settings_title">Visualisierung mit Pulse</string>

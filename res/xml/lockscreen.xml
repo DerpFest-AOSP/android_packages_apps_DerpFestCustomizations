@@ -58,6 +58,15 @@
             android:entryValues="@array/screen_off_animation_values"
             android:defaultValue="0" />
 
+        <org.derpfest.support.preferences.SystemSettingListPreference
+            android:key="charging_animation_style"
+            android:title="@string/charging_animation_title"
+            android:dialogTitle="@string/charging_animation_title"
+            android:summary="%s"
+            android:entries="@array/charging_animation_style_entries"
+            android:entryValues="@array/charging_animation_style_values"
+            android:defaultValue="0" />
+
         <Preference
             android:key="custom_clock_style"
             android:title="@string/lockscreen_custom_clock_style_title"
