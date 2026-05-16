@@ -22,7 +22,6 @@
     <string name="lockscreen_title">Lockscreen</string>
     <string name="lockscreen_summary">Configure options for lockscreen &amp; ambient display</string>
     <string name="lockscreen_custom_clock_style_title">Lock screen clock style</string>
-    <string name="lockscreen_custom_clock_style_summary">Choose a custom clock face for the lock screen</string>
     <string name="lockscreen_custom_clock_style_highlight_text">Swipe left or right to preview clock styles, then tap Apply to save</string>
     <string name="lockscreen_clock_apply">Apply</string>
     <string name="lockscreen_clock_restart_dialog_title">Restart System UI?</string>
