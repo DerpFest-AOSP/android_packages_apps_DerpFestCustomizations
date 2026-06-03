@@ -145,6 +145,12 @@
             android:summary="@string/qs_show_auto_brightness_summary"
             android:defaultValue="true" />
 
+        <org.derpfest.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_media_volume_slider_enabled"
+            android:title="@string/qs_media_volume_slider_enabled_title"
+            android:summary="@string/qs_media_volume_slider_enabled_summary"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
