@@ -146,6 +146,17 @@
                 app:backgroundTint="@color/settingslib_btn_colored_background_material"
                 app:fabSize="normal"
                 app:iconPadding="0dp" />
+
+            <Button
+                android:id="@+id/browse_clocks_button"
+                style="@android:style/Widget.DeviceDefault.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                android:drawableStart="@drawable/ic_apps"
+                android:drawablePadding="8dp"
+                android:text="@string/lockscreen_clock_browse_all" />
         </LinearLayout>
 
         <FrameLayout

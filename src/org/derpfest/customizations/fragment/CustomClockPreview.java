@@ -32,6 +32,7 @@ import com.android.internal.logging.nano.MetricsProto;
 import com.android.internal.util.derpfest.ThemeUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.core.SubSettingLauncher;
 import com.android.settingslib.widget.LayoutPreference;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
@@ -61,40 +62,7 @@ public class CustomClockPreview extends SettingsPreferenceFragment {
 
     private ThemeUtils mThemeUtils;
 
-    private static final int[] CLOCK_LAYOUTS = {
-            R.layout.keyguard_clock_default,
-            R.layout.keyguard_clock_oos, // 1
-            R.layout.keyguard_clock_ios, // 2
-            R.layout.keyguard_clock_simple, // 3
-            R.layout.keyguard_clock_miui, // 4
-            R.layout.keyguard_clock_ide,  // 5
-            R.layout.keyguard_clock_moto, // 6
-            R.layout.keyguard_clock_stylish, // 7
-            R.layout.keyguard_clock_stylish2, //8
-            R.layout.keyguard_clock_stylish3, // 9
-            R.layout.keyguard_clock_stylish4, // 10
-            R.layout.keyguard_clock_stylish5, // 11
-            R.layout.keyguard_clock_stylish6, // 12
-            R.layout.keyguard_clock_stylish7, // 13
-            R.layout.keyguard_clock_stylish8, // 14
-            R.layout.keyguard_clock_stylish9, // 15
-            R.layout.keyguard_clock_stylish10, // 16
-            R.layout.keyguard_clock_word, // 17
-            R.layout.keyguard_clock_life, // 18
-            R.layout.keyguard_clock_a9, // 19
-            R.layout.keyguard_clock_nos1, // 20
-            R.layout.keyguard_clock_nos2, // 21
-            R.layout.keyguard_clock_num, // 22
-            R.layout.keyguard_clock_accent, // 23
-            R.layout.keyguard_clock_analog, // 24
-            R.layout.keyguard_clock_block, // 25
-            R.layout.keyguard_clock_bubble, // 26
-            R.layout.keyguard_clock_label, // 27
-            R.layout.keyguard_clock_taden, // 28
-            R.layout.keyguard_clock_mont, // 29
-            R.layout.keyguard_clock_encode, // 30
-            R.layout.keyguard_clock_nos3 // 31
-    };
+    private static final int[] CLOCK_LAYOUTS = ClockUtils.CLOCK_LAYOUTS;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -129,7 +97,7 @@ public class CustomClockPreview extends SettingsPreferenceFragment {
         applyFab = clockPreviewPref.findViewById(R.id.apply_extended_fab);
         highlightGuide = clockPreviewPref.findViewById(R.id.highlight_guide);
 
-        mClockNames = getResources().getStringArray(R.array.lockscreen_clock_names);
+        mClockNames = ClockUtils.getClockNames(getContext());
         if (mClockNames.length != CLOCK_LAYOUTS.length) {
             throw new IllegalStateException(
                     "lockscreen_clock_names count must match CLOCK_LAYOUTS (" + CLOCK_LAYOUTS.length + ")");
@@ -178,6 +146,21 @@ public class CustomClockPreview extends SettingsPreferenceFragment {
             });
             syncTabFromViewPager(mClockPosition);
             applyCenteredCustomTabLabels(sectionTabs);
+        }
+
+        View browseButton = clockPreviewPref.findViewById(R.id.browse_clocks_button);
+        if (browseButton != null) {
+            browseButton.setOnClickListener(v -> {
+                Context ctx = getContext();
+                if (ctx == null) {
+                    return;
+                }
+                new SubSettingLauncher(ctx)
+                        .setDestination(ClockPickerFragment.class.getName())
+                        .setTitleRes(R.string.lockscreen_clock_picker_title)
+                        .setSourceMetricsCategory(getMetricsCategory())
+                        .launch();
+            });
         }
 
         applyFab.setOnClickListener(v -> {
@@ -388,14 +371,7 @@ public class CustomClockPreview extends SettingsPreferenceFragment {
     }
 
     private void updateClockOverlays(int clockStyle) {
-        mThemeUtils.setOverlayEnabled(
-                "android.theme.customization.hideclock",
-                clockStyle != 0 ? "com.android.systemui.clocks.hideclock" : "android",
-                "android");
-        mThemeUtils.setOverlayEnabled(
-                "android.theme.customization.smartspace",
-                clockStyle != 0 ? "com.android.systemui.hide.smartspace" : "com.android.systemui",
-                "com.android.systemui");
+        ClockUtils.updateClockOverlays(mThemeUtils, clockStyle);
     }
 
     private boolean isFirstTime() {
@@ -443,6 +419,17 @@ public class CustomClockPreview extends SettingsPreferenceFragment {
     @Override
     public void onResume() {
         super.onResume();
+        Context ctx = getContext();
+        if (ctx != null && viewPager != null) {
+            int current = Settings.Secure.getIntForUser(
+                    ctx.getContentResolver(), Settings.Secure.LOCK_SCREEN_CUSTOM_CLOCK_STYLE, 0,
+                    UserHandle.USER_CURRENT);
+            if (current >= 0 && current < CLOCK_LAYOUTS.length && current != mClockPosition) {
+                mClockPosition = current;
+                viewPager.setCurrentItem(mClockPosition, false);
+                syncTabFromViewPager(mClockPosition);
+            }
+        }
         updateClockName(mClockPosition);
     }
 

@@ -22,6 +22,8 @@
     <string name="lockscreen_title">Sperrbildschirm</string>
     <string name="lockscreen_summary">Optionen für Sperrbildschirm &amp; AOD konfigurieren</string>
     <string name="lockscreen_custom_clock_style_title">Uhrstil auf dem Sperrbildschirm</string>
+    <string name="lockscreen_clock_picker_title">Sperrbildschirm-Uhr auswählen</string>
+    <string name="lockscreen_clock_browse_all">Alle Uhren durchsuchen</string>
     <string name="lockscreen_custom_clock_style_highlight_text">Zum Anzeigen der Uhrstile nach links oder rechts wischen, dann auf Übernehmen tippen, um zu speichern</string>
     <string name="lockscreen_clock_apply">Übernehmen</string>
     <string name="lockscreen_clock_restart_dialog_title">System UI neu starten?</string>
