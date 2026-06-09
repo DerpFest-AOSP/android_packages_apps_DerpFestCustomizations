@@ -44,7 +44,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -52,33 +51,24 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.asImageBitmap
-import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
-import androidx.compose.ui.input.nestedscroll.NestedScrollSource
-import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.Velocity
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.graphics.drawable.toBitmap
-import androidx.core.view.NestedScrollingChildHelper
-import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import com.android.internal.util.derpfest.ThemeUtils
 import com.android.settings.R
 import com.android.settingslib.spa.framework.theme.SettingsTheme
 import org.derpfest.customizations.utils.SystemUiUtils
-import kotlin.math.roundToInt
 
 class ClockPickerFragment : Fragment() {
 
@@ -96,7 +86,9 @@ class ClockPickerFragment : Fragment() {
     ): View {
         return ComposeView(requireContext()).apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
-            isNestedScrollingEnabled = true
+            // Keep nested scrolling disabled so the CoordinatorLayout app bar does not shift this
+            // view; otherwise the bottom-aligned Apply FAB scrolls off-screen at scroll top.
+            isNestedScrollingEnabled = false
             setContent {
                 SettingsTheme {
                     val initialClock = remember {
@@ -149,7 +141,6 @@ fun ClockPickerScreen(
     val context = LocalContext.current
     val clockNames = remember(context) { ClockUtils.getClockNames(context) }
     val clockLayouts = remember { ClockUtils.CLOCK_LAYOUTS }
-    val hostView = LocalView.current
 
     val wallpaperBitmap: ImageBitmap? = remember {
         runCatching {
@@ -159,13 +150,6 @@ fun ClockPickerScreen(
                 ?.toBitmap(240, 480)
                 ?.asImageBitmap()
         }.getOrNull()
-    }
-
-    val nestedScrollInterop = remember(hostView) {
-        ComposeToViewNestedScrollBridge(hostView)
-    }
-    DisposableEffect(nestedScrollInterop) {
-        onDispose { nestedScrollInterop.stop() }
     }
 
     val navBarBottom = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
@@ -183,9 +167,7 @@ fun ClockPickerScreen(
             ),
             verticalArrangement = Arrangement.spacedBy(10.dp),
             horizontalArrangement = Arrangement.spacedBy(10.dp),
-            modifier = Modifier
-                .fillMaxSize()
-                .nestedScroll(nestedScrollInterop),
+            modifier = Modifier.fillMaxSize(),
         ) {
             items(
                 count = clockLayouts.size,
@@ -310,86 +292,5 @@ private fun ClockItem(
                 overflow = TextOverflow.Ellipsis,
             )
         }
-    }
-}
-
-private class ComposeToViewNestedScrollBridge(
-    view: View,
-) : NestedScrollConnection {
-
-    private val helper = NestedScrollingChildHelper(view).apply {
-        isNestedScrollingEnabled = true
-    }
-
-    private val consumedScroll = IntArray(2)
-
-    private fun NestedScrollSource.toViewType(): Int =
-        if (this == NestedScrollSource.Fling) ViewCompat.TYPE_NON_TOUCH
-        else ViewCompat.TYPE_TOUCH
-
-    private fun ensureStarted(type: Int) {
-        if (!helper.hasNestedScrollingParent(type)) {
-            helper.startNestedScroll(ViewCompat.SCROLL_AXIS_VERTICAL, type)
-        }
-    }
-
-    private fun toViewDelta(value: Float): Int = (-value).roundToInt()
-    private fun toComposeDelta(value: Int): Float = -value.toFloat()
-
-    override fun onPreScroll(available: Offset, source: NestedScrollSource): Offset {
-        val type = source.toViewType()
-        ensureStarted(type)
-        consumedScroll[0] = 0
-        consumedScroll[1] = 0
-        helper.dispatchNestedPreScroll(
-            toViewDelta(available.x),
-            toViewDelta(available.y),
-            consumedScroll,
-            /* offsetInWindow = */ null,
-            type,
-        )
-        return Offset(
-            toComposeDelta(consumedScroll[0]),
-            toComposeDelta(consumedScroll[1]),
-        )
-    }
-
-    override fun onPostScroll(
-        consumed: Offset,
-        available: Offset,
-        source: NestedScrollSource,
-    ): Offset {
-        val type = source.toViewType()
-        ensureStarted(type)
-        consumedScroll[0] = 0
-        consumedScroll[1] = 0
-        helper.dispatchNestedScroll(
-            toViewDelta(consumed.x),
-            toViewDelta(consumed.y),
-            toViewDelta(available.x),
-            toViewDelta(available.y),
-            /* offsetInWindow = */ null,
-            type,
-            consumedScroll,
-        )
-        return Offset(
-            toComposeDelta(consumedScroll[0]),
-            toComposeDelta(consumedScroll[1]),
-        )
-    }
-
-    override suspend fun onPreFling(available: Velocity): Velocity {
-        val consumed = helper.dispatchNestedPreFling(-available.x, -available.y)
-        return if (consumed) available else Velocity.Zero
-    }
-
-    override suspend fun onPostFling(consumed: Velocity, available: Velocity): Velocity {
-        helper.dispatchNestedFling(-available.x, -available.y, /* consumed = */ true)
-        return available
-    }
-
-    fun stop() {
-        helper.stopNestedScroll(ViewCompat.TYPE_TOUCH)
-        helper.stopNestedScroll(ViewCompat.TYPE_NON_TOUCH)
     }
 }
