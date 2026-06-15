@@ -75,6 +75,10 @@
     <string name="ignore_window_secure_title">Flag für sichere Fenster ignorieren</string>
     <string name="ignore_window_secure_summary">Entfernt Screenshot- und Screenrecord-Limits für alle Apps. Dies kann in einigen Fällen bequem sein, kann aber zu Datenschutzlecks führen.</string>
 
+    <!-- Hide screen capture status -->
+    <string name="hide_screen_capture_status_title">Bildschirmaufnahme-Status ausblenden</string>
+    <string name="hide_screen_capture_status_summary">Status von Bildschirmaufnahmen/-aufzeichnungen vor Apps verbergen. Nützlich, kann aber Datenschutzrisiken bergen. Apps neu starten, um anzuwenden.</string>
+
     <!-- Monet settings -->
     <string name="monet_settings_title">Monet-Einstellungen</string>
     <string name="monet_settings_sammary">Anpassen der "Material You"-Theme-Engine</string>
@@ -142,9 +146,11 @@
     <string name="pi_spoof_summary">Gerät als anderes Modell für Google Play Integrität spoofen</string>
 
     <!-- Edge light -->
+    <string name="edge_light_category_title">Seitenlicht</string>
     <string name="edge_light_title">Seitenlicht</string>
     <string name="edge_light_summary">Bei Benachrichtigung-Puls leuchten die Seitenkanten des Bildschirms auf</string>
     <string name="edge_light_color_mode_title">Farbmodus</string>
+    <string name="edge_light_custom_color_title">Benutzerdefinierte Farbe</string>
     <string name="edge_light_pulse_count_title">Impulsanzahl</string>
     <string name="edge_light_pulse_count_summary">Anzahl der Seitenlichtimpulse</string>
     <string name="edge_light_stroke_width_title">Strichbreite</string>
@@ -159,6 +165,11 @@
     <string name="edge_light_animation_effect_sparkle">Glitzer</string>
     <string name="edge_light_animation_effect_chase">Verfolgung</string>
     <string name="edge_light_animation_effect_comet">Komet</string>
+    <string name="accent_color">Akzentfarbe</string>
+    <string name="notification_color">Benachrichtigungsfarbe</string>
+    <string name="wallpaper_color">Hintergrundbildfarbe</string>
+    <string name="rainbow_color">Regenbogenfarbe</string>
+    <string name="custom_color">Benutzerdefinierte Farbe</string>
 
     <!-- Pixel Spoofing -->
     <string name="pixel_spoofing_apps_title">Apps für Pixel-Spoofing</string>
@@ -237,6 +248,7 @@
     <string name="qs_header_file_select_title">Bild auswählen</string>
     <string name="qs_header_file_select_summary">Benutzerdefiniertes Bild auswählen</string>
     <string name="qs_header_needs_gallery">Dafür muss eine Galerie-App installiert sein!</string>
+    <string name="qs_header_needs_omnistyle">Omni Style installieren, um Header-Pakete zu durchsuchen oder auszuwählen.</string>
     <string name="enable">Aktivieren</string>
     <string name="qs_header_offset_title">Zoomfaktor des Kopfzeilenbilds</string>
     <string name="qs_header_offset_summary">Größe des Kopfzeilenbilds anpassen</string>
@@ -383,6 +395,22 @@
     <!-- QS layout entry screens (qs_layout_settings, qs_classic_layout_settings) -->
     <string name="qs_layout_settings_title">QS-Layout</string>
     <string name="qs_layout_settings_summary">Zeilen und Spalten für Schnelleinstellungen konfigurieren</string>
+    <string name="qs_classic_layout_columns_title">QS-Spalten (Hochformat)</string>
+    <string name="qs_classic_layout_columns_summary">Erweitertes Schnelleinstellungen-Raster bei rundem Stil</string>
+    <string name="qs_classic_layout_columns_landscape_title">QS-Spalten (Querformat)</string>
+    <string name="qs_classic_layout_columns_landscape_summary">Erweitertes Schnelleinstellungen-Raster im Querformat</string>
+    <string name="qqs_classic_layout_columns_title">QQS-Spalten (Hochformat)</string>
+    <string name="qqs_classic_layout_columns_summary">Eingeklappte Schnelleinstellungen-Zeile bei rundem Stil</string>
+    <string name="qqs_classic_layout_columns_landscape_title">QQS-Spalten (Querformat)</string>
+    <string name="qqs_classic_layout_columns_landscape_summary">Eingeklappte Schnelleinstellungen im Querformat</string>
+    <string name="qs_classic_layout_rows_title">QS-Zeilen (Hochformat)</string>
+    <string name="qs_classic_layout_rows_summary">Zeilen pro Seite in erweiterten Schnelleinstellungen (runder Stil)</string>
+    <string name="qs_classic_layout_rows_landscape_title">QS-Zeilen (Querformat)</string>
+    <string name="qs_classic_layout_rows_landscape_summary">Zeilen pro Seite in erweiterten Schnelleinstellungen im Querformat</string>
+    <string name="qqs_classic_layout_rows_title">QQS-Zeilen (Hochformat)</string>
+    <string name="qqs_classic_layout_rows_summary">Zeilen in eingeklappten Schnelleinstellungen (runder Stil)</string>
+    <string name="qqs_classic_layout_rows_landscape_title">QQS-Zeilen (Querformat)</string>
+    <string name="qqs_classic_layout_rows_landscape_summary">Zeilen in eingeklappten Schnelleinstellungen im Querformat</string>
 
     <!-- QS Tiles Style -->
     <string name="qs_tile_shape_title">Form der Schnelleinstellungskacheln</string>
@@ -492,26 +520,40 @@
     <string name="about_team_category">Unser Team</string>
     <string name="about_external_category">Externe Links</string>
     <string name="about_dev_title">Leitender Entwickler</string>
+    <string name="about_dev_name">Alexander Brunswig</string>
+    <string name="about_dev_git">https://github.com/NurKeinNeid</string>
     <string name="about_qa_title">Leiter der Qualitätssicherung</string>
+    <string name="about_qa_name">David Setiawan</string>
+    <string name="about_qa_git">https://github.com/fryevia</string>
     <string name="about_site_title">Website</string>
     <string name="about_site_summary">DerpFest.org besuchen</string>
+    <string name="about_site_link">https://derpfest.org/</string>
     <string name="about_tg_title">Telegram-Gruppe</string>
     <string name="about_tg_summary">Offizielle, globale Telegram-Gruppe</string>
+    <string name="about_tg_link">https://t.me/DerpFestAOSP</string>
     <string name="about_wall_title">Hintergrundbilder</string>
     <string name="about_wall_summary">Community-erstellter Telegram-Kanal für Hintergrundbilder</string>
+    <string name="about_wall_link">https://t.me/DerpFestWalls</string>
     <string name="about_git_title">ROM-Quellcode</string>
     <string name="about_git_summary">Quellcode auf GitHub ansehen</string>
+    <string name="about_git_link">https://github.com/DerpFest-AOSP</string>
     <string name="about_devices_git_title">Geräte-Quellcode</string>
     <string name="about_devices_git_summary">Gerätequellen auf GitHub ansehen</string>
+    <string name="about_devices_git_link">https://github.com/DerpFest-Devices</string>
     <string name="about_phone_title">Telefoninfo</string>
     <string name="about_phone_summary">Systemeinstellungen „Über dieses Telefon" öffnen</string>
 
     <!-- About - Device specific links -->
     <string name="about_device_category">Gerätespezifische Links</string>
     <string name="about_device_fw">Erforderliche Firmware</string>
+    <string name="about_device_fw_link"></string>
+    <string name="about_device_fw_ver"></string>
     <string name="about_device_recovery">Empfohlene Recovery</string>
+    <string name="about_device_recovery_link"></string>
+    <string name="about_device_recovery_ver"></string>
 
     <!-- About - Easter Egg -->
+    <string name="about_easter_egg_title">BOOYAH!</string>
     <plurals name="show_derped_countdown">
         <item quantity="one">Du bist jetzt noch <xliff:g id="derp_count">%1$d</xliff:g> Schritt davon entfernt, gederpt zu werden.</item>
         <item quantity="other">Du bist jetzt noch <xliff:g id="derp_count">%1$d</xliff:g> Schritte davon entfernt, gederpt zu werden.</item>
@@ -589,4 +631,44 @@
     <string name="dynamic_bar_guide_keyguard_title">Chip auf Sperrbildschirm</string>
     <string name="dynamic_bar_footer_title">Über Dynamic Bar</string>
     <string name="dynamic_bar_footer_body">Dynamic Bar macht aus deiner Statusleiste ein interaktives Zentrum. Status-Chips erscheinen und animieren sich je nach Systemereignissen und liefern Infos auf einen Blick, ohne den Ablauf zu stören.\n\nJeder Ereignistyp hat eine eigene Akzentfarbe und eine erweiterte Karte mit Schnellaktionen.</string>
+
+    <!-- App Spoofing -->
+    <string name="user_selectable_app_spoofing_title">App-Spoofing</string>
+    <string name="user_selectable_app_spoofing_summary">Apps auswählen, für die Geräteeigenschaften gespooft werden sollen</string>
+    <string name="user_select_spoofing_profile_title">Spoofing-Profil auswählen</string>
+    <string name="app_spoofing_category_title">Spoofing pro App</string>
+    <string name="app_spoofing_header_title">Spoofing aktivieren</string>
+    <string name="app_spoofing_configured_count">%1$d Apps gespooft</string>
+    <string name="app_spoofing_disabled">Deaktiviert</string>
+    <string name="app_spoofing_add_apps">Apps hinzufügen</string>
+    <string name="app_spoofing_spoofed_model">Modell auswählen</string>
+    <string name="app_spoofing_clear_all">Alle löschen</string>
+    <string name="app_spoofing_configured_apps">Konfigurierte App-Liste</string>
+    <string name="app_spoofing_no_apps_configured">Keine Apps konfiguriert</string>
+    <string name="app_spoofing_spoof_model">Spoof-Modell</string>
+    <string name="app_spoofing_select_spoof_model">Spoof-Modell auswählen</string>
+    <string name="app_spoofing_change_app">App ändern</string>
+    <string name="show_system_apps">System-Apps anzeigen</string>
+    <string name="hide_system_apps">System-Apps ausblenden</string>
+    <string name="search_apps">Apps suchen</string>
+    <string name="add_new_spoof_profile">Neu hinzufügen</string>
+    <string name="add_custom_spoof_profile_title">Benutzerdefiniertes Spoof-Profil hinzufügen</string>
+    <string name="custom_spoof_profile_name">Profilname</string>
+    <string name="custom_spoof_profile_brand">BRAND</string>
+    <string name="custom_spoof_profile_manufacturer">MANUFACTURER</string>
+    <string name="custom_spoof_profile_device">DEVICE</string>
+    <string name="custom_spoof_profile_model">MODEL</string>
+    <string name="custom_spoof_profile_fingerprint">FINGERPRINT (Optional)</string>
+    <string name="custom_spoof_profile_product">PRODUCT (Optional)</string>
+    <string name="app_spoofing_clear_all_confirm">Damit werden alle konfigurierten App-Spoofing-Einträge entfernt.</string>
+    <string name="app_spoofing_no_apps_available">Keine Apps verfügbar</string>
+    <string name="app_spoofing_no_apps_found">Keine Apps für „%s“ gefunden</string>
+    <string name="app_spoofing_clear_search">Suche löschen</string>
+    <string name="app_spoofing_longpress_hint">Lange drücken, um das Profil schnell neu zuzuweisen</string>
+    <string name="app_spoofing_remove_title">App entfernen?</string>
+    <string name="app_spoofing_remove_confirm">%1$s aus der Spoofing-Liste entfernen?</string>
+
+    <!-- AppLock and Sandbox -->
+    <string name="applocker_sandbox_title">AppLock und Sandbox</string>
+    <string name="applocker_sandbox_summary">App zur Verwaltung von AppLock und Sandbox öffnen</string>
 </resources>
