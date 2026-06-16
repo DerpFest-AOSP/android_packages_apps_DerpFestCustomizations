@@ -512,10 +512,6 @@
     <string name="notification_bubble_apps_title">Bubble Notifications</string>
     <string name="notification_bubble_apps_summary">Launch apps in a bubble when clicking their notifications</string>
 
-    <!-- Spoofing -->
-    <string name="pixel_spoofing_apps_title">Pixel spoofing apps</string>
-    <string name="pixel_spoofing_apps_summary">Select apps to spoof as Pixel 10 Pro XL</string>
-
     <!-- About -->
     <string name="about_title">About</string>
     <string name="about_summary">About DerpFest and useful links</string>

@@ -171,10 +171,6 @@
     <string name="rainbow_color">Regenbogenfarbe</string>
     <string name="custom_color">Benutzerdefinierte Farbe</string>
 
-    <!-- Pixel Spoofing -->
-    <string name="pixel_spoofing_apps_title">Apps für Pixel-Spoofing</string>
-    <string name="pixel_spoofing_apps_summary">Apps auswählen, um sie als Pixel 10 Pro XL zu spoofen</string>
-
     <!-- Fingerprint Ripple Effect -->
     <string name="enable_fingerprint_ripple_effect_title">Welleneffekt</string>
     <string name="enable_fingerprint_ripple_effect_summary">Welleneffekt zeigen bei Entsperrung mit Fingerabdruck</string>
