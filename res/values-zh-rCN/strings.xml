@@ -29,6 +29,18 @@
     <string name="dark_mode_summary_default">启用系统深色主题</string>
     <string name="dark_mode_summary_powersave">已启用省电模式</string>
 
+    <!-- Gradients -->
+    <string name="gradients_title">渐变色</string>
+    <string name="gradients_summary">自定义磁贴、亮度滑块和音量滑块的渐变颜色</string>
+    <string name="gradient_toggles_category_title">渐变色开关</string>
+    <string name="gradient_colors_category_title">自定义颜色</string>
+    <string name="gradient_start_color_title">渐变起始色</string>
+    <string name="gradient_start_color_summary">设置为 0 或重置以使用默认值。在启用上方任意渐变选项时生效。</string>
+    <string name="gradient_end_color_title">渐变终止色</string>
+    <string name="gradient_end_color_summary">设置为 0 或重置以使用默认值。在启用上方任意渐变选项时生效。</string>
+    <string name="volume_slider_gradient_title">音量滑块渐变</string>
+    <string name="volume_slider_gradient_summary">在音量面板的音量滑块上显示渐变样式</string>
+
     <!-- Categories -->
     <string name="general_category_title">通用</string>
     <string name="security_category_title">安全</string>
@@ -38,6 +50,10 @@
     <string name="ignore_window_secure_title">忽略窗口安全标志</string>
     <string name="ignore_window_secure_summary">移除所有应用的截屏和录屏限制。这在某些情况下可能很方便，但可能导致隐私泄露。</string>
 
+    <!-- Hide screen capture status -->
+    <string name="hide_screen_capture_status_title">隐藏截屏状态</string>
+    <string name="hide_screen_capture_status_summary">向应用隐藏截屏和录屏状态。此功能很实用，但可能会带来隐私风险。需重启应用后生效。</string>
+     
     <!-- Monet settings -->
     <string name="monet_settings_title">Monet 个性化</string>
     <string name="monet_settings_sammary">自定义动态主题引擎参数</string>
@@ -56,14 +72,14 @@
     <string name="monet_engine_tint_background_summary">使明度和色度同时作用于背景色</string>
     <string name="monet_engine_style_title">主题样式</string>
     <string name="monet_engine_style_tonal_spot">色调聚焦（默认）</string>
-    <string name="monet_engine_style_vibrant">青春活力</string>
+    <string name="monet_engine_style_vibrant">充满活力</string>
     <string name="monet_engine_style_expressive">印象派风格</string>
     <string name="monet_engine_style_spritz">墨水风</string>
     <string name="monet_engine_style_rainbow">彩虹</string>
     <string name="monet_engine_style_fruit_salad">水果沙拉</string>
     <string name="monet_engine_style_content">内容强调</string>
     <string name="monet_engine_style_monochromatic">单色</string>
-    <string name="monet_engine_style_fidelity">逼真</string>
+    <string name="monet_engine_style_fidelity">保真</string>
     <string name="monet_engine_color_source_title">颜色来源</string>
     <string name="monet_engine_color_source_both">双壁纸（默认）</string>
     <string name="monet_engine_color_source_home">主屏幕壁纸</string>
@@ -105,10 +121,42 @@
     <string name="pi_spoof_title">Google Play Integrity 伪装</string>
     <string name="pi_spoof_summary">将设备伪装成不同型号以通过 Google Play Integrity 验证</string>
 
+    <!-- Edge light -->
+    <string name="edge_light_category_title">边缘光效</string>
+    <string name="edge_light_title">边缘光效</string>
+    <string name="edge_light_summary">收到通知时点亮屏幕边缘</string>
+    <string name="edge_light_color_mode_title">颜色模式</string>
+    <string name="edge_light_custom_color_title">自定义颜色</string>
+    <string name="edge_light_pulse_count_title">闪烁次数</string>
+    <string name="edge_light_pulse_count_summary">设置边缘光效的闪烁次数</string>
+    <string name="edge_light_stroke_width_title">光效宽度</string>
+    <string name="edge_light_stroke_width_summary">设置边缘光条的粗细</string>
+    <string name="edge_light_style_title">显示样式</string>
+    <string name="edge_light_style_default">默认（左/右侧）</string>
+    <string name="edge_light_style_frame">边框（屏幕四周）</string>
+    <string name="edge_light_animation_effect_title">动画效果</string>
+    <string name="edge_light_animation_effect_none">标准</string>
+    <string name="edge_light_animation_effect_breathing">呼吸</string>
+    <string name="edge_light_animation_effect_wave">波浪</string>
+    <string name="edge_light_animation_effect_sparkle">闪耀</string>
+    <string name="edge_light_animation_effect_chase">追逐</string>
+    <string name="edge_light_animation_effect_comet">彗星</string>
+    <string name="accent_color">强调色</string>
+    <string name="notification_color">通知颜色</string>
+    <string name="wallpaper_color">壁纸颜色</string>
+    <string name="rainbow_color">彩虹色</string>
+    <string name="custom_color">自定义颜色</string>
+     
     <!-- Fingerprint Ripple Effect -->
     <string name="enable_fingerprint_ripple_effect_title">解锁动画</string>
     <string name="enable_fingerprint_ripple_effect_summary">使用指纹解锁时显示涟漪效果</string>
 
+    <!-- Fingerprint authentication vibration -->
+    <string name="fp_success_vibrate_title">指纹验证振动</string>
+    <string name="fp_success_vibrate_summary">指纹验证成功时振动</string>
+    <string name="fp_error_vibrate_title">指纹验证失败振动</string>
+    <string name="fp_error_vibrate_summary">指纹验证失败时振动</string>
+     
     <!-- Heads-up -->
     <string name="compact_heads_up_notifications_enabled_title">紧凑型通知</string>
     <string name="compact_heads_up_notifications_enabled_summary">以紧凑形式显示通知</string>
@@ -117,6 +165,10 @@
     <string name="lockscreen_hide_status_bar_title">隐藏状态栏</string>
     <string name="lockscreen_hide_status_bar_summary">启用后，锁屏界面将隐藏状态栏</string>
 
+    <!-- Bouncer user switcher -->
+    <string name="bouncer_user_switcher_title">锁屏用户切换器</string>
+    <string name="bouncer_user_switcher_summary">在解锁界面上显示用户切换器（适用于大屏幕设备）</string>
+     
     <!-- Settings dashboard icon style -->
     <string name="theming_settings_dashboard_icons_title">设置主界面图标</string>
     <string name="theming_settings_dashboard_icons_default">AOSP 默认（自然主题）</string>
@@ -142,15 +194,52 @@
     <string name="qs_header_file_select_title">选择图片</string>
     <string name="qs_header_file_select_summary">选择自定义图片</string>
     <string name="qs_header_needs_gallery">您必须安装相册应用！</string>
+    <string name="qs_header_needs_omnistyle">安装 Omni Style 以浏览或选择顶部图片包。</string>
     <string name="enable">启用</string>
     <string name="qs_header_offset_title">顶部图片偏移量</string>
     <string name="qs_header_offset_summary">调整顶部图片尺寸</string>
 
     <!-- Screen Off animation -->
-    <string name="screen_off_animation_title">灭屏动画</string>
+    <string name="screen_off_animation_title">息屏动画</string>
     <string name="screen_off_animation_default">默认</string>
     <string name="screen_off_animation_crt">CRT</string>
     <string name="screen_off_animation_scale">缩放</string>
+
+    <!-- Charging animation -->
+    <string name="charging_animation_title">充电动画</string>
+    <string name="charging_animation_style_none">无</string>
+    <string name="charging_animation_style_ripple">涟漪</string>
+    <string name="charging_animation_style_flash">闪烁</string>
+    <string name="charging_animation_style_glow">脉冲发光</string>
+    <string name="charging_animation_style_battery">电池填充</string>
+
+    <!-- Pulse music visualizer -->
+    <string name="pulse_visualizer_category_title">脉冲音乐可视化</string>
+    <string name="pulse_settings_title">脉冲可视化</string>
+    <string name="pulse_settings_summary">播放音乐时在锁屏上显示条形可视化效果</string>
+    <string name="ambient_pulse_enabled_title">息屏脉冲</string>
+    <string name="ambient_pulse_enabled_summary">在息屏显示上展示可视化效果</string>
+    <string name="pulse_rounded_bars_title">圆角条形</string>
+    <string name="pulse_rounded_bars_summary">使用圆角显示可视化条</string>
+    <string name="pulse_color">可视化颜色</string>
+    <string name="pulse_color_lavalamp">熔岩灯</string>
+    <string name="pulse_color_album">专辑封面</string>
+    <string name="pulse_color_accent">强调色</string>
+    <string name="pulse_bar_count_title">条形数量</string>
+    <string name="pulse_bar_count_summary">设置可视化效果中显示的条形数量</string>
+    <string name="pulse_bar_count_units">条</string>
+    <string name="pulse_renderer">可视化样式</string>
+    <string name="pulse_renderer_solid">实线</string>
+    <string name="pulse_renderer_fading">渐隐方块</string>
+    <string name="pulse_renderer_neon_glow">霓虹光效</string>
+    <string name="pulse_renderer_retro_vu_meter">复古 VU 表</string>
+    <string name="pulse_renderer_minimal_wave">极简波浪</string>
+    <string name="pulse_renderer_sparkle">闪耀</string>
+    <string name="pulse_renderer_matrix">矩阵</string>
+    <string name="pulse_renderer_particle">粒子系统</string>
+    <string name="pulse_renderer_waveform">波形</string>
+    <string name="pulse_smoothing_enabled_title">平滑粒子生成</string>
+    <string name="pulse_smoothing_enabled_summary">使用粒子可视化样式时提高粒子生成速率</string>
 
     <!-- Units -->
     <string name="unit_milliseconds">ms</string>
@@ -165,9 +254,20 @@
     <string name="small_landscape_notification_summary">按 AOSP 设计，在横屏模式下的通知面板中显示更窄的通知</string>
 
     <!-- QS Panel -->
+    <string name="qs_appearance_category_title">外观</string>
+    <string name="pulse_qs_title">在快速设置面板显示脉冲</string>
+    <string name="pulse_qs_summary">在快速设置面板显示脉冲可视化效果</string>
+    <string name="pulse_haptics_title">低音触觉反馈</string>
+    <string name="pulse_haptics_off">关闭（强低音时无轻微振动）</string>
+    <string name="pulse_haptics_while_visualizer">仅在显示脉冲时</string>
+    <string name="pulse_haptics_while_media">在媒体播放时始终启用</string>
     <string name="brightness_category_title">亮度滑块</string>
+    <string name="qs_brightness_gradient_enabled_title">渐变滑块背景</string>
+    <string name="qs_brightness_gradient_enabled_summary">为亮度调节滑块启用渐变样式</string>
     <string name="qs_show_auto_brightness_title">自动亮度图标</string>
     <string name="qs_show_auto_brightness_summary">在亮度调节滑块旁显示自适应亮度开关</string>
+    <string name="qs_tile_gradient_enabled_title">渐变磁贴背景</string>
+    <string name="qs_tile_gradient_enabled_summary">为快速设置磁贴启用渐变背景</string>
     <string name="qs_show_settings_icon_title">显示设置图标</string>
     <string name="qs_show_settings_icon_summary">在快速设置底栏显示设置图标</string>
     <string name="qs_show_power_menu_icon_title">显示电源菜单图标</string>
@@ -189,6 +289,65 @@
     <string name="qs_show_edit_button_title">显示编辑按钮</string>
     <string name="qs_show_edit_button_summary">在快速设置面板中显示编辑按钮</string>
 
+    <!-- QS panel style (Settings.Secure qs_panel_style; SystemUI) -->
+    <string name="qs_panel_style_title">快速设置面板样式</string>
+    <string name="qs_panel_style_card">卡片</string>
+    <string name="qs_panel_style_circular">圆形</string>
+    <string name="qs_tile_label_hide_title">隐藏磁贴标签</string>
+    <string name="qs_tile_label_hide_summary">在圆形样式下仅显示图标而不显示标签</string>
+
+    <!-- Classic QS tile icon shape (Settings.Secure qs_tile_icon_shape; same keys as Launcher3 ShapesProvider) -->
+    <string name="qs_tile_icon_shape_title">经典磁贴图标形状</string>
+    <string name="qs_tile_icon_shape_circle">圆形</string>
+    <string name="qs_tile_icon_shape_square">方形</string>
+    <string name="qs_tile_icon_shape_four_sided_cookie">四边饼干</string>
+    <string name="qs_tile_icon_shape_seven_sided_cookie">七边饼干</string>
+    <string name="qs_tile_icon_shape_arch">拱形</string>
+    <string name="qs_tile_icon_shape_ios_rounded_square">iOS 圆角方形</string>
+    <string name="qs_tile_icon_shape_meow">猫咪</string>
+    <string name="qs_tile_icon_shape_flower">花朵</string>
+    <string name="qs_tile_icon_shape_heart">心形</string>
+    <string name="qs_tile_icon_shape_hexagon">六边形</string>
+    <string name="qs_tile_icon_shape_leaf">树叶</string>
+    <string name="qs_tile_icon_shape_cloudy">云朵</string>
+    <string name="qs_tile_icon_shape_cylindrical">圆柱形</string>
+    <string name="qs_tile_icon_shape_stretched">拉伸</string>
+    <string name="qs_tile_icon_shape_pebble">鹅卵石</string>
+    <string name="qs_tile_icon_shape_rice_balls">饭团</string>
+    <string name="qs_tile_icon_shape_rounded_rect">圆角矩形</string>
+    <string name="qs_tile_icon_shape_squircle">方圆形</string>
+    <string name="qs_tile_icon_shape_tapered_rect">锥形矩形</string>
+    <string name="qs_tile_icon_shape_teardrop">水滴</string>
+    <string name="qs_tile_icon_shape_vessel">容器</string>
+    <string name="qs_tile_icon_shape_rounded_hexagon">圆角六边形</string>
+    <string name="qs_tile_icon_shape_just_icons">仅图标</string>
+    <string name="qs_tile_icon_shape_dotted_circle">虚线圆</string>
+    <string name="qs_tile_icon_shape_outline_style">轮廓样式</string>
+    <string name="qs_tile_icon_shape_outline_style_dark">轮廓样式 2</string>
+    <string name="qs_tile_icon_shape_squaremedo">Squaremedo</string>
+
+    <!-- QS layout entry screens (qs_layout_settings, qs_classic_layout_settings) -->
+    <string name="qs_layout_settings_title">快速设置布局</string>
+    <string name="qs_layout_settings_summary">配置快速设置的行数和列数</string>
+
+    <!-- Classic circular QS column layout (Settings.System qs_layout_*_classic / qqs_layout_*_classic; SystemUI) -->
+    <string name="qs_classic_layout_columns_title">快速设置列数（竖屏）</string>
+    <string name="qs_classic_layout_columns_summary">使用圆形样式时，展开的快速设置网格列数</string>
+    <string name="qs_classic_layout_columns_landscape_title">快速设置列数（横屏）</string>
+    <string name="qs_classic_layout_columns_landscape_summary">横屏模式下，展开的快速设置网格列数</string>
+    <string name="qqs_classic_layout_columns_title">常用快速设置列数（竖屏）</string>
+    <string name="qqs_classic_layout_columns_summary">使用圆形样式时，未展开的常用快速设置列数</string>
+    <string name="qqs_classic_layout_columns_landscape_title">常用快速设置列数（横屏）</string>
+    <string name="qqs_classic_layout_columns_landscape_summary">横屏模式下，未展开的常用快速设置列数</string>
+    <string name="qs_classic_layout_rows_title">快速设置行数（竖屏）</string>
+    <string name="qs_classic_layout_rows_summary">使用圆形样式时，展开的快速设置每页行数</string>
+    <string name="qs_classic_layout_rows_landscape_title">快速设置行数（横屏）</string>
+    <string name="qs_classic_layout_rows_landscape_summary">横屏模式下，展开的快速设置每页行数</string>
+    <string name="qqs_classic_layout_rows_title">常用快速设置行数（竖屏）</string>
+    <string name="qqs_classic_layout_rows_summary">使用圆形样式时，未展开的常用快速设置行数</string>
+    <string name="qqs_classic_layout_rows_landscape_title">常用快速设置行数（横屏）</string>
+    <string name="qqs_classic_layout_rows_landscape_summary">横屏模式下，未展开的常用快速设置行数</string>
+
     <!-- QS Tiles Style -->
     <string name="qs_tile_shape_title">快速设置磁贴形状</string>
     <string name="qs_tile_shape_dynamic">动态</string>
@@ -196,30 +355,52 @@
     <string name="qs_tile_shape_rounded_square_smooth">圆角矩形（平滑）</string>
     <string name="qs_tile_shape_rounded_square">圆角矩形</string>
 
+    <!-- QS tile animation style -->
+    <string name="qs_tile_animation_style_title">磁贴切换动画</string>
+    <string name="qs_tile_animation_style_none">无</string>
+    <string name="qs_tile_animation_style_bounce">弹跳</string>
+    <string name="qs_tile_animation_style_ripple">涟漪</string>
+    <string name="qs_tile_animation_style_flip">翻转</string>
+    <string name="qs_tile_animation_style_fade">淡入淡出</string>
+    <string name="qs_tile_animation_style_pulse">脉冲</string>
+    <string name="qs_tile_animation_style_shake">抖动</string>
+    <string name="qs_tile_animation_style_wobble">晃动</string>
+    <string name="qs_tile_animation_style_spin">旋转</string>
+    <string name="qs_tile_animation_style_squish">挤压</string>
+    <string name="qs_tile_animation_style_tilt">倾斜</string>
+    <string name="qs_tile_animation_style_heartbeat">心跳</string>
+    <string name="qs_tile_animation_style_swing">摇摆</string>
+
     <!-- Brightness Slider Style -->
     <string name="qs_brightness_slider_shape_title">亮度滑块形状</string>
+    <string name="qs_brightness_use_new_tint_title">亮度滑块强调色</string>
+    <string name="qs_brightness_use_new_tint_summary">为亮度滑块轨道使用强调色</string>
     <string name="default_value">默认</string>
 
     <!-- QS Layout Settings -->
-    <string name="qs_layout_settings_title">快速设置布局</string>
-    <string name="qs_layout_settings_summary">配置快速设置的行数和列数</string>
     <!-- QS Notifications category -->
     <string name="qs_notifications_category_title">通知</string>
     <string name="qs_layout_category_title">快速设置布局</string>
     <string name="qs_layout_category_summary">配置快速设置面板的布局</string>
     <string name="qs_layout_columns_title">列数</string>
     <string name="qs_layout_columns_summary">列数（同时影响快速设置和常用快速设置面板）</string>
+    <string name="qs_layout_columns_units"> 列</string>
     <string name="qs_layout_rows_title">行数</string>
     <string name="qs_layout_rows_summary">行数</string>
+    <string name="qs_layout_rows_units"> 行</string>
     <string name="qqs_layout_category_title">常用快速设置布局</string>
     <string name="qqs_layout_rows_title">行数</string>
     <string name="qqs_layout_rows_summary">行数</string>
+    <string name="qqs_layout_rows_units"> 行</string>
     <string name="qs_layout_columns_landscape_title">列数（横屏）</string>
     <string name="qs_layout_columns_landscape_summary">横屏模式下的列数（同时影响快速设置和常用快速设置面板）</string>
+    <string name="qs_layout_columns_landscape_units"> 列</string>
     <string name="qs_layout_rows_landscape_title">行数（横屏）</string>
     <string name="qs_layout_rows_landscape_summary">横屏模式下的行数</string>
+    <string name="qs_layout_rows_landscape_units"> 行</string>
     <string name="qqs_layout_rows_landscape_title">行数（横屏）</string>
     <string name="qqs_layout_rows_landscape_summary">横屏模式下的行数</string>
+    <string name="qqs_layout_rows_landscape_units"> 行</string>
     <string name="qs_media_respect_halving_title">行内显示媒体控件时半宽显示</string>
     <string name="qs_media_respect_halving_summary">启用时，若媒体控件与磁贴在同一行显示，则快速设置列数将减半</string>
     <string name="qs_layout_default">默认（系统）</string>
@@ -286,9 +467,9 @@
     <string name="notification_row_transparency_lockscreen_title">锁屏通知透明化</string>
     <string name="notification_row_transparency_lockscreen_summary">为锁屏上的通知设置透明背景</string>
 
-    <!-- Spoofing -->
-    <string name="pixel_spoofing_apps_title">对应用伪装为 Pixel</string>
-    <string name="pixel_spoofing_apps_summary">选择要对其伪装为 Pixel 10 Pro XL 的应用</string>
+    <!-- Notification bubbles -->
+    <string name="notification_bubble_apps_title">气泡通知</string>
+    <string name="notification_bubble_apps_summary">点击通知时以气泡形式启动应用</string>
 
     <!-- About -->
     <string name="about_title">关于</string>
@@ -323,10 +504,125 @@
         <item quantity="one">现在只需再执行 <xliff:g id="derp_count">%1$d</xliff:g> 步操作，即可被「Derp 化」。</item>
         <item quantity="other">现在只需再执行 <xliff:g id="derp_count">%1$d</xliff:g> 步操作，即可被「Derp 化」。</item>
     </plurals>
+    <string name="about_easter_egg_unlock_bonus">您解锁了另一个毫无用处的功能。</string>
+    <string name="about_easter_egg_got_it">知道了</string>
 
     <!-- chinese lunar calendar -->
     <string name="qs_show_lunar_calendar_title">显示农历</string>
     <string name="qs_show_lunar_calendar_summary">在快速设置面板显示农历</string>
     <string name="lockscreen_show_lunar_calendar_title">显示农历</string>
     <string name="lockscreen_show_lunar_calendar_summary">在锁屏日期上显示农历</string>
+    <string name="qs_panel_bg_use_new_tint_title">磁贴强调色</string>
+    <string name="qs_panel_bg_use_new_tint_summary">为处于活动状态的磁贴应用强调色并加粗标签</string>
+    <string name="qs_tiles_classic_random_accent_title">快速设置磁贴迪斯科</string>
+    <string name="qs_tiles_classic_random_accent_summary">让您的快速设置磁贴变得五彩缤纷！</string>
+
+    <!-- Lock screen media art on Ambient Display -->
+    <string name="ambient_media_art_title">息屏显示媒体封面</string>
+    <string name="ambient_media_art_summary">有媒体播放时，在息屏显示 (AOD) 界面上显示媒体封面</string>
+
+    <!-- Dynamic Bar -->
+    <string name="dynamic_bar_category_title">灵动岛</string>
+    <string name="dynamic_bar">灵动岛</string>
+    <string name="dynamic_bar_summary">智能状态栏悬浮药丸，用于显示录音、媒体播放、计时器等活动事件</string>
+    <string name="dynamic_bar_enable">启用灵动岛</string>
+    <string name="dynamic_bar_enable_summary">在状态栏上为实时事件显示动态悬浮条</string>
+    <string name="dynamic_bar_keyguard_enable">锁屏灵动岛</string>
+    <string name="dynamic_bar_keyguard_enable_summary">在锁屏上使用带有控件和快捷操作的灵动岛替换默认的锁屏指示</string>
+    <string name="dynamic_bar_keyguard_battery_chip">锁屏电量信息</string>
+    <string name="dynamic_bar_keyguard_battery_chip_disabled">从不显示</string>
+    <string name="dynamic_bar_keyguard_battery_chip_charging">仅在充电时</string>
+    <string name="dynamic_bar_keyguard_battery_chip_always">始终显示</string>
+    <string name="dynamic_bar_keyguard_music_pill">锁屏音乐胶囊</string>
+    <string name="dynamic_bar_keyguard_music_pill_summary">在锁屏界面上以胶囊形式显示音乐播放器</string>
+    <string name="dynamic_bar_keyguard_compact_chip">紧凑型锁屏灵动岛</string>
+    <string name="dynamic_bar_keyguard_compact_chip_summary">在锁屏上始终使用紧凑样式。禁用此项后，仅在空间受限时才会使用紧凑模式</string>
+    <string name="dynamic_bar_events">事件</string>
+    <string name="dynamic_bar_event_audio_recording">录音</string>
+    <string name="dynamic_bar_event_audio_recording_summary">录音机和音频捕获</string>
+    <string name="dynamic_bar_event_media">媒体播放</string>
+    <string name="dynamic_bar_event_media_summary">正在播放的音乐和音频控件</string>
+    <string name="dynamic_bar_event_call">通话中</string>
+    <string name="dynamic_bar_event_call_summary">来电和正在进行的通话</string>
+    <string name="dynamic_bar_event_notification">通知</string>
+    <string name="dynamic_bar_event_notification_summary">新通知提醒</string>
+    <string name="dynamic_bar_event_timer">计时器</string>
+    <string name="dynamic_bar_event_timer_summary">时钟应用的倒计时</string>
+    <string name="dynamic_bar_event_stopwatch">秒表</string>
+    <string name="dynamic_bar_event_stopwatch_summary">时钟应用中正在运行的秒表</string>
+    <string name="dynamic_bar_event_alarm">闹钟</string>
+    <string name="dynamic_bar_event_alarm_summary">正在响铃和即将到来的闹钟</string>
+    <string name="dynamic_bar_event_charging">开始充电</string>
+    <string name="dynamic_bar_event_charging_summary">插入电源时的电量水平</string>
+    <string name="dynamic_bar_event_bluetooth">蓝牙</string>
+    <string name="dynamic_bar_event_bluetooth_summary">设备连接状态</string>
+    <string name="dynamic_bar_event_hotspot">热点</string>
+    <string name="dynamic_bar_event_hotspot_summary">移动热点活动指示</string>
+    <string name="dynamic_bar_event_ringer">响铃模式</string>
+    <string name="dynamic_bar_event_ringer_summary">静音、振动和响铃模式切换</string>
+    <string name="dynamic_bar_event_vpn">VPN</string>
+    <string name="dynamic_bar_event_vpn_summary">活动的 VPN 连接指示</string>
+    <string name="dynamic_bar_event_clipboard">剪贴板</string>
+    <string name="dynamic_bar_event_clipboard_summary">已复制的文本和图片预览</string>
+    <string name="dynamic_bar_event_torch">手电筒</string>
+    <string name="dynamic_bar_event_torch_summary">手电筒开关和亮度</string>
+    <string name="dynamic_bar_event_ongoing">进行中的活动</string>
+    <string name="dynamic_bar_event_ongoing_summary">导航、外卖和其他实时活动</string>
+    <string name="dynamic_bar_event_sports">体育赛事</string>
+    <string name="dynamic_bar_event_sports_summary">实时比分和比赛更新</string>
+    <string name="dynamic_bar_event_app_switch">最近应用切换</string>
+    <string name="dynamic_bar_event_app_switch_summary">在最近应用之间切换时显示灵动岛</string>
+    <string name="dynamic_bar_event_biometric">生物识别解锁</string>
+    <string name="dynamic_bar_event_biometric_summary">进行指纹或面部解锁时显示灵动岛</string>
+    <string name="dynamic_bar_guide_title">如何使用灵动岛</string>
+    <string name="dynamic_bar_guide_chip">事件会出现在状态栏中，显示录音、媒体播放和计时器等处于活动状态的事件</string>
+    <string name="dynamic_bar_guide_swipe">当有多个活动事件时，在灵动岛上向左或向右滑动即可循环切换</string>
+    <string name="dynamic_bar_guide_expand">点按灵动岛可将其展开为详细卡片，以查看控件和更多信息</string>
+    <string name="dynamic_bar_guide_dismiss">滑动展开的卡片即可将其关闭。相关事件仍将继续在后台运行</string>
+    <string name="dynamic_bar_guide_keyguard">灵动岛也会出现在锁屏底部，并提供播放控件和快捷操作</string>
+    <string name="dynamic_bar_guide_chip_title">灵动岛外观</string>
+    <string name="dynamic_bar_guide_swipe_title">滑动切换事件</string>
+    <string name="dynamic_bar_guide_expand_title">点按展开</string>
+    <string name="dynamic_bar_guide_dismiss_title">滑动关闭</string>
+    <string name="dynamic_bar_guide_keyguard_title">锁屏灵动岛</string>
+    <string name="dynamic_bar_footer_title">关于灵动岛</string>
+    <string name="dynamic_bar_footer_body">灵动岛将您的状态栏转变为一个交互中心。灵动岛会根据系统事件出现并产生动画效果，让您一目了然地获取信息，而不会打断当前工作。\n\n每种事件类型都有专属的强调色和带有快捷操作的展开卡片。</string>
+    
+    <!-- App Spoofing -->
+    <string name="user_selectable_app_spoofing_title">应用伪装</string>
+    <string name="user_selectable_app_spoofing_summary">选择要为其伪装设备属性的应用</string>
+    <string name="user_select_spoofing_profile_title">选择伪装配置文件</string>
+    <string name="app_spoofing_category_title">按应用伪装</string>
+    <string name="app_spoofing_header_title">启用伪装</string>
+    <string name="app_spoofing_configured_count">已伪装 %1$d 个应用</string>
+    <string name="app_spoofing_disabled">已禁用</string>
+    <string name="app_spoofing_add_apps">添加应用</string>
+    <string name="app_spoofing_spoofed_model">选择机型</string>
+    <string name="app_spoofing_clear_all">清除全部</string>
+    <string name="app_spoofing_configured_apps">已配置的应用列表</string>
+    <string name="app_spoofing_no_apps_configured">未配置任何应用</string>
+    <string name="app_spoofing_spoof_model">伪装机型</string>
+    <string name="app_spoofing_select_spoof_model">选择伪装机型</string>
+    <string name="app_spoofing_change_app">更改应用</string>
+    <string name="show_system_apps">显示系统应用</string>
+    <string name="hide_system_apps">隐藏系统应用</string>
+
+    <!-- Custom App Spoofing Profiles -->
+    <string name="search_apps">搜索应用</string>
+    <string name="add_new_spoof_profile">新增配置</string>
+    <string name="add_custom_spoof_profile_title">添加自定义伪装配置</string>
+    <string name="custom_spoof_profile_name">配置文件名称</string>
+    <string name="custom_spoof_profile_brand">品牌</string>
+    <string name="custom_spoof_profile_manufacturer">制造商</string>
+    <string name="custom_spoof_profile_device">设备</string>
+    <string name="custom_spoof_profile_model">型号</string>
+    <string name="custom_spoof_profile_fingerprint">指纹（可选）</string>
+    <string name="custom_spoof_profile_product">产品（可选）</string>
+    <string name="app_spoofing_clear_all_confirm">这将移除所有已配置的应用伪装条目。</string>
+    <string name="app_spoofing_no_apps_available">没有可用的应用</string>
+    <string name="app_spoofing_no_apps_found">未找到与“%s”相关的应用</string>
+    <string name="app_spoofing_clear_search">清除搜索</string>
+    <string name="app_spoofing_longpress_hint">长按可快速重新分配配置文件</string>
+    <string name="app_spoofing_remove_title">移除应用？</string>
+    <string name="app_spoofing_remove_confirm">要将 %1$s 从伪装列表中移除吗？</string>
 </resources>
