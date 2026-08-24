@@ -594,42 +594,6 @@
     <string name="dynamic_bar_footer_title">Über Dynamic Bar</string>
     <string name="dynamic_bar_footer_body">Dynamic Bar macht aus deiner Statusleiste ein interaktives Zentrum. Status-Chips erscheinen und animieren sich je nach Systemereignissen und liefern Infos auf einen Blick, ohne den Ablauf zu stören.\n\nJeder Ereignistyp hat eine eigene Akzentfarbe und eine erweiterte Karte mit Schnellaktionen.</string>
 
-    <!-- App Spoofing -->
-    <string name="user_selectable_app_spoofing_title">App-Spoofing</string>
-    <string name="user_selectable_app_spoofing_summary">Apps auswählen, für die Geräteeigenschaften gespooft werden sollen</string>
-    <string name="user_select_spoofing_profile_title">Spoofing-Profil auswählen</string>
-    <string name="app_spoofing_category_title">Spoofing pro App</string>
-    <string name="app_spoofing_header_title">Spoofing aktivieren</string>
-    <string name="app_spoofing_configured_count">%1$d Apps gespooft</string>
-    <string name="app_spoofing_disabled">Deaktiviert</string>
-    <string name="app_spoofing_add_apps">Apps hinzufügen</string>
-    <string name="app_spoofing_spoofed_model">Modell auswählen</string>
-    <string name="app_spoofing_clear_all">Alle löschen</string>
-    <string name="app_spoofing_configured_apps">Konfigurierte App-Liste</string>
-    <string name="app_spoofing_no_apps_configured">Keine Apps konfiguriert</string>
-    <string name="app_spoofing_spoof_model">Spoof-Modell</string>
-    <string name="app_spoofing_select_spoof_model">Spoof-Modell auswählen</string>
-    <string name="app_spoofing_change_app">App ändern</string>
-    <string name="show_system_apps">System-Apps anzeigen</string>
-    <string name="hide_system_apps">System-Apps ausblenden</string>
-    <string name="search_apps">Apps suchen</string>
-    <string name="add_new_spoof_profile">Neu hinzufügen</string>
-    <string name="add_custom_spoof_profile_title">Benutzerdefiniertes Spoof-Profil hinzufügen</string>
-    <string name="custom_spoof_profile_name">Profilname</string>
-    <string name="custom_spoof_profile_brand">BRAND</string>
-    <string name="custom_spoof_profile_manufacturer">MANUFACTURER</string>
-    <string name="custom_spoof_profile_device">DEVICE</string>
-    <string name="custom_spoof_profile_model">MODEL</string>
-    <string name="custom_spoof_profile_fingerprint">FINGERPRINT (Optional)</string>
-    <string name="custom_spoof_profile_product">PRODUCT (Optional)</string>
-    <string name="app_spoofing_clear_all_confirm">Damit werden alle konfigurierten App-Spoofing-Einträge entfernt.</string>
-    <string name="app_spoofing_no_apps_available">Keine Apps verfügbar</string>
-    <string name="app_spoofing_no_apps_found">Keine Apps für „%s“ gefunden</string>
-    <string name="app_spoofing_clear_search">Suche löschen</string>
-    <string name="app_spoofing_longpress_hint">Lange drücken, um das Profil schnell neu zuzuweisen</string>
-    <string name="app_spoofing_remove_title">App entfernen?</string>
-    <string name="app_spoofing_remove_confirm">%1$s aus der Spoofing-Liste entfernen?</string>
-
     <!-- AppLock and Sandbox -->
     <string name="applocker_sandbox_title">AppLock und Sandbox</string>
     <string name="applocker_sandbox_summary">App zur Verwaltung von AppLock und Sandbox öffnen</string>

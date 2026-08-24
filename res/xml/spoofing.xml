@@ -43,12 +43,6 @@
             android:summary="@string/gphotos_spoof_summary"
             android:defaultValue="true" />
 
-        <Preference
-            android:key="user_selectable_app_spoofing"
-            android:title="@string/user_selectable_app_spoofing_title"
-            android:summary="@string/user_selectable_app_spoofing_summary"
-            android:fragment="org.derpfest.customizations.fragment.UserSelectedAppSpoofSettings" />
-
     </PreferenceCategory>
 
 </PreferenceScreen>
