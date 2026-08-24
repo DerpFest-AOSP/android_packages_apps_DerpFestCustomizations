@@ -26,7 +26,6 @@
     <string name="qs_show_brightness_hide">Скрыть</string>
     <string name="monet_engine_color_source_title">Источник цвета</string>
     <string name="enable_fingerprint_ripple_effect_summary">Показывать эффект пульсации при разблокировке с помощью отпечатка пальца</string>
-    <string name="effects_category_summary">Визуальные эффекты и анимации</string>
     <string name="ignore_window_secure_title">Игнорировать флаги безопасности окна</string>
     <string name="keyguard_affordance_single_tap_summary">Переключать возможности защиты ключей одним касанием</string>
     <string name="monet_engine_style_vibrant">Яркий</string>
@@ -112,7 +111,6 @@
     <string name="compact_heads_up_notifications_enabled_title">Компактные всплывающие уведомления</string>
     <string name="qs_show_auto_brightness_summary">Показать значок автояркости рядом с регулятором</string>
     <string name="monet_engine_style_title">Стиль темы</string>
-    <string name="blur_intensity_summary" formatted="false">Контролируйте интенсивность эффектов размытия во всей системе. 0% = без размытия, 100% = по умолчанию системный, 200% = двойная интенсивность.</string>
     <string name="brightness_category_title">Регулятор яркости</string>
     <string name="monet_engine_custom_bgcolor_title">Цвет фона</string>
     <string name="qs_footer_datausage_title">Использование данных</string>
@@ -129,7 +127,6 @@
     <string name="security_category_title">Безопасность</string>
     <string name="security_category_summary">Настройки безопасности и приватности</string>
     <string name="dashboard_category_summary">Управление внешним видом экрана настроек</string>
-    <string name="effects_category_title">Эффекты</string>
     <string name="dashboard_category_title">Экран настроек</string>
     <string name="keybox_data_loaded_summary">Загружен %1$s keybox с %2$d сертификатами (%3$s)</string>
     <string name="keybox_delete_content_description">Очистить данные keybox</string>
@@ -152,7 +149,6 @@
     <string name="theming_settings_dashboard_icons_white">Системный фон / Белый передний план</string>
     <string name="theming_settings_dashboard_icons_accent">Акцентный фон / Прозрачный передний план</string>
     <string name="theming_settings_dashboard_icons_plain">Прозрачный фон / Системный передний план</string>
-    <string name="blur_intensity_title">Интенсивность размытия</string>
     <string name="qs_brightness_match_tile_shape_title">Регулятор яркости соответствует форме плиток</string>
     <string name="qs_brightness_match_tile_shape_summary">Сделать регулятор яркости соответствующим выбранной форме плиток</string>
     <string name="qs_brightness_slider_shape_title">Форма регулятора яркости</string>

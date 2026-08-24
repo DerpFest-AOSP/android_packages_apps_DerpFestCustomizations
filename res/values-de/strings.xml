@@ -69,7 +69,6 @@
     <string name="general_category_title">Allgemein</string>
     <string name="security_category_title">Sicherheit</string>
     <string name="dashboard_category_title">Dashboard</string>
-    <string name="effects_category_title">Effekte</string>
 
     <!-- Ignore window secure -->
     <string name="ignore_window_secure_title">Flag für sichere Fenster ignorieren</string>
@@ -302,10 +301,6 @@
     <!-- Small landscape notifications -->
     <string name="small_landscape_notification_title">Kleine Querformat-Benachrichtigungen</string>
     <string name="small_landscape_notification_summary">Zeigt Benachrichtigungen in kleinerer Breite im Benachrichtigungsbereich im Querformat an, genau wie von AOSP vorgesehen</string>
-
-    <!-- Blur intensity -->
-    <string name="blur_intensity_title">Unschärfe-Intensität</string>
-    <string name="blur_intensity_summary" formatted="false">Intensität der Unschärfe-Effekte im gesamten System steuern.\n0% = keine Unschärfe, 100% = Systemstandard, 200% = doppelte Intensität.</string>
 
     <!-- Bluetooth QS Tile behavior -->
     <string name="click_bluetooth_tile_behavior_title">Bluetooth-Kachel-Verhalten beim Klicken</string>

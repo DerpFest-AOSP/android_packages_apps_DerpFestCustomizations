@@ -69,7 +69,6 @@
     <string name="general_category_title">General</string>
     <string name="security_category_title">Security</string>
     <string name="dashboard_category_title">Dashboard</string>
-    <string name="effects_category_title">Effects</string>
 
     <!-- Ignore window secure -->
     <string name="ignore_window_secure_title">Ignore window secure flags</string>
@@ -277,10 +276,6 @@
     <!-- Small landscape notifications -->
     <string name="small_landscape_notification_title">Small landscape notifications</string>
     <string name="small_landscape_notification_summary">Shows notifications smaller in width in notification panel in landscape mode just as AOSP intended</string>
-
-    <!-- Blur intensity -->
-    <string name="blur_intensity_title">Blur intensity</string>
-    <string name="blur_intensity_summary" formatted="false">Control the intensity of blur effects throughout the system.\n0% = no blur, 100% = system default, 200% = double intensity.</string>
 
     <!-- QS Panel -->
     <string name="qs_appearance_category_title">Appearance</string>

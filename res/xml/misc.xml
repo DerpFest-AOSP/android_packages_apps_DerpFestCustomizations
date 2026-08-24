@@ -48,18 +48,4 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:title="@string/effects_category_title">
-
-        <org.derpfest.support.preferences.SystemSettingSeekBarPreference
-            android:key="blur_intensity"
-            android:title="@string/blur_intensity_title"
-            android:summary="@string/blur_intensity_summary"
-            android:max="200"
-            settings:min="0"
-            android:defaultValue="100"
-            settings:units="%" />
-
-    </PreferenceCategory>
-
 </PreferenceScreen>

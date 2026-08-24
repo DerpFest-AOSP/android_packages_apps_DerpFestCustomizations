@@ -33,7 +33,6 @@
     <string name="general_category_title">通用</string>
     <string name="security_category_title">安全</string>
     <string name="dashboard_category_title">主界面</string>
-    <string name="effects_category_title">动效</string>
 
     <!-- Ignore window secure -->
     <string name="ignore_window_secure_title">忽略窗口安全标志</string>
@@ -164,10 +163,6 @@
     <!-- Small landscape notifications -->
     <string name="small_landscape_notification_title">小型横屏通知</string>
     <string name="small_landscape_notification_summary">按 AOSP 设计，在横屏模式下的通知面板中显示更窄的通知</string>
-
-    <!-- Blur intensity -->
-    <string name="blur_intensity_title">模糊强度</string>
-    <string name="blur_intensity_summary" formatted="false">调整系统模糊效果的强度。\n0% = 无模糊，100% = 系统默认，200% = 双倍强度。</string>
 
     <!-- QS Panel -->
     <string name="brightness_category_title">亮度滑块</string>
