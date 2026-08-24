@@ -21,7 +21,6 @@
     <string name="buttons_summary">Imposta comportamento predefinito e azioni dei tasti</string>
     <string name="lockscreen_title">Schermata di blocco</string>
     <string name="lockscreen_summary">Configura opzioni della schermata di blocco &amp; ambient display</string>
-    <string name="lockscreen_clock_title">Orologio</string>
     <string name="misc_title">Varie</string>
     <string name="misc_summary">Tutto il resto che non c\'entra con le altre categorie</string>
 

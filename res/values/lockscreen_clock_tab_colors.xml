@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
-     Local ids for CustomClockPreview.java (com.android.settings.R) — SettingsLib name is not
-     available as a Java symbol in this target.
--->
-<resources>
-    <color name="lockscreen_clock_tab_text_selected">@color/settingslib_btn_colored_text_material</color>
-</resources>

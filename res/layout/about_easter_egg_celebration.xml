@@ -42,7 +42,7 @@
             android:textColor="?android:attr/textColorPrimary"
             android:textSize="18sp" />
 
-        <!-- Same as lockscreen_clock_preview apply FAB: local theme so Material inflates in Dialog. -->
+        <!-- Local theme so Material inflates in Dialog. -->
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/easter_egg_got_it"
             android:layout_width="wrap_content"

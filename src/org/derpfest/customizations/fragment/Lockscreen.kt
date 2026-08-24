@@ -23,7 +23,6 @@ class Lockscreen : SettingsPreferenceFragment(), Preference.OnPreferenceChangeLi
     private val KEY_FP_SUCCESS = "fp_success_vibrate"
     private val KEY_FP_ERROR = "fp_error_vibrate"
     private val KEY_AUTH_RIPPLE = "auth_ripple_enabled"
-    private val KEY_CUSTOM_CLOCK = "custom_clock_style"
     private val GENERAL_CATEGORY = "general_category"
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -52,18 +51,6 @@ class Lockscreen : SettingsPreferenceFragment(), Preference.OnPreferenceChangeLi
                 authRipple?.let { pref -> it.removePreference(pref) }
             }
         }
-
-        updateCustomClockSummary()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        updateCustomClockSummary()
-    }
-
-    private fun updateCustomClockSummary() {
-        val pref = findPreference<Preference>(KEY_CUSTOM_CLOCK) ?: return
-        pref.summary = CustomClockController(requireContext(), KEY_CUSTOM_CLOCK).summary
     }
 
     override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {

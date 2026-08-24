@@ -379,19 +379,6 @@
         <item>6</item>
     </string-array>
 
-    <!-- Lock screen custom clock color mode (Settings.Secure lock_screen_custom_clock_color_mode) -->
-    <string-array name="lockscreen_custom_clock_color_mode_entries">
-        <item>@string/default_value</item>
-        <item>@string/lockscreen_clock_color_mode_accent</item>
-        <item>@string/lockscreen_clock_color_mode_custom</item>
-    </string-array>
-
-    <string-array name="lockscreen_custom_clock_color_mode_values" translatable="false">
-        <item>default</item>
-        <item>accent</item>
-        <item>custom</item>
-    </string-array>
-
     <!-- Edge light (Settings.System, crDroid-compatible) -->
     <string-array name="edge_light_color_mode_entries" translatable="false">
         <item>@string/accent_color</item>
@@ -448,42 +435,6 @@
         <item>0</item>
         <item>1</item>
         <item>2</item>
-    </string-array>
-
-    <!-- CustomClockPreview: display names in order of CLOCK_LAYOUTS (0..n) -->
-    <string-array name="lockscreen_clock_names">
-        <item>Default Clock</item>
-        <item>OnePlus Clock</item>
-        <item>IOS Clock</item>
-        <item>Simple Clock</item>
-        <item>MIUI Clock</item>
-        <item>IDE Clock</item>
-        <item>Moto Clock</item>
-        <item>Stylish Clock</item>
-        <item>Stylish Clock 2</item>
-        <item>Stylish Clock 3</item>
-        <item>Stylish Clock 4</item>
-        <item>Stylish Clock 5</item>
-        <item>Stylish Clock 6</item>
-        <item>Stylish Clock 7</item>
-        <item>Stylish Clock 8</item>
-        <item>Stylish Clock 9</item>
-        <item>Stylish Clock 10</item>
-        <item>Text Clock</item>
-        <item>LifeStyle Clock</item>
-        <item>Android 9 Vibe</item>
-        <item>NothingOS 1 Clock</item>
-        <item>NothingOS 2 Clock</item>
-        <item>Stacked Clock</item>
-        <item>X Factor</item>
-        <item>Simple Analog</item>
-        <item>Block</item>
-        <item>Bubble</item>
-        <item>Label Clock</item>
-        <item>Taden Clock</item>
-        <item>Mont Clock</item>
-        <item>Encode Clock</item>
-        <item>NOS Clock 3</item>
     </string-array>
 
     <!-- App Spoofing -->
