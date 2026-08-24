@@ -286,11 +286,6 @@
     <string name="pulse_haptics_while_visualizer">Only when pulse is showing</string>
     <string name="pulse_haptics_while_media">Whenever media playback is active</string>
     <string name="brightness_category_title">Brightness slider</string>
-    <string name="qs_show_brightness_slider_title">When to show</string>
-    <string name="qs_show_brightness_slider_never">Never show</string>
-    <string name="qs_show_brightness_slider_expanded">Show when expanded</string>
-    <string name="qs_show_brightness_slider_always">Show always</string>
-    <string name="qs_show_brightness_slider_not_expanded">Show when not expanded</string>
     <string name="qs_brightness_gradient_enabled_title">Gradient slider background</string>
     <string name="qs_brightness_gradient_enabled_summary">Enable gradient styling for the brightness slider</string>
     <string name="qs_brightness_slider_position_title">Position</string>

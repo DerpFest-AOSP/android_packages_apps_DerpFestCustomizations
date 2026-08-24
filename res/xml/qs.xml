@@ -108,15 +108,6 @@
         android:key="brightness_category"
         android:title="@string/brightness_category_title" >
 
-        <lineageos.preference.LineageSecureSettingListPreference
-            android:key="qs_show_brightness_slider"
-            android:title="@string/qs_show_brightness_slider_title"
-            android:dialogTitle="@string/qs_show_brightness_slider_title"
-            android:summary="%s"
-            android:entries="@array/qs_show_brightness_slider_entries"
-            android:entryValues="@array/qs_show_brightness_slider_values"
-            android:defaultValue="1" />
-
         <org.derpfest.support.preferences.SystemSettingListPreference
             android:key="qs_brightness_slider_shape"
             android:title="@string/qs_brightness_slider_shape_title"

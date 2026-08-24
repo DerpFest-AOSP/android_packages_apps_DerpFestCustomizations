@@ -287,15 +287,6 @@
     <string name="qs_notifications_category_title">Сповіщення</string>
     <string name="qs_show_auto_brightness_summary">Показати піктограму авто-яскравості на повзунку яскравості</string>
     <string name="qs_show_auto_brightness_title">Показати піктограму авто-яскравості</string>
-    <string name="qs_show_brightness_both">Показати в QS та швидкій панелі QS</string>
-    <string name="qs_show_brightness_hide">Приховати</string>
-    <string name="qs_show_brightness_normal">Показати на панелі QS</string>
-    <string name="qs_show_brightness_slider_always">Завжди показувати</string>
-    <string name="qs_show_brightness_slider_expanded">Показувати коли розгорнуто</string>
-    <string name="qs_show_brightness_slider_never">Ніколи не показувати</string>
-    <string name="qs_show_brightness_slider_not_expanded">Показувати коли не розгорнуто</string>
-    <string name="qs_show_brightness_slider_title">Коли показувати</string>
-    <string name="qs_show_brightness_title">Де показувати</string>
     <string name="qs_show_data_usage_cycle_info_summary">Відображати додаткову інформацію про цикл використання даних</string>
     <string name="qs_show_data_usage_cycle_info_title">Показати інформацію про цикл</string>
     <string name="qs_show_edit_button_summary">Показати кнопку редагування на панелі швидких налаштувань</string>

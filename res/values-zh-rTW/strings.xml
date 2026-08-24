@@ -172,11 +172,6 @@
 
     <!-- QS Panel -->
     <string name="brightness_category_title">亮度滑桿</string>
-    <string name="qs_show_brightness_slider_title">顯示時機</string>
-    <string name="qs_show_brightness_slider_never">永不顯示</string>
-    <string name="qs_show_brightness_slider_expanded">展開時顯示</string>
-    <string name="qs_show_brightness_slider_always">總是顯示</string>
-    <string name="qs_show_brightness_slider_not_expanded">未展開時顯示</string>
     <string name="qs_brightness_slider_position_title">位置</string>
     <string name="qs_brightness_slider_position_top">頂部</string>
     <string name="qs_brightness_slider_position_bottom">底部</string>

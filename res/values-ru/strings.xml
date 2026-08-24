@@ -23,7 +23,6 @@
     <string name="footer_category_title">Элементы нижней части</string>
     <string name="qs_footer_datausage_summary">Отображать сводку использования данных в нижней части быстрых настроек</string>
     <string name="monet_settings_sammary">Настройте динамичный движок тем</string>
-    <string name="qs_show_brightness_hide">Скрыть</string>
     <string name="monet_engine_color_source_title">Источник цвета</string>
     <string name="enable_fingerprint_ripple_effect_summary">Показывать эффект пульсации при разблокировке с помощью отпечатка пальца</string>
     <string name="ignore_window_secure_title">Игнорировать флаги безопасности окна</string>
@@ -98,11 +97,8 @@
     <string name="keyguard_affordance_single_tap_title">Защита ключей доступна одним нажатием</string>
     <string name="monet_engine_style_monochromatic">Монохромный</string>
     <string name="monet_engine_whole_palette_title">Вся палитра</string>
-    <string name="qs_show_brightness_title">Где показывать</string>
-    <string name="qs_show_brightness_normal">Показать в панели быстрых настроек</string>
     <string name="customisation_settings_title">Настройки DerpFest</string>
     <string name="qs_show_auto_brightness_title">Значок автояркости</string>
-    <string name="qs_show_brightness_both">Показать в быстрых настройках и в панели быстрых настроек</string>
     <string name="monet_engine_whole_palette_summary">Сделать, чтобы выбор яркости и насыщенности влияли и на вторичные цвета</string>
     <string name="enable_fingerprint_ripple_effect_title">Анимация разблокировки</string>
     <string name="gphotos_spoof_summary">Подмена Вашего устройства как Pixel XL для приложения Google Фото, обеспечивающая безлимитное хранилище резервной копии фото</string>
