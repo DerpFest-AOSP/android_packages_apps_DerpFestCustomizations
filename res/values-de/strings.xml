@@ -539,8 +539,15 @@
     <string name="dynamic_bar_keyguard_battery_chip_disabled">Nie anzeigen</string>
     <string name="dynamic_bar_keyguard_battery_chip_charging">Nur beim Laden</string>
     <string name="dynamic_bar_keyguard_battery_chip_always">Immer anzeigen</string>
-    <string name="dynamic_bar_keyguard_music_pill">Musik-Pille auf dem Sperrbildschirm</string>
-    <string name="dynamic_bar_keyguard_music_pill_summary">Musikplayer auf dem Sperrbildschirm als Pille anzeigen</string>
+    <string name="dynamic_bar_lockscreen_media">Musik auf dem Sperrbildschirm</string>
+    <string name="dynamic_bar_lockscreen_media_summary">Musikplayer auf dem Sperrbildschirm anzeigen, auch wenn Dynamic Bar aus ist</string>
+    <string name="dynamic_bar_lockscreen_media_lyrics">Songtexte auf dem Sperrbildschirm</string>
+    <string name="dynamic_bar_lockscreen_media_lyrics_summary">Songtexte unter dem Musik-Chip auf dem Sperrbildschirm anzeigen, sofern verfügbar</string>
+    <string name="dynamic_bar_chip_style_title">Statusleisten-Chip-Stil</string>
+    <string name="dynamic_bar_chip_style_pill">Pille</string>
+    <string name="dynamic_bar_chip_style_circle">Kreis</string>
+    <string name="dynamic_bar_compact_notifications">Kompakte Benachrichtigungen</string>
+    <string name="dynamic_bar_compact_notifications_summary">Benachrichtigungen zuerst als kleinen Chip zeigen, zum Erweitern tippen</string>
     <string name="dynamic_bar_keyguard_compact_chip">Kompakter Sperrbildschirm-Chip</string>
     <string name="dynamic_bar_keyguard_compact_chip_summary">Immer den kompakten Chip-Stil auf dem Sperrbildschirm verwenden. Wenn deaktiviert, wird der Kompaktmodus nur bei begrenztem Platz genutzt.</string>
     <string name="dynamic_bar_events">Ereignisse</string>
@@ -593,6 +600,33 @@
     <string name="dynamic_bar_guide_keyguard_title">Chip auf Sperrbildschirm</string>
     <string name="dynamic_bar_footer_title">Über Dynamic Bar</string>
     <string name="dynamic_bar_footer_body">Dynamic Bar macht aus deiner Statusleiste ein interaktives Zentrum. Status-Chips erscheinen und animieren sich je nach Systemereignissen und liefern Infos auf einen Blick, ohne den Ablauf zu stören.\n\nJeder Ereignistyp hat eine eigene Akzentfarbe und eine erweiterte Karte mit Schnellaktionen.</string>
+
+    <!-- Dynamic Island -->
+    <string name="status_bar_dynamic_island_title">Dynamic Island</string>
+    <string name="status_bar_dynamic_island_summary">Live-Aktivitäten, Steuerelemente und Updates an den Kameraausschnitt bringen</string>
+    <string name="dynamic_island_width_title">Dynamic-Island-Breite</string>
+    <string name="dynamic_island_width_summary">Horizontale Länge des Dynamic-Island-Chips anpassen</string>
+    <string name="dynamic_island_footer_title">Über Dynamic Island</string>
+    <string name="dynamic_island_intro">Dynamic Island bringt laufende Aktivitäten an den Kameraausschnitt.\n\nMusik steuern, Bildschirmaufnahmen verfolgen, Taschenlampe bedienen, Live-Ergebnisse folgen und Anrufe sowie Downloads oben auf dem Bildschirm behalten, ohne zu stören.</string>
+    <string name="dynamic_island_features_title">Funktionen</string>
+    <string name="dynamic_island_media_controls_title">Mediensteuerung</string>
+    <string name="dynamic_island_media_controls_summary">Musik mit Wiedergabesteuerung, Cover und Live-Aktivität in der Nähe behalten</string>
+    <string name="dynamic_island_screen_recording_title">Bildschirmaufnahme</string>
+    <string name="dynamic_island_screen_recording_summary">Aufnahme mit Live-Zeit und Schnellaktionen verfolgen</string>
+    <string name="dynamic_island_alarms_title">Wecker</string>
+    <string name="dynamic_island_alarms_summary">Nächsten Wecker in der Island anzeigen</string>
+    <string name="dynamic_island_stopwatch_title">Stoppuhr</string>
+    <string name="dynamic_island_stopwatch_summary">Laufende Stoppuhr in der Island sichtbar halten</string>
+    <string name="dynamic_island_flashlight_title">Taschenlampe</string>
+    <string name="dynamic_island_flashlight_summary">Taschenlampe über die Island steuern</string>
+    <string name="dynamic_island_live_scores_title">Live-Ergebnisse</string>
+    <string name="dynamic_island_live_scores_summary">Live-Sport Ergebnisse und Updates aus unterstützten Apps verfolgen</string>
+    <string name="dynamic_island_lyrics_title">Songtexte</string>
+    <string name="dynamic_island_lyrics_summary">Songtexte unter der Musikkarte anzeigen, sofern verfügbar</string>
+    <string name="dynamic_island_ongoing_activities_title">Laufende Aktivitäten</string>
+    <string name="dynamic_island_ongoing_activities_summary">Hintergrundaufgaben wie Downloads, Backups oder Entpacken in der Island anzeigen</string>
+    <string name="dynamic_island_calls_title">Laufende Anrufe</string>
+    <string name="dynamic_island_calls_summary">Anrufstatus mit Dauer und Schnellaktionen anzeigen</string>
 
     <!-- AppLock and Sandbox -->
     <string name="applocker_sandbox_title">AppLock und Sandbox</string>

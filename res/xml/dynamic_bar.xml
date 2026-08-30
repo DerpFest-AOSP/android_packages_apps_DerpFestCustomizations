@@ -18,6 +18,15 @@
         android:title="@string/dynamic_bar_enable"
         android:defaultValue="false" />
 
+    <org.derpfest.support.preferences.SecureSettingListPreference
+        android:key="ax_dynamic_bar_chip_style"
+        android:title="@string/dynamic_bar_chip_style_title"
+        android:summary="%s"
+        android:entries="@array/dynamic_bar_chip_style_entries"
+        android:entryValues="@array/dynamic_bar_chip_style_values"
+        android:defaultValue="0"
+        android:dependency="ax_dynamic_bar_enabled" />
+
     <org.derpfest.support.preferences.SecureSettingSwitchPreference
         android:key="ax_dynamic_bar_keyguard_enabled"
         android:title="@string/dynamic_bar_keyguard_enable"
@@ -35,11 +44,17 @@
         android:dependency="ax_dynamic_bar_keyguard_enabled" />
 
     <org.derpfest.support.preferences.SecureSettingSwitchPreference
-        android:key="ax_dynamic_bar_keyguard_music_pill"
-        android:title="@string/dynamic_bar_keyguard_music_pill"
-        android:summary="@string/dynamic_bar_keyguard_music_pill_summary"
+        android:key="ax_dynamic_bar_lockscreen_media_enabled"
+        android:title="@string/dynamic_bar_lockscreen_media"
+        android:summary="@string/dynamic_bar_lockscreen_media_summary"
+        android:defaultValue="false" />
+
+    <org.derpfest.support.preferences.SecureSettingSwitchPreference
+        android:key="ax_dynamic_bar_lockscreen_media_lyrics_enabled"
+        android:title="@string/dynamic_bar_lockscreen_media_lyrics"
+        android:summary="@string/dynamic_bar_lockscreen_media_lyrics_summary"
         android:defaultValue="false"
-        android:dependency="ax_dynamic_bar_keyguard_enabled" />
+        android:dependency="ax_dynamic_bar_lockscreen_media_enabled" />
 
     <PreferenceCategory
         android:key="dynamic_bar_events_category"
@@ -61,6 +76,14 @@
             android:defaultValue="true" />
 
         <SwitchPreferenceCompat
+            android:key="event_lyrics"
+            android:title="@string/dynamic_island_lyrics_title"
+            android:summary="@string/dynamic_island_lyrics_summary"
+            android:icon="@drawable/ic_dynamic_bar_music_note"
+            android:defaultValue="false"
+            android:dependency="event_media" />
+
+        <SwitchPreferenceCompat
             android:key="event_call"
             android:title="@string/dynamic_bar_event_call"
             android:summary="@string/dynamic_bar_event_call_summary"
@@ -73,6 +96,14 @@
             android:summary="@string/dynamic_bar_event_notification_summary"
             android:icon="@drawable/ic_dynamic_bar_notifications"
             android:defaultValue="true" />
+
+        <org.derpfest.support.preferences.SecureSettingSwitchPreference
+            android:key="ax_dynamic_bar_compact_notifications"
+            android:title="@string/dynamic_bar_compact_notifications"
+            android:summary="@string/dynamic_bar_compact_notifications_summary"
+            android:icon="@drawable/ic_dynamic_bar_notifications"
+            android:defaultValue="true"
+            android:dependency="event_notification" />
 
         <SwitchPreferenceCompat
             android:key="event_timer"

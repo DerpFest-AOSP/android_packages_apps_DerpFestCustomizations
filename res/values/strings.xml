@@ -550,10 +550,15 @@
     <string name="dynamic_bar_keyguard_battery_chip_disabled">Never show</string>
     <string name="dynamic_bar_keyguard_battery_chip_charging">Only when charging</string>
     <string name="dynamic_bar_keyguard_battery_chip_always">Always show</string>
-    <string name="dynamic_bar_keyguard_music_pill">Music pill on lock screen</string>
-    <string name="dynamic_bar_keyguard_music_pill_summary">Show music player as a pill on the lock screen</string>
-    <string name="dynamic_bar_keyguard_compact_chip">Compact lock screen chip</string>
-    <string name="dynamic_bar_keyguard_compact_chip_summary">Always use the compact chip style on the lockscreen. When disabled, compact mode is used only when space is limited.</string>
+    <string name="dynamic_bar_lockscreen_media">Music on lock screen</string>
+    <string name="dynamic_bar_lockscreen_media_summary">Show the music player on the lock screen even when Dynamic Bar is off</string>
+    <string name="dynamic_bar_lockscreen_media_lyrics">Lyrics on lock screen</string>
+    <string name="dynamic_bar_lockscreen_media_lyrics_summary">Show lyrics under the lock screen music chip when available</string>
+    <string name="dynamic_bar_chip_style_title">Status bar chip style</string>
+    <string name="dynamic_bar_chip_style_pill">Pill</string>
+    <string name="dynamic_bar_chip_style_circle">Circle</string>
+    <string name="dynamic_bar_compact_notifications">Compact notifications</string>
+    <string name="dynamic_bar_compact_notifications_summary">Show notifications as a small chip first, tap to expand</string>
     <string name="dynamic_bar_events">Events</string>
     <string name="dynamic_bar_event_audio_recording">Audio recording</string>
     <string name="dynamic_bar_event_audio_recording_summary">Voice recorder and audio capture</string>
@@ -604,6 +609,33 @@
     <string name="dynamic_bar_guide_keyguard_title">Lock screen chip</string>
     <string name="dynamic_bar_footer_title">About Dynamic Bar</string>
     <string name="dynamic_bar_footer_body">Dynamic Bar transforms your status bar into an interactive hub. Status chips appear and animate based on system events, giving you at-a-glance information without interrupting your workflow.\n\nEach event type has its own accent color and expanded card with quick actions.</string>
+
+    <!-- Dynamic Island -->
+    <string name="status_bar_dynamic_island_title">Dynamic Island</string>
+    <string name="status_bar_dynamic_island_summary">Bring live activities, controls, and updates to the camera cutout</string>
+    <string name="dynamic_island_width_title">Dynamic Island width</string>
+    <string name="dynamic_island_width_summary">Modify the horizontal length of the Dynamic Island chip</string>
+    <string name="dynamic_island_footer_title">About Dynamic Island</string>
+    <string name="dynamic_island_intro">Dynamic Island brings ongoing activities to the camera cutout.\n\nControl music, follow screen recordings, manage the flashlight, track live scores, and keep calls and downloads at the top of the screen without getting in the way.</string>
+    <string name="dynamic_island_features_title">Features</string>
+    <string name="dynamic_island_media_controls_title">Media control</string>
+    <string name="dynamic_island_media_controls_summary">Keep your music close with playback controls, artwork, and live activity</string>
+    <string name="dynamic_island_screen_recording_title">Screen recording</string>
+    <string name="dynamic_island_screen_recording_summary">Keep track of your recording with live time and quick controls</string>
+    <string name="dynamic_island_alarms_title">Alarms</string>
+    <string name="dynamic_island_alarms_summary">Show the next alarm in the island</string>
+    <string name="dynamic_island_stopwatch_title">Stopwatch</string>
+    <string name="dynamic_island_stopwatch_summary">Keep a running stopwatch visible in the island</string>
+    <string name="dynamic_island_flashlight_title">Flashlight</string>
+    <string name="dynamic_island_flashlight_summary">Control your flashlight from the island</string>
+    <string name="dynamic_island_live_scores_title">Live scores</string>
+    <string name="dynamic_island_live_scores_summary">Follow live sports scores and updates from supported apps</string>
+    <string name="dynamic_island_lyrics_title">Music lyrics</string>
+    <string name="dynamic_island_lyrics_summary">Follow along with lyrics below the music card when available</string>
+    <string name="dynamic_island_ongoing_activities_title">Ongoing activities</string>
+    <string name="dynamic_island_ongoing_activities_summary">Show background tasks like downloads, backups, or unzipping in the island</string>
+    <string name="dynamic_island_calls_title">Ongoing calls</string>
+    <string name="dynamic_island_calls_summary">Show your ongoing call status with duration and quick controls</string>
 
     <!-- AppLock and Sandbox -->
     <string name="applocker_sandbox_title">AppLock and Sandbox</string>

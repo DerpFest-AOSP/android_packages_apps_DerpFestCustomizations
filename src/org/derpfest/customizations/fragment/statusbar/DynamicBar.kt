@@ -33,6 +33,7 @@ class DynamicBar : SettingsPreferenceFragment() {
     private val eventTypeIds = listOf(
         "audio_recording",
         "media",
+        "lyrics",
         "call",
         "notification",
         "timer",
@@ -56,6 +57,7 @@ class DynamicBar : SettingsPreferenceFragment() {
 
         setupKeyguardSubPrefs()
         setupEventToggles()
+        updateCompactNotificationVisibility()
         registerObserver()
     }
 
@@ -78,7 +80,6 @@ class DynamicBar : SettingsPreferenceFragment() {
 
     private fun updateKeyguardSubPrefsVisibility(keyguardEnabled: Boolean) {
         findPreference<Preference>(SETTINGS_KEY_BATTERY_CHIP_MODE)?.isVisible = keyguardEnabled
-        findPreference<Preference>(SETTINGS_KEY_MUSIC_PILL)?.isVisible = keyguardEnabled
     }
 
     private fun setupEventToggles() {
@@ -89,6 +90,9 @@ class DynamicBar : SettingsPreferenceFragment() {
             pref.isChecked = typeId !in disabledEvents
             pref.setOnPreferenceChangeListener { _, newValue ->
                 toggleEvent(typeId, newValue as Boolean)
+                if (typeId == "notification") {
+                    updateCompactNotificationVisibility()
+                }
                 true
             }
         }
@@ -118,6 +122,12 @@ class DynamicBar : SettingsPreferenceFragment() {
         )
     }
 
+    private fun updateCompactNotificationVisibility() {
+        val compactPref = findPreference<Preference>(SETTINGS_KEY_COMPACT_NOTIFICATIONS)
+        val notifPref = findPreference<SwitchPreferenceCompat>("event_notification")
+        compactPref?.isVisible = notifPref?.isChecked == true
+    }
+
     private fun registerObserver() {
         settingsObserver = object : ContentObserver(handler) {
             override fun onChange(selfChange: Boolean, uri: Uri?) {
@@ -128,6 +138,7 @@ class DynamicBar : SettingsPreferenceFragment() {
                             val pref = findPreference<SwitchPreferenceCompat>("event_$typeId")
                             pref?.isChecked = typeId !in disabledEvents
                         }
+                        updateCompactNotificationVisibility()
                     }
                     SETTINGS_KEY_KEYGUARD_ENABLED -> {
                         val enabled = Settings.Secure.getIntForUser(
@@ -157,8 +168,12 @@ class DynamicBar : SettingsPreferenceFragment() {
         private const val SETTINGS_KEY_ENABLED = "ax_dynamic_bar_enabled"
         private const val SETTINGS_KEY_KEYGUARD_ENABLED = "ax_dynamic_bar_keyguard_enabled"
         private const val SETTINGS_KEY_EVENTS = "ax_dynamic_bar_events"
+        private const val SETTINGS_KEY_COMPACT_NOTIFICATIONS = "ax_dynamic_bar_compact_notifications"
         private const val SETTINGS_KEY_BATTERY_CHIP_MODE = "ax_dynamic_bar_keyguard_battery_chip_mode"
-        private const val SETTINGS_KEY_MUSIC_PILL = "ax_dynamic_bar_keyguard_music_pill"
+        private const val SETTINGS_KEY_CHIP_STYLE = "ax_dynamic_bar_chip_style"
+        private const val SETTINGS_KEY_LOCKSCREEN_MEDIA = "ax_dynamic_bar_lockscreen_media_enabled"
+        private const val SETTINGS_KEY_LOCKSCREEN_MEDIA_LYRICS =
+            "ax_dynamic_bar_lockscreen_media_lyrics_enabled"
 
         @JvmStatic
         fun reset(context: Context) {
@@ -172,11 +187,27 @@ class DynamicBar : SettingsPreferenceFragment() {
                 UserHandle.USER_CURRENT
             )
             Settings.Secure.putIntForUser(
-                resolver, SETTINGS_KEY_MUSIC_PILL, 0,
+                resolver, SETTINGS_KEY_COMPACT_NOTIFICATIONS, 1,
                 UserHandle.USER_CURRENT
             )
             Settings.Secure.putIntForUser(
                 resolver, SETTINGS_KEY_BATTERY_CHIP_MODE, 1,
+                UserHandle.USER_CURRENT
+            )
+            Settings.Secure.putIntForUser(
+                resolver, SETTINGS_KEY_CHIP_STYLE, 0,
+                UserHandle.USER_CURRENT
+            )
+            Settings.Secure.putIntForUser(
+                resolver, SETTINGS_KEY_LOCKSCREEN_MEDIA, 0,
+                UserHandle.USER_CURRENT
+            )
+            Settings.Secure.putIntForUser(
+                resolver, SETTINGS_KEY_LOCKSCREEN_MEDIA_LYRICS, 0,
+                UserHandle.USER_CURRENT
+            )
+            Settings.Secure.putStringForUser(
+                resolver, SETTINGS_KEY_EVENTS, "",
                 UserHandle.USER_CURRENT
             )
         }
