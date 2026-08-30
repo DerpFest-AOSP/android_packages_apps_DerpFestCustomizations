@@ -11,12 +11,14 @@
     <color name="homepage_orange_fg">#ff753403</color>
     <color name="homepage_grey_fg">#64748B</color>
     <color name="homepage_red_fg">#ff8a1a16</color>
+    <color name="homepage_purple_fg">#ff4f378b</color>
 
     <!-- Expressive homepage icon background colors (Material 3) -->
     <color name="homepage_blue_bg">#ffd0e4ff</color>
     <color name="homepage_orange_bg">#ffffdcc3</color>
     <color name="homepage_grey_bg">#F1F5F9</color>
     <color name="homepage_red_bg">#ffffdadc</color>
+    <color name="homepage_purple_bg">#ffeaddff</color>
 
     <color name="qs_tile_icon_shape_item_selected_bg">#14000000</color>
 

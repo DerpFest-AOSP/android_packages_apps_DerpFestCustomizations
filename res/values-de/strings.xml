@@ -17,6 +17,8 @@
     <string name="qs_summary">QS-Panel individuell gestalten</string>
     <string name="notifications_title">Benachrichtigungen</string>
     <string name="notifications_summary">Optionen für Benachrichtigungen konfigurieren</string>
+    <string name="live_status_title">Live-Status</string>
+    <string name="live_status_summary">Dynamic Island und Dynamic Bar</string>
     <string name="buttons_title">Tasten</string>
     <string name="buttons_summary">Standardverhalten und -aktionen für Tasten festlegen</string>
     <string name="lockscreen_title">Sperrbildschirm</string>

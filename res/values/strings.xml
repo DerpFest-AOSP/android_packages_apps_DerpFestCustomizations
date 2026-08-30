@@ -17,6 +17,8 @@
     <string name="qs_summary">Customize your QS panel</string>
     <string name="notifications_title">Notifications</string>
     <string name="notifications_summary">Configure options for notifications</string>
+    <string name="live_status_title">Live status</string>
+    <string name="live_status_summary">Dynamic Island and Dynamic Bar</string>
     <string name="buttons_title">Buttons</string>
     <string name="buttons_summary">Set default behavior and actions for keys</string>
     <string name="lockscreen_title">Lockscreen</string>
