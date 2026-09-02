@@ -709,4 +709,28 @@
     <string name="dynamic_island_ongoing_activities_summary">Hintergrundaufgaben wie Downloads, Backups oder Entpacken in der Island anzeigen</string>
     <string name="dynamic_island_calls_title">Laufende Anrufe</string>
     <string name="dynamic_island_calls_summary">Anrufstatus mit Dauer und Schnellaktionen anzeigen</string>
+
+    <!-- Advanced CPU / GPU spoofing -->
+    <string name="hardware_spoof_category_title">Hardware-Spoofing</string>
+    <string name="advanced_app_spoof_title">Erweitertes CPU-/GPU-Spoofing</string>
+    <string name="advanced_app_spoof_summary">GPU-Renderer, CPU-Modell und SoC-Infos pro App beim Prozessstart spoofen</string>
+    <string name="advanced_spoof_count">%1$d App(s) konfiguriert</string>
+    <string name="advanced_spoof_disabled">Deaktiviert</string>
+    <string name="advanced_spoof_add_app">App hinzufügen</string>
+    <string name="advanced_spoof_clear_all">Alle löschen</string>
+    <string name="advanced_spoof_clear_all_confirm">Alle erweiterten Hardware-Spoofing-Regeln entfernen? Die Apps werden zwangsweise beendet.</string>
+    <string name="advanced_spoof_configured_apps">Konfigurierte Apps</string>
+    <string name="advanced_spoof_no_rules">Keine Regeln konfiguriert.\nAuf „App hinzufügen“ tippen, um zu starten.</string>
+    <string name="advanced_spoof_remove_title">Regel entfernen</string>
+    <string name="advanced_spoof_remove_confirm">Hardware-Spoofing-Regel für %1$s entfernen?</string>
+    <string name="advanced_spoof_add_rule">Regel hinzufügen</string>
+    <string name="advanced_spoof_edit_rule">Regel bearbeiten</string>
+    <string name="advanced_spoof_pick_app">App auswählen…</string>
+    <string name="advanced_spoof_search_hint">Apps suchen…</string>
+    <string name="advanced_spoof_select_policy">CPU-/GPU-Modell auswählen</string>
+    <string name="advanced_spoof_next_set_policy">Weiter: CPU-/GPU-Modell auswählen</string>
+    <string name="advanced_spoof_back_to_apps">Zurück</string>
+    <string name="advanced_spoof_label_gpu">GPU</string>
+    <string name="advanced_spoof_label_cpu">CPU</string>
+    <string name="advanced_spoof_none">Keine</string>
 </resources>

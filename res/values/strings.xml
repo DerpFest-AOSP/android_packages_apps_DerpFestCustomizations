@@ -736,4 +736,28 @@
     <string name="dynamic_island_ongoing_activities_summary">Show background tasks like downloads, backups, or unzipping in the island</string>
     <string name="dynamic_island_calls_title">Ongoing calls</string>
     <string name="dynamic_island_calls_summary">Show your ongoing call status with duration and quick controls</string>
+
+    <!-- Advanced CPU / GPU spoofing -->
+    <string name="hardware_spoof_category_title">Hardware Spoofing</string>
+    <string name="advanced_app_spoof_title">Advanced CPU / GPU Spoof</string>
+    <string name="advanced_app_spoof_summary">Spoof GPU renderer, CPU model and SoC info per-app at process start</string>
+    <string name="advanced_spoof_count">%d app(s) configured</string>
+    <string name="advanced_spoof_disabled">Disabled</string>
+    <string name="advanced_spoof_add_app">Add App</string>
+    <string name="advanced_spoof_clear_all">Clear All</string>
+    <string name="advanced_spoof_clear_all_confirm">Remove all advanced hardware spoof rules? Apps will be force-stopped.</string>
+    <string name="advanced_spoof_configured_apps">Configured Apps</string>
+    <string name="advanced_spoof_no_rules">No rules configured.\nTap Add App to get started.</string>
+    <string name="advanced_spoof_remove_title">Remove Rule</string>
+    <string name="advanced_spoof_remove_confirm">Remove hardware spoof rule for %s?</string>
+    <string name="advanced_spoof_add_rule">Add Rule</string>
+    <string name="advanced_spoof_edit_rule">Edit Rule</string>
+    <string name="advanced_spoof_pick_app">Select app…</string>
+    <string name="advanced_spoof_search_hint">Search apps…</string>
+    <string name="advanced_spoof_select_policy">Select CPU/GPU model</string>
+    <string name="advanced_spoof_next_set_policy">Next: Select CPU/GPU model</string>
+    <string name="advanced_spoof_back_to_apps">Back</string>
+    <string name="advanced_spoof_label_gpu">GPU</string>
+    <string name="advanced_spoof_label_cpu">CPU</string>
+    <string name="advanced_spoof_none">None</string>
 </resources>

@@ -57,4 +57,16 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="hardware_spoof_category"
+        android:title="@string/hardware_spoof_category_title">
+
+        <Preference
+            android:key="advanced_app_spoof"
+            android:title="@string/advanced_app_spoof_title"
+            android:summary="@string/advanced_app_spoof_summary"
+            android:fragment="org.derpfest.customizations.fragment.AdvancedAppSpoofSettings" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
