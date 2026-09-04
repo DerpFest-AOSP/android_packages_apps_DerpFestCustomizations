@@ -359,6 +359,13 @@
     <!-- QS layout entry screens (qs_layout_settings, qs_classic_layout_settings) -->
     <string name="qs_layout_settings_title">QS-Layout</string>
     <string name="qs_layout_settings_summary">Zeilen und Spalten für Schnelleinstellungen konfigurieren</string>
+    <string name="qs_layout_settings_summary_dual_shade">Nicht verfügbar bei getrennten Benachrichtigungen und Schnelleinstellungen</string>
+    <string name="qs_classic_layout_settings_summary_dual_shade">Spalten gelten jetzt. Zeilen und eingeklappte Schnelleinstellungen brauchen das kombinierte Panel</string>
+    <string name="qs_layout_dual_shade_banner_title">Getrennte Panels sind aktiv</string>
+    <string name="qs_layout_dual_shade_banner_summary">Zeilen und Spalten gelten nur, wenn Benachrichtigungen und Schnelleinstellungen das kombinierte Panel teilen. Getrennte Panels verwenden stattdessen ein scrollbares Raster.</string>
+    <string name="qs_layout_dual_shade_banner_classic_title">Einige Layout-Optionen greifen nicht</string>
+    <string name="qs_layout_dual_shade_banner_classic_summary">Bei getrennten Panels werden Zeilen pro Seite und eingeklappte Schnelleinstellungen nicht verwendet. Die Spaltenzahl ändert weiterhin das Schnelleinstellungen-Raster.</string>
+    <string name="qs_layout_open_shade_panels">Panels ändern</string>
     <string name="qs_classic_layout_columns_title">QS-Spalten (Hochformat)</string>
     <string name="qs_classic_layout_columns_summary">Erweitertes Schnelleinstellungen-Raster bei rundem Stil</string>
     <string name="qs_classic_layout_columns_landscape_title">QS-Spalten (Querformat)</string>

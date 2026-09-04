@@ -7,14 +7,17 @@ package org.derpfest.customizations.fragment
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent
 
+import android.database.ContentObserver
 import android.os.Bundle
 import android.provider.Settings
 
 import androidx.preference.Preference
+import androidx.preference.PreferenceCategory
 import org.derpfest.support.preferences.ProperSeekBarPreference
 
 import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
+import com.android.settingslib.widget.BannerMessagePreference
 
 /** Rows/columns for circular (classic) QS; mirrors [QsLayoutSettings] for card/infinite grid. */
 class QsClassicLayoutSettings : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
@@ -27,9 +30,23 @@ class QsClassicLayoutSettings : SettingsPreferenceFragment(), Preference.OnPrefe
     private lateinit var mQsRowsLandscapeClassic: ProperSeekBarPreference
     private lateinit var mQqsRowsClassic: ProperSeekBarPreference
     private lateinit var mQqsRowsLandscapeClassic: ProperSeekBarPreference
+    private var mQqsCategory: PreferenceCategory? = null
+    private var mDualShadeBanner: BannerMessagePreference? = null
+    private var mDualShadeObserver: ContentObserver? = null
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         addPreferencesFromResource(R.xml.qs_classic_layout_settings)
+        mQqsCategory = findPreference(KEY_QQS_CATEGORY)
+        mDualShadeBanner = findPreference(KEY_DUAL_SHADE_BANNER)
+        mDualShadeBanner?.let {
+            QsShadePanels.bindBanner(
+                it,
+                requireContext(),
+                metricsCategory,
+                R.string.qs_layout_dual_shade_banner_classic_title,
+                R.string.qs_layout_dual_shade_banner_classic_summary,
+            )
+        }
 
         mQsColumnsClassic = findPreference(KEY_QS_TILES_COLUMNS_CLASSIC)!!
         mQsColumnsLandscapeClassic = findPreference(KEY_QS_TILES_COLUMNS_LANDSCAPE_CLASSIC)!!
@@ -52,11 +69,40 @@ class QsClassicLayoutSettings : SettingsPreferenceFragment(), Preference.OnPrefe
         ).forEach { it.setOnPreferenceChangeListener(this) }
 
         setInitialValues()
+        applyDualShadeAvailability()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        mDualShadeObserver =
+            QsShadePanels.registerDualShadeObserver(requireContext().contentResolver) {
+                applyDualShadeAvailability()
+            }
+        applyDualShadeAvailability()
+    }
+
+    override fun onStop() {
+        mDualShadeObserver?.let { requireContext().contentResolver.unregisterContentObserver(it) }
+        mDualShadeObserver = null
+        super.onStop()
     }
 
     override fun onResume() {
         super.onResume()
         setInitialValues()
+        applyDualShadeAvailability()
+    }
+
+    /**
+     * Separate panels use an infinite QS grid (no pages, no collapsed QQS). Column sliders still
+     * apply; hide the controls that would otherwise do nothing.
+     */
+    private fun applyDualShadeAvailability() {
+        val dualShade = QsShadePanels.isDualShadeEnabled(requireContext())
+        mDualShadeBanner?.isVisible = dualShade
+        mQqsCategory?.isVisible = !dualShade
+        mQsRowsClassic.isVisible = !dualShade
+        mQsRowsLandscapeClassic.isVisible = !dualShade
     }
 
     override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
@@ -161,6 +207,8 @@ class QsClassicLayoutSettings : SettingsPreferenceFragment(), Preference.OnPrefe
         private const val KEY_QQS_TILES_ROWS_CLASSIC = "qqs_tiles_rows_classic"
         private const val KEY_QQS_TILES_ROWS_LANDSCAPE_CLASSIC =
             "qqs_tiles_rows_landscape_classic"
+        private const val KEY_QQS_CATEGORY = "qs_classic_qqs_category"
+        private const val KEY_DUAL_SHADE_BANNER = "qs_layout_dual_shade_banner"
 
         private const val SYSTEM_QS_LAYOUT_COLUMNS_CLASSIC = "qs_layout_columns_classic"
         private const val SYSTEM_QS_LAYOUT_COLUMNS_LANDSCAPE_CLASSIC =

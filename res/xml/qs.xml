@@ -14,6 +14,13 @@
         android:key="general_category"
         android:title="@string/general_category_title" >
 
+        <com.android.settingslib.widget.BannerMessagePreference
+            android:key="qs_layout_dual_shade_banner"
+            android:title="@string/qs_layout_dual_shade_banner_title"
+            android:summary="@string/qs_layout_dual_shade_banner_summary"
+            android:persistent="false"
+            app:isPreferenceVisible="false" />
+
         <org.derpfest.support.preferences.SecureSettingListPreference
             android:key="qs_panel_style"
             android:title="@string/qs_panel_style_title"

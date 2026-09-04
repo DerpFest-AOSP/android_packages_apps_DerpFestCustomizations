@@ -338,6 +338,13 @@
     <!-- QS layout entry screens (qs_layout_settings, qs_classic_layout_settings) -->
     <string name="qs_layout_settings_title">QS Layout</string>
     <string name="qs_layout_settings_summary">Configure rows and columns for Quick Settings</string>
+    <string name="qs_layout_settings_summary_dual_shade">Unavailable with Separate Notifications &amp; Quick Settings</string>
+    <string name="qs_classic_layout_settings_summary_dual_shade">Columns apply now. Rows and collapsed Quick Settings need Combined panels</string>
+    <string name="qs_layout_dual_shade_banner_title">Separate panels are on</string>
+    <string name="qs_layout_dual_shade_banner_summary">Rows and columns apply only when Notifications and Quick Settings share the Combined shade. Separate panels use a scrolling grid instead.</string>
+    <string name="qs_layout_dual_shade_banner_classic_title">Some layout options don\u2019t apply</string>
+    <string name="qs_layout_dual_shade_banner_classic_summary">With Separate panels, rows per page and collapsed Quick Settings aren\u2019t used. Column count still changes the Quick Settings grid.</string>
+    <string name="qs_layout_open_shade_panels">Change panels</string>
 
     <!-- Classic circular QS column layout (Settings.System qs_layout_*_classic / qqs_layout_*_classic; SystemUI) -->
     <string name="qs_classic_layout_columns_title">QS columns (portrait)</string>

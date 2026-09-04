@@ -6,8 +6,17 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/qs_layout_settings_title" >
+
+    <com.android.settingslib.widget.BannerMessagePreference
+        android:key="qs_layout_dual_shade_banner"
+        android:title="@string/qs_layout_dual_shade_banner_title"
+        android:summary="@string/qs_layout_dual_shade_banner_summary"
+        android:persistent="false"
+        android:selectable="false"
+        app:isPreferenceVisible="false" />
 
     <PreferenceCategory
         android:key="qs_layout_category"
