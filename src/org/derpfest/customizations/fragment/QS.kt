@@ -123,8 +123,8 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
     /**
      * Circular (classic) panel: tile label hide, icon mask shape, and link to classic layout.
      * Card (infinite grid) panel: tile shape and link to QS layout (rows/columns).
-     * Combined-shade layout sliders are unused when Separate panels ([Settings.Secure.DUAL_SHADE])
-     * is on — hide them and explain instead of offering controls that do nothing.
+     * Combined-shade layout sliders are unused when Separate panels is actually on — hide them
+     * and explain instead of offering controls that do nothing.
      */
     private fun updatePanelStyleDependentPrefs(styleIsCircular: Boolean, dualShade: Boolean) {
         mTileLabelHide?.isVisible = styleIsCircular

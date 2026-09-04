@@ -14,18 +14,43 @@ import android.provider.Settings
 import com.android.settings.R
 import com.android.settings.core.SubSettingLauncher
 import com.android.settings.system.ShadePanelsFragment
+import com.android.settings.system.ShadePanelsPreferenceController
 import com.android.settingslib.widget.BannerMessagePreference
+import com.android.systemui.Flags
 
-/** Helpers for QS layout vs. [Settings.Secure.DUAL_SHADE] (Separate panels). */
+/** Helpers for QS layout vs. Separate panels (dual shade). */
 object QsShadePanels {
 
-    /** Matches [com.android.settings.system.ShadePanelsPreferenceController] default. */
+    /** Matches [ShadePanelsPreferenceController] and SystemUI when no user preference is set. */
     const val DUAL_SHADE_DEFAULT = 1
 
-    fun isDualShadeEnabled(resolver: ContentResolver): Boolean =
-        Settings.Secure.getInt(resolver, Settings.Secure.DUAL_SHADE, DUAL_SHADE_DEFAULT) == 1
+    /** Same flag gate as [ShadePanelsPreferenceController]. */
+    fun isDualShadeFeatureEnabled(): Boolean = Flags.sceneContainer() && Flags.dualShade()
 
-    fun isDualShadeEnabled(context: Context): Boolean = isDualShadeEnabled(context.contentResolver)
+    /** Whether the user can open Notifications & Quick Settings to change the mode. */
+    fun canChangeShadePanels(context: Context): Boolean =
+        ShadePanelsPreferenceController.isDualShadeAvailable(context)
+
+    /**
+     * Whether SystemUI is actually using Separate panels.
+     *
+     * Flags off → never, even if [Settings.Secure.DUAL_SHADE] is still 1. Setting page available →
+     * the user preference (default on). Setting page hidden (e.g. tablets) → SystemUI ignores the
+     * secure setting and uses `config_dualShadeEnabledByDefault` (true).
+     */
+    fun isDualShadeEnabled(context: Context): Boolean {
+        if (!isDualShadeFeatureEnabled()) {
+            return false
+        }
+        if (canChangeShadePanels(context)) {
+            return Settings.Secure.getInt(
+                context.contentResolver,
+                Settings.Secure.DUAL_SHADE,
+                DUAL_SHADE_DEFAULT,
+            ) == DUAL_SHADE_DEFAULT
+        }
+        return true
+    }
 
     fun launchShadePanels(context: Context, metricsCategory: Int) {
         SubSettingLauncher(context)
@@ -45,9 +70,13 @@ object QsShadePanels {
         banner.setTitle(titleRes)
         banner.setSummary(summaryRes)
         banner.setAttentionLevel(BannerMessagePreference.AttentionLevel.LOW)
-        banner.setPositiveButtonText(R.string.qs_layout_open_shade_panels)
-        banner.setPositiveButtonOnClickListener {
-            launchShadePanels(context, metricsCategory)
+        if (canChangeShadePanels(context)) {
+            banner.setPositiveButtonVisible(true)
+            banner.setPositiveButtonText(R.string.qs_layout_open_shade_panels)
+            banner.setPositiveButtonOnClickListener { launchShadePanels(context, metricsCategory) }
+        } else {
+            banner.setPositiveButtonVisible(false)
+            banner.setPositiveButtonOnClickListener(null)
         }
     }
 
