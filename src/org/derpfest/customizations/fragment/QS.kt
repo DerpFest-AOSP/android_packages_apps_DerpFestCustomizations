@@ -33,6 +33,7 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
     private var mClassicLayoutSettings: Preference? = null
     private var mTileShape: Preference? = null
     private var mLayoutCategory: PreferenceCategory? = null
+    private var mLayoutSettings: Preference? = null
     private var mClassicRandomAccent: Preference? = null
     private var mDualShadeBanner: BannerMessagePreference? = null
     private var mDualShadeObserver: ContentObserver? = null
@@ -47,6 +48,7 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
         mClassicLayoutSettings = findPreference(KEY_CLASSIC_LAYOUT_SETTINGS)
         mTileShape = findPreference(KEY_QS_TILE_SHAPE)
         mLayoutCategory = findPreference(KEY_LAYOUT_CATEGORY)
+        mLayoutSettings = findPreference(KEY_LAYOUT_SETTINGS)
         mClassicRandomAccent = findPreference(KEY_QS_TILES_CLASSIC_RANDOM_ACCENT)
         mDualShadeBanner = findPreference(KEY_DUAL_SHADE_BANNER)
         mDualShadeBanner?.let {
@@ -123,15 +125,23 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
     /**
      * Circular (classic) panel: tile label hide, icon mask shape, and link to classic layout.
      * Card (infinite grid) panel: tile shape and link to QS layout (rows/columns).
-     * Combined-shade layout sliders are unused when Separate panels is actually on — hide them
-     * and explain instead of offering controls that do nothing.
+     * Combined-shade layout sliders are unused when Separate panels is actually on — keep the
+     * card layout entry visible but disabled, and explain instead of offering controls that do
+     * nothing.
      */
     private fun updatePanelStyleDependentPrefs(styleIsCircular: Boolean, dualShade: Boolean) {
         mTileLabelHide?.isVisible = styleIsCircular
         mTileIconShape?.isVisible = styleIsCircular
         mClassicLayoutCategory?.isVisible = styleIsCircular
         mTileShape?.isVisible = !styleIsCircular
-        mLayoutCategory?.isVisible = !styleIsCircular && !dualShade
+        mLayoutCategory?.isVisible = !styleIsCircular
+        mLayoutSettings?.isEnabled = !dualShade
+        mLayoutSettings?.summary =
+            if (dualShade) {
+                getString(R.string.qs_layout_settings_summary_dual_shade)
+            } else {
+                getString(R.string.qs_layout_category_summary)
+            }
         mDualShadeBanner?.isVisible = !styleIsCircular && dualShade
         mClassicLayoutSettings?.summary =
             if (dualShade) {
@@ -176,6 +186,7 @@ class QS : SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener {
         private const val KEY_QS_TILE_ICON_SHAPE = "qs_tile_icon_shape"
         private const val KEY_QS_TILE_SHAPE = "qs_tile_shape"
         private const val KEY_LAYOUT_CATEGORY = "layout_category"
+        private const val KEY_LAYOUT_SETTINGS = "qs_layout_settings"
         private const val KEY_CLASSIC_LAYOUT_CATEGORY = "qs_classic_layout_category"
         private const val KEY_CLASSIC_LAYOUT_SETTINGS = "qs_classic_layout_settings"
         private const val KEY_DUAL_SHADE_BANNER = "qs_layout_dual_shade_banner"
