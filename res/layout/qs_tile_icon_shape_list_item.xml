@@ -2,35 +2,36 @@
 <!--
      SPDX-FileCopyrightText: DerpFest AOSP
      SPDX-License-Identifier: Apache-2.0
+     Expressive circular QS tile icon shape tile
 -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<org.derpfest.customizations.widget.SquareFrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="48dp"
-    android:orientation="horizontal"
-    android:gravity="center_vertical"
-    android:paddingStart="12dp"
-    android:paddingEnd="12dp"
-    android:paddingTop="10dp"
-    android:paddingBottom="10dp">
+    android:padding="@dimen/settingslib_expressive_space_extrasmall2"
+    android:clipToPadding="false"
+    android:clickable="true"
+    android:focusable="true">
 
-    <ImageView
-        android:id="@+id/qs_tile_icon_shape_preview"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="16dp"
-        android:scaleType="fitCenter"
-        android:contentDescription="@null"
-        android:duplicateParentState="true" />
+    <FrameLayout
+        android:id="@+id/qs_tile_icon_shape_tile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/style_picker_tile_background"
+        android:duplicateParentState="true"
+        android:clickable="false"
+        android:focusable="false"
+        android:clipToOutline="true">
 
-    <TextView
-        android:id="@android:id/text1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center_vertical"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="?android:attr/textColorPrimary"
-        android:duplicateParentState="true" />
-
-</LinearLayout>
+        <ImageView
+            android:id="@+id/qs_tile_icon_shape_preview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:padding="18dp"
+            android:scaleType="fitCenter"
+            android:contentDescription="@null"
+            android:duplicateParentState="true"
+            android:importantForAccessibility="no" />
+    </FrameLayout>
+</org.derpfest.customizations.widget.SquareFrameLayout>

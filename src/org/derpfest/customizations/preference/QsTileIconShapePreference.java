@@ -6,37 +6,39 @@
 package org.derpfest.customizations.preference;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PixelFormat;
-import android.graphics.Shader;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.Rect;
+import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.PathParser;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.graphics.ColorUtils;
 import androidx.preference.Preference;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.settings.R;
 
-import java.util.function.Consumer;
+import org.derpfest.customizations.widget.DialogSurfaceBlur;
 
 /**
  * Dialog with a preview of each classic QS tile icon mask shape. Persists {@code
@@ -45,12 +47,6 @@ import java.util.function.Consumer;
 public class QsTileIconShapePreference extends Preference {
 
     private static final String SETTING_KEY = "qs_tile_icon_shape";
-
-    private static final int BACKGROUND_BLUR_RADIUS = 80;
-    private static final int WINDOW_BG_ALPHA_WITH_BLUR = 105;
-    private static final int WINDOW_BG_ALPHA_NO_BLUR = 255;
-    private static final float DIM_AMOUNT_WITH_BLUR = 0.1f;
-    private static final float DIM_AMOUNT_NO_BLUR = 0.4f;
 
     /**
      * Solid fill behind ring in list preview for outline_style_dark when QS tile gradient is off
@@ -61,10 +57,10 @@ public class QsTileIconShapePreference extends Preference {
     /** Matches {@code CommonTileDefaults.ClassicOutlineDarkGradientWashAlpha} in SystemUI. */
     private static final float OUTLINE_DARK_PREVIEW_GRADIENT_WASH_ALPHA = 0.22f;
 
-    private Drawable mWindowBackgroundDrawable;
-    private Drawable mDecorBackgroundDrawable;
-    private Consumer<Boolean> mBlurEnabledListener;
+    private DialogSurfaceBlur mSurfaceBlur;
     private AlertDialog mDialog;
+    private boolean mDialogConfirmed;
+    private String mOriginalValue;
 
     private String[] mEntries;
     private String[] mEntryValues;
@@ -82,23 +78,6 @@ public class QsTileIconShapePreference extends Preference {
     private void init(Context context) {
         mEntries = context.getResources().getStringArray(R.array.qs_tile_icon_shape_entries);
         mEntryValues = context.getResources().getStringArray(R.array.qs_tile_icon_shape_values);
-    }
-
-    private int getThemeIconColor() {
-        TypedValue tv = new TypedValue();
-        if (getContext().getTheme().resolveAttribute(android.R.attr.colorControlNormal, tv, true)) {
-            if (tv.resourceId != 0) {
-                return getContext().getColor(tv.resourceId);
-            }
-            return tv.data;
-        }
-        if (getContext().getTheme().resolveAttribute(android.R.attr.textColorPrimary, tv, true)) {
-            if (tv.resourceId != 0) {
-                return getContext().getColor(tv.resourceId);
-            }
-            return tv.data;
-        }
-        return 0xff000000;
     }
 
     private boolean isQsTileGradientEnabled() {
@@ -153,23 +132,21 @@ public class QsTileIconShapePreference extends Preference {
         return settingArgb;
     }
 
-    private int[] resolveOutlineDarkGradientStopsForPreview() {
-        int theme = getThemeIconColor();
-        int fallbackStart = ColorUtils.blendARGB(theme, Color.WHITE, 0.25f);
-        int fallbackEnd = ColorUtils.blendARGB(theme, Color.BLACK, 0.35f);
+    private int[] resolveOutlineDarkGradientStopsForPreview(int themeColor) {
+        int fallbackStart = ColorUtils.blendARGB(themeColor, Color.WHITE, 0.25f);
+        int fallbackEnd = ColorUtils.blendARGB(themeColor, Color.BLACK, 0.35f);
         return new int[] {
             normalizeQsGradientStopArgb(readGradientStartArgbSetting(), fallbackStart),
             normalizeQsGradientStopArgb(readGradientEndArgbSetting(), fallbackEnd)
         };
     }
 
-    private Drawable createPreviewDrawable(String shapeKey) {
+    private Drawable createPreviewDrawable(String shapeKey, int color) {
         if ("just_icons".equals(shapeKey)) {
             Drawable d = getContext().getDrawable(R.drawable.ic_signal_flashlight);
             if (d != null) {
                 d = d.mutate();
-                d.setColorFilter(
-                        new PorterDuffColorFilter(getThemeIconColor(), PorterDuff.Mode.SRC_IN));
+                d.setColorFilter(new PorterDuffColorFilter(color, PorterDuff.Mode.SRC_IN));
                 return d;
             }
             // Missing on some variants: fall back to mask path preview.
@@ -179,11 +156,11 @@ public class QsTileIconShapePreference extends Preference {
         float strokeFrac = QsTileIconShapePathData.previewStrokeFractionFor(shapeKey);
         if ("outline_style_dark".equals(shapeKey)) {
             if (isQsTileGradientEnabled()) {
-                int[] stops = resolveOutlineDarkGradientStopsForPreview();
+                int[] stops = resolveOutlineDarkGradientStopsForPreview(color);
                 return new TileIconShapePreviewDrawable(
                         pathData,
                         viewBox,
-                        getThemeIconColor(),
+                        color,
                         strokeFrac,
                         0,
                         true,
@@ -193,7 +170,7 @@ public class QsTileIconShapePreference extends Preference {
             return new TileIconShapePreviewDrawable(
                     pathData,
                     viewBox,
-                    getThemeIconColor(),
+                    color,
                     strokeFrac,
                     OUTLINE_DARK_PREVIEW_BACKDROP_ARGB,
                     false,
@@ -201,7 +178,7 @@ public class QsTileIconShapePreference extends Preference {
                     0);
         }
         return new TileIconShapePreviewDrawable(
-                pathData, viewBox, getThemeIconColor(), strokeFrac, 0, false, 0, 0);
+                pathData, viewBox, color, strokeFrac, 0, false, 0, 0);
     }
 
     private String getCurrentShapeKey() {
@@ -213,7 +190,8 @@ public class QsTileIconShapePreference extends Preference {
             // Removed shapes: migrate stored value to default.
             if ("pokesign".equals(raw) || "ninja".equals(raw)) {
                 Settings.Secure.putString(
-                        getContext().getContentResolver(), SETTING_KEY, QsTileIconShapePathData.DEFAULT_KEY);
+                        getContext().getContentResolver(), SETTING_KEY,
+                        QsTileIconShapePathData.DEFAULT_KEY);
             }
             return QsTileIconShapePathData.DEFAULT_KEY;
         }
@@ -235,11 +213,15 @@ public class QsTileIconShapePreference extends Preference {
         return -1;
     }
 
+    private void applyStyleValue(int position) {
+        Settings.Secure.putString(getContext().getContentResolver(), SETTING_KEY,
+                mEntryValues[position]);
+    }
+
     private void clearDialogSolidBackgrounds(View root) {
-        View listView = root.findViewById(R.id.qs_tile_icon_shape_list);
-        View ourContentRoot = (listView != null && listView.getParent() instanceof View
-                && ((View) listView.getParent()).getParent() instanceof View)
-                ? (View) ((View) listView.getParent()).getParent() : null;
+        View grid = root.findViewById(R.id.style_picker_grid);
+        View ourContentRoot = (grid != null && grid.getParent() instanceof View)
+                ? (View) grid.getParent() : null;
         if (root instanceof ViewGroup) {
             ViewGroup group = (ViewGroup) root;
             for (int i = 0; i < group.getChildCount(); i++) {
@@ -250,6 +232,7 @@ public class QsTileIconShapePreference extends Preference {
 
     private void clearOpaqueBackgroundsRecursive(View view, View excludeSubtree) {
         if (view == excludeSubtree) return;
+        if (view instanceof android.widget.Button) return;
         view.setBackgroundResource(android.R.color.transparent);
         if (view instanceof ViewGroup) {
             ViewGroup group = (ViewGroup) view;
@@ -268,128 +251,89 @@ public class QsTileIconShapePreference extends Preference {
     @Override
     protected void onClick() {
         View view = View.inflate(getContext(), R.layout.dialog_qs_tile_icon_shape, null);
-        ListView listView = view.findViewById(R.id.qs_tile_icon_shape_list);
+        RecyclerView grid = view.findViewById(R.id.style_picker_grid);
 
-        String currentKey = getCurrentShapeKey();
-        int selectedIndex = indexOfValue(currentKey);
+        mOriginalValue = getCurrentShapeKey();
+        mDialogConfirmed = false;
+        int selectedIndex = indexOfValue(mOriginalValue);
         if (selectedIndex < 0) selectedIndex = 0;
 
-        listView.setAdapter(new TileIconShapeAdapter(
-                getContext(), mEntries, mEntryValues, this, selectedIndex));
-        listView.setOnItemClickListener((parent, v, position, id) -> {
-            String value = mEntryValues[position];
-            Settings.Secure.putString(getContext().getContentResolver(), SETTING_KEY, value);
-            setSummary(mEntries[position]);
-            callChangeListener(value);
-            if (mDialog != null) {
-                mDialog.dismiss();
-            }
+        grid.setLayoutManager(new GridLayoutManager(getContext(), 4));
+        grid.setHasFixedSize(true);
+        int gap = getContext().getResources().getDimensionPixelSize(
+                com.android.settingslib.widget.theme.R.dimen
+                        .settingslib_expressive_space_extrasmall2);
+        grid.addItemDecoration(new GridSpacingDecoration(gap));
+        TileIconShapeAdapter adapter = new TileIconShapeAdapter(
+                getContext(), mEntries, mEntryValues, this, selectedIndex);
+        adapter.setOnStyleClickListener(position -> {
+            adapter.setSelectedIndex(position);
+            applyStyleValue(position);
         });
+        grid.setAdapter(adapter);
+        grid.scrollToPosition(selectedIndex);
 
         AlertDialog.Builder builder =
                 new AlertDialog.Builder(getContext(), R.style.QsTileIconShapeDialogTheme);
         builder.setTitle(getTitle());
         builder.setView(view);
         builder.setNegativeButton(android.R.string.cancel, null);
+        builder.setPositiveButton(android.R.string.ok, (dialog, which) -> {
+            mDialogConfirmed = true;
+            String value = getCurrentShapeKey();
+            updateSummary();
+            callChangeListener(value);
+        });
 
         mDialog = builder.create();
         Window window = mDialog.getWindow();
         if (window != null) {
             float density = getContext().getResources().getDisplayMetrics().density;
-            int maxWidthPx = (int) (320 * density + 0.5f);
+            int maxWidthPx = (int) (400 * density + 0.5f);
             int screenWidth = getContext().getResources().getDisplayMetrics().widthPixels;
             WindowManager.LayoutParams lp = window.getAttributes();
-            lp.width = Math.min(maxWidthPx, (int) (screenWidth * 0.85f));
+            lp.width = Math.min(maxWidthPx, (int) (screenWidth * 0.92f));
             window.setAttributes(lp);
-            setupWindowBlur(window);
         }
+        mSurfaceBlur = new DialogSurfaceBlur(getContext());
         mDialog.setOnShowListener(dialog -> {
-            TypedValue tv = new TypedValue();
-            int accent = 0;
-            if (getContext().getTheme().resolveAttribute(android.R.attr.colorAccent, tv, true)) {
-                accent = tv.resourceId != 0 ? getContext().getColor(tv.resourceId) : tv.data;
-            }
-            if (accent != 0) {
-                android.widget.Button negativeButton =
-                        ((AlertDialog) dialog).getButton(AlertDialog.BUTTON_NEGATIVE);
-                if (negativeButton != null) negativeButton.setTextColor(accent);
-                int titleId = getContext().getResources().getIdentifier("alertTitle", "id", "android");
-                TextView titleView = titleId != 0
-                        ? (TextView) ((AlertDialog) dialog).getWindow().getDecorView()
-                                .findViewById(titleId)
-                        : null;
-                if (titleView != null) titleView.setTextColor(accent);
+            if (mSurfaceBlur != null) {
+                mSurfaceBlur.attach(mDialog);
             }
             Window w = ((AlertDialog) dialog).getWindow();
             if (w != null) clearDialogSolidBackgrounds(w.getDecorView());
         });
         mDialog.setOnDismissListener(dialog -> {
-            if (mBlurEnabledListener != null && mDialog != null) {
-                Window w = mDialog.getWindow();
-                if (w != null) {
-                    w.getWindowManager().removeCrossWindowBlurEnabledListener(mBlurEnabledListener);
-                }
+            if (!mDialogConfirmed) {
+                Settings.Secure.putString(getContext().getContentResolver(), SETTING_KEY,
+                        mOriginalValue);
             }
-            mBlurEnabledListener = null;
-            mWindowBackgroundDrawable = null;
-            mDecorBackgroundDrawable = null;
+            if (mSurfaceBlur != null) {
+                mSurfaceBlur.detach();
+                mSurfaceBlur = null;
+            }
             mDialog = null;
         });
 
         mDialog.show();
     }
 
-    private void setupWindowBlur(Window window) {
-        if (window == null) return;
-        mWindowBackgroundDrawable =
-                getContext().getDrawable(R.drawable.dialog_qs_tile_icon_shape_window_background);
-        if (mWindowBackgroundDrawable != null) {
-            mWindowBackgroundDrawable = mWindowBackgroundDrawable.mutate();
-            window.setBackgroundDrawable(mWindowBackgroundDrawable);
+    private static class GridSpacingDecoration extends RecyclerView.ItemDecoration {
+        private final int mSpacing;
+
+        GridSpacingDecoration(int spacingPx) {
+            mSpacing = spacingPx;
         }
-        mDecorBackgroundDrawable =
-                getContext().getDrawable(R.drawable.dialog_qs_tile_icon_shape_window_background);
-        if (mDecorBackgroundDrawable != null) {
-            mDecorBackgroundDrawable = mDecorBackgroundDrawable.mutate();
-            View decor = window.getDecorView();
-            if (decor != null) {
-                decor.setBackground(mDecorBackgroundDrawable);
-                decor.setClipToOutline(true);
-            }
+
+        @Override
+        public void getItemOffsets(@NonNull Rect outRect, @NonNull View view,
+                @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+            outRect.set(mSpacing, mSpacing, mSpacing, mSpacing);
         }
-        window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-        window.setBackgroundBlurRadius(BACKGROUND_BLUR_RADIUS);
-        window.setDimAmount(DIM_AMOUNT_WITH_BLUR);
-        if (mWindowBackgroundDrawable != null) {
-            mWindowBackgroundDrawable.setAlpha(WINDOW_BG_ALPHA_WITH_BLUR);
-        }
-        if (mDecorBackgroundDrawable != null) {
-            mDecorBackgroundDrawable.setAlpha(WINDOW_BG_ALPHA_WITH_BLUR);
-        }
-        mBlurEnabledListener = this::updateWindowForBlur;
-        window.getWindowManager().addCrossWindowBlurEnabledListener(mBlurEnabledListener);
-        boolean enabled = window.getWindowManager().isCrossWindowBlurEnabled();
-        updateWindowForBlur(enabled);
     }
 
-    private void updateWindowForBlur(boolean blursEnabled) {
-        if (mDialog == null) return;
-        Window window = mDialog.getWindow();
-        if (window == null) return;
-        int alpha = blursEnabled && BACKGROUND_BLUR_RADIUS > 0
-                ? WINDOW_BG_ALPHA_WITH_BLUR
-                : WINDOW_BG_ALPHA_NO_BLUR;
-        if (mWindowBackgroundDrawable != null) {
-            mWindowBackgroundDrawable.setAlpha(alpha);
-        }
-        if (mDecorBackgroundDrawable != null) {
-            mDecorBackgroundDrawable.setAlpha(alpha);
-        }
-        window.setDimAmount(blursEnabled && BACKGROUND_BLUR_RADIUS > 0
-                ? DIM_AMOUNT_WITH_BLUR
-                : DIM_AMOUNT_NO_BLUR);
-        window.setBackgroundBlurRadius(BACKGROUND_BLUR_RADIUS);
-        window.setAttributes(window.getAttributes());
+    private interface OnStyleClickListener {
+        void onStyleClicked(int position);
     }
 
     private static final class TileIconShapePreviewDrawable extends Drawable {
@@ -505,13 +449,15 @@ public class QsTileIconShapePreference extends Preference {
         }
     }
 
-    private static class TileIconShapeAdapter extends android.widget.BaseAdapter {
+    private static class TileIconShapeAdapter
+            extends RecyclerView.Adapter<TileIconShapeAdapter.Holder> {
         private final LayoutInflater mInflater;
         private final String[] mEntries;
         private final String[] mEntryValues;
         private final QsTileIconShapePreference mPreference;
-        private final int mSelectedIndex;
-        private final Drawable mSelectedBackground;
+        private int mSelectedIndex;
+        private final ColorStateList mIconColors;
+        private OnStyleClickListener mListener;
 
         TileIconShapeAdapter(Context context, String[] entries, String[] entryValues,
                 QsTileIconShapePreference preference, int selectedIndex) {
@@ -520,38 +466,66 @@ public class QsTileIconShapePreference extends Preference {
             mEntryValues = entryValues;
             mPreference = preference;
             mSelectedIndex = selectedIndex;
-            mSelectedBackground = context.getDrawable(R.drawable.qs_tile_icon_shape_item_selected);
+            mIconColors = context.getColorStateList(R.color.style_picker_tile_icon);
+        }
+
+        void setOnStyleClickListener(OnStyleClickListener listener) {
+            mListener = listener;
+        }
+
+        void setSelectedIndex(int index) {
+            if (index == mSelectedIndex) {
+                return;
+            }
+            int oldIndex = mSelectedIndex;
+            mSelectedIndex = index;
+            if (oldIndex >= 0) {
+                notifyItemChanged(oldIndex);
+            }
+            notifyItemChanged(mSelectedIndex);
+        }
+
+        @NonNull
+        @Override
+        public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new Holder(mInflater.inflate(R.layout.qs_tile_icon_shape_list_item, parent,
+                    false));
         }
 
         @Override
-        public int getCount() {
+        public void onBindViewHolder(@NonNull Holder holder, int position) {
+            boolean selected = position == mSelectedIndex;
+            holder.itemView.setSelected(selected);
+            holder.itemView.setContentDescription(mEntries[position]);
+            String key = mEntryValues[position];
+            int color = mIconColors.getColorForState(
+                    selected
+                            ? new int[] { android.R.attr.state_selected }
+                            : new int[] {},
+                    mIconColors.getDefaultColor());
+            Drawable d = mPreference.createPreviewDrawable(key, color);
+            holder.icon.setImageDrawable(d);
+            holder.icon.setVisibility(d != null ? View.VISIBLE : View.GONE);
+            holder.itemView.setOnClickListener(v -> {
+                int pos = holder.getBindingAdapterPosition();
+                if (pos != RecyclerView.NO_POSITION && mListener != null) {
+                    mListener.onStyleClicked(pos);
+                }
+            });
+        }
+
+        @Override
+        public int getItemCount() {
             return mEntries.length;
         }
 
-        @Override
-        public Object getItem(int position) {
-            return mEntries[position];
-        }
+        static class Holder extends RecyclerView.ViewHolder {
+            final ImageView icon;
 
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = mInflater.inflate(R.layout.qs_tile_icon_shape_list_item, parent, false);
+            Holder(@NonNull View itemView) {
+                super(itemView);
+                icon = itemView.findViewById(R.id.qs_tile_icon_shape_preview);
             }
-            convertView.setBackground(position == mSelectedIndex ? mSelectedBackground : null);
-            TextView text = convertView.findViewById(android.R.id.text1);
-            android.widget.ImageView icon = convertView.findViewById(R.id.qs_tile_icon_shape_preview);
-            text.setText(mEntries[position]);
-            String key = mEntryValues[position];
-            Drawable d = mPreference.createPreviewDrawable(key);
-            icon.setImageDrawable(d);
-            icon.setVisibility(d != null ? View.VISIBLE : View.GONE);
-            return convertView;
         }
     }
 }
