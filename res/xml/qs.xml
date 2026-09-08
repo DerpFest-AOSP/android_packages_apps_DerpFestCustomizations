@@ -129,15 +129,6 @@
             android:summary="@string/qs_brightness_use_new_tint_summary"
             android:defaultValue="false" />
 
-        <lineageos.preference.LineageSecureSettingListPreference
-            android:key="qs_brightness_slider_position"
-            android:title="@string/qs_brightness_slider_position_title"
-            android:dialogTitle="@string/qs_brightness_slider_position_title"
-            android:summary="%s"
-            android:entries="@array/qs_brightness_slider_position_entries"
-            android:entryValues="@array/qs_brightness_slider_position_values"
-            android:defaultValue="0" />
-
         <lineageos.preference.LineageSecureSettingSwitchPreference
             android:key="qs_show_auto_brightness"
             android:title="@string/qs_show_auto_brightness_title"

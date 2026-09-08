@@ -228,9 +228,6 @@
     <string name="qqs_layout_rows_units">рядки</string>
     <string name="qs_brightness_position_position_summary">Показати повзунок яскравості в нижній частині панелі швидких налаштувань</string>
     <string name="qs_brightness_position_position_title">Пересунути вниз</string>
-    <string name="qs_brightness_slider_position_bottom">Знизу</string>
-    <string name="qs_brightness_slider_position_title">Позиція</string>
-    <string name="qs_brightness_slider_position_top">Вгорі</string>
     <!-- Brightness Slider Style -->
     <string name="qs_brightness_slider_shape_title">Форма повзунка яскравості</string>
     <string name="qs_data_usage_cycle_daily">Щоденно</string>
