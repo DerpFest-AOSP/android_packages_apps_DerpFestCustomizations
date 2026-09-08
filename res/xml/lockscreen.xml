@@ -20,6 +20,12 @@
             android:defaultValue="false" />
 
         <org.derpfest.support.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_show_lunar_calendar"
+            android:title="@string/lockscreen_show_lunar_calendar_title"
+            android:summary="@string/lockscreen_show_lunar_calendar_summary"
+            android:defaultValue="false" />
+
+        <org.derpfest.support.preferences.SystemSettingSwitchPreference
             android:key="bouncer_user_switcher_enabled"
             android:title="@string/bouncer_user_switcher_title"
             android:summary="@string/bouncer_user_switcher_summary"

@@ -350,6 +350,8 @@
     <!-- chinese lunar calendar -->
     <string name="qs_show_lunar_calendar_title">農曆</string>
     <string name="qs_show_lunar_calendar_summary">在快速設定中顯示農曆</string>
+    <string name="lockscreen_show_lunar_calendar_title">農曆</string>
+    <string name="lockscreen_show_lunar_calendar_summary">在鎖定畫面日期顯示農曆</string>
 
     <!-- Lock screen media art on Ambient Display -->
     <string name="ambient_media_art_title">微光顯示媒體封面</string>

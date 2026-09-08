@@ -327,4 +327,6 @@
     <!-- chinese lunar calendar -->
     <string name="qs_show_lunar_calendar_title">显示农历</string>
     <string name="qs_show_lunar_calendar_summary">在快速设置面板显示农历</string>
+    <string name="lockscreen_show_lunar_calendar_title">显示农历</string>
+    <string name="lockscreen_show_lunar_calendar_summary">在锁屏日期上显示农历</string>
 </resources>

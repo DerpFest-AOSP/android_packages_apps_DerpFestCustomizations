@@ -398,6 +398,8 @@
     <string name="qs_tiles_classic_random_accent_summary">Mach deine QS-Kacheln bunt!</string>
     <string name="qs_show_lunar_calendar_title">Chinesischer Mondkalender</string>
     <string name="qs_show_lunar_calendar_summary">Mondkalender in Schnelleinstellungen anzeigen</string>
+    <string name="lockscreen_show_lunar_calendar_title">Chinesischer Mondkalender</string>
+    <string name="lockscreen_show_lunar_calendar_summary">Mondkalender im Sperrbildschirm-Datum anzeigen</string>
 
     <string name="qs_appearance_category_title">Darstellung</string>
     <string name="pulse_qs_title">Pulse im QS-Panel anzeigen</string>

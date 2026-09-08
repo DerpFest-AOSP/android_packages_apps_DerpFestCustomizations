@@ -527,6 +527,8 @@
     <!-- chinese lunar calendar -->
     <string name="qs_show_lunar_calendar_title">Chinese Lunar Calendar</string>
     <string name="qs_show_lunar_calendar_summary">Show lunar calendar in Quick Settings</string>
+    <string name="lockscreen_show_lunar_calendar_title">Chinese Lunar Calendar</string>
+    <string name="lockscreen_show_lunar_calendar_summary">Show lunar calendar on the lockscreen date</string>
     <string name="qs_panel_bg_use_new_tint_title">Accent tint for QS tiles</string>
     <string name="qs_panel_bg_use_new_tint_summary">Use accent color for active tiles and bolder labels</string>
     <string name="qs_tiles_classic_random_accent_title">QS Tile Disco</string>
