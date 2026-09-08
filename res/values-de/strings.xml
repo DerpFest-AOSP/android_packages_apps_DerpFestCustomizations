@@ -629,8 +629,4 @@
     <string name="dynamic_island_ongoing_activities_summary">Hintergrundaufgaben wie Downloads, Backups oder Entpacken in der Island anzeigen</string>
     <string name="dynamic_island_calls_title">Laufende Anrufe</string>
     <string name="dynamic_island_calls_summary">Anrufstatus mit Dauer und Schnellaktionen anzeigen</string>
-
-    <!-- AppLock and Sandbox -->
-    <string name="applocker_sandbox_title">AppLock und Sandbox</string>
-    <string name="applocker_sandbox_summary">App zur Verwaltung von AppLock und Sandbox öffnen</string>
 </resources>

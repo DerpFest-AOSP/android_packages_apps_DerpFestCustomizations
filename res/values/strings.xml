@@ -638,8 +638,4 @@
     <string name="dynamic_island_ongoing_activities_summary">Show background tasks like downloads, backups, or unzipping in the island</string>
     <string name="dynamic_island_calls_title">Ongoing calls</string>
     <string name="dynamic_island_calls_summary">Show your ongoing call status with duration and quick controls</string>
-
-    <!-- AppLock and Sandbox -->
-    <string name="applocker_sandbox_title">AppLock and Sandbox</string>
-    <string name="applocker_sandbox_summary">Open the AppLock and Sandbox management app</string>
 </resources>
