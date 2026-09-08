@@ -272,10 +272,6 @@
     <string name="unit_milliseconds">ms</string>
     <string name="unit_pixels">px</string>
 
-    <!-- Single tap for keyguard affordance -->
-    <string name="keyguard_affordance_single_tap_title">Einmaliges Tippen für Sperrbildschirm-Schnellaktionen</string>
-    <string name="keyguard_affordance_single_tap_summary">Sperrbildschirm-Schnellaktionen mit einmaligem Tippen umschalten</string>
-
     <!-- Small landscape notifications -->
     <string name="small_landscape_notification_title">Kleine Querformat-Benachrichtigungen</string>
     <string name="small_landscape_notification_summary">Zeigt Benachrichtigungen in kleinerer Breite im Benachrichtigungsbereich im Querformat an, genau wie von AOSP vorgesehen</string>
