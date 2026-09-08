@@ -271,10 +271,6 @@
     <string name="qs_brightness_slider_position_bottom">Bottom</string>
     <string name="qs_show_auto_brightness_title">Auto brightness icon</string>
     <string name="qs_show_auto_brightness_summary">Show toggle for adaptive brightness near the slider</string>
-    <string name="qs_media_volume_slider_enabled_title">Media volume slider</string>
-    <string name="qs_media_volume_slider_mode_disabled">Disabled</string>
-    <string name="qs_media_volume_slider_mode_alongside">Alongside brightness</string>
-    <string name="qs_media_volume_slider_mode_replace">Replace brightness</string>
     <string name="qs_tile_gradient_enabled_title">Gradient tile backgrounds</string>
     <string name="qs_tile_gradient_enabled_summary">Enable gradient backgrounds for Quick Settings tiles</string>
     <string name="qs_show_settings_icon_title">Show settings icon</string>
