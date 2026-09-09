@@ -392,6 +392,10 @@
     <string name="qs_tile_animation_style_tilt">Kippen</string>
     <string name="qs_tile_animation_style_heartbeat">Herzschlag</string>
     <string name="qs_tile_animation_style_swing">Schwingen</string>
+    <!-- Bouncy motion mechanics -->
+    <string name="qs_bouncy_motion_mechanics_title">Federnde Bewegungsmechanik</string>
+    <string name="qs_bouncy_motion_mechanics_summary">Erlaube federnde Physik beim Erweitern der Schnelleinstellungen</string>
+
     <string name="qs_panel_bg_use_new_tint_title">Akzentfarbe für QS-Kacheln</string>
     <string name="qs_panel_bg_use_new_tint_summary">Akzentfarbe für aktive Kacheln und kräftigere Beschriftung verwenden</string>
     <string name="qs_tiles_classic_random_accent_title">QS-Kachel-Disco</string>

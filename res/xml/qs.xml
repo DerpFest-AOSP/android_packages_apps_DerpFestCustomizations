@@ -47,6 +47,12 @@
             android:entryValues="@array/qs_tile_animation_style_values"
             android:defaultValue="0" />
 
+        <org.derpfest.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_bouncy_motion_mechanics"
+            android:title="@string/qs_bouncy_motion_mechanics_title"
+            android:summary="@string/qs_bouncy_motion_mechanics_summary"
+            android:defaultValue="true" />
+
         <PreferenceCategory
             android:key="layout_category"
             android:title="@string/qs_layout_settings_title" >
