@@ -172,43 +172,62 @@ private fun writeRules(ctx: Context, rules: List<SpoofRule>) {
 
 private val GPU_DISPLAY: LinkedHashMap<String, String> = linkedMapOf(
     ""             to "None",
-    "adreno830"    to "Adreno 830  ·  Snapdragon 8 Elite",
     "adreno840"    to "Adreno 840  ·  Snapdragon 8 Elite Gen 5",
+    "adreno830"    to "Adreno 830  ·  Snapdragon 8 Elite",
     "adreno750"    to "Adreno 750  ·  Snapdragon 8 Gen 3",
     "adreno740"    to "Adreno 740  ·  Snapdragon 8 Gen 2",
+    "adreno735"    to "Adreno 735  ·  Snapdragon 8s Gen 3",
     "adreno730"    to "Adreno 730  ·  Snapdragon 8 Gen 1",
     "adreno720"    to "Adreno 720  ·  Snapdragon 7s Gen 3",
     "mali_g925"    to "Mali-G925 Immortalis  ·  Dimensity 9400",
     "mali_g920"    to "Mali-G920 Immortalis  ·  Dimensity 9400+",
     "mali_g720"    to "Mali-G720 Immortalis  ·  Dimensity 9300",
     "mali_g715"    to "Mali-G715 Immortalis  ·  Dimensity 9200+",
+    "mali_g615"    to "Mali-G615  ·  Dimensity 8300 / 8350",
+    "mali_g78"     to "Mali-G78 MP24  ·  Kirin 9000",
+    "maleoon930"   to "Maleoon 930  ·  Kirin 9030 Pro / 9030S",
     "maleoon920"   to "Maleoon 920  ·  Kirin 9020",
     "maleoon910"   to "Maleoon 910  ·  Kirin 9010",
+    "xclipse940"   to "Samsung Xclipse 940  ·  Exynos 2400",
+    "xclipse920"   to "Samsung Xclipse 920  ·  Exynos 2200",
     "apple_a18pro" to "Apple A18 Pro GPU",
+    "apple_a17pro" to "Apple A17 Pro GPU",
 )
 
 private val CPU_DISPLAY: LinkedHashMap<String, String> = linkedMapOf(
-    ""              to "None",
-    "sd8elite"      to "Snapdragon 8 Elite (SM8750)",
-    "sd8gen3"       to "Snapdragon 8 Gen 3 (SM8650)",
-    "dimensity9400" to "Dimensity 9400 (MT6989)",
-    "kirin9020"     to "Kirin 9020",
-    "kirin9030pro"  to "Kirin 9030 Pro",
+    ""                  to "None",
+    "sd8elitegen5"      to "Snapdragon 8 Elite Gen 5 (SM8850)",
+    "sd8elite"          to "Snapdragon 8 Elite (SM8750)",
+    "sd8gen3"           to "Snapdragon 8 Gen 3 (SM8650)",
+    "sd8gen2"           to "Snapdragon 8 Gen 2 (SM8550)",
+    "dimensity9400plus" to "Dimensity 9400+ (MT6991)",
+    "dimensity9400"     to "Dimensity 9400 (MT6989)",
+    "dimensity8350"     to "Dimensity 8350 (MT6897)",
+    "kirin9030pro"      to "Kirin 9030 Pro",
+    "kirin9030s"        to "Kirin 9030S",
+    "kirin9020"         to "Kirin 9020",
+    "kirin9020a"        to "Kirin 9020A",
+    "kirin9000s"        to "Kirin 9000S",
+    "kirin9000"         to "Kirin 9000",
+    "xuanjie_o1"        to "Xiaomi Xring O1",
+    "xuanjie_o3"        to "Xiaomi Xring O3",
 )
 
 private fun gpuAccent(key: String): Color = when {
     key.startsWith("adreno")    -> Color(0xFF6200EE)
     key.startsWith("mali")      -> Color(0xFF1565C0)
     key.startsWith("maleoon")   -> Color(0xFFD84315)
+    key.startsWith("xclipse")   -> Color(0xFF00897B)
     key.startsWith("apple")     -> Color(0xFF37474F)
     else                        -> Color(0xFF546E7A)
 }
 
 private fun cpuAccent(key: String): Color = when {
-    key.startsWith("sd")            -> Color(0xFF6200EE)
-    key.startsWith("dimensity")     -> Color(0xFF00695C)
-    key.startsWith("kirin")         -> Color(0xFFD84315)
-    else                            -> Color(0xFF546E7A)
+    key.startsWith("sd")                                 -> Color(0xFF6200EE)
+    key.startsWith("dimensity")                          -> Color(0xFF00695C)
+    key.startsWith("kirin")                              -> Color(0xFFD84315)
+    key.startsWith("xuanjie") || key.startsWith("xring") -> Color(0xFFFF6D00)
+    else                                                 -> Color(0xFF546E7A)
 }
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
