@@ -354,7 +354,10 @@ private fun AdvancedSpoofContent(context: Context) {
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment     = Alignment.CenterVertically
                 ) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
+                    Row(
+                        modifier          = Modifier.weight(1f),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
                         Box(
                             modifier        = Modifier.size(48.dp).clip(CircleShape)
                                 .background(MaterialTheme.colorScheme.primary),
@@ -365,11 +368,13 @@ private fun AdvancedSpoofContent(context: Context) {
                                 modifier = Modifier.size(26.dp))
                         }
                         Spacer(Modifier.width(16.dp))
-                        Column {
+                        Column(modifier = Modifier.weight(1f, fill = false)) {
                             Text(
-                                text      = stringResource(R.string.advanced_app_spoof_title),
-                                style     = MaterialTheme.typography.titleLarge,
-                                fontWeight = FontWeight.Bold
+                                text       = stringResource(R.string.advanced_app_spoof_title),
+                                style      = MaterialTheme.typography.titleMedium,
+                                fontWeight = FontWeight.Bold,
+                                maxLines   = 1,
+                                overflow   = TextOverflow.Ellipsis
                             )
                             Text(
                                 text  = if (enabled)
@@ -377,10 +382,13 @@ private fun AdvancedSpoofContent(context: Context) {
                                 else
                                     stringResource(R.string.advanced_spoof_disabled),
                                 style = MaterialTheme.typography.bodyMedium,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
                             )
                         }
                     }
+                    Spacer(Modifier.width(12.dp))
                     Switch(
                         checked         = enabled,
                         onCheckedChange = { v ->
