@@ -43,7 +43,9 @@
     <dimen name="qs_panel_style_card_gap">12dp</dimen>
     <dimen name="qs_panel_style_card_padding">20dp</dimen>
     <dimen name="qs_panel_style_card_radius">20dp</dimen>
-    <dimen name="qs_panel_style_preview_height">220dp</dimen>
+    <!-- Silhouette stays two thirds of the card; height scales with that box. -->
+    <dimen name="qs_panel_style_preview_height">146dp</dimen>
+    <dimen name="qs_panel_style_preview_padding">14dp</dimen>
     <dimen name="qs_panel_style_tab_icon_margin">8dp</dimen>
     <dimen name="qs_panel_style_tab_icon_size">20dp</dimen>
     <dimen name="qs_panel_style_tab_spacing">4dp</dimen>
