@@ -7,9 +7,11 @@ package org.derpfest.customizations.preference
 
 import android.content.Context
 import android.util.AttributeSet
+import android.widget.TextView
 import androidx.preference.Preference
 import androidx.preference.PreferenceViewHolder
 import com.android.settings.R
+import com.android.settingslib.widget.theme.R as SettingsThemeR
 import com.android.settingslib.widget.GroupSectionDividerMixin
 import com.android.settingslib.widget.NormalPaddingMixin
 import org.derpfest.support.preferences.SecureSettingsStore
@@ -53,6 +55,7 @@ class QsPanelStylePreference @JvmOverloads constructor(
         holder.isDividerAllowedAbove = false
         holder.isDividerAllowedBelow = false
         holder.itemView.background = null
+        applyPreferenceTextColors(holder)
 
         val preview = holder.findViewById(R.id.qs_panel_style_preview) as QsPanelStylePreviewView
         val toolbar = holder.findViewById(R.id.qs_style_toolbar) as QsPanelStyleSegmentedToolbar
@@ -82,6 +85,17 @@ class QsPanelStylePreference @JvmOverloads constructor(
         // Showing/hiding sibling prefs rebinds this row and would snap the animation.
         boundToolbar?.removeCallbacks(notifySiblings)
         boundToolbar?.postDelayed(notifySiblings, SIBLING_UPDATE_DELAY_MS)
+    }
+
+    private fun applyPreferenceTextColors(holder: PreferenceViewHolder) {
+        (holder.findViewById(android.R.id.title) as? TextView)?.apply {
+            setTextAppearance(SettingsThemeR.style.TextAppearance_SettingsLib_PreferenceTitle)
+            setTextColor(context.getColor(SettingsThemeR.color.settingslib_materialColorOnSurface))
+        }
+        (holder.findViewById(android.R.id.summary) as? TextView)?.apply {
+            setTextAppearance(SettingsThemeR.style.TextAppearance_SettingsLib_PreferenceSummary)
+            setTextColor(context.getColor(SettingsThemeR.color.settingslib_materialColorOnSurfaceVariant))
+        }
     }
 
     private fun isCircular(): Boolean =

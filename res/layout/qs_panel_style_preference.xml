@@ -71,7 +71,8 @@
             android:hyphenationFrequency="normalFast"
             android:lineBreakWordStyle="phrase"
             android:maxLines="2"
-            android:textAppearance="?android:attr/textAppearanceListItem" />
+            android:textAppearance="@style/TextAppearance.SettingsLib.PreferenceTitle"
+            android:textColor="@color/settingslib_materialColorOnSurface" />
 
         <TextView
             android:id="@android:id/summary"
@@ -80,7 +81,8 @@
             android:layout_marginTop="@dimen/settingslib_expressive_space_extrasmall2"
             android:hyphenationFrequency="normalFast"
             android:lineBreakWordStyle="phrase"
-            android:textAppearance="?android:attr/textAppearanceListItemSecondary" />
+            android:textAppearance="@style/TextAppearance.SettingsLib.PreferenceSummary"
+            android:textColor="@color/settingslib_materialColorOnSurfaceVariant" />
 
         <org.derpfest.customizations.preference.QsPanelStyleSegmentedToolbar
             android:id="@+id/qs_style_toolbar"
