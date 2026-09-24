@@ -25,6 +25,43 @@
     <string name="spoofing_summary">通过伪装欺骗绕过应用程序限制</string>
     <string name="misc_title">杂项</string>
     <string name="misc_summary">其他未分类的设置选项</string>
+    <string name="fonts_title">字体</string>
+    <string name="fonts_summary">预览并应用系统字体</string>
+
+    <!-- Custom font. Wording adapted from The uwuAOSP Project. -->
+    <string name="custom_font_summary_active">当前：%1$s</string>
+    <string name="custom_font_source_category">字体来源</string>
+    <string name="custom_font_import_title">导入字体或压缩包</string>
+    <string name="custom_font_import_summary">选择 TTF、OTF 字体，或包含字体的 ZIP 压缩包</string>
+    <string name="custom_font_available_category">可用字体</string>
+    <string name="custom_font_current_category">当前字体</string>
+    <string name="custom_font_candidate_summary">%1$s · 字重 %2$d · %3$s</string>
+    <string name="custom_font_style_normal">常规</string>
+    <string name="custom_font_style_italic">斜体</string>
+    <string name="custom_font_preview_default">系统默认字体预览</string>
+    <string name="custom_font_preview_text">老人正梦见狮子。</string>
+    <string name="custom_font_apply_action">应用所选字体</string>
+    <string name="custom_font_empty_summary">导入字体文件或压缩包后，可在这里选择并预览其中的字体。</string>
+    <string name="custom_font_restore_title">恢复默认字体</string>
+    <string name="custom_font_restore_summary">移除已导入的系统字体</string>
+    <string name="custom_font_file_invalid">请选择 TTF、OTF 或 ZIP 文件</string>
+    <string name="custom_font_archive_no_fonts">压缩包中没有可用的字体</string>
+    <string name="custom_font_archive_invalid">无法读取此 ZIP 压缩包</string>
+    <string name="custom_font_archive_too_large">压缩包中的字体过多或体积过大</string>
+    <string name="custom_font_import_failed">无法导入此文件</string>
+    <string name="custom_font_apply_success">字体已应用</string>
+    <string name="custom_font_restore_success">已恢复默认字体</string>
+    <string name="custom_font_error_storage">无法保存字体，请检查可用存储空间后重试。</string>
+    <string name="custom_font_error_verification">字体未通过系统完整性验证。</string>
+    <string name="custom_font_error_invalid_file">这不是有效的 OpenType 字体文件。</string>
+    <string name="custom_font_error_invalid_name">字体缺少有效的内部名称。</string>
+    <string name="custom_font_error_older_version">旧版本字体无法替换已安装的较新版本。</string>
+    <string name="custom_font_error_update_config">无法更新系统字体配置。</string>
+    <string name="custom_font_error_unsupported">当前内核不支持自定义字体。</string>
+    <string name="custom_font_error_version_changed">字体配置已变化，请重试。</string>
+    <string name="custom_font_error_not_found">所选字体文件已不存在。</string>
+    <string name="custom_font_error_rejected">系统拒绝了此字体。</string>
+    <string name="custom_font_footer">新启动的应用会使用此字体。重启设备后可更新所有界面。</string>
 
     <string name="dark_mode_summary_default">启用系统深色主题</string>
     <string name="dark_mode_summary_powersave">已启用省电模式</string>

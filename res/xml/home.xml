@@ -16,11 +16,19 @@
     <org.derpfest.customizations.preference.SystemThemePreference />
 
     <org.derpfest.ui.preference.DerpFestCardPreference
+        app:key="fonts"
+        app:title="@string/fonts_title"
+        app:summary="@string/fonts_summary"
+        app:icon="@drawable/ic_font_category_expressive"
+        app:fragment="org.derpfest.customizations.fragment.Fonts"
+        app:cornerType="top" />
+
+    <org.derpfest.ui.preference.DerpFestCardPreference
         app:key="status_bar"
         app:title="@string/statusbar_title"
         app:summary="@string/statusbar_summary"
         app:icon="@drawable/ic_statusbar_category_expressive"
-        app:cornerType="top">
+        app:cornerType="none">
         
         <intent
             android:action="android.intent.action.MAIN"

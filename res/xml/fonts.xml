@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: DerpFest AOSP
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/fonts_title">
+
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="custom_font_preview"
+        android:layout="@layout/custom_font_preview"
+        android:selectable="false"
+        settings:searchable="false" />
+
+    <PreferenceCategory android:title="@string/custom_font_source_category">
+
+        <com.android.settingslib.widget.LayoutPreference
+            android:key="custom_font_import"
+            android:layout="@layout/custom_font_import"
+            android:selectable="false"
+            android:title="@string/custom_font_import_title"
+            settings:searchable="false" />
+
+    </PreferenceCategory>
+
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="custom_font_available"
+        android:layout="@layout/custom_font_candidates"
+        android:selectable="false"
+        android:title="@string/custom_font_available_category"
+        app:isPreferenceVisible="false"
+        settings:searchable="false" />
+
+    <Preference
+        android:key="custom_font_empty"
+        android:summary="@string/custom_font_empty_summary"
+        android:selectable="false"
+        settings:searchable="false" />
+
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="custom_font_apply"
+        android:layout="@layout/custom_font_apply"
+        android:selectable="false"
+        app:isPreferenceVisible="false"
+        settings:searchable="false" />
+
+    <PreferenceCategory
+        android:key="custom_font_current"
+        android:title="@string/custom_font_current_category"
+        app:isPreferenceVisible="false">
+
+        <Preference
+            android:key="custom_font_restore"
+            android:title="@string/custom_font_restore_title"
+            android:summary="@string/custom_font_restore_summary" />
+
+    </PreferenceCategory>
+
+    <com.android.settingslib.widget.FooterPreference
+        android:key="custom_font_footer"
+        android:title="@string/custom_font_footer"
+        settings:searchable="false" />
+
+</PreferenceScreen>

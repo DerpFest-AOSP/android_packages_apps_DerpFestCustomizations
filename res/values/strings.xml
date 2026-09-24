@@ -27,6 +27,46 @@
     <string name="spoofing_summary">Bypass app restrictions by spoofing components</string>
     <string name="misc_title">Miscellaneous</string>
     <string name="misc_summary">Everything which doesn\’t fit elsewhere</string>
+    <string name="fonts_title">Fonts</string>
+    <string name="fonts_summary">Preview and apply a system typeface</string>
+
+    <!-- Custom font. Wording adapted from The uwuAOSP Project. -->
+    <string name="custom_font_summary_active">Current: %1$s</string>
+    <string name="custom_font_source_category">Font source</string>
+    <string name="custom_font_import_title">Import font or archive</string>
+    <string name="custom_font_import_summary">Choose a TTF or OTF file, or a ZIP containing fonts</string>
+    <string name="custom_font_available_category">Available fonts</string>
+    <string name="custom_font_current_category">Current font</string>
+    <string name="custom_font_candidate_summary">%1$s · Weight %2$d · %3$s</string>
+    <string name="custom_font_style_normal">Normal</string>
+    <string name="custom_font_style_italic">Italic</string>
+    <string name="custom_font_preview_default">System default preview</string>
+    <string name="custom_font_preview_text">An old man is dreaming of lions.</string>
+    <string name="custom_font_preview_supporting_text" translatable="false">The quick brown fox jumps over the lazy dog.</string>
+    <string name="custom_font_preview_digits" translatable="false">0123456789</string>
+    <string name="custom_font_preview_japanese" translatable="false">いろはにほへと ちりぬるを</string>
+    <string name="custom_font_apply_action">Apply selected font</string>
+    <string name="custom_font_empty_summary">Import a font file or archive to preview its available fonts.</string>
+    <string name="custom_font_restore_title">Restore default font</string>
+    <string name="custom_font_restore_summary">Remove the imported system font</string>
+    <string name="custom_font_file_invalid">Choose a TTF, OTF, or ZIP file</string>
+    <string name="custom_font_archive_no_fonts">No valid fonts were found in this archive</string>
+    <string name="custom_font_archive_invalid">This ZIP archive could not be read</string>
+    <string name="custom_font_archive_too_large">This archive contains too many fonts or is too large</string>
+    <string name="custom_font_import_failed">Could not import this file</string>
+    <string name="custom_font_apply_success">Font applied</string>
+    <string name="custom_font_restore_success">Default font restored</string>
+    <string name="custom_font_error_storage">The font could not be saved. Check available storage and try again.</string>
+    <string name="custom_font_error_verification">The font failed system integrity verification.</string>
+    <string name="custom_font_error_invalid_file">This is not a valid OpenType font file.</string>
+    <string name="custom_font_error_invalid_name">The font does not contain a valid internal name.</string>
+    <string name="custom_font_error_older_version">An older font version cannot replace the installed version.</string>
+    <string name="custom_font_error_update_config">The system font configuration could not be updated.</string>
+    <string name="custom_font_error_unsupported">Custom fonts are not supported by this kernel.</string>
+    <string name="custom_font_error_version_changed">The font configuration changed. Try again.</string>
+    <string name="custom_font_error_not_found">The selected font file no longer exists.</string>
+    <string name="custom_font_error_rejected">The system rejected this font.</string>
+    <string name="custom_font_footer">The font is applied to newly started apps. Restart the device to update every screen.</string>
 
     <string name="dark_mode_summary_default">Enable system dark theme</string>
     <string name="dark_mode_summary_powersave">Power saver is enabled</string>

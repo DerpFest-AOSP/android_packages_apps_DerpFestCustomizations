@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The uwuAOSP Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="?android:attr/colorAccent"
+        android:pathData="M11.246,15H4.754L2.754,20H0.6L7,4H9L15.4,20H13.246L11.246,15ZM10.446,13L8,6.885L5.554,13H10.446ZM21,12.535V12H23V20H21V19.465C20.412,19.805 19.729,20 19,20C16.791,20 15,18.209 15,16C15,13.791 16.791,12 19,12C19.729,12 20.412,12.195 21,12.535ZM19,18C20.105,18 21,17.105 21,16C21,14.895 20.105,14 19,14C17.895,14 17,14.895 17,16C17,17.105 17.895,18 19,18Z" />
+</vector>
