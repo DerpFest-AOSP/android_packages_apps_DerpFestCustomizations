@@ -102,6 +102,12 @@ class DynamicIslandSettings : SettingsPreferenceFragment() {
                 100,
                 UserHandle.USER_CURRENT,
             )
+            Settings.System.putIntForUser(
+                resolver,
+                Settings.System.STATUS_BAR_DYNAMIC_ISLAND_VERTICAL_OFFSET,
+                0,
+                UserHandle.USER_CURRENT,
+            )
         }
 
         @JvmField

@@ -668,6 +668,8 @@
     <string name="dynamic_island_customization_title">Dynamic Island customization</string>
     <string name="dynamic_island_height_scale_title">Height scale</string>
     <string name="dynamic_island_height_scale_summary">Scale the vertical size of the Dynamic Island chip</string>
+    <string name="dynamic_island_vertical_offset_title">Vertical position</string>
+    <string name="dynamic_island_vertical_offset_summary">Move the Dynamic Island chip up or down</string>
     <string name="dynamic_island_footer_title">About Dynamic Island</string>
     <string name="dynamic_island_intro">Dynamic Island brings ongoing activities to the camera cutout.\n\nControl music, follow screen recordings, manage the flashlight, track live scores, and keep calls and downloads at the top of the screen without getting in the way.</string>
     <string name="dynamic_island_features_title">Features</string>
