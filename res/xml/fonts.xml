@@ -25,11 +25,15 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="custom_font_available_category"
+        android:title="@string/custom_font_available_category"
+        app:isPreferenceVisible="false" />
+
     <com.android.settingslib.widget.LayoutPreference
         android:key="custom_font_available"
         android:layout="@layout/custom_font_candidates"
         android:selectable="false"
-        android:title="@string/custom_font_available_category"
         app:isPreferenceVisible="false"
         settings:searchable="false" />
 

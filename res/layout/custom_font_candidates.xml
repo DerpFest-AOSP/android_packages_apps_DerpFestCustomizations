@@ -12,17 +12,6 @@
     android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
     android:paddingBottom="0dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="@dimen/settingslib_expressive_space_extrasmall4"
-        android:paddingTop="8dp"
-        android:paddingEnd="4dp"
-        android:paddingBottom="8dp"
-        android:text="@string/custom_font_available_category"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="?android:attr/colorAccent" />
-
     <LinearLayout
         android:id="@+id/custom_font_candidates"
         android:layout_width="match_parent"

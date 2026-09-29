@@ -185,6 +185,7 @@ class Fonts : SettingsPreferenceFragment() {
         bindCandidates()
         val hasFonts = fonts.isNotEmpty()
         findPreference<Preference>(KEY_EMPTY)?.isVisible = !hasFonts
+        findPreference<Preference>(KEY_AVAILABLE_CATEGORY)?.isVisible = hasFonts
         findPreference<Preference>(KEY_AVAILABLE)?.isVisible = hasFonts
         findPreference<LayoutPreference>(KEY_APPLY)?.isVisible = hasFonts
         val restore = findPreference<Preference>(KEY_RESTORE)
@@ -303,6 +304,7 @@ class Fonts : SettingsPreferenceFragment() {
     companion object {
         private const val KEY_PREVIEW = "custom_font_preview"
         private const val KEY_IMPORT = "custom_font_import"
+        private const val KEY_AVAILABLE_CATEGORY = "custom_font_available_category"
         private const val KEY_AVAILABLE = "custom_font_available"
         private const val KEY_EMPTY = "custom_font_empty"
         private const val KEY_APPLY = "custom_font_apply"
