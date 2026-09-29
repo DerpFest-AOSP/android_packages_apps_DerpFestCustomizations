@@ -27,6 +27,43 @@
     <string name="spoofing_summary">Umgehen von App-Einschränkungen durch Spoofing von Komponenten</string>
     <string name="misc_title">Sonstiges</string>
     <string name="misc_summary">Alles, was woanders nicht hinpasst</string>
+    <string name="fonts_title">Schriften</string>
+    <string name="fonts_summary">Eine Systemschrift in der Vorschau anzeigen und anwenden</string>
+
+    <!-- Custom font. Wording adapted from The uwuAOSP Project. -->
+    <string name="custom_font_summary_active">Aktuell: %1$s</string>
+    <string name="custom_font_source_category">Schriftquelle</string>
+    <string name="custom_font_import_title">Schrift oder Archiv importieren</string>
+    <string name="custom_font_import_summary">Eine TTF- oder OTF-Datei oder ein ZIP mit Schriften auswählen</string>
+    <string name="custom_font_available_category">Verfügbare Schriften</string>
+    <string name="custom_font_current_category">Aktuelle Schrift</string>
+    <string name="custom_font_candidate_summary">%1$s · Stärke %2$d · %3$s</string>
+    <string name="custom_font_style_normal">Normal</string>
+    <string name="custom_font_style_italic">Kursiv</string>
+    <string name="custom_font_preview_default">Vorschau der Systemstandardschrift</string>
+    <string name="custom_font_preview_text">Ein alter Mann träumt von Löwen.</string>
+    <string name="custom_font_apply_action">Ausgewählte Schrift anwenden</string>
+    <string name="custom_font_empty_summary">Eine Schriftdatei oder ein Archiv importieren, um die enthaltenen Schriften in der Vorschau anzuzeigen.</string>
+    <string name="custom_font_restore_title">Standardschrift wiederherstellen</string>
+    <string name="custom_font_restore_summary">Importierte Systemschrift entfernen</string>
+    <string name="custom_font_file_invalid">Eine TTF-, OTF- oder ZIP-Datei auswählen</string>
+    <string name="custom_font_archive_no_fonts">In diesem Archiv wurden keine gültigen Schriften gefunden</string>
+    <string name="custom_font_archive_invalid">Dieses ZIP-Archiv konnte nicht gelesen werden</string>
+    <string name="custom_font_archive_too_large">Dieses Archiv enthält zu viele Schriften oder ist zu groß</string>
+    <string name="custom_font_import_failed">Diese Datei konnte nicht importiert werden</string>
+    <string name="custom_font_apply_success">Schrift angewendet</string>
+    <string name="custom_font_restore_success">Standardschrift wiederhergestellt</string>
+    <string name="custom_font_error_storage">Die Schrift konnte nicht gespeichert werden. Verfügbaren Speicher prüfen und erneut versuchen.</string>
+    <string name="custom_font_error_verification">Die Schrift hat die Systemintegritätsprüfung nicht bestanden.</string>
+    <string name="custom_font_error_invalid_file">Dies ist keine gültige OpenType-Schriftdatei.</string>
+    <string name="custom_font_error_invalid_name">Die Schrift enthält keinen gültigen internen Namen.</string>
+    <string name="custom_font_error_older_version">Eine ältere Schriftversion kann die installierte Version nicht ersetzen.</string>
+    <string name="custom_font_error_update_config">Die Systemschriftkonfiguration konnte nicht aktualisiert werden.</string>
+    <string name="custom_font_error_unsupported">Benutzerdefinierte Schriften werden von diesem Kernel nicht unterstützt.</string>
+    <string name="custom_font_error_version_changed">Die Schriftkonfiguration hat sich geändert. Erneut versuchen.</string>
+    <string name="custom_font_error_not_found">Die ausgewählte Schriftdatei ist nicht mehr vorhanden.</string>
+    <string name="custom_font_error_rejected">Das System hat diese Schrift abgelehnt.</string>
+    <string name="custom_font_footer">Die Schrift wird auf neu gestartete Apps angewendet. Gerät neu starten, um alle Bildschirme zu aktualisieren.</string>
 
     <!-- Gradients -->
     <string name="gradients_title">Farbverlauf</string>
@@ -37,10 +74,12 @@
     <string name="gradient_start_color_summary">Auf 0 setzen oder zurücksetzen für Standard. Wird angewendet, wenn ein Gradient oben aktiviert ist.</string>
     <string name="gradient_end_color_title">Farbverlauf-Endfarbe</string>
     <string name="gradient_end_color_summary">Auf 0 setzen oder zurücksetzen für Standard. Wird angewendet, wenn ein Gradient oben aktiviert ist.</string>
+    <string name="gradient_colors_requires_toggle">Einen Farbverlauf-Schalter oben aktivieren, um diese Farben anzupassen</string>
     <string name="volume_slider_gradient_title">Lautstärkeregler-Farbverlauf</string>
     <string name="volume_slider_gradient_summary">Farbverlauf in Lautstärkeregler aktivieren</string>
     <string name="qs_chip_gradient_enabled_title">Status-Chip-Farbverlauf</string>
     <string name="qs_chip_gradient_enabled_summary">Farbverlauf für das Signal- und Akkusymbol-Chip bei getrennten Schnelleinstellungen aktivieren</string>
+    <string name="qs_chip_gradient_requires_separate_qs">Erfordert getrennte Benachrichtigungen und Schnelleinstellungen</string>
 
     <string name="dark_mode_summary_default">Dunkles Systemdesign aktivieren</string>
     <string name="dark_mode_summary_powersave">Energiesparen ist aktiviert</string>
@@ -92,6 +131,7 @@
     <string name="monet_engine_wallpaper_color_title">Wähle eine Akzentfarbe aus dem Hintergrundbild</string>
     <string name="monet_engine_wallpaper_color_summary">Hintergrundbild-Farbauswahl</string>
     <string name="monet_engine_wallpaper_color_not_available">Nicht verfügbar</string>
+    <string name="monet_engine_wallpaper_color_requires_preset">Farbquelle auf „Voreinstellung“ setzen, um eine Farbe aus dem Hintergrundbild zu wählen</string>
 
     <!-- Keybox Data -->
     <string name="keybox_data_title">Keybox-Attestation überschreiben</string>
@@ -271,6 +311,7 @@
     <string name="pulse_renderer_matrix">Matrix</string>
     <string name="pulse_renderer_particle">Partikelsystem</string>
     <string name="pulse_renderer_waveform">Wellenform</string>
+    <string name="pulse_renderer_dot_wave">Punktwelle</string>
 
     <!-- Units -->
     <string name="unit_milliseconds">ms</string>
@@ -279,11 +320,6 @@
     <!-- Small landscape notifications -->
     <string name="small_landscape_notification_title">Kleine Querformat-Benachrichtigungen</string>
     <string name="small_landscape_notification_summary">Zeigt Benachrichtigungen in kleinerer Breite im Benachrichtigungsbereich im Querformat an, genau wie von AOSP vorgesehen</string>
-
-    <!-- Bluetooth QS Tile behavior -->
-    <string name="click_bluetooth_tile_behavior_title">Bluetooth-Kachel-Verhalten beim Klicken</string>
-    <string name="b_bluetooth_tile">Bluetooth umschalten</string>
-    <string name="modern_panel_bluetooth_tile">Bluetooth-QS-Panel öffnen</string>
 
     <!-- QS Panel -->
     <string name="brightness_category_title">Helligkeitsregler</string>
@@ -555,8 +591,6 @@
     <string name="dynamic_bar_chip_style_circle">Kreis</string>
     <string name="dynamic_bar_compact_notifications">Kompakte Benachrichtigungen</string>
     <string name="dynamic_bar_compact_notifications_summary">Benachrichtigungen zuerst als kleinen Chip zeigen, zum Erweitern tippen</string>
-    <string name="dynamic_bar_keyguard_compact_chip">Kompakter Sperrbildschirm-Chip</string>
-    <string name="dynamic_bar_keyguard_compact_chip_summary">Immer den kompakten Chip-Stil auf dem Sperrbildschirm verwenden. Wenn deaktiviert, wird der Kompaktmodus nur bei begrenztem Platz genutzt.</string>
     <string name="dynamic_bar_events">Ereignisse</string>
     <string name="dynamic_bar_event_audio_recording">Audioaufnahme</string>
     <string name="dynamic_bar_event_audio_recording_summary">Sprachrekorder und Audioaufnahme</string>
@@ -652,6 +686,8 @@
     <string name="dynamic_island_customization_title">Dynamic-Island-Anpassung</string>
     <string name="dynamic_island_height_scale_title">Höhenskalierung</string>
     <string name="dynamic_island_height_scale_summary">Vertikale Größe des Dynamic-Island-Chips skalieren</string>
+    <string name="dynamic_island_vertical_offset_title">Vertikale Position</string>
+    <string name="dynamic_island_vertical_offset_summary">Chip nach oben oder unten verschieben, als Prozentsatz der Statusleistenhöhe</string>
     <string name="dynamic_island_footer_title">Über Dynamic Island</string>
     <string name="dynamic_island_intro">Dynamic Island bringt laufende Aktivitäten an den Kameraausschnitt.\n\nMusik steuern, Bildschirmaufnahmen verfolgen, Taschenlampe bedienen, Live-Ergebnisse folgen und Anrufe sowie Downloads oben auf dem Bildschirm behalten, ohne zu stören.</string>
     <string name="dynamic_island_features_title">Funktionen</string>
