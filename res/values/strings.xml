@@ -276,9 +276,12 @@
     <string name="pulse_color_lavalamp">Lavalamp</string>
     <string name="pulse_color_album">Album art</string>
     <string name="pulse_color_accent">Accent color</string>
+    <string name="pulse_custom_color_requires_custom">Set visualizer color to Custom color to pick a color</string>
     <string name="pulse_bar_count_title">Number of bars</string>
     <string name="pulse_bar_count_summary">Set how many bars are shown in the visualizer</string>
     <string name="pulse_bar_count_units">bars</string>
+    <string name="pulse_height_multiplier_title">Pulse height</string>
+    <string name="pulse_height_multiplier_summary">Adjust height for the visualizer shown</string>
     <string name="pulse_renderer">Visualizer style</string>
     <string name="pulse_renderer_solid">Solid lines</string>
     <string name="pulse_renderer_fading">Fading blocks</string>

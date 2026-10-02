@@ -58,6 +58,12 @@
         android:defaultValue="lavalamp"
         android:dependency="lockscreen_pulse_enabled" />
 
+    <org.derpfest.customizations.widget.HsvColorPickerSecurePreference
+        android:key="pulse_custom_color"
+        android:title="@string/custom_color"
+        android:defaultValue="0xFFFFFFFF"
+        android:dependency="lockscreen_pulse_enabled" />
+
     <org.derpfest.support.preferences.SecureSettingSeekBarPreference
         android:key="pulse_bar_count"
         android:title="@string/pulse_bar_count_title"
@@ -67,5 +73,16 @@
         settings:min="8"
         settings:interval="4"
         settings:units="@string/pulse_bar_count_units"
+        android:dependency="lockscreen_pulse_enabled" />
+
+    <org.derpfest.support.preferences.SecureSettingSeekBarPreference
+        android:key="pulse_height_multiplier"
+        android:title="@string/pulse_height_multiplier_title"
+        android:summary="@string/pulse_height_multiplier_summary"
+        android:defaultValue="100"
+        android:max="200"
+        settings:min="25"
+        settings:interval="5"
+        settings:units="%"
         android:dependency="lockscreen_pulse_enabled" />
 </PreferenceScreen>
