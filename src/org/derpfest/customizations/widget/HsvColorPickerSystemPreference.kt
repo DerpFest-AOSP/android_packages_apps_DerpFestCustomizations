@@ -6,17 +6,11 @@
 package org.derpfest.customizations.widget
 
 import android.content.Context
-import android.os.Bundle
 import android.util.AttributeSet
-import org.derpfest.support.colorpicker.ColorPickerSystemPreference
+import org.derpfest.support.colorpicker.HsvColorPickerSystemPreference as SupportHsvColorPickerSystemPreference
 
-/** [ColorPickerSystemPreference] that opens [HsvColorPickerDialog] instead of the legacy picker. */
+/** Settings XML name for [SupportHsvColorPickerSystemPreference]. */
 class HsvColorPickerSystemPreference(
     context: Context,
     attrs: AttributeSet?,
-) : ColorPickerSystemPreference(context, attrs) {
-
-    override fun showDialog(state: Bundle?) {
-        openHsvPicker(displayColor)
-    }
-}
+) : SupportHsvColorPickerSystemPreference(context, attrs)
