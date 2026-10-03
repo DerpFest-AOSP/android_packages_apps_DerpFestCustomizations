@@ -9,6 +9,7 @@ import android.content.Context
 import android.os.Bundle
 import android.util.AttributeSet
 import org.derpfest.support.colorpicker.ColorPickerPreference
+import org.derpfest.support.colorpicker.HsvColorPickerDialog
 
 internal fun ColorPickerPreference.openHsvPicker(color: Int) {
     if (!isEnabled) {

@@ -23,8 +23,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -50,10 +48,7 @@ import com.android.settings.R
 import com.android.settingslib.spa.framework.theme.SettingsDimension
 import com.android.settingslib.spa.framework.theme.SettingsShape
 import com.android.settingslib.spa.framework.theme.SettingsTheme
-import com.github.skydoves.colorpicker.compose.AlphaSlider
 import com.github.skydoves.colorpicker.compose.AlphaTile
-import com.github.skydoves.colorpicker.compose.BrightnessSlider
-import com.github.skydoves.colorpicker.compose.HsvColorPicker
 import com.github.skydoves.colorpicker.compose.ImageColorPicker
 import com.github.skydoves.colorpicker.compose.PaletteContentScale
 import com.github.skydoves.colorpicker.compose.rememberColorPickerController
@@ -61,7 +56,6 @@ import java.util.function.Consumer
 
 private val PickerShape = SettingsShape.CornerExtraLarge1
 private val HeroShape = SettingsShape.CornerExtraLarge1
-private val SliderShape = SettingsShape.CornerFull
 
 /** Wallpaper-backed picker: the selected color is the wallpaper pixel, not a brightness-adjusted one. */
 object WallpaperColorPickerDialog {
@@ -96,77 +90,6 @@ object WallpaperColorPickerDialog {
                 ColorHero(
                     color = Color(selected),
                     showAlpha = false,
-                    modifier = Modifier.padding(top = 20.dp),
-                )
-            }
-        }
-    }
-}
-
-/**
- * HSV wheel plus brightness (and optional alpha). Use this for prefs that choose a color
- * rather than sampling a wallpaper.
- */
-object HsvColorPickerDialog {
-
-    @JvmStatic
-    @JvmOverloads
-    fun show(
-        context: Context,
-        initialColor: Int,
-        title: CharSequence,
-        onColorPicked: Consumer<Int>,
-        alphaSlider: Boolean = false,
-    ) {
-        showComposeColorPickerDialog(context, initialColor, title, onColorPicked) { onColorChanged ->
-            val controller = rememberColorPickerController()
-            val startColor = Color(initialColor)
-            var selected by remember { mutableIntStateOf(initialColor) }
-
-            Column(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                HsvColorPicker(
-                    modifier = Modifier
-                        .size(240.dp)
-                        .clip(CircleShape),
-                    controller = controller,
-                    initialColor = startColor,
-                    onColorChanged = { envelope ->
-                        selected = envelope.color.toArgb()
-                        onColorChanged(selected)
-                    },
-                )
-                BrightnessSlider(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 16.dp)
-                        .height(36.dp)
-                        .clip(SliderShape),
-                    controller = controller,
-                    initialColor = startColor,
-                    borderRadius = 18.dp,
-                    borderSize = 0.dp,
-                    wheelRadius = 14.dp,
-                )
-                if (alphaSlider) {
-                    AlphaSlider(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(top = 12.dp)
-                            .height(36.dp)
-                            .clip(SliderShape),
-                        controller = controller,
-                        initialColor = startColor,
-                        borderRadius = 18.dp,
-                        borderSize = 0.dp,
-                        wheelRadius = 14.dp,
-                    )
-                }
-                ColorHero(
-                    color = Color(selected),
-                    showAlpha = alphaSlider,
                     modifier = Modifier.padding(top = 20.dp),
                 )
             }
