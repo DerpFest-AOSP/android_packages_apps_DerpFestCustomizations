@@ -8,7 +8,7 @@
         <com.android.settingslib.widget.AdaptiveIconShapeDrawable
             android:width="@dimen/dashboard_tile_image_size"
             android:height="@dimen/dashboard_tile_image_size"
-            android:color="@color/homepage_red_bg" />
+            android:color="@color/homepage_orange_bg" />
     </item>
     <item
         android:width="@dimen/dashboard_tile_foreground_image_size"
