@@ -11,7 +11,6 @@ import android.app.ActivityManager
 import android.app.ObscuraManager
 import android.app.role.RoleManager
 import android.content.Context
-import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
@@ -39,13 +38,9 @@ import androidx.compose.animation.expandVertically
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.shrinkVertically
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -55,15 +50,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Code
@@ -79,26 +71,26 @@ import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Checkbox
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
+import androidx.compose.material3.FilledTonalButton
+import androidx.compose.material3.FilledTonalIconButton
 import androidx.compose.material3.FilterChip
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
+import androidx.compose.material3.ListItemDefaults
+import androidx.compose.material3.LoadingIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Switch
+import androidx.compose.material3.SegmentedButton
+import androidx.compose.material3.SegmentedButtonDefaults
+import androidx.compose.material3.SegmentedListItem
+import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
@@ -108,21 +100,31 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.core.graphics.drawable.toBitmap
 import com.android.internal.logging.nano.MetricsProto
 import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
+import com.android.settingslib.spa.framework.theme.SettingsDimension
+import com.android.settingslib.spa.framework.theme.SettingsSpace
 import com.android.settingslib.spa.framework.theme.SettingsTheme
+import com.android.settingslib.spa.widget.button.ActionButton
+import com.android.settingslib.spa.widget.button.ActionButtons
+import com.android.settingslib.spa.widget.preference.IntroAppPreference
+import com.android.settingslib.spa.widget.preference.Preference
+import com.android.settingslib.spa.widget.preference.PreferenceModel
+import com.android.settingslib.spa.widget.preference.SwitchPreference
+import com.android.settingslib.spa.widget.preference.SwitchPreferenceModel
+import com.android.settingslib.spa.widget.preference.ZeroStatePreference
+import com.android.settingslib.spa.widget.ui.Category
+import com.android.settingslib.spa.widget.ui.CategoryTitle
+import com.android.settingslib.spa.widget.ui.LazyCategory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -706,6 +708,12 @@ private fun ObscuraAppSettingsContent(
 
     val selectedApp = allApps.find { it.packageName == selectedAppPackage }
 
+    DisposableEffect(selectedAppPackage, selectedApp?.label) {
+        val activity = context as? android.app.Activity
+        activity?.title = selectedApp?.label ?: context.getString(R.string.obscura_title)
+        onDispose {}
+    }
+
     Crossfade(targetState = selectedApp != null, label = "ScreenTransition") { inDetailScreen ->
         if (inDetailScreen && selectedApp != null) {
             BackHandler { selectedAppPackage = null }
@@ -764,256 +772,107 @@ private fun ObscuraAppListScreen(
     val activeCount = allApps.count { it.isConfigured }
     val scopedCount = allApps.count { it.scopeMode != ObscuraManager.SCOPE_MODE_DISABLED }
     val hiddenCount = allApps.count { it.isHidden || it.isLauncherHidden }
+    val summary = if (activeCount == 0) {
+        stringResource(R.string.obscura_none_protected)
+    } else {
+        stringResource(R.string.obscura_protected_summary, activeCount, scopedCount, hiddenCount)
+    }
 
-    Scaffold(containerColor = Color.Transparent) { innerPadding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding)
-                .padding(horizontal = 16.dp),
-        ) {
-            Spacer(modifier = Modifier.height(8.dp))
-
-            // Main Hero Dashboard Card
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(24.dp),
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.surfaceBright,
-                ),
-            ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(20.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .size(52.dp)
-                            .clip(CircleShape)
-                            .background(MaterialTheme.colorScheme.primary),
-                        contentAlignment = Alignment.Center,
-                    ) {
-                        Icon(
-                            Icons.Default.Shield,
-                            contentDescription = null,
-                            tint = MaterialTheme.colorScheme.onPrimary,
-                            modifier = Modifier.size(28.dp),
-                        )
-                    }
-                    Spacer(modifier = Modifier.width(16.dp))
-                    Column {
-                        Text(
-                            text = stringResource(R.string.obscura_header_title),
-                            style = MaterialTheme.typography.titleLarge,
-                            fontWeight = FontWeight.Bold,
-                        )
-                        Text(
-                            text = if (activeCount == 0) stringResource(R.string.obscura_none_protected)
-                            else stringResource(R.string.obscura_protected_summary, activeCount, scopedCount, hiddenCount),
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    }
-                }
-            }
-
-            Spacer(modifier = Modifier.height(12.dp))
-
+    LazyCategory(
+        count = if (isLoading) 0 else filteredApps.size,
+        key = { index -> filteredApps[index].packageName },
+        bottomPadding = SettingsSpace.medium5,
+        header = {
+            Text(
+                text = summary,
+                style = MaterialTheme.typography.bodyLarge,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(bottom = SettingsSpace.extraSmall4),
+            )
             AppPickerSearchField(
                 query = searchQuery,
                 onQueryChange = onSearchQueryChange,
             )
-
-            Spacer(modifier = Modifier.height(8.dp))
-
             Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = SettingsSpace.extraSmall4),
+                horizontalArrangement = Arrangement.spacedBy(SettingsSpace.extraSmall4),
             ) {
                 FilterChip(
                     selected = showSystemApps,
                     onClick = onToggleShowSystemApps,
-                    label = { Text(stringResource(R.string.obscura_system_apps), style = MaterialTheme.typography.labelMedium) },
+                    label = { Text(stringResource(R.string.obscura_system_apps)) },
                     leadingIcon = if (showSystemApps) {
-                        { Icon(Icons.Default.Check, null, modifier = Modifier.size(16.dp)) }
-                    } else null,
+                        { Icon(Icons.Default.Check, null, modifier = Modifier.size(18.dp)) }
+                    } else {
+                        null
+                    },
                 )
                 FilterChip(
                     selected = filterConfiguredOnly,
                     onClick = onToggleFilterConfiguredOnly,
-                    label = { Text(stringResource(R.string.obscura_configured_only, activeCount), style = MaterialTheme.typography.labelMedium) },
+                    label = { Text(stringResource(R.string.obscura_configured_only, activeCount)) },
                     leadingIcon = if (filterConfiguredOnly) {
-                        { Icon(Icons.Default.FilterList, null, modifier = Modifier.size(16.dp)) }
-                    } else null,
+                        { Icon(Icons.Default.FilterList, null, modifier = Modifier.size(18.dp)) }
+                    } else {
+                        null
+                    },
                 )
             }
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            if (isLoading) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .weight(1f),
-                    contentAlignment = Alignment.Center,
-                ) { CircularProgressIndicator() }
-            } else if (filteredApps.isEmpty()) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .weight(1f),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    Text(
+        },
+        footer = {
+            when {
+                isLoading -> {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(SettingsSpace.medium1),
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        LoadingIndicator()
+                    }
+                }
+                filteredApps.isEmpty() -> {
+                    ZeroStatePreference(
+                        icon = Icons.Filled.Shield,
                         text = stringResource(R.string.obscura_no_matching_apps),
-                        style = MaterialTheme.typography.bodyLarge,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
-            } else {
-                LazyColumn(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .weight(1f),
-                    verticalArrangement = Arrangement.spacedBy(8.dp),
-                ) {
-                    items(filteredApps, key = { it.packageName }) { app ->
-                        ObscuraAppListItem(
-                            entry = app,
-                            onClick = { onSelectApp(app) }
-                        )
-                    }
-                    item { Spacer(modifier = Modifier.height(80.dp)) }
-                }
             }
-        }
-    }
-}
-
-@Composable
-private fun ObscuraAppListItem(
-    entry: ObscuraAppEntry,
-    onClick: () -> Unit,
-) {
-    val isScoped = entry.scopeMode != ObscuraManager.SCOPE_MODE_DISABLED
-    val hasSpoof = entry.spoofAdb || entry.spoofDevOptions || entry.spoofWirelessDebug
-            || entry.spoofPkgVerifier || entry.spoofUsbVerify || entry.spoofAccessibility
-    val isProtected = isScoped || entry.isIsolated || entry.isHidden || entry.isLauncherHidden || entry.isPlayStoreDetached || hasSpoof
-
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable(onClick = onClick),
-        shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = if (isProtected)
-                MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.30f)
-            else
-                MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.40f),
-        ),
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(14.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            val iconBitmap = remember(entry.packageName) {
-                runCatching { entry.icon?.toBitmap(96, 96)?.asImageBitmap() }.getOrNull()
-            }
-            if (iconBitmap != null) {
-                Image(
-                    bitmap = iconBitmap,
-                    contentDescription = null,
-                    modifier = Modifier
-                        .size(44.dp)
-                        .clip(RoundedCornerShape(12.dp)),
-                )
-            } else {
-                Box(
-                    modifier = Modifier
-                        .size(44.dp)
-                        .clip(RoundedCornerShape(12.dp))
-                        .background(MaterialTheme.colorScheme.surfaceVariant),
-                )
-            }
-
-            Spacer(modifier = Modifier.width(14.dp))
-
-            Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    text = entry.label,
-                    style = MaterialTheme.typography.titleSmall,
-                    fontWeight = FontWeight.SemiBold,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
-                Text(
-                    text = entry.packageName,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
-
-                if (isProtected) {
-                    Spacer(modifier = Modifier.height(6.dp))
-                    Row(
-                        horizontalArrangement = Arrangement.spacedBy(6.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        if (isScoped) {
-                            val modeLabel = if (entry.scopeMode == ObscuraManager.SCOPE_MODE_BLACKLIST)
-                                stringResource(R.string.obscura_scope_blacklist_count, entry.scopeList.size)
-                            else stringResource(R.string.obscura_scope_whitelist_count, entry.scopeList.size)
-                            StatusBadge(text = modeLabel, color = MaterialTheme.colorScheme.primary)
-                        }
-                        if (entry.isIsolated) {
-                            StatusBadge(text = stringResource(R.string.obscura_badge_isolated), color = MaterialTheme.colorScheme.secondary)
-                        }
-                        if (entry.isPlayStoreDetached) {
-                            StatusBadge(text = stringResource(R.string.obscura_badge_detached), color = MaterialTheme.colorScheme.tertiary)
-                        }
-                        if (hasSpoof) {
-                            StatusBadge(text = stringResource(R.string.obscura_badge_spoofed), color = MaterialTheme.colorScheme.tertiary)
-                        }
-                        if (entry.isHidden) {
-                            StatusBadge(text = stringResource(R.string.obscura_badge_hidden), color = MaterialTheme.colorScheme.error)
-                        }
-                        if (entry.isLauncherHidden && !entry.isHidden) {
-                            StatusBadge(text = stringResource(R.string.obscura_launcher_hidden), color = MaterialTheme.colorScheme.outline)
-                        }
-                    }
-                }
-            }
-
-            Icon(
-                Icons.AutoMirrored.Filled.KeyboardArrowRight,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.size(20.dp)
-            )
-        }
-    }
-}
-
-@Composable
-private fun StatusBadge(text: String, color: Color) {
-    Surface(
-        color = color.copy(alpha = 0.18f),
-        shape = RoundedCornerShape(8.dp),
-    ) {
-        Text(
-            text = text,
-            style = MaterialTheme.typography.labelSmall,
-            color = color,
-            fontWeight = FontWeight.Medium,
-            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+        },
+    ) { index ->
+        val app = filteredApps[index]
+        val summaryText = app.statusSummary()
+        Preference(
+            model = object : PreferenceModel {
+                override val title = app.label
+                override val summary = { summaryText }
+                override val icon: @Composable (() -> Unit) = { SettingsAppIcon(app.icon) }
+                override val onClick: () -> Unit = { onSelectApp(app) }
+            },
+            singleLineSummary = true,
         )
     }
+}
+
+@Composable
+private fun ObscuraAppEntry.statusSummary(): String {
+    if (!isConfigured) return packageName
+    val parts = mutableListOf<String>()
+    if (scopeMode == ObscuraManager.SCOPE_MODE_BLACKLIST) {
+        parts += stringResource(R.string.obscura_scope_blacklist_count, scopeList.size)
+    } else if (scopeMode == ObscuraManager.SCOPE_MODE_WHITELIST) {
+        parts += stringResource(R.string.obscura_scope_whitelist_count, scopeList.size)
+    }
+    if (isIsolated) parts += stringResource(R.string.obscura_badge_isolated)
+    if (isPlayStoreDetached) parts += stringResource(R.string.obscura_badge_detached)
+    val hasSpoof = spoofAdb || spoofDevOptions || spoofWirelessDebug ||
+        spoofPkgVerifier || spoofUsbVerify || spoofAccessibility
+    if (hasSpoof) parts += stringResource(R.string.obscura_badge_spoofed)
+    if (isHidden) parts += stringResource(R.string.obscura_badge_hidden)
+    else if (isLauncherHidden) parts += stringResource(R.string.obscura_launcher_hidden)
+    return parts.joinToString(" · ").ifBlank { packageName }
 }
 
 @Composable
@@ -1040,455 +899,352 @@ private fun ObscuraAppDetailScreen(
         }
     }
 
-    Scaffold(
-        containerColor = Color.Transparent,
-        topBar = {
-            TopAppBar(
-                title = { Text(app.label, maxLines = 1, overflow = TextOverflow.Ellipsis) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.obscura_back))
-                    }
-                },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent)
-            )
-        }
-    ) { innerPadding ->
+    val scopeModes = listOf(
+        ObscuraManager.SCOPE_MODE_DISABLED to R.string.obscura_disabled,
+        ObscuraManager.SCOPE_MODE_BLACKLIST to R.string.obscura_blacklist,
+        ObscuraManager.SCOPE_MODE_WHITELIST to R.string.obscura_whitelist,
+    )
+
+    Scaffold(containerColor = Color.Transparent) { innerPadding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .verticalScroll(rememberScrollState())
-                .padding(horizontal = 16.dp, vertical = 8.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
+                .verticalScroll(rememberScrollState()),
         ) {
-            // App Identity Card
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(20.dp),
-                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceBright)
+            FilledTonalIconButton(
+                onClick = onBack,
+                modifier = Modifier.padding(start = SettingsSpace.extraSmall4, top = SettingsSpace.extraSmall4),
             ) {
-                Column(modifier = Modifier.padding(16.dp)) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        val iconBitmap = remember(app.packageName) {
-                            runCatching { app.icon?.toBitmap(128, 128)?.asImageBitmap() }.getOrNull()
-                        }
-                        if (iconBitmap != null) {
-                            Image(
-                                bitmap = iconBitmap,
-                                contentDescription = null,
-                                modifier = Modifier
-                                    .size(56.dp)
-                                    .clip(RoundedCornerShape(16.dp))
-                            )
-                        } else {
-                            Box(
-                                modifier = Modifier
-                                    .size(56.dp)
-                                    .clip(RoundedCornerShape(16.dp))
-                                    .background(MaterialTheme.colorScheme.surfaceVariant)
-                            )
-                        }
+                Icon(
+                    Icons.AutoMirrored.Filled.ArrowBack,
+                    contentDescription = stringResource(R.string.obscura_back),
+                )
+            }
 
-                        Spacer(modifier = Modifier.width(16.dp))
+            IntroAppPreference(
+                title = app.label,
+                descriptions = listOf(
+                    app.packageName,
+                    stringResource(
+                        if (app.isSystem) R.string.obscura_system_application
+                        else R.string.obscura_user_installed,
+                    ),
+                ),
+                appIcon = { SettingsAppIcon(app.icon, size = SettingsDimension.itemIconContainerSize) },
+            )
 
-                        Column(modifier = Modifier.weight(1f)) {
-                            Text(
-                                text = app.label,
-                                style = MaterialTheme.typography.titleMedium,
-                                fontWeight = FontWeight.Bold
-                            )
-                            Text(
-                                text = app.packageName,
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
-                            Spacer(modifier = Modifier.height(4.dp))
-                            Text(
-                                text = if (app.isSystem) stringResource(R.string.obscura_system_application) else stringResource(R.string.obscura_user_installed),
-                                style = MaterialTheme.typography.labelSmall,
-                                color = if (app.isSystem) MaterialTheme.colorScheme.tertiary else MaterialTheme.colorScheme.primary
-                            )
-                        }
+            val launchLabel = stringResource(R.string.obscura_launch_app)
+            val forceStopLabel = stringResource(R.string.obscura_force_stop)
+            val actions = buildList {
+                if (app.isHidden || app.isLauncherHidden) {
+                    add(
+                        ActionButton(
+                            text = launchLabel,
+                            imageVector = Icons.Filled.PlayArrow,
+                            onClick = { launchApp(context, app.packageName) },
+                        ),
+                    )
+                }
+                add(
+                    ActionButton(
+                        text = forceStopLabel,
+                        imageVector = Icons.Filled.Clear,
+                        onClick = {
+                            forceStopPackage(context, app.packageName)
+                            Toast.makeText(
+                                context,
+                                context.getString(R.string.obscura_force_stopped, app.label),
+                                Toast.LENGTH_SHORT,
+                            ).show()
+                        },
+                    ),
+                )
+            }
+            ActionButtons(actions)
+
+            SectionHeader(stringResource(R.string.obscura_scope_section_title))
+            SectionDescription(stringResource(R.string.obscura_scope_subtitle))
+                SingleChoiceSegmentedButtonRow(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = SettingsSpace.small1),
+                ) {
+                    for ((index, modeLabel) in scopeModes.withIndex()) {
+                        val (mode, labelRes) = modeLabel
+                        SegmentedButton(
+                            selected = app.scopeMode == mode,
+                            onClick = { onUpdate(app.copy(scopeMode = mode)) },
+                            shape = SegmentedButtonDefaults.itemShape(index, scopeModes.size),
+                            label = {
+                                Text(
+                                    stringResource(labelRes),
+                                    maxLines = 1,
+                                    overflow = TextOverflow.Ellipsis,
+                                )
+                            },
+                        )
                     }
-
-                    Spacer(modifier = Modifier.height(12.dp))
-
+                }
+                if (app.scopeMode != ObscuraManager.SCOPE_MODE_DISABLED) {
+                    val isBlacklist = app.scopeMode == ObscuraManager.SCOPE_MODE_BLACKLIST
+                    Text(
+                        text = if (isBlacklist) {
+                            stringResource(R.string.obscura_blacklist_mode_summary, app.scopeList.size, app.label)
+                        } else {
+                            stringResource(R.string.obscura_whitelist_mode_summary, app.label, app.scopeList.size)
+                        },
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.padding(horizontal = SettingsSpace.small1, vertical = SettingsSpace.extraSmall4),
+                    )
                     Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = SettingsSpace.small1),
+                        horizontalArrangement = Arrangement.spacedBy(SettingsSpace.extraSmall4),
                     ) {
-                        if (app.isHidden || app.isLauncherHidden) {
-                            Button(
-                                onClick = { launchApp(context, app.packageName) },
-                                modifier = Modifier.weight(1f),
-                                shape = RoundedCornerShape(12.dp)
-                            ) {
-                                Icon(Icons.Default.PlayArrow, null, Modifier.size(18.dp))
-                                Spacer(Modifier.width(6.dp))
-                                Text(stringResource(R.string.obscura_launch_app))
-                            }
+                        FilledTonalButton(
+                            onClick = { showPresetDialog = true },
+                            modifier = Modifier.weight(1f),
+                        ) {
+                            Icon(Icons.Default.Shield, contentDescription = null, modifier = Modifier.size(18.dp))
+                            Spacer(Modifier.width(SettingsSpace.extraSmall2))
+                            Text(stringResource(R.string.obscura_add_presets))
                         }
                         OutlinedButton(
                             onClick = {
-                                forceStopPackage(context, app.packageName)
-                                Toast.makeText(context, context.getString(R.string.obscura_force_stopped, app.label), Toast.LENGTH_SHORT).show()
+                                val userPkgs = otherApps.filter { !it.isSystem }.map { it.packageName }.toSet()
+                                onUpdate(app.copy(scopeList = userPkgs))
                             },
                             modifier = Modifier.weight(1f),
-                            shape = RoundedCornerShape(12.dp)
                         ) {
-                            Text(stringResource(R.string.obscura_force_stop))
+                            Text(stringResource(R.string.obscura_add_all_user_apps))
                         }
                     }
-                }
-            }
-
-            // Section 1: Per-App Privacy Scope (Hide List / Whitelist)
-            SectionCard(
-                title = stringResource(R.string.obscura_scope_section_title),
-                subtitle = stringResource(R.string.obscura_scope_subtitle)
-            ) {
-                Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                    // Mode Selector Chips
-                    Text(stringResource(R.string.obscura_scope_mode), style = MaterialTheme.typography.labelLarge, fontWeight = FontWeight.Medium)
                     Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(6.dp)
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = SettingsSpace.small1, vertical = SettingsSpace.extraSmall4),
+                        horizontalArrangement = Arrangement.spacedBy(SettingsSpace.extraSmall4),
                     ) {
-                        FilterChip(
-                            selected = app.scopeMode == ObscuraManager.SCOPE_MODE_DISABLED,
-                            onClick = {
-                                onUpdate(app.copy(scopeMode = ObscuraManager.SCOPE_MODE_DISABLED))
-                            },
-                            label = { Text(stringResource(R.string.obscura_disabled), style = MaterialTheme.typography.labelSmall) }
-                        )
-                        FilterChip(
-                            selected = app.scopeMode == ObscuraManager.SCOPE_MODE_BLACKLIST,
-                            onClick = {
-                                onUpdate(app.copy(scopeMode = ObscuraManager.SCOPE_MODE_BLACKLIST))
-                            },
-                            label = { Text(stringResource(R.string.obscura_blacklist), style = MaterialTheme.typography.labelSmall) }
-                        )
-                        FilterChip(
-                            selected = app.scopeMode == ObscuraManager.SCOPE_MODE_WHITELIST,
-                            onClick = {
-                                onUpdate(app.copy(scopeMode = ObscuraManager.SCOPE_MODE_WHITELIST))
-                            },
-                            label = { Text(stringResource(R.string.obscura_whitelist), style = MaterialTheme.typography.labelSmall) }
-                        )
-                    }
-
-                    if (app.scopeMode != ObscuraManager.SCOPE_MODE_DISABLED) {
-                        HorizontalDivider(modifier = Modifier.padding(vertical = 4.dp))
-
-                        val isBlacklist = app.scopeMode == ObscuraManager.SCOPE_MODE_BLACKLIST
-                        Text(
-                            text = if (isBlacklist)
-                                stringResource(R.string.obscura_blacklist_mode_summary, app.scopeList.size, app.label)
-                            else
-                                stringResource(R.string.obscura_whitelist_mode_summary, app.label, app.scopeList.size),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-
-                        // Scope Quick Presets
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.spacedBy(6.dp)
-                        ) {
-                            OutlinedButton(
-                                onClick = { showPresetDialog = true },
-                                modifier = Modifier.weight(1f),
-                                contentPadding = PaddingValues(horizontal = 8.dp, vertical = 4.dp),
-                                shape = RoundedCornerShape(10.dp)
-                            ) {
-                                Icon(Icons.Default.Shield, contentDescription = null, modifier = Modifier.size(16.dp))
-                                Spacer(Modifier.width(4.dp))
-                                Text(stringResource(R.string.obscura_add_presets), style = MaterialTheme.typography.labelSmall)
-                            }
-
-                            OutlinedButton(
-                                onClick = {
-                                    val userPkgs = otherApps.filter { !it.isSystem }.map { it.packageName }.toSet()
-                                    onUpdate(app.copy(scopeList = userPkgs))
-                                },
-                                modifier = Modifier.weight(1f),
-                                contentPadding = PaddingValues(horizontal = 8.dp, vertical = 4.dp),
-                                shape = RoundedCornerShape(10.dp)
-                            ) {
-                                Text(stringResource(R.string.obscura_add_all_user_apps), style = MaterialTheme.typography.labelSmall)
-                            }
-
-                            if (app.scopeList.isNotEmpty()) {
-                                OutlinedButton(
-                                    onClick = { onUpdate(app.copy(scopeList = emptySet())) },
-                                    contentPadding = PaddingValues(horizontal = 8.dp, vertical = 4.dp),
-                                    shape = RoundedCornerShape(10.dp)
-                                ) {
-                                    Icon(Icons.Default.Clear, contentDescription = stringResource(R.string.obscura_clear), modifier = Modifier.size(16.dp))
-                                }
-                            }
-                        }
-
-                        // Toggle Target Package List Picker
                         Button(
                             onClick = { showScopeTargetList = !showScopeTargetList },
-                            modifier = Modifier.fillMaxWidth(),
-                            shape = RoundedCornerShape(12.dp),
-                            colors = ButtonDefaults.buttonColors(
-                                containerColor = MaterialTheme.colorScheme.secondaryContainer,
-                                contentColor = MaterialTheme.colorScheme.onSecondaryContainer
+                            modifier = Modifier.weight(1f),
+                        ) {
+                            Text(
+                                if (showScopeTargetList) {
+                                    stringResource(R.string.obscura_hide_scope_picker)
+                                } else {
+                                    stringResource(R.string.obscura_configure_scope, app.scopeList.size)
+                                },
                             )
-                        ) {
-                            Icon(Icons.Default.Tune, null, Modifier.size(18.dp))
-                            Spacer(Modifier.width(8.dp))
-                            Text(if (showScopeTargetList) stringResource(R.string.obscura_hide_scope_picker) else stringResource(R.string.obscura_configure_scope, app.scopeList.size))
                         }
-
-                        AnimatedVisibility(
-                            visible = showScopeTargetList,
-                            enter = fadeIn() + expandVertically(),
-                            exit = fadeOut() + shrinkVertically()
-                        ) {
-                            Column(
+                        if (app.scopeList.isNotEmpty()) {
+                            OutlinedButton(onClick = { onUpdate(app.copy(scopeList = emptySet())) }) {
+                                Text(stringResource(R.string.obscura_clear))
+                            }
+                        }
+                    }
+                    AnimatedVisibility(
+                        visible = showScopeTargetList,
+                        enter = fadeIn() + expandVertically(),
+                        exit = fadeOut() + shrinkVertically(),
+                    ) {
+                        Column(modifier = Modifier.padding(horizontal = SettingsSpace.small1)) {
+                            AppPickerSearchField(
+                                query = scopeSearchQuery,
+                                onQueryChange = { scopeSearchQuery = it },
+                            )
+                            LazyColumn(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .background(
-                                        MaterialTheme.colorScheme.surfaceContainerHigh,
-                                        RoundedCornerShape(14.dp)
-                                    )
-                                    .padding(10.dp),
-                                verticalArrangement = Arrangement.spacedBy(8.dp)
+                                    .height(320.dp)
+                                    .padding(top = SettingsSpace.extraSmall4),
+                                verticalArrangement = Arrangement.spacedBy(ListItemDefaults.SegmentedGap),
                             ) {
-                                AppPickerSearchField(
-                                    query = scopeSearchQuery,
-                                    onQueryChange = { scopeSearchQuery = it }
-                                )
-
-                                LazyColumn(
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .height(300.dp),
-                                    verticalArrangement = Arrangement.spacedBy(4.dp)
-                                ) {
-                                    items(filteredOtherApps, key = { it.packageName }) { targetApp ->
-                                        val isChecked = app.scopeList.contains(targetApp.packageName)
-                                        Row(
-                                            modifier = Modifier
-                                                .fillMaxWidth()
-                                                .clip(RoundedCornerShape(10.dp))
-                                                .clickable {
-                                                    val newSet = if (isChecked) {
-                                                        app.scopeList - targetApp.packageName
-                                                    } else {
-                                                        app.scopeList + targetApp.packageName
-                                                    }
-                                                    onUpdate(app.copy(scopeList = newSet))
-                                                }
-                                                .padding(horizontal = 8.dp, vertical = 6.dp),
-                                            verticalAlignment = Alignment.CenterVertically
-                                        ) {
-                                            Checkbox(
-                                                checked = isChecked,
-                                                onCheckedChange = { checked ->
-                                                    val newSet = if (checked) {
-                                                        app.scopeList + targetApp.packageName
-                                                    } else {
-                                                        app.scopeList - targetApp.packageName
-                                                    }
-                                                    onUpdate(app.copy(scopeList = newSet))
-                                                }
-                                            )
-                                            Spacer(Modifier.width(8.dp))
-                                            Column(modifier = Modifier.weight(1f)) {
-                                                Text(
-                                                    text = targetApp.label,
-                                                    style = MaterialTheme.typography.bodyMedium,
-                                                    fontWeight = FontWeight.Medium,
-                                                    maxLines = 1,
-                                                    overflow = TextOverflow.Ellipsis
-                                                )
-                                                Text(
-                                                    text = targetApp.packageName,
-                                                    style = MaterialTheme.typography.bodySmall,
-                                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                                    maxLines = 1,
-                                                    overflow = TextOverflow.Ellipsis
-                                                )
+                                itemsIndexed(filteredOtherApps, key = { _, item -> item.packageName }) { index, targetApp ->
+                                    val isChecked = app.scopeList.contains(targetApp.packageName)
+                                    SegmentedListItem(
+                                        onClick = {
+                                            val newSet = if (isChecked) {
+                                                app.scopeList - targetApp.packageName
+                                            } else {
+                                                app.scopeList + targetApp.packageName
                                             }
-                                        }
+                                            onUpdate(app.copy(scopeList = newSet))
+                                        },
+                                        shapes = ListItemDefaults.segmentedShapes(index, filteredOtherApps.size),
+                                        leadingContent = { SettingsAppIcon(targetApp.icon) },
+                                        supportingContent = {
+                                            Text(
+                                                targetApp.packageName,
+                                                maxLines = 1,
+                                                overflow = TextOverflow.Ellipsis,
+                                            )
+                                        },
+                                        trailingContent = {
+                                            Checkbox(checked = isChecked, onCheckedChange = null)
+                                        },
+                                    ) {
+                                        Text(
+                                            targetApp.label,
+                                            maxLines = 1,
+                                            overflow = TextOverflow.Ellipsis,
+                                        )
                                     }
                                 }
                             }
                         }
                     }
                 }
-            }
 
-            // Section 2: Hardware & Network Isolation
-            SectionCard(
-                title = stringResource(R.string.obscura_hardware_section_title),
-                subtitle = stringResource(R.string.obscura_hardware_subtitle)
-            ) {
-                Column {
-                    DetailOptionSwitch(
-                        icon = Icons.Default.Shield,
-                        title = stringResource(R.string.obscura_master_isolation),
-                        subtitle = stringResource(R.string.obscura_master_isolation_subtitle),
-                        checked = app.isIsolated,
-                        onCheckedChange = { onUpdate(app.copy(isIsolated = it)) }
+            SectionHeader(stringResource(R.string.obscura_hardware_section_title))
+            SectionDescription(stringResource(R.string.obscura_hardware_subtitle))
+            Category {
+                ObscuraSwitch(
+                    icon = Icons.Default.Shield,
+                    title = stringResource(R.string.obscura_master_isolation),
+                    subtitle = stringResource(R.string.obscura_master_isolation_subtitle),
+                    checked = app.isIsolated,
+                    onCheckedChange = { onUpdate(app.copy(isIsolated = it)) },
+                )
+                if (app.isIsolated) {
+                    ObscuraSwitch(
+                        icon = Icons.Default.Public,
+                        title = stringResource(R.string.obscura_restrict_internet),
+                        subtitle = stringResource(R.string.obscura_restrict_internet_subtitle),
+                        checked = app.restrictInternet,
+                        onCheckedChange = { onUpdate(app.copy(restrictInternet = it)) },
                     )
-                    AnimatedVisibility(visible = app.isIsolated) {
-                        Column {
-                            HorizontalDivider(modifier = Modifier.padding(vertical = 4.dp))
-                            DetailOptionSwitch(
-                                icon = Icons.Default.Public,
-                                title = stringResource(R.string.obscura_restrict_internet),
-                                subtitle = stringResource(R.string.obscura_restrict_internet_subtitle),
-                                checked = app.restrictInternet,
-                                onCheckedChange = { onUpdate(app.copy(restrictInternet = it)) }
-                            )
-                            DetailOptionSwitch(
-                                icon = Icons.Default.Storage,
-                                title = stringResource(R.string.obscura_restrict_storage),
-                                subtitle = stringResource(R.string.obscura_restrict_storage_subtitle),
-                                checked = app.restrictStorage,
-                                onCheckedChange = { onUpdate(app.copy(restrictStorage = it)) }
-                            )
-                            DetailOptionSwitch(
-                                icon = Icons.Default.Security,
-                                title = stringResource(R.string.obscura_data_isolation),
-                                subtitle = stringResource(R.string.obscura_data_isolation_subtitle),
-                                checked = app.forceDataIsolation,
-                                onCheckedChange = { onUpdate(app.copy(forceDataIsolation = it)) }
-                            )
-                        }
-                    }
-                }
-            }
-
-            // Section 3: Anti-Detection & Settings Spoofing
-            SectionCard(
-                title = stringResource(R.string.obscura_spoof_section_title),
-                subtitle = stringResource(R.string.obscura_spoof_section_subtitle)
-            ) {
-                Column {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.End
-                    ) {
-                        OutlinedButton(
-                            onClick = {
-                                val allEnabled = app.spoofAdb && app.spoofDevOptions && app.spoofWirelessDebug
-                                        && app.spoofPkgVerifier && app.spoofUsbVerify && app.spoofAccessibility
-                                val toggleTo = !allEnabled
-                                onUpdate(
-                                    app.copy(
-                                        spoofAdb = toggleTo,
-                                        spoofDevOptions = toggleTo,
-                                        spoofWirelessDebug = toggleTo,
-                                        spoofPkgVerifier = toggleTo,
-                                        spoofUsbVerify = toggleTo,
-                                        spoofAccessibility = toggleTo,
-                                    )
-                                )
-                            },
-                            shape = RoundedCornerShape(8.dp),
-                            contentPadding = PaddingValues(horizontal = 10.dp, vertical = 4.dp)
-                        ) {
-                            Text(stringResource(R.string.obscura_toggle_all_spoofs), style = MaterialTheme.typography.labelSmall)
-                        }
-                    }
-
-                    DetailOptionSwitch(
-                        icon = Icons.Default.Code,
-                        title = stringResource(R.string.obscura_spoof_adb),
-                        checked = app.spoofAdb,
-                        onCheckedChange = { onUpdate(app.copy(spoofAdb = it)) }
+                    ObscuraSwitch(
+                        icon = Icons.Default.Storage,
+                        title = stringResource(R.string.obscura_restrict_storage),
+                        subtitle = stringResource(R.string.obscura_restrict_storage_subtitle),
+                        checked = app.restrictStorage,
+                        onCheckedChange = { onUpdate(app.copy(restrictStorage = it)) },
                     )
-                    DetailOptionSwitch(
-                        icon = Icons.Default.Tune,
-                        title = stringResource(R.string.obscura_spoof_dev_options),
-                        checked = app.spoofDevOptions,
-                        onCheckedChange = { onUpdate(app.copy(spoofDevOptions = it)) }
-                    )
-                    DetailOptionSwitch(
-                        icon = Icons.Default.Code,
-                        title = stringResource(R.string.obscura_spoof_wireless_debug),
-                        checked = app.spoofWirelessDebug,
-                        onCheckedChange = { onUpdate(app.copy(spoofWirelessDebug = it)) }
-                    )
-                    DetailOptionSwitch(
+                    ObscuraSwitch(
                         icon = Icons.Default.Security,
-                        title = stringResource(R.string.obscura_spoof_pkg_verifier),
-                        checked = app.spoofPkgVerifier,
-                        onCheckedChange = { onUpdate(app.copy(spoofPkgVerifier = it)) }
-                    )
-                    DetailOptionSwitch(
-                        icon = Icons.Default.Security,
-                        title = stringResource(R.string.obscura_spoof_usb_verify),
-                        checked = app.spoofUsbVerify,
-                        onCheckedChange = { onUpdate(app.copy(spoofUsbVerify = it)) }
-                    )
-                    DetailOptionSwitch(
-                        icon = Icons.Default.Security,
-                        title = stringResource(R.string.obscura_spoof_accessibility),
-                        checked = app.spoofAccessibility,
-                        onCheckedChange = { onUpdate(app.copy(spoofAccessibility = it)) }
+                        title = stringResource(R.string.obscura_data_isolation),
+                        subtitle = stringResource(R.string.obscura_data_isolation_subtitle),
+                        checked = app.forceDataIsolation,
+                        onCheckedChange = { onUpdate(app.copy(forceDataIsolation = it)) },
                     )
                 }
             }
 
-            // Section 4: System & Launcher Visibility
-            SectionCard(
-                title = stringResource(R.string.obscura_visibility_section_title),
-                subtitle = stringResource(R.string.obscura_visibility_subtitle)
-            ) {
-                Column {
-                    DetailOptionSwitch(
-                        icon = Icons.Default.VisibilityOff,
-                        title = stringResource(R.string.obscura_hide_launcher),
-                        subtitle = if (app.isHidden) stringResource(R.string.obscura_included_in_global_hide) else stringResource(R.string.obscura_hide_launcher_subtitle),
-                        checked = app.isHidden || app.isLauncherHidden,
-                        enabled = !app.isHidden,
-                        onCheckedChange = { onUpdate(app.copy(isLauncherHidden = it)) }
-                    )
-                    DetailOptionSwitch(
-                        icon = Icons.Default.PlayArrow,
-                        title = stringResource(R.string.obscura_detach_playstore_title),
-                        subtitle = if (app.isHidden) stringResource(R.string.obscura_included_in_global_hide) else stringResource(R.string.obscura_detach_playstore_summary),
-                        checked = app.isHidden || app.isPlayStoreDetached,
-                        enabled = !app.isHidden,
-                        onCheckedChange = { newState ->
-                            if (!newState && app.isPlayStoreDetached) {
-                                onUpdate(app.copy(isPlayStoreDetached = false))
-                                showRestartDialog = true
-                            } else {
-                                onUpdate(app.copy(isPlayStoreDetached = newState))
-                            }
-                        }
-                    )
-                    DetailOptionSwitch(
-                        icon = Icons.Default.Lock,
-                        title = stringResource(R.string.obscura_hide_global),
-                        subtitle = stringResource(R.string.obscura_hide_global_subtitle),
-                        checked = app.isHidden,
-                        onCheckedChange = { newState ->
-                            if (!newState && app.isHidden) {
-                                onUpdate(app.copy(isHidden = false))
-                                showRestartDialog = true
-                            } else {
-                                onUpdate(app.copy(isHidden = newState))
-                            }
-                        }
-                    )
+            SectionHeader(stringResource(R.string.obscura_spoof_section_title))
+            SectionDescription(stringResource(R.string.obscura_spoof_section_subtitle))
+            TextButton(
+                    onClick = {
+                        val allEnabled = app.spoofAdb && app.spoofDevOptions && app.spoofWirelessDebug &&
+                            app.spoofPkgVerifier && app.spoofUsbVerify && app.spoofAccessibility
+                        val toggleTo = !allEnabled
+                        onUpdate(
+                            app.copy(
+                                spoofAdb = toggleTo,
+                                spoofDevOptions = toggleTo,
+                                spoofWirelessDebug = toggleTo,
+                                spoofPkgVerifier = toggleTo,
+                                spoofUsbVerify = toggleTo,
+                                spoofAccessibility = toggleTo,
+                            ),
+                        )
+                    },
+                    modifier = Modifier.padding(horizontal = SettingsSpace.extraSmall4),
+                ) {
+                    Text(stringResource(R.string.obscura_toggle_all_spoofs))
                 }
+            Category {
+                ObscuraSwitch(
+                    icon = Icons.Default.Code,
+                    title = stringResource(R.string.obscura_spoof_adb),
+                    checked = app.spoofAdb,
+                    onCheckedChange = { onUpdate(app.copy(spoofAdb = it)) },
+                )
+                ObscuraSwitch(
+                    icon = Icons.Default.Tune,
+                    title = stringResource(R.string.obscura_spoof_dev_options),
+                    checked = app.spoofDevOptions,
+                    onCheckedChange = { onUpdate(app.copy(spoofDevOptions = it)) },
+                )
+                ObscuraSwitch(
+                    icon = Icons.Default.Code,
+                    title = stringResource(R.string.obscura_spoof_wireless_debug),
+                    checked = app.spoofWirelessDebug,
+                    onCheckedChange = { onUpdate(app.copy(spoofWirelessDebug = it)) },
+                )
+                ObscuraSwitch(
+                    icon = Icons.Default.Security,
+                    title = stringResource(R.string.obscura_spoof_pkg_verifier),
+                    checked = app.spoofPkgVerifier,
+                    onCheckedChange = { onUpdate(app.copy(spoofPkgVerifier = it)) },
+                )
+                ObscuraSwitch(
+                    icon = Icons.Default.Security,
+                    title = stringResource(R.string.obscura_spoof_usb_verify),
+                    checked = app.spoofUsbVerify,
+                    onCheckedChange = { onUpdate(app.copy(spoofUsbVerify = it)) },
+                )
+                ObscuraSwitch(
+                    icon = Icons.Default.Security,
+                    title = stringResource(R.string.obscura_spoof_accessibility),
+                    checked = app.spoofAccessibility,
+                    onCheckedChange = { onUpdate(app.copy(spoofAccessibility = it)) },
+                )
             }
 
-            Spacer(modifier = Modifier.height(30.dp))
+            SectionHeader(stringResource(R.string.obscura_visibility_section_title))
+            SectionDescription(stringResource(R.string.obscura_visibility_subtitle))
+            Category {
+                ObscuraSwitch(
+                    icon = Icons.Default.VisibilityOff,
+                    title = stringResource(R.string.obscura_hide_launcher),
+                    subtitle = if (app.isHidden) {
+                        stringResource(R.string.obscura_included_in_global_hide)
+                    } else {
+                        stringResource(R.string.obscura_hide_launcher_subtitle)
+                    },
+                    checked = app.isHidden || app.isLauncherHidden,
+                    enabled = !app.isHidden,
+                    onCheckedChange = { onUpdate(app.copy(isLauncherHidden = it)) },
+                )
+                ObscuraSwitch(
+                    icon = Icons.Default.PlayArrow,
+                    title = stringResource(R.string.obscura_detach_playstore_title),
+                    subtitle = if (app.isHidden) {
+                        stringResource(R.string.obscura_included_in_global_hide)
+                    } else {
+                        stringResource(R.string.obscura_detach_playstore_summary)
+                    },
+                    checked = app.isHidden || app.isPlayStoreDetached,
+                    enabled = !app.isHidden,
+                    onCheckedChange = { newState ->
+                        if (!newState && app.isPlayStoreDetached) {
+                            onUpdate(app.copy(isPlayStoreDetached = false))
+                            showRestartDialog = true
+                        } else {
+                            onUpdate(app.copy(isPlayStoreDetached = newState))
+                        }
+                    },
+                )
+                ObscuraSwitch(
+                    icon = Icons.Default.Lock,
+                    title = stringResource(R.string.obscura_hide_global),
+                    subtitle = stringResource(R.string.obscura_hide_global_subtitle),
+                    checked = app.isHidden,
+                    onCheckedChange = { newState ->
+                        if (!newState && app.isHidden) {
+                            onUpdate(app.copy(isHidden = false))
+                            showRestartDialog = true
+                        } else {
+                            onUpdate(app.copy(isHidden = newState))
+                        }
+                    },
+                )
+            }
+            Spacer(Modifier.height(SettingsSpace.small4))
         }
     }
 
@@ -1498,9 +1254,8 @@ private fun ObscuraAppDetailScreen(
             currentScope = app.scopeList,
             onDismiss = { showPresetDialog = false },
             onApply = { selectedFromPreset ->
-                val newScope = app.scopeList + selectedFromPreset
-                onUpdate(app.copy(scopeList = newScope))
-            }
+                onUpdate(app.copy(scopeList = app.scopeList + selectedFromPreset))
+            },
         )
     }
 
@@ -1512,108 +1267,69 @@ private fun ObscuraAppDetailScreen(
                     Icons.Default.Warning,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.size(28.dp)
                 )
             },
-            title = {
-                Text(
-                    text = stringResource(R.string.obscura_reboot_dialog_title),
-                    fontWeight = FontWeight.Bold
-                )
-            },
-            text = {
-                Text(text = stringResource(R.string.obscura_reboot_dialog_message))
-            },
+            title = { Text(stringResource(R.string.obscura_reboot_dialog_title)) },
+            text = { Text(stringResource(R.string.obscura_reboot_dialog_message)) },
             confirmButton = {
-                Button(
-                    onClick = {
-                        showRestartDialog = false
-                        rebootDevice(context)
-                    }
-                ) {
+                Button(onClick = {
+                    showRestartDialog = false
+                    rebootDevice(context)
+                }) {
                     Text(stringResource(R.string.obscura_reboot_dialog_button_now))
                 }
             },
             dismissButton = {
-                OutlinedButton(
-                    onClick = { showRestartDialog = false }
-                ) {
+                TextButton(onClick = { showRestartDialog = false }) {
                     Text(stringResource(R.string.obscura_reboot_dialog_button_later))
                 }
-            }
+            },
         )
     }
 }
 
 @Composable
-private fun SectionCard(
-    title: String,
-    subtitle: String,
-    content: @Composable () -> Unit
-) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceBright)
-    ) {
-        Column(modifier = Modifier.padding(18.dp)) {
-            Text(text = title, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-            Text(
-                text = subtitle,
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-            Spacer(modifier = Modifier.height(14.dp))
-            content()
-        }
+private fun SectionHeader(title: String) {
+    Box(Modifier.padding(horizontal = SettingsSpace.small1)) {
+        CategoryTitle(title)
     }
 }
 
 @Composable
-private fun DetailOptionSwitch(
-    icon: androidx.compose.ui.graphics.vector.ImageVector,
+private fun SectionDescription(text: String) {
+    Text(
+        text = text,
+        style = MaterialTheme.typography.bodyMedium,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        modifier = Modifier.padding(
+            start = SettingsSpace.small4,
+            end = SettingsSpace.small4,
+            bottom = SettingsSpace.extraSmall4,
+        ),
+    )
+}
+
+@Composable
+private fun ObscuraSwitch(
+    icon: ImageVector,
     title: String,
     subtitle: String? = null,
     checked: Boolean,
     enabled: Boolean = true,
-    onCheckedChange: (Boolean) -> Unit
+    onCheckedChange: (Boolean) -> Unit,
 ) {
-    val alpha = if (enabled) 1f else 0.38f
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable(enabled = enabled) { onCheckedChange(!checked) }
-            .padding(vertical = 8.dp),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Icon(
-            imageVector = icon,
-            contentDescription = null,
-            tint = (if (checked) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant).copy(alpha = alpha),
-            modifier = Modifier.size(22.dp)
-        )
-        Spacer(modifier = Modifier.width(14.dp))
-        Column(modifier = Modifier.weight(1f)) {
-            Text(
-                text = title,
-                style = MaterialTheme.typography.bodyMedium,
-                fontWeight = FontWeight.Medium,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = alpha)
-            )
-            if (!subtitle.isNullOrBlank()) {
-                Text(
-                    text = subtitle,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = alpha)
-                )
+    SwitchPreference(
+        model = object : SwitchPreferenceModel {
+            override val title = title
+            override val summary = { subtitle.orEmpty() }
+            override val icon: @Composable (() -> Unit) = {
+                Icon(icon, contentDescription = null)
             }
-        }
-        Switch(
-            checked = checked,
-            enabled = enabled,
-            onCheckedChange = onCheckedChange
-        )
-    }
+            override val checked = { checked }
+            override val changeable = { enabled }
+            override val onCheckedChange = onCheckedChange
+        },
+    )
 }
 
 private fun getDefaultLauncher(context: Context): String {
@@ -1694,237 +1410,134 @@ private fun PresetPickerDialog(
     val totalMatchedCount = presetMatchedApps.size
     val currentSelectedCount = selectedPackages.size
 
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = {
-            Column {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Icon(
-                        Icons.Default.Shield,
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.primary,
-                        modifier = Modifier.size(24.dp)
-                    )
-                    Spacer(Modifier.width(10.dp))
-                    Text(
-                        text = stringResource(R.string.obscura_presets_title),
-                        style = MaterialTheme.typography.titleLarge,
-                        fontWeight = FontWeight.Bold
-                    )
-                }
-                Spacer(Modifier.height(4.dp))
+    ExpressiveSheet(onDismiss = onDismiss) {
+        Text(
+            text = stringResource(R.string.obscura_presets_title),
+            style = MaterialTheme.typography.titleLarge,
+        )
+        Text(
+            text = if (totalMatchedCount == 0) {
+                stringResource(R.string.obscura_no_known_presets)
+            } else {
+                stringResource(R.string.obscura_matching_apps, totalMatchedCount)
+            },
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(bottom = SettingsSpace.extraSmall4),
+        )
+        if (totalMatchedCount == 0) {
+            Box(
+                modifier = Modifier.weight(1f).fillMaxWidth(),
+                contentAlignment = Alignment.Center,
+            ) {
                 Text(
-                    text = if (totalMatchedCount == 0)
-                        stringResource(R.string.obscura_no_known_presets)
-                    else
-                        stringResource(R.string.obscura_matching_apps, totalMatchedCount),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    text = stringResource(R.string.obscura_no_root_tools),
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
-        },
-        text = {
-            Column(
+        } else {
+            AppPickerSearchField(query = searchQuery, onQueryChange = { searchQuery = it })
+            Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(420.dp),
-                verticalArrangement = Arrangement.spacedBy(10.dp)
+                    .padding(vertical = SettingsSpace.extraSmall4),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
             ) {
-                if (totalMatchedCount > 0) {
-                    AppPickerSearchField(
-                        query = searchQuery,
-                        onQueryChange = { searchQuery = it }
-                    )
-
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Text(
-                            text = stringResource(R.string.obscura_selected_count, currentSelectedCount),
-                            style = MaterialTheme.typography.labelMedium,
-                            fontWeight = FontWeight.SemiBold,
-                            color = MaterialTheme.colorScheme.primary
-                        )
-                        Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                            OutlinedButton(
-                                onClick = {
-                                    val visiblePkgs = filteredApps.map { it.first.packageName }
-                                    visiblePkgs.forEach { if (!selectedPackages.contains(it)) selectedPackages.add(it) }
-                                },
-                                contentPadding = PaddingValues(horizontal = 8.dp, vertical = 2.dp),
-                                shape = RoundedCornerShape(8.dp)
-                            ) {
-                                Text(stringResource(R.string.obscura_select_all), style = MaterialTheme.typography.labelSmall)
-                            }
-                            OutlinedButton(
-                                onClick = {
-                                    val visiblePkgs = filteredApps.map { it.first.packageName }.toSet()
-                                    selectedPackages.removeAll(visiblePkgs)
-                                },
-                                contentPadding = PaddingValues(horizontal = 8.dp, vertical = 2.dp),
-                                shape = RoundedCornerShape(8.dp)
-                            ) {
-                                Text(stringResource(R.string.obscura_deselect_all), style = MaterialTheme.typography.labelSmall)
-                            }
+                Text(
+                    text = stringResource(R.string.obscura_selected_count, currentSelectedCount),
+                    style = MaterialTheme.typography.labelLarge,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+                Row(horizontalArrangement = Arrangement.spacedBy(SettingsSpace.extraSmall3)) {
+                    TextButton(onClick = {
+                        filteredApps.map { it.first.packageName }.forEach { pkg ->
+                            if (!selectedPackages.contains(pkg)) selectedPackages.add(pkg)
                         }
-                    }
-
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .horizontalScroll(rememberScrollState()),
-                        horizontalArrangement = Arrangement.spacedBy(6.dp)
-                    ) {
-                        PresetCategory.values().forEach { cat ->
-                            val catCount = if (cat == PresetCategory.ALL) totalMatchedCount
-                            else presetMatchedApps.count { it.second == cat }
-
-                            if (cat == PresetCategory.ALL || catCount > 0) {
-                                FilterChip(
-                                    selected = selectedCategory == cat,
-                                    onClick = { selectedCategory = cat },
-                                    label = {
-                                        Text(stringResource(R.string.obscura_preset_count, stringResource(cat.labelRes), catCount), style = MaterialTheme.typography.labelSmall)
-                                    }
-                                )
-                            }
-                        }
-                    }
-
-                    HorizontalDivider()
-
-                    if (filteredApps.isEmpty()) {
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .weight(1f),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Text(
-                                stringResource(R.string.obscura_no_filter_match),
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
-                        }
-                    } else {
-                        LazyColumn(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .weight(1f),
-                            verticalArrangement = Arrangement.spacedBy(4.dp)
-                        ) {
-                            items(filteredApps, key = { it.first.packageName }) { (targetApp, category) ->
-                                val isChecked = selectedPackages.contains(targetApp.packageName)
-                                Row(
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .clip(RoundedCornerShape(10.dp))
-                                        .clickable {
-                                            if (isChecked) {
-                                                selectedPackages.remove(targetApp.packageName)
-                                            } else {
-                                                selectedPackages.add(targetApp.packageName)
-                                            }
-                                        }
-                                        .padding(horizontal = 6.dp, vertical = 6.dp),
-                                    verticalAlignment = Alignment.CenterVertically
-                                ) {
-                                    Checkbox(
-                                        checked = isChecked,
-                                        onCheckedChange = { checked ->
-                                            if (checked) {
-                                                if (!selectedPackages.contains(targetApp.packageName)) {
-                                                    selectedPackages.add(targetApp.packageName)
-                                                }
-                                            } else {
-                                                selectedPackages.remove(targetApp.packageName)
-                                            }
-                                        }
-                                    )
-                                    Spacer(Modifier.width(8.dp))
-                                    val iconBitmap = remember(targetApp.packageName) {
-                                        runCatching { targetApp.icon?.toBitmap(64, 64)?.asImageBitmap() }.getOrNull()
-                                    }
-                                    if (iconBitmap != null) {
-                                        Image(
-                                            bitmap = iconBitmap,
-                                            contentDescription = null,
-                                            modifier = Modifier
-                                                .size(32.dp)
-                                                .clip(RoundedCornerShape(8.dp))
-                                        )
-                                        Spacer(Modifier.width(8.dp))
-                                    }
-                                    Column(modifier = Modifier.weight(1f)) {
-                                        Text(
-                                            text = targetApp.label,
-                                            style = MaterialTheme.typography.bodyMedium,
-                                            fontWeight = FontWeight.Medium,
-                                            maxLines = 1,
-                                            overflow = TextOverflow.Ellipsis
-                                        )
-                                        Text(
-                                            text = targetApp.packageName,
-                                            style = MaterialTheme.typography.bodySmall,
-                                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                            maxLines = 1,
-                                            overflow = TextOverflow.Ellipsis
-                                        )
-                                    }
-                                    Spacer(Modifier.width(6.dp))
-                                    Surface(
-                                        color = when (category) {
-                                            PresetCategory.ROOT -> MaterialTheme.colorScheme.errorContainer
-                                            PresetCategory.DETECTORS -> MaterialTheme.colorScheme.tertiaryContainer
-                                            PresetCategory.SHIZUKU -> MaterialTheme.colorScheme.secondaryContainer
-                                            PresetCategory.TOOLS -> MaterialTheme.colorScheme.surfaceVariant
-                                            else -> MaterialTheme.colorScheme.primaryContainer
-                                        },
-                                        shape = RoundedCornerShape(6.dp)
-                                    ) {
-                                        Text(
-                                            text = stringResource(category.shortLabelRes),
-                                            style = MaterialTheme.typography.labelSmall,
-                                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
-                                        )
-                                    }
-                                }
-                            }
-                        }
-                    }
-                } else {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .weight(1f),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(
-                            text = stringResource(R.string.obscura_no_root_tools),
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                    }) { Text(stringResource(R.string.obscura_select_all)) }
+                    TextButton(onClick = {
+                        selectedPackages.removeAll(filteredApps.map { it.first.packageName }.toSet())
+                    }) { Text(stringResource(R.string.obscura_deselect_all)) }
+                }
+            }
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .horizontalScroll(rememberScrollState()),
+                horizontalArrangement = Arrangement.spacedBy(SettingsSpace.extraSmall3),
+            ) {
+                for (cat in PresetCategory.values()) {
+                    val catCount = if (cat == PresetCategory.ALL) totalMatchedCount
+                    else presetMatchedApps.count { it.second == cat }
+                    if (cat == PresetCategory.ALL || catCount > 0) {
+                        FilterChip(
+                            selected = selectedCategory == cat,
+                            onClick = { selectedCategory = cat },
+                            label = {
+                                Text(stringResource(R.string.obscura_preset_count, stringResource(cat.labelRes), catCount))
+                            },
                         )
                     }
                 }
             }
-        },
-        confirmButton = {
-            Button(
-                onClick = {
-                    onApply(selectedPackages.toSet())
-                    onDismiss()
-                },
-                enabled = totalMatchedCount > 0 && selectedPackages.isNotEmpty()
-            ) {
-                Text(stringResource(R.string.obscura_add_selected, selectedPackages.size))
-            }
-        },
-        dismissButton = {
-            OutlinedButton(onClick = onDismiss) {
-                Text(stringResource(R.string.obscura_cancel))
+            if (filteredApps.isEmpty()) {
+                Box(
+                    modifier = Modifier.weight(1f).fillMaxWidth(),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    Text(
+                        stringResource(R.string.obscura_no_filter_match),
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+            } else {
+                LazyColumn(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxWidth()
+                        .padding(top = SettingsSpace.extraSmall4),
+                    verticalArrangement = Arrangement.spacedBy(ListItemDefaults.SegmentedGap),
+                ) {
+                    itemsIndexed(filteredApps, key = { _, item -> item.first.packageName }) { index, (targetApp, category) ->
+                        val isChecked = selectedPackages.contains(targetApp.packageName)
+                        SegmentedListItem(
+                            onClick = {
+                                if (isChecked) selectedPackages.remove(targetApp.packageName)
+                                else selectedPackages.add(targetApp.packageName)
+                            },
+                            shapes = ListItemDefaults.segmentedShapes(index, filteredApps.size),
+                            leadingContent = { SettingsAppIcon(targetApp.icon) },
+                            overlineContent = { Text(stringResource(category.shortLabelRes)) },
+                            supportingContent = {
+                                Text(
+                                    targetApp.packageName,
+                                    maxLines = 1,
+                                    overflow = TextOverflow.Ellipsis,
+                                )
+                            },
+                            trailingContent = {
+                                Checkbox(checked = isChecked, onCheckedChange = null)
+                            },
+                        ) {
+                            Text(targetApp.label, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                        }
+                    }
+                }
             }
         }
-    )
+        Button(
+            onClick = {
+                onApply(selectedPackages.toSet())
+                onDismiss()
+            },
+            enabled = totalMatchedCount > 0 && selectedPackages.isNotEmpty(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = SettingsSpace.extraSmall4),
+        ) {
+            Text(stringResource(R.string.obscura_add_selected, selectedPackages.size))
+        }
+    }
 }
