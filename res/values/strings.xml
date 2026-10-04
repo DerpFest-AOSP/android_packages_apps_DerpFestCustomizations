@@ -138,7 +138,9 @@
 
     <!-- Keybox Data -->
     <string name="keybox_data_title">Keybox attestation override</string>
-    <string name="keybox_data_summary">Load a custom keybox XML to override device key attestation</string>
+    <string name="keybox_data_summary">Select a Keybox XML file to replace the built-in default. Delete it to use the built-in keybox again.</string>
+    <string name="keybox_excluded_apps_title">Excluded apps</string>
+    <string name="keybox_excluded_apps_summary">Excluded apps use the device attestation implementation instead of the configured keybox</string>
     <string name="keybox_data_loaded_summary">Loaded %1$s keybox with %2$d certificates (%3$s)</string>
     <string name="keybox_delete_content_description">Clear keybox data</string>
     <string name="keybox_toast_invalid_file_selected">Not an XML file. Choose a valid keybox XML.</string>
@@ -148,7 +150,7 @@
 
     <!-- Pif Data -->
     <string name="pif_data_title">Select PIF JSON to spoof</string>
-    <string name="pif_data_summary">Select PIF JSON used for prop attestation spoofing for google mobile services and play store. Click the delete button in order to reset the PIF data props and use dynamic PIF props which are used by default.</string>
+    <string name="pif_data_summary">Select a pif.json used for GMS and the Play Store. Delete it to return to dynamically fetched properties.</string>
     <string name="pif_data_loaded_summary">Loaded %1$d props (%2$s)</string>
     <string name="pif_delete_content_description">Clear PIF data</string>
     <string name="pif_toast_invalid_file_selected">Not a JSON file. Choose a valid PIF JSON.</string>

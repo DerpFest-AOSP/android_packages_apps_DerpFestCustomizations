@@ -27,6 +27,12 @@
             android:key="keybox_data_setting"
             android:title="@string/keybox_data_title"/>
 
+        <Preference
+            android:key="keybox_excluded_apps"
+            android:title="@string/keybox_excluded_apps_title"
+            android:summary="@string/keybox_excluded_apps_summary"
+            android:fragment="org.derpfest.customizations.fragment.KeyboxExcludedAppsSettings" />
+
         <org.derpfest.customizations.preference.PifDataPreference
             android:key="pif_data_setting"
             android:title="@string/pif_data_title"/>
