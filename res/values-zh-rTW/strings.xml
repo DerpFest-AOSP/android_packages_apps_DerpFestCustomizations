@@ -356,4 +356,15 @@
     <!-- Lock screen media art on Ambient Display -->
     <string name="ambient_media_art_title">微光顯示媒體封面</string>
     <string name="ambient_media_art_summary">可用時在微光顯示畫面中顯示媒體封面</string>
+
+    <string name="edge_light_style_title">繪製風格</string>
+    <string name="edge_light_style_default">預設 (左/右)</string>
+    <string name="edge_light_style_frame">邊框 (四周)</string>
+    <string name="edge_light_animation_effect_title">動畫效果</string>
+    <string name="edge_light_animation_effect_none">標準</string>
+    <string name="edge_light_animation_effect_breathing">呼吸</string>
+    <string name="edge_light_animation_effect_wave">波浪</string>
+    <string name="edge_light_animation_effect_sparkle">閃爍</string>
+    <string name="edge_light_animation_effect_chase">追逐</string>
+    <string name="edge_light_animation_effect_comet">彗星</string>
 </resources>
