@@ -19,6 +19,7 @@
     <string name="notifications_summary">Configure options for notifications</string>
     <string name="live_status_title">Live status</string>
     <string name="live_status_summary">Dynamic Island and Dynamic Bar</string>
+    <string name="live_status_summary_no_cutout">Dynamic Bar</string>
     <string name="buttons_title">Buttons</string>
     <string name="buttons_summary">Set default behavior and actions for keys</string>
     <string name="lockscreen_title">Lockscreen</string>
@@ -708,6 +709,7 @@
     <!-- Dynamic Island -->
     <string name="status_bar_dynamic_island_title">Dynamic Island</string>
     <string name="status_bar_dynamic_island_summary">Bring live activities, controls, and updates to the camera cutout</string>
+    <string name="status_bar_dynamic_island_unavailable">Requires a centered camera cutout</string>
     <string name="dynamic_island_width_title">Dynamic Island width</string>
     <string name="dynamic_island_width_summary">Modify the horizontal length of the Dynamic Island chip</string>
     <string name="dynamic_island_customization_title">Dynamic Island customization</string>

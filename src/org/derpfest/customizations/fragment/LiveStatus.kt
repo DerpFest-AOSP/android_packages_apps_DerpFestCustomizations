@@ -5,7 +5,6 @@
 
 package org.derpfest.customizations.fragment
 
-import android.content.Context
 import android.os.Bundle
 import androidx.preference.Preference
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent
@@ -20,11 +19,22 @@ class LiveStatus : SettingsPreferenceFragment() {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         addPreferencesFromResource(R.xml.live_status)
+        updateDynamicIslandAvailability()
+    }
 
-        if (!DeviceUtils.hasCenteredCutout(requireContext())) {
-            findPreference<Preference>("status_bar_dynamic_island")?.let {
-                preferenceScreen.removePreference(it)
-            }
+    override fun onResume() {
+        super.onResume()
+        updateDynamicIslandAvailability()
+    }
+
+    private fun updateDynamicIslandAvailability() {
+        val islandPref = findPreference<Preference>(KEY_DYNAMIC_ISLAND) ?: return
+        val hasCutout = DeviceUtils.hasCenteredCutout(requireContext())
+        islandPref.isEnabled = hasCutout
+        islandPref.summary = if (hasCutout) {
+            getString(R.string.status_bar_dynamic_island_summary)
+        } else {
+            getString(R.string.status_bar_dynamic_island_unavailable)
         }
     }
 
@@ -32,17 +42,9 @@ class LiveStatus : SettingsPreferenceFragment() {
 
     companion object {
         const val TAG = "DerpFestCustomizations"
+        const val KEY_DYNAMIC_ISLAND = "status_bar_dynamic_island"
 
         @JvmField
-        val SEARCH_INDEX_DATA_PROVIDER: BaseSearchIndexProvider =
-            object : BaseSearchIndexProvider(R.xml.live_status) {
-                override fun getNonIndexableKeys(context: Context): MutableList<String> {
-                    val keys = super.getNonIndexableKeys(context)
-                    if (!DeviceUtils.hasCenteredCutout(context)) {
-                        keys.add("status_bar_dynamic_island")
-                    }
-                    return keys
-                }
-            }
+        val SEARCH_INDEX_DATA_PROVIDER = BaseSearchIndexProvider(R.xml.live_status)
     }
 }
