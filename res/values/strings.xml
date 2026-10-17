@@ -211,6 +211,13 @@
     <string name="compact_heads_up_notifications_enabled_title">Compact heads-up</string>
     <string name="compact_heads_up_notifications_enabled_summary">Display notifications in compact size</string>
 
+    <!-- Now Playing -->
+    <string name="now_playing_title">Now Playing</string>
+    <string name="now_playing_enabled_title">Identify songs playing nearby</string>
+    <string name="now_playing_enabled_summary">Listen for music near the phone and show the song on the lock screen. Off by default.</string>
+    <string name="now_playing_on_demand_title">On-demand shortcut</string>
+    <string name="now_playing_on_demand_summary">Show a search icon on the lock screen. A long press starts a search.</string>
+
     <!-- Hide statusbar on lockscreen -->
     <string name="lockscreen_hide_status_bar_title">Hide Statusbar</string>
     <string name="lockscreen_hide_status_bar_summary">When enabled, statusbar will be hidden on lockscreen</string>

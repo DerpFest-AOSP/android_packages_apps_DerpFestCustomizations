@@ -76,6 +76,25 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="now_playing_category"
+        android:title="@string/now_playing_title" >
+
+        <SwitchPreferenceCompat
+            android:key="now_playing_enabled"
+            android:title="@string/now_playing_enabled_title"
+            android:summary="@string/now_playing_enabled_summary"
+            android:persistent="false" />
+
+        <SwitchPreferenceCompat
+            android:key="now_playing_on_demand"
+            android:title="@string/now_playing_on_demand_title"
+            android:summary="@string/now_playing_on_demand_summary"
+            android:dependency="now_playing_enabled"
+            android:persistent="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="media_art_category"
         android:title="@string/ls_media_art_title" >
 
