@@ -39,6 +39,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
     public static final String TAG = "Spoofing";
 
     private static final String KEYBOX_DATA_KEY = "keybox_data_setting";
+    private static final String KEYBOX_DOWNLOAD_KEY = "keybox_download";
     private static final String PIF_DATA_KEY = "pif_data_setting";
 
     private ActivityResultLauncher<Intent> mKeyboxFilePickerLauncher;
@@ -52,8 +53,16 @@ public class Spoofing extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.spoofing);
 
-        final PreferenceScreen prefScreen = getPreferenceScreen();
-        final Resources res = getResources();
+        Preference download = findPreference(KEYBOX_DOWNLOAD_KEY);
+        if (download != null) {
+            download.setOnPreferenceClickListener(preference -> {
+                KeyboxDataPreference keybox = findPreference(KEYBOX_DATA_KEY);
+                if (keybox != null) {
+                    keybox.downloadLatest();
+                }
+                return true;
+            });
+        }
 
         mKeyboxFilePickerLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),

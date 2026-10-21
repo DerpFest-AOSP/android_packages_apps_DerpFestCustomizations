@@ -28,6 +28,11 @@
             android:title="@string/keybox_data_title"/>
 
         <Preference
+            android:key="keybox_download"
+            android:title="@string/keybox_download_title"
+            android:summary="@string/keybox_download_summary" />
+
+        <Preference
             android:key="keybox_excluded_apps"
             android:title="@string/keybox_excluded_apps_title"
             android:summary="@string/keybox_excluded_apps_summary"

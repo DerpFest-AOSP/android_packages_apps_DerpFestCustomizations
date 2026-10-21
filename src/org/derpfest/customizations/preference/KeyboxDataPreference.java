@@ -1,11 +1,15 @@
 package org.derpfest.customizations.preference;
 
+import android.app.ActivityManager;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Handler;
+import android.os.Looper;
 import android.provider.Settings;
 import android.util.AttributeSet;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -22,17 +26,32 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.security.cert.CertificateFactory;
+import java.security.cert.X509Certificate;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class KeyboxDataPreference extends Preference {
 
     private static final String TAG = "KeyboxDataPref";
+    private static final int DOWNLOAD_TIMEOUT_MS = 15_000;
+    private static final String KEYBOX_URL = "https://derpfest.org/keybox.xml";
+    private static final String REVOCATION_URL =
+            "https://android.googleapis.com/attestation/status?encrypted=0";
+    private static final Pattern CERT_PATTERN = Pattern.compile(
+            "-----BEGIN CERTIFICATE-----([\\s\\S]+?)-----END CERTIFICATE-----");
+
+    private final Handler mHandler = new Handler(Looper.getMainLooper());
     private ActivityResultLauncher<Intent> mFilePickerLauncher;
 
     public KeyboxDataPreference(Context context, AttributeSet attrs) {
@@ -128,23 +147,141 @@ public class KeyboxDataPreference extends Preference {
             }
 
             String xml = xmlContent.toString();
-            if (!validateXml(xml)) {
+            if (!storeXml(xml)) {
                 Toast.makeText(ctx,
                     ctx.getString(R.string.keybox_toast_missing_data), Toast.LENGTH_SHORT).show();
                 return;
             }
-
-            Settings.Secure.putString(cr, Settings.Secure.KEYBOX_DATA, xml);
-            String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()).format(new Date());
-            Settings.Secure.putString(cr, Settings.Secure.KEYBOX_DATA_TIMESTAMP, timestamp);
             Toast.makeText(ctx,
                     ctx.getString(R.string.keybox_toast_file_loaded), Toast.LENGTH_SHORT).show();
-            notifyChanged();
+            restartAttestationClients();
         } catch (IOException e) {
             Log.e(TAG, "Failed to read XML file", e);
             Toast.makeText(ctx,
                 ctx.getString(R.string.keybox_toast_invalid_file_selected), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    /**
+     * Validates and stores a keybox XML in the setting the attestation path reads.
+     *
+     * @return true when the XML was stored
+     */
+    public boolean storeXml(String xml) {
+        final Context ctx = getContext();
+        if (ctx == null || xml == null || !validateXml(xml)) {
+            return false;
+        }
+        ContentResolver cr = ctx.getContentResolver();
+        Settings.Secure.putString(cr, Settings.Secure.KEYBOX_DATA, xml);
+        String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault())
+                .format(new Date());
+        Settings.Secure.putString(cr, Settings.Secure.KEYBOX_DATA_TIMESTAMP, timestamp);
+        notifyChanged();
+        return true;
+    }
+
+    public void downloadLatest() {
+        final Context ctx = getContext();
+        if (ctx == null) return;
+        setEnabled(false);
+        new Thread(() -> {
+            String xml = fetchUrl(KEYBOX_URL);
+            Boolean revoked = xml != null ? isRevoked(xml) : null;
+            mHandler.post(() -> {
+                setEnabled(true);
+                if (xml == null) {
+                    toast(ctx, R.string.keybox_toast_download_failed);
+                    return;
+                }
+                if (!storeXml(xml)) {
+                    toast(ctx, R.string.keybox_toast_missing_data);
+                    return;
+                }
+                toast(ctx, R.string.keybox_toast_file_loaded);
+                if (revoked != null) {
+                    toast(ctx, revoked
+                            ? R.string.keybox_toast_download_revoked
+                            : R.string.keybox_toast_download_valid);
+                }
+                restartAttestationClients();
+            });
+        }, "KeyboxDownload").start();
+    }
+
+    private static String fetchUrl(String url) {
+        HttpURLConnection connection = null;
+        try {
+            connection = (HttpURLConnection) new URL(url).openConnection();
+            connection.setConnectTimeout(DOWNLOAD_TIMEOUT_MS);
+            connection.setReadTimeout(DOWNLOAD_TIMEOUT_MS);
+            connection.setInstanceFollowRedirects(true);
+            if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
+                return null;
+            }
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(
+                    connection.getInputStream(), java.nio.charset.StandardCharsets.UTF_8))) {
+                StringBuilder body = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    body.append(line).append('\n');
+                }
+                return body.toString();
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Keybox download failed", e);
+            return null;
+        } finally {
+            if (connection != null) connection.disconnect();
+        }
+    }
+
+    /** @return true if revoked, false if not, null if the status list could not be read */
+    private static Boolean isRevoked(String xml) {
+        String status = fetchUrl(REVOCATION_URL);
+        if (status == null) return null;
+        try {
+            org.json.JSONObject entries = new org.json.JSONObject(status).optJSONObject("entries");
+            if (entries == null) return null;
+            CertificateFactory factory = CertificateFactory.getInstance("X.509");
+            Matcher matcher = CERT_PATTERN.matcher(xml);
+            boolean sawCert = false;
+            while (matcher.find()) {
+                byte[] der = Base64.decode(matcher.group(1).replaceAll("\\s", ""), Base64.DEFAULT);
+                X509Certificate cert = (X509Certificate) factory.generateCertificate(
+                        new ByteArrayInputStream(der));
+                sawCert = true;
+                org.json.JSONObject entry = entries.optJSONObject(
+                        cert.getSerialNumber().toString(16).toUpperCase(Locale.US));
+                if (entry == null) continue;
+                String state = entry.optString("status", "").toUpperCase(Locale.US);
+                if ("REVOKED".equals(state) || "SUSPENDED".equals(state)) {
+                    return true;
+                }
+            }
+            return sawCert ? false : null;
+        } catch (Exception e) {
+            Log.w(TAG, "Keybox revocation check failed", e);
+            return null;
+        }
+    }
+
+    private void restartAttestationClients() {
+        Context ctx = getContext();
+        if (ctx == null) return;
+        ActivityManager am = ctx.getSystemService(ActivityManager.class);
+        if (am == null) return;
+        try {
+            am.forceStopPackage("com.google.android.gms");
+            am.forceStopPackage("com.android.vending");
+            am.forceStopPackage("com.google.android.rkpdapp");
+        } catch (Exception e) {
+            Log.w(TAG, "Failed to restart attestation clients", e);
+        }
+    }
+
+    private static void toast(Context ctx, int resId) {
+        Toast.makeText(ctx, ctx.getString(resId), Toast.LENGTH_SHORT).show();
     }
 
     private static final class KeyboxInfo {

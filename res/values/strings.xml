@@ -148,6 +148,11 @@
     <string name="keybox_toast_missing_data">Invalid keybox XML: required fields missing</string>
     <string name="keybox_toast_file_loaded">Keybox loaded</string>
     <string name="keybox_toast_file_cleared">Keybox cleared</string>
+    <string name="keybox_download_title">Download latest keybox</string>
+    <string name="keybox_download_summary">Fetch the current keybox and use it for attestation</string>
+    <string name="keybox_toast_download_failed">Couldn\'t download a keybox</string>
+    <string name="keybox_toast_download_valid">Downloaded keybox is valid</string>
+    <string name="keybox_toast_download_revoked">Downloaded keybox is revoked</string>
 
     <!-- Pif Data -->
     <string name="pif_data_title">Select PIF JSON to spoof</string>
