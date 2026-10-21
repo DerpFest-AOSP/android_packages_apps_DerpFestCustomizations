@@ -162,6 +162,16 @@
     <string name="pif_toast_invalid_file_selected">Not a JSON file. Choose a valid PIF JSON.</string>
     <string name="pif_toast_file_loaded">PIF JSON loaded</string>
     <string name="pif_toast_file_cleared">PIF JSON cleared</string>
+    <string name="pif_active_title">Active fingerprint</string>
+    <string name="pif_active_none">No fingerprint configured</string>
+    <string name="pif_active_source_imported">Source: Imported file</string>
+    <string name="pif_active_source_fetched">Source: Fetched profile</string>
+    <string name="pif_active_source_builtin">Source: Built-in profile</string>
+    <string name="pif_refresh_title">Refresh fingerprint</string>
+    <string name="pif_toast_refresh_failed">Couldn\'t download a fingerprint</string>
+    <string name="pif_toast_refresh_updated">Fingerprint updated</string>
+    <string name="pif_toast_refresh_unchanged">Fingerprint is already up to date</string>
+    <string name="pif_toast_refresh_imported">Fetched profile updated. The imported file is still in use.</string>
 
     <!-- Spoofing Categories -->
     <string name="spoofing_attestation_category_title">Attestation</string>

@@ -164,6 +164,12 @@
     <string name="spoofing_integrity_category_title">Google Play Integrität</string>
     <string name="pi_spoof_title">Google-Play-Integrität-Spoof</string>
     <string name="pi_spoof_summary">Gerät als anderes Modell für Google Play Integrität spoofen</string>
+    <string name="pif_active_title">Aktiver Fingerabdruck</string>
+    <string name="pif_active_none">Kein Fingerabdruck konfiguriert</string>
+    <string name="pif_active_source_imported">Quelle: Importierte Datei</string>
+    <string name="pif_active_source_fetched">Quelle: Abgerufenes Profil</string>
+    <string name="pif_active_source_builtin">Quelle: Integriertes Profil</string>
+    <string name="pif_refresh_title">Fingerabdruck aktualisieren</string>
 
     <!-- Edge light -->
     <string name="edge_light_category_title">Seitenlicht</string>

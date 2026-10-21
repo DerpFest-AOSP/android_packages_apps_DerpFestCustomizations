@@ -10,8 +10,11 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.database.ContentObserver;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.view.View;
@@ -26,7 +29,9 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
+import com.android.settingslib.widget.ButtonPreference;
 
+import org.derpfest.customizations.preference.ActiveFingerprintPreference;
 import org.derpfest.customizations.preference.KeyboxDataPreference;
 import org.derpfest.customizations.preference.PifDataPreference;
 
@@ -41,11 +46,21 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private static final String KEYBOX_DATA_KEY = "keybox_data_setting";
     private static final String KEYBOX_DOWNLOAD_KEY = "keybox_download";
     private static final String PIF_DATA_KEY = "pif_data_setting";
+    private static final String PIF_ACTIVE_KEY = "pif_active";
+    private static final String PIF_REFRESH_KEY = "pif_refresh";
 
     private ActivityResultLauncher<Intent> mKeyboxFilePickerLauncher;
     private ActivityResultLauncher<Intent> mPifFilePickerLauncher;
     private KeyboxDataPreference mKeyboxDataPreference;
     private PifDataPreference mPifDataPreference;
+
+    private final ContentObserver mPifObserver = new ContentObserver(
+            new Handler(Looper.getMainLooper())) {
+        @Override
+        public void onChange(boolean selfChange) {
+            refreshActiveFingerprint();
+        }
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,6 +77,11 @@ public class Spoofing extends SettingsPreferenceFragment implements
                 }
                 return true;
             });
+        }
+
+        ButtonPreference refresh = findPreference(PIF_REFRESH_KEY);
+        if (refresh != null) {
+            refresh.setOnClickListener(v -> startFingerprintRefresh());
         }
 
         mKeyboxFilePickerLauncher = registerForActivityResult(
@@ -110,6 +130,46 @@ public class Spoofing extends SettingsPreferenceFragment implements
         if (mPifDataPreference != null) {
             mPifDataPreference.setFilePickerLauncher(mPifFilePickerLauncher);
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        refreshActiveFingerprint();
+        ContentResolver resolver = getContentResolver();
+        resolver.registerContentObserver(
+                Settings.Secure.getUriFor(Settings.Secure.PIF_DATA), false, mPifObserver);
+        resolver.registerContentObserver(
+                Settings.Secure.getUriFor(Settings.Secure.FETCHED_PIF), false, mPifObserver);
+    }
+
+    @Override
+    public void onPause() {
+        getContentResolver().unregisterContentObserver(mPifObserver);
+        super.onPause();
+    }
+
+    private void refreshActiveFingerprint() {
+        ActiveFingerprintPreference active = findPreference(PIF_ACTIVE_KEY);
+        if (active != null) {
+            active.refresh();
+        }
+    }
+
+    private void startFingerprintRefresh() {
+        ButtonPreference button = findPreference(PIF_REFRESH_KEY);
+        ActiveFingerprintPreference active = findPreference(PIF_ACTIVE_KEY);
+        if (button == null || active == null || !button.isEnabled()) {
+            return;
+        }
+        button.setEnabled(false);
+        active.downloadLatest(() -> {
+            if (!isAdded()) return;
+            ButtonPreference again = findPreference(PIF_REFRESH_KEY);
+            if (again != null) {
+                again.setEnabled(true);
+            }
+        });
     }
 
     @Override

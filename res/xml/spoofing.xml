@@ -18,6 +18,20 @@
             android:summary="@string/pi_spoof_summary"
             android:defaultValue="true" />
 
+        <org.derpfest.customizations.preference.ActiveFingerprintPreference
+            android:key="pif_active"
+            android:title="@string/pif_active_title"
+            android:selectable="false"
+            android:persistent="false" />
+
+        <com.android.settingslib.widget.ButtonPreference
+            android:key="pif_refresh"
+            android:title="@string/pif_refresh_title"
+            android:gravity="center_horizontal"
+            android:persistent="false"
+            settings:buttonPreferenceType="tonal"
+            settings:buttonPreferenceSize="extra" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
