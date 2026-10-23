@@ -137,6 +137,8 @@
     <!-- Keybox Data -->
     <string name="keybox_data_title">Keybox-Attestation überschreiben</string>
     <string name="keybox_data_summary">Benutzerdefinierte Keybox-XML laden, um Geräteschlüssel-Attestation zu überschreiben</string>
+    <string name="keybox_excluded_apps_title">Ausgeschlossene Apps</string>
+    <string name="keybox_excluded_apps_summary">Ausgeschlossene Apps verwenden die Geräte-Attestation statt der konfigurierten Keybox. Manager für gehookte Frameworks bleiben ausgeschlossen, bis diese Liste geändert wird.</string>
     <string name="keybox_data_loaded_summary">„%1$s“-Keybox geladen mit %2$d Zertifikaten (%3$s)</string>
     <string name="keybox_delete_content_description">Keybox-Daten löschen</string>
     <string name="keybox_toast_invalid_file_selected">Keine XML-Datei. Bitte gültige Keybox-XML auswählen.</string>

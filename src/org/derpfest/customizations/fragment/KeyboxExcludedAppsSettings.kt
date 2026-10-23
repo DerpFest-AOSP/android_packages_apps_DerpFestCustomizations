@@ -7,6 +7,7 @@
 package org.derpfest.customizations.fragment
 
 import android.provider.Settings
+import com.android.internal.util.KeyboxImitationHooks
 import com.android.settings.R
 import com.android.settings.core.BaseAppListSettingsFragment
 
@@ -26,7 +27,10 @@ class KeyboxExcludedAppsSettings : BaseAppListSettingsFragment() {
             context.contentResolver,
             Settings.Secure.KEYBOX_EXCLUDED_PACKAGES,
         )
-        if (value.isNullOrBlank()) {
+        if (value == null) {
+            return KeyboxImitationHooks.DEFAULT_EXCLUDED_PACKAGES.toList()
+        }
+        if (value.isBlank()) {
             return emptyList()
         }
         return value.split(SEPARATOR).filter { it.isNotBlank() }.distinct()
@@ -44,7 +48,7 @@ class KeyboxExcludedAppsSettings : BaseAppListSettingsFragment() {
         Settings.Secure.putString(
             context.contentResolver,
             Settings.Secure.KEYBOX_EXCLUDED_PACKAGES,
-            value.ifEmpty { null },
+            value,
         )
     }
 

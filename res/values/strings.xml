@@ -141,7 +141,7 @@
     <string name="keybox_data_title">Keybox attestation override</string>
     <string name="keybox_data_summary">Select a Keybox XML file to replace the built-in default. Delete it to use the built-in keybox again.</string>
     <string name="keybox_excluded_apps_title">Excluded apps</string>
-    <string name="keybox_excluded_apps_summary">Excluded apps use the device attestation implementation instead of the configured keybox</string>
+    <string name="keybox_excluded_apps_summary">Excluded apps use the device attestation implementation instead of the configured keybox. Hooked framework managers are excluded until this list is changed.</string>
     <string name="keybox_data_loaded_summary">Loaded %1$s keybox with %2$d certificates (%3$s)</string>
     <string name="keybox_delete_content_description">Clear keybox data</string>
     <string name="keybox_toast_invalid_file_selected">Not an XML file. Choose a valid keybox XML.</string>
