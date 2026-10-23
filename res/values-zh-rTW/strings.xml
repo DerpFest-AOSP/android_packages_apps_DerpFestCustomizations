@@ -13,6 +13,8 @@
     <string name="monet_settings">Monet 設定</string>
     <string name="statusbar_title">狀態列</string>
     <string name="statusbar_summary">調整狀態列元素</string>
+    <string name="lyrics_title">歌詞</string>
+    <string name="lyrics_summary">翻譯、語言以及歌詞來源</string>
     <string name="qs_title">快速設定</string>
     <string name="qs_summary">自訂您的快速設定面板</string>
     <string name="notifications_title">通知</string>
@@ -582,6 +584,8 @@
     <string name="dynamic_bar_lockscreen_media_summary">即使關閉動態列，仍在鎖定畫面顯示音樂播放器</string>
     <string name="dynamic_bar_lockscreen_media_lyrics">鎖定畫面歌詞</string>
     <string name="dynamic_bar_lockscreen_media_lyrics_summary">有歌詞時，在鎖定畫面的音樂卡片下方顯示</string>
+    <string name="dynamic_bar_lyric_settings_title">翻譯與歌詞來源</string>
+    <string name="dynamic_bar_lyric_settings_summary">設定翻譯語言、逐字歌詞以及歌詞來源</string>
     <string name="dynamic_bar_chip_style_title">狀態列卡片樣式</string>
     <string name="dynamic_bar_chip_style_pill">膠囊形</string>
     <string name="dynamic_bar_chip_style_circle">圓形</string>

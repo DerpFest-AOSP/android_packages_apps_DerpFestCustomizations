@@ -70,6 +70,16 @@
             android:dependency="status_bar_dynamic_island_media_controls"
             android:defaultValue="false" />
 
+        <Preference
+            android:key="dynamic_island_lyric_settings"
+            android:title="@string/dynamic_bar_lyric_settings_title"
+            android:summary="@string/dynamic_bar_lyric_settings_summary">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="org.lineageos.lineageparts"
+                android:targetClass="org.lineageos.lineageparts.statusbar.StatusbarLyricSettings" />
+        </Preference>
+
         <org.derpfest.support.preferences.SystemSettingSwitchPreference
             android:key="status_bar_dynamic_island_ongoing_activities"
             android:title="@string/dynamic_island_ongoing_activities_title"

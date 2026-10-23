@@ -331,6 +331,8 @@
     <string name="spoofing_title">Спуфінг</string>
     <string name="statusbar_summary">Налаштування елементів рядка стану</string>
     <string name="statusbar_title">Рядок стану</string>
+    <string name="lyrics_title">Тексти пісень</string>
+    <string name="lyrics_summary">Переклад, мова та джерела</string>
     <string name="theming_settings_dashboard_icons_accent">Акцентний фон / Прозорий передній план</string>
     <string name="theming_settings_dashboard_icons_default">AOSP дефолтний (природна тема)</string>
     <string name="theming_settings_dashboard_icons_plain">Прозорий фон / Звичайний передній план</string>

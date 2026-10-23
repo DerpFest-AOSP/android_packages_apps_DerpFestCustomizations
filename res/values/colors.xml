@@ -6,19 +6,34 @@
 
 <resources>
 
-    <!-- Expressive homepage icon colors (Material 3) -->
+    <!-- Expressive homepage icon colors. One pair per dashboard tile. -->
     <color name="homepage_blue_fg">#ff04409f</color>
     <color name="homepage_orange_fg">#ff753403</color>
     <color name="homepage_grey_fg">#64748B</color>
     <color name="homepage_red_fg">#ff8a1a16</color>
     <color name="homepage_purple_fg">#ff4f378b</color>
+    <color name="homepage_pink_fg">#ff8e2456</color>
+    <color name="homepage_cyan_fg">#ff00677d</color>
+    <color name="homepage_green_fg">#ff146c2e</color>
+    <color name="homepage_yellow_fg">#ff6b5300</color>
+    <color name="homepage_indigo_fg">#ff3a3f99</color>
+    <color name="homepage_teal_fg">#ff00584e</color>
+    <color name="homepage_brown_fg">#ff6b4423</color>
+    <color name="homepage_olive_fg">#ff3e5c0f</color>
 
-    <!-- Expressive homepage icon background colors (Material 3) -->
     <color name="homepage_blue_bg">#ffd0e4ff</color>
     <color name="homepage_orange_bg">#ffffdcc3</color>
     <color name="homepage_grey_bg">#F1F5F9</color>
     <color name="homepage_red_bg">#ffffdadc</color>
     <color name="homepage_purple_bg">#ffeaddff</color>
+    <color name="homepage_pink_bg">#ffffe0ea</color>
+    <color name="homepage_cyan_bg">#ffd0f4ff</color>
+    <color name="homepage_green_bg">#ffd4f3dc</color>
+    <color name="homepage_yellow_bg">#fffff3c4</color>
+    <color name="homepage_indigo_bg">#ffe4e3ff</color>
+    <color name="homepage_teal_bg">#ffc4f3ea</color>
+    <color name="homepage_brown_bg">#fff6e4d4</color>
+    <color name="homepage_olive_bg">#ffe4f2c4</color>
 
     <color name="qs_tile_icon_shape_item_selected_bg">#14000000</color>
 

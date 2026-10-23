@@ -13,6 +13,8 @@
     <string name="monet_settings">Monet settings</string>
     <string name="statusbar_title">Status bar</string>
     <string name="statusbar_summary">Tweak status bar elements</string>
+    <string name="lyrics_title">Lyrics</string>
+    <string name="lyrics_summary">Translation, language, and sources</string>
     <string name="qs_title">Quick Settings</string>
     <string name="qs_summary">Customize your QS panel</string>
     <string name="notifications_title">Notifications</string>
@@ -634,6 +636,8 @@
     <string name="dynamic_bar_lockscreen_media_summary">Show the music player on the lock screen even when Dynamic Bar is off</string>
     <string name="dynamic_bar_lockscreen_media_lyrics">Lyrics on lock screen</string>
     <string name="dynamic_bar_lockscreen_media_lyrics_summary">Show lyrics under the lock screen music chip when available</string>
+    <string name="dynamic_bar_lyric_settings_title">Translation and sources</string>
+    <string name="dynamic_bar_lyric_settings_summary">Language, word timing, and where lyrics are fetched from</string>
     <string name="dynamic_bar_chip_style_title">Status bar chip style</string>
     <string name="dynamic_bar_chip_style_pill">Pill</string>
     <string name="dynamic_bar_chip_style_circle">Circle</string>

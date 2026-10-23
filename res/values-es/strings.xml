@@ -13,6 +13,8 @@
     <string name="monet_settings">Ajustes de Monet</string>
     <string name="statusbar_title">Barra de estado</string>
     <string name="statusbar_summary">Ajusta los elementos de la barra de estado</string>
+    <string name="lyrics_title">Letras</string>
+    <string name="lyrics_summary">Traducción, idioma y fuentes</string>
     <string name="qs_title">Ajustes rápidos</string>
     <string name="qs_summary">Personaliza tu panel de Ajustes rápidos</string>
     <string name="notifications_title">Notificaciones</string>

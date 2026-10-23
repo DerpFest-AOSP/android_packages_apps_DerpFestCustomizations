@@ -13,6 +13,8 @@
     <string name="monet_settings">Monet-Einstellungen</string>
     <string name="statusbar_title">Statusleiste</string>
     <string name="statusbar_summary">Elemente der Statusleiste anpassen</string>
+    <string name="lyrics_title">Songtexte</string>
+    <string name="lyrics_summary">Übersetzung, Sprache und Quellen</string>
     <string name="qs_title">Schnelleinstellungen</string>
     <string name="qs_summary">QS-Panel individuell gestalten</string>
     <string name="notifications_title">Benachrichtigungen</string>
@@ -602,6 +604,8 @@
     <string name="dynamic_bar_lockscreen_media_summary">Musikplayer auf dem Sperrbildschirm anzeigen, auch wenn Dynamic Bar aus ist</string>
     <string name="dynamic_bar_lockscreen_media_lyrics">Songtexte auf dem Sperrbildschirm</string>
     <string name="dynamic_bar_lockscreen_media_lyrics_summary">Songtexte unter dem Musik-Chip auf dem Sperrbildschirm anzeigen, sofern verfügbar</string>
+    <string name="dynamic_bar_lyric_settings_title">Übersetzung und Quellen</string>
+    <string name="dynamic_bar_lyric_settings_summary">Sprache, Wort-Timing und die Quellen der Songtexte</string>
     <string name="dynamic_bar_chip_style_title">Statusleisten-Chip-Stil</string>
     <string name="dynamic_bar_chip_style_pill">Pille</string>
     <string name="dynamic_bar_chip_style_circle">Kreis</string>
