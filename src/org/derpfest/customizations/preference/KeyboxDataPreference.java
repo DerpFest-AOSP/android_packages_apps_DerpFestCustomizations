@@ -128,15 +128,6 @@ public class KeyboxDataPreference extends Preference {
             return;
         }
 
-        final String type = cr.getType(uri);
-        boolean isXmlMime = "text/xml".equals(type) || "application/xml".equals(type);
-        boolean hasXmlExt = (uri.getPath() != null && uri.getPath().toLowerCase().endsWith(".xml"));
-        if (!isXmlMime && !hasXmlExt) {
-            Toast.makeText(ctx,
-                ctx.getString(R.string.keybox_toast_invalid_file_selected), Toast.LENGTH_SHORT).show();
-            return;
-        }
-
         try (InputStream inputStream = cr.openInputStream(uri);
              BufferedReader reader = new BufferedReader(
                  new InputStreamReader(inputStream, java.nio.charset.StandardCharsets.UTF_8))) {
@@ -147,6 +138,11 @@ public class KeyboxDataPreference extends Preference {
             }
 
             String xml = xmlContent.toString();
+            if (!xml.contains("<AndroidAttestation") && !xml.contains("<Keybox")) {
+                Toast.makeText(ctx,
+                    ctx.getString(R.string.keybox_toast_invalid_file_selected), Toast.LENGTH_SHORT).show();
+                return;
+            }
             if (!storeXml(xml)) {
                 Toast.makeText(ctx,
                     ctx.getString(R.string.keybox_toast_missing_data), Toast.LENGTH_SHORT).show();
@@ -418,8 +414,11 @@ public class KeyboxDataPreference extends Preference {
             return false;
         }
 
-        return numberOfKeyboxes == 1
-                && hasEcdsaKey && hasEcdsaPrivKey && ecdsaCertCount >= 1
-                && hasRsaKey && hasRsaPrivKey && rsaCertCount >= 1;
+        boolean ecComplete = hasEcdsaKey && hasEcdsaPrivKey && ecdsaCertCount >= 1;
+        boolean rsaComplete = hasRsaKey && hasRsaPrivKey && rsaCertCount >= 1;
+        if (hasEcdsaKey && !ecComplete) return false;
+        if (hasRsaKey && !rsaComplete) return false;
+        // Play Integrity attests with EC. An EC-only keybox is valid.
+        return numberOfKeyboxes == 1 && (ecComplete || rsaComplete);
     }
 }
