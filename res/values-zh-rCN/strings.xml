@@ -504,10 +504,6 @@
     <string name="notification_row_transparency_lockscreen_title">锁屏通知透明化</string>
     <string name="notification_row_transparency_lockscreen_summary">为锁屏上的通知设置透明背景</string>
 
-    <!-- Notification bubbles -->
-    <string name="notification_bubble_apps_title">气泡通知</string>
-    <string name="notification_bubble_apps_summary">点击通知时以气泡形式启动应用</string>
-
     <!-- About -->
     <string name="about_title">关于</string>
     <string name="about_summary">关于 DerpFest 与一些有用的链接</string>
