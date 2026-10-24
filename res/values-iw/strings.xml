@@ -114,10 +114,6 @@
     <string name="ls_media_art_filter_blur">טשטוש</string>
     <string name="ls_media_art_filter_grayscale">גווני אפור</string>
     <string name="ls_media_art_filter_tint">צבע מודגש</string>
-    <string name="notification_row_transparency_title">התראות שקופות</string>
-    <string name="notification_row_transparency_summary">קביעת רקע שקוף להתראות בהגדרות המהירות</string>
-    <string name="notification_row_transparency_lockscreen_title">רקע שקוף להתראות במסך הנעילה</string>
-    <string name="notification_row_transparency_lockscreen_summary">קביעת רקע שקוף להתראות במסך הנעילה</string>
     <string name="dynamic_bar_keyguard_battery_chip_disabled">אל תציג אף פעם</string>
     <string name="dynamic_bar_chip_style_circle">מעגל</string>
     <string name="dynamic_bar_event_notification">התראות</string>

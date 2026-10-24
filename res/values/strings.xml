@@ -539,12 +539,6 @@
     <string name="ls_media_art_blur_level_title">Media art blur level</string>
     <string name="ls_media_art_blur_level_summary">Blur intensity when blur filter is applied</string>
 
-    <!-- Notification Row -->
-    <string name="notification_row_transparency_title">Translucent notifications</string>
-    <string name="notification_row_transparency_summary">Set translucent background for notifications in QS</string>
-    <string name="notification_row_transparency_lockscreen_title">Translucent lockscreen notifications</string>
-    <string name="notification_row_transparency_lockscreen_summary">Set translucent background for notifications in lockscreen</string>
-
     <!-- About -->
     <string name="about_title">About</string>
     <string name="about_summary">About DerpFest and useful links</string>

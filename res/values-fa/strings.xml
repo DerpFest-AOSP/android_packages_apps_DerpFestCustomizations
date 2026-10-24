@@ -201,10 +201,6 @@
     <string name="ls_media_art_fade_level_summary">تنظیم سطح محو شدن تصویر جلد رسانه</string>
     <string name="ls_media_art_blur_level_title">تار کننده کاور موسیقی</string>
     <string name="ls_media_art_blur_level_summary">شدت تاری هنگام اعمال فیلتر تاری</string>
-    <string name="notification_row_transparency_title">اعلان‌های شفاف</string>
-    <string name="notification_row_transparency_summary">تنظیم پس‌زمینه شفاف برای اعلان‌ها در ت. س</string>
-    <string name="notification_row_transparency_lockscreen_title">اعلان‌های شفاف صفحه قفل</string>
-    <string name="notification_row_transparency_lockscreen_summary">تنظیم پس‌زمینه شفاف برای اعلان‌ها در صفحه قفل</string>
     <string name="ambient_media_art_title">تصویر جلد موسیقی در حالت امبینت</string>
     <string name="ambient_media_art_summary">نمایش تصویر جلد رسانه در نمایشگر امبینت در صورت موجود بودن</string>
     <string name="dynamic_bar_category_title">نوار پویا</string>

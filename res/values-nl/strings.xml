@@ -189,10 +189,6 @@
     <string name="ls_media_art_fade_level_summary">Stel fade-niveau van media cover art in</string>
     <string name="ls_media_art_blur_level_title">Media art vervaging niveau</string>
     <string name="ls_media_art_blur_level_summary">Intensiteit vervagen wanneer vervaging filter wordt toegepast</string>
-    <string name="notification_row_transparency_title">Transparante meldingen</string>
-    <string name="notification_row_transparency_summary">Stel doorschijnende achtergrond in voor meldingen in Snelle instellingen</string>
-    <string name="notification_row_transparency_lockscreen_title">Transparante meldingen vergrendelscherm</string>
-    <string name="notification_row_transparency_lockscreen_summary">Stel doorschijnende achtergrond in voor meldingen op vergrendelscherm</string>
     <string name="ambient_media_art_summary">Toon media cover art op Ambient display indien beschikbaar</string>
     <string name="dynamic_bar_category_title">Dynamische balk</string>
     <string name="dynamic_bar">Dynamische balk</string>

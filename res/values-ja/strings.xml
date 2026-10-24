@@ -195,10 +195,6 @@
     <string name="ls_media_art_fade_level_summary">メディアカバーアートのフェードレベルを設定します</string>
     <string name="ls_media_art_blur_level_title">メディアアートのぼかしレベル</string>
     <string name="ls_media_art_blur_level_summary">フィルターがぼかしの場合に適用されるぼかしの強度</string>
-    <string name="notification_row_transparency_title">半透明な通知</string>
-    <string name="notification_row_transparency_summary">クイック設定の通知の背景を半透明にする</string>
-    <string name="notification_row_transparency_lockscreen_title">半透明なロック画面の通知</string>
-    <string name="notification_row_transparency_lockscreen_summary">ロック画面の通知の背景を半透明にする</string>
     <string name="ambient_media_art_title">アンビエントメディアカバーアート</string>
     <string name="ambient_media_art_summary">利用可能な場合は、アンビエント表示にメディアカバーアートを表示します</string>
     <string name="dynamic_bar_category_title">ダイナミックバー</string>

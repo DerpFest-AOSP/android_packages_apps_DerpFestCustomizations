@@ -188,11 +188,6 @@
     <!-- Monet settings -->
     <string name="monet_settings_title">Персоналізація Monet</string>
     <string name="no_browser">Будь ласка, виберіть браузер за замовчуванням</string>
-    <string name="notification_row_transparency_lockscreen_summary">Встановити напівпрозорий фон для сповіщень на екрані блокування</string>
-    <string name="notification_row_transparency_lockscreen_title">Напівпрозорі сповіщення на екрані блокування</string>
-    <string name="notification_row_transparency_summary">Встановити напівпрозорий фон для сповіщень у QS</string>
-    <!-- Notification Row -->
-    <string name="notification_row_transparency_title">Напівпрозорі сповіщення</string>
     <string name="notifications_summary">Налаштуйте параметри сповіщень</string>
     <string name="notifications_title">Сповіщення</string>
     <string name="pif_data_cleared">Очищено дані PIF</string>

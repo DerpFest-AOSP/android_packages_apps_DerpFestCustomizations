@@ -194,10 +194,6 @@
     <string name="ls_media_art_fade_level_summary">Definir o nível de atenuação da capa de mídia</string>
     <string name="ls_media_art_blur_level_title">Nível de desfoque da arte da capa</string>
     <string name="ls_media_art_blur_level_summary">Intensidade do desfoque quando o filtro é aplicado</string>
-    <string name="notification_row_transparency_title">Notificações transparentes</string>
-    <string name="notification_row_transparency_summary">Deixa o fundo das notificações transparente nas configurações rápidas</string>
-    <string name="notification_row_transparency_lockscreen_title">Notificações transparentes na tela de bloqueio</string>
-    <string name="notification_row_transparency_lockscreen_summary">Definir fundo translúcido para notificações na tela de bloqueio</string>
     <string name="ambient_media_art_title">Arte da capa de mídia na Tela Ambiente</string>
     <string name="ambient_media_art_summary">Exibe a arte da capa de mídia na Tela Ambiente quando disponível</string>
     <string name="dynamic_bar_category_title">Barra Dinâmica</string>

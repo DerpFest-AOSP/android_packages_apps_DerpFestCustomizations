@@ -203,10 +203,6 @@
     <string name="ls_media_art_fade_level_summary">Imposta il livello di dissolvenza della copertina multimediale</string>
     <string name="ls_media_art_blur_level_title">Livello di sfocatura della copertina</string>
     <string name="ls_media_art_blur_level_summary">Intensità di sfocatura quando viene applicato il filtro di sfocatura</string>
-    <string name="notification_row_transparency_title">Notifiche semitrasparenti</string>
-    <string name="notification_row_transparency_summary">Imposta sfondo traslucido per le notifiche nelle impostazioni rapide</string>
-    <string name="notification_row_transparency_lockscreen_title">Notifiche traslucide nella schermata di blocco</string>
-    <string name="notification_row_transparency_lockscreen_summary">Imposta sfondo traslucido per le notifiche nella schermata di blocco</string>
     <string name="ambient_media_art_title">Copertina multimedia su Ambient display</string>
     <string name="ambient_media_art_summary">Mostra copertina multimediale su Ambient display quando disponibile</string>
     <string name="dynamic_bar_keyguard_battery_chip_disabled">Non mostrare</string>

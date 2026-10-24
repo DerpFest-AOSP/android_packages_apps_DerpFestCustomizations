@@ -194,10 +194,6 @@
     <string name="ls_media_art_fade_level_summary">Setați nivelul de estompare a copertei media</string>
     <string name="ls_media_art_blur_level_title">Nivelul de estompare a coperților media</string>
     <string name="ls_media_art_blur_level_summary">Intensitate estompare atunci când se aplică filtru de estompare</string>
-    <string name="notification_row_transparency_title">Notificări translucide</string>
-    <string name="notification_row_transparency_summary">Setează fundal translucid pentru notificări în QS</string>
-    <string name="notification_row_transparency_lockscreen_title">Notificări translucide pe ecranul de blocare</string>
-    <string name="notification_row_transparency_lockscreen_summary">Setează fundal translucid pentru notificări în ecranul de blocare</string>
     <string name="ambient_media_art_title">Coperta media ambientală</string>
     <string name="ambient_media_art_summary">Afișează coperta media pe ecranul ambiental când este disponibil</string>
     <string name="dynamic_bar_category_title">Bară dinamică</string>

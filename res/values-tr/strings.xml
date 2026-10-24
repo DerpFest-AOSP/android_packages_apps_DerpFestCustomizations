@@ -197,10 +197,6 @@
     <string name="ls_media_art_fade_level_summary">Medya kapak resmi solma seviyesini ayarla</string>
     <string name="ls_media_art_blur_level_title">Medya resmi bulanıklık seviyesi</string>
     <string name="ls_media_art_blur_level_summary">Bulanıklık filtresi uygulandığında bulanıklık yoğunluğu</string>
-    <string name="notification_row_transparency_title">Yarı saydam bildirimler</string>
-    <string name="notification_row_transparency_summary">Hızlı ayarlardaki bildirimler için yarı saydam arka plan ayarlayın</string>
-    <string name="notification_row_transparency_lockscreen_title">Kilit ekranında yarı saydam bildirimler</string>
-    <string name="notification_row_transparency_lockscreen_summary">Kilit ekranındaki bildirimler için yarı saydam arka plan ayarlayın</string>
     <string name="ambient_media_art_title">Ortam medyası kapak resmi</string>
     <string name="ambient_media_art_summary">Ortam ekranı aktif ise medya kapak resmini görüntüle</string>
     <string name="dynamic_bar_category_title">Dinamik Çubuk</string>

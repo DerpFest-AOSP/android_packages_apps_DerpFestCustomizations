@@ -471,12 +471,6 @@
     <string name="ls_media_art_blur_level_title">媒體藝術模糊程度</string>
     <string name="ls_media_art_blur_level_summary">應用模糊濾鏡時的模糊強度</string>
 
-    <!-- Notification Row -->
-    <string name="notification_row_transparency_title">半透明通知</string>
-    <string name="notification_row_transparency_summary">設定快速設定中通知的背景為半透明</string>
-    <string name="notification_row_transparency_lockscreen_title">半透明鎖定畫面通知</string>
-    <string name="notification_row_transparency_lockscreen_summary">設定鎖定畫面中通知的背景為半透明</string>
-
     <!-- Spoofing -->
     <string name="pixel_spoofing_apps_title">Pixel 偽裝應用程式</string>
     <string name="pixel_spoofing_apps_summary">選擇要偽裝成 Pixel 10 Pro XL 的應用程式</string>

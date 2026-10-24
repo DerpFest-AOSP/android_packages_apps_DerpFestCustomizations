@@ -193,10 +193,6 @@
     <string name="ls_media_art_fade_level_summary">تعيين مستوى تلاشي غلاف الوسائط</string>
     <string name="ls_media_art_blur_level_title">مستوى ضبابية غلاف الوسائط</string>
     <string name="ls_media_art_blur_level_summary">كثافة الضبابية عند تطبيق عامل التصفية الضبابية</string>
-    <string name="notification_row_transparency_title">إشعارات شفافة</string>
-    <string name="notification_row_transparency_summary">تعيين خلفية شفافة للإشعارات في الإعدادات السريعة</string>
-    <string name="notification_row_transparency_lockscreen_title">إشعارات شاشة القفل الشفافة</string>
-    <string name="notification_row_transparency_lockscreen_summary">تعيين خلفية شفافة للإشعارات في شاشة القفل</string>
     <string name="ambient_media_art_title">صور الوسائط في الشاشة المحيطة</string>
     <string name="ambient_media_art_summary">عرض صورة غلاف الوسائط على الشاشة المحيطية عندما تكون متاحة</string>
     <string name="dynamic_bar_category_title">شريط ديناميكي</string>

@@ -498,12 +498,6 @@
     <string name="ls_media_art_blur_level_title">媒体封面模糊强度</string>
     <string name="ls_media_art_blur_level_summary">应用模糊滤镜时的模糊强度</string>
 
-    <!-- Notification Row -->
-    <string name="notification_row_transparency_title">通知透明化</string>
-    <string name="notification_row_transparency_summary">为快速设置面板中的通知设置透明背景</string>
-    <string name="notification_row_transparency_lockscreen_title">锁屏通知透明化</string>
-    <string name="notification_row_transparency_lockscreen_summary">为锁屏上的通知设置透明背景</string>
-
     <!-- About -->
     <string name="about_title">关于</string>
     <string name="about_summary">关于 DerpFest 与一些有用的链接</string>

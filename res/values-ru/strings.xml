@@ -227,10 +227,6 @@
     <string name="ls_media_art_fade_level_summary">Установите уровень затухания обложки трека</string>
     <string name="ls_media_art_blur_level_title">Уровень размытия обложки</string>
     <string name="ls_media_art_blur_level_summary">Интенсивность размытия при применении фильтра размытия</string>
-    <string name="notification_row_transparency_level_title">Уровень прозрачности</string>
-    <string name="notification_row_transparency_level_summary" formatted="false">Настройте уровень прозрачности строки уведомления (0 – 100%). 0% = полная непрозрачность (AOSP).</string>
-    <string name="notification_row_transparency_context_title">Прозрачность с учетом контекста</string>
-    <string name="notification_row_transparency_context_summary">Применять прозрачность только в тенях уведомлений. Отключить применение везде (включая всплывающие уведомления и экран блокировки).</string>
     <string name="gms_cert_chain_title">Отключить форсирование строгой целостности</string>
     <string name="gms_cert_chain_summary">Форсирование строгой целостности нарушает работу таких приложений как Google Pay. Включение данной опции восстанавливает работоспособность.</string>
     <string name="about_title">О прошивке</string>
@@ -371,10 +367,6 @@
     <string name="qs_tile_animation_style_heartbeat">Cердцебиение</string>
     <string name="qs_tile_animation_style_swing">Качели</string>
     <string name="default_value">По умолчанию</string>
-    <string name="notification_row_transparency_title">Прозрачные уведомления</string>
-    <string name="notification_row_transparency_summary">Прозрачный фон уведомлений в быстрых настройках</string>
-    <string name="notification_row_transparency_lockscreen_title">Прозрачные уведомления на экране блокировки</string>
-    <string name="notification_row_transparency_lockscreen_summary">Прозрачный фон уведомлений на экране блокировки</string>
     <string name="ambient_media_art_title">Обложка альбома на активном экране</string>
     <string name="ambient_media_art_summary">Отображать обложку альбома на активном экране, если это возможно</string>
     <string name="dynamic_bar_category_title">Динамическая панель</string>

@@ -192,10 +192,6 @@
     <string name="ls_media_art_fade_level_summary">Atur tingkat pemudaran sampul media</string>
     <string name="ls_media_art_blur_level_title">Tingkat blur seni media</string>
     <string name="ls_media_art_blur_level_summary">Intensitas blur saat filter blur diterapkan</string>
-    <string name="notification_row_transparency_title">Notifikasi transparan</string>
-    <string name="notification_row_transparency_summary">Tetapkan latar belakang transparan untuk notifikasi di Setelan Cepat</string>
-    <string name="notification_row_transparency_lockscreen_title">Notifikasi layar kunci transparan</string>
-    <string name="notification_row_transparency_lockscreen_summary">Atur latar transparan untuk notifikasi di layar kunci</string>
     <string name="ambient_media_art_title">Sampul seni media ambient</string>
     <string name="ambient_media_art_summary">Tampilkan sampul media pada tampilan Ambient jika tersedia</string>
     <string name="dynamic_bar_category_title">Bilah Dinamis</string>

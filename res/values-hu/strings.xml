@@ -200,10 +200,6 @@
     <string name="ls_media_art_fade_level_summary">Médiaborító halványulásának szintjének beállítása</string>
     <string name="ls_media_art_blur_level_title">Médiaművészeti elmosódási szint</string>
     <string name="ls_media_art_blur_level_summary">Az elmosás intenzitása az elmosás szűrő alkalmazásakor</string>
-    <string name="notification_row_transparency_title">Áttetsző értesítések</string>
-    <string name="notification_row_transparency_summary">Az értesítések áttetsző háttérének beállítása a gyorsbeállításokon</string>
-    <string name="notification_row_transparency_lockscreen_title">Az áttetsző háttér értesítései</string>
-    <string name="notification_row_transparency_lockscreen_summary">Az értesítések áttetsző háttérének beállítása a záróképernyőn</string>
     <string name="ambient_media_art_title">Lemezborító a \'Környezeti kijelzőn\'</string>
     <string name="ambient_media_art_summary">Amennyiben elérhető a lemezborító, az jelenjen meg a \'Környezeti kijelzőn\' is</string>
     <string name="dynamic_bar_category_title">Dinamikus sáv</string>

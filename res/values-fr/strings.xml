@@ -182,10 +182,6 @@
     <string name="ls_media_art_fade_level_summary">Définir le niveau de fondu de la pochette du média</string>
     <string name="ls_media_art_blur_level_title">Niveau de flou de l\'art médiatique</string>
     <string name="ls_media_art_blur_level_summary">Intensité du flou lorsque le filtre de flou est appliqué</string>
-    <string name="notification_row_transparency_title">Notifications translucides</string>
-    <string name="notification_row_transparency_summary">Définir un arrière-plan translucide pour les notifications dans les réglages rapides</string>
-    <string name="notification_row_transparency_lockscreen_title">Notifications translucides sur l\'écran de verrouillage</string>
-    <string name="notification_row_transparency_lockscreen_summary">Définir un arrière-plan translucide pour les notifications sur l\'écran de verrouillage</string>
     <string name="ambient_media_art_title">Visuel de pochette de musique d\'ambiance</string>
     <string name="ambient_media_art_summary">Afficher la pochette du contenu multimédia sur l\'écran de veille lorsqu\'elle est disponible</string>
     <string name="dynamic_bar_category_title">Barre dynamique</string>

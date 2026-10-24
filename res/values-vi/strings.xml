@@ -200,10 +200,6 @@
     <string name="ls_media_art_fade_level_summary">Đặt mức độ mờ của ảnh bìa</string>
     <string name="ls_media_art_blur_level_title">Độ mờ ảnh bìa đa phương tiện</string>
     <string name="ls_media_art_blur_level_summary">Mức độ mờ khi áp dụng bộ lọc làm mờ</string>
-    <string name="notification_row_transparency_title">Thông báo trong suốt</string>
-    <string name="notification_row_transparency_summary">Đặt nền mờ cho thông báo trong cài đặt nhanh</string>
-    <string name="notification_row_transparency_lockscreen_title">Thông báo trong suốt ở màn hình khóa</string>
-    <string name="notification_row_transparency_lockscreen_summary">Đặt nền mờ cho thông báo màn hình khoá</string>
     <string name="ambient_media_art_title">Ảnh bìa đa phương tiện màn hình luôn bật</string>
     <string name="ambient_media_art_summary">Hiện ảnh bìa đa phương tiện trên màn hình luôn bật khi có sẵn</string>
     <string name="dynamic_bar_category_title">Thanh động</string>

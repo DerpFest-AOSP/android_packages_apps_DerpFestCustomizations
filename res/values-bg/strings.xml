@@ -183,10 +183,6 @@
     <string name="ls_media_art_fade_level_summary">Обяви ниво на избледняване на корицата на медийното съдържание</string>
     <string name="ls_media_art_blur_level_title">Ниво на замъгляване на медийно съдържание</string>
     <string name="ls_media_art_blur_level_summary">Ниво на замъгляване, когато филтър за замъгляване е в ефект</string>
-    <string name="notification_row_transparency_title">Прозрачни известия</string>
-    <string name="notification_row_transparency_summary">Направи прозрачен фон за известия в QS</string>
-    <string name="notification_row_transparency_lockscreen_title">Прозрачни известия на заключен екран</string>
-    <string name="notification_row_transparency_lockscreen_summary">Направи прозрачен фон за известия в заключен екран</string>
     <string name="ambient_media_art_title">Обложка на Ambient Media</string>
     <string name="ambient_media_art_summary">Показване на обложката на медийното съдържание на Ambient Display, когато е налична</string>
     <string name="dynamic_bar_summary">Интелигентен чип за лента на състоянието за активни събития като запис, медия, таймери и др</string>

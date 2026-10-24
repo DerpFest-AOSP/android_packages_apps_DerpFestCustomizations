@@ -162,7 +162,6 @@
     <string name="ls_media_art_fade_level_title">Media omslag toning nivå</string>
     <string name="ls_media_art_fade_level_summary">Ange toningsnivå för media omslag</string>
     <string name="ls_media_art_blur_level_title">Media omslag skärpe-nivå</string>
-    <string name="notification_row_transparency_title">Genomskinliga aviseringar</string>
     <string name="dynamic_bar_keyguard_battery_chip_disabled">Visa aldrig</string>
     <string name="dynamic_bar_chip_style_circle">Cirkel</string>
     <string name="dynamic_bar_events">Händelser</string>

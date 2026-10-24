@@ -191,10 +191,6 @@
     <string name="ls_media_art_fade_level_summary">미디어 커버 아트 페이드 레벨 설정</string>
     <string name="ls_media_art_blur_level_title">미디어 아트 흐림 정도</string>
     <string name="ls_media_art_blur_level_summary">흐림 필터를 적용했을 때의 흐림 강도</string>
-    <string name="notification_row_transparency_title">반투명 알림</string>
-    <string name="notification_row_transparency_summary">빠른 설정 알림에 반투명 배경 설정</string>
-    <string name="notification_row_transparency_lockscreen_title">반투명 잠금 화면 알림</string>
-    <string name="notification_row_transparency_lockscreen_summary">잠금 화면 알림에 반투명 배경 설정</string>
     <string name="ambient_media_art_title">Ambient 미디어 커버 아트</string>
     <string name="ambient_media_art_summary">미디어 커버 아트가 있는 경우 Ambient display에 표시합니다</string>
     <string name="dynamic_bar_category_title">다이내믹 바</string>

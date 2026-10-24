@@ -169,10 +169,6 @@
     <string name="ls_media_art_fade_level_summary">Nastaviť úroveň blednutia obalu média</string>
     <string name="ls_media_art_blur_level_title">Úroveň rozostrenia obalu interpreta</string>
     <string name="ls_media_art_blur_level_summary">Intenzita rozostrenia pri použití filtra rozostrenia</string>
-    <string name="notification_row_transparency_title">Priesvitné oznámenia</string>
-    <string name="notification_row_transparency_summary">Nastaviť priesvitné pozadie pre oznámenia v QS</string>
-    <string name="notification_row_transparency_lockscreen_title">Priesvitné oznámenia na zamknutej obrazovke</string>
-    <string name="notification_row_transparency_lockscreen_summary">Nastaviť priesvitné pozadie pre oznámenia na zamknutej obrazovke</string>
     <string name="ambient_media_art_title">Obal média v režime ambient</string>
     <string name="ambient_media_art_summary">Zobraziť obal média na ambientnom displeji, ak je k dispozícii</string>
     <string name="dynamic_bar_keyguard_battery_chip_disabled">Nikdy nezobrazovať</string>

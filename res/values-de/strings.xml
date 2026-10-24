@@ -534,12 +534,6 @@
     <string name="ls_media_art_blur_level_title">Mediencover-Unschärfe</string>
     <string name="ls_media_art_blur_level_summary">Unschärfe-Intensität beim Anwenden des Unschärfe-Filters</string>
 
-    <!-- Notification Row -->
-    <string name="notification_row_transparency_title">Durchsichtige Benachrichtigungen</string>
-    <string name="notification_row_transparency_summary">Durchsichtigen Hintergrund für Benachrichtigungen in Schnelleinst. festlegen</string>
-    <string name="notification_row_transparency_lockscreen_title">Durchsichtige Sperrbildschirmbenachrichtigungen</string>
-    <string name="notification_row_transparency_lockscreen_summary">Durchsichtigen Hintergrund für Benachrichtigungen auf Sperrbildschirm festlegen</string>
-
     <!-- About -->
     <string name="about_title">Über</string>
     <string name="about_summary">Über DerpFest und nützliche Links</string>
