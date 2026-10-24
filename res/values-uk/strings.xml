@@ -273,8 +273,6 @@
     <!-- QS Layout Settings -->
     <string name="qs_layout_settings_title">Макет QS</string>
     <string name="qs_layout_settings_summary">Налаштуйте рядки та стовпці для швидких налаштувань</string>
-    <string name="qs_media_respect_halving_summary">Якщо ввімкнено, стовпці QS зменшуються вдвічі, коли елементи керування медіа відображаються в тому ж рядку, що й плитки.</string>
-    <string name="qs_media_respect_halving_title">Розділити стовпці навпіл, коли медіафайли знаходяться в рядку</string>
     <!-- QS Notifications category -->
     <string name="qs_notifications_category_title">Сповіщення</string>
     <string name="qs_show_auto_brightness_summary">Показати піктограму авто-яскравості на повзунку яскравості</string>

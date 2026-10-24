@@ -508,8 +508,6 @@
     <string name="qs_layout_columns_landscape_units"> Spalten</string>
     <string name="qs_layout_rows_landscape_units"> Zeilen</string>
     <string name="qqs_layout_rows_landscape_units"> Zeilen</string>
-    <string name="qs_media_respect_halving_title">Spalten halbieren bei Medien in Zeile</string>
-    <string name="qs_media_respect_halving_summary">Wenn aktiviert, werden die QS-Spalten halbiert, wenn Mediensteuerung in derselben Zeile wie Kacheln angezeigt wird</string>
     <string name="qs_layout_default">Standard (System)</string>
 
     <!-- Lock screen media art -->

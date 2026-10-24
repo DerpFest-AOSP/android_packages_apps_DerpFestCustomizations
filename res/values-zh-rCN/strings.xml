@@ -438,8 +438,6 @@
     <string name="qqs_layout_rows_landscape_title">行数（横屏）</string>
     <string name="qqs_layout_rows_landscape_summary">横屏模式下的行数</string>
     <string name="qqs_layout_rows_landscape_units"> 行</string>
-    <string name="qs_media_respect_halving_title">行内显示媒体控件时半宽显示</string>
-    <string name="qs_media_respect_halving_summary">启用时，若媒体控件与磁贴在同一行显示，则快速设置列数将减半</string>
     <string name="qs_layout_default">默认（系统）</string>
 
     <!-- Heads up -->

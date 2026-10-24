@@ -62,12 +62,6 @@
             settings:interval="1"
             settings:units="@string/qs_layout_rows_landscape_units" />
 
-        <org.derpfest.support.preferences.SystemSettingSwitchPreference
-            android:key="qs_media_respect_halving"
-            android:title="@string/qs_media_respect_halving_title"
-            android:summary="@string/qs_media_respect_halving_summary"
-            android:defaultValue="true" />
-
     </PreferenceCategory>
 
     <PreferenceCategory

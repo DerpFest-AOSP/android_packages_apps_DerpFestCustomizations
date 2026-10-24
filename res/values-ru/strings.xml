@@ -184,8 +184,6 @@
     <string name="qqs_layout_rows_landscape_title">Строки (альбомный режим)</string>
     <string name="qqs_layout_rows_landscape_summary">строки для альбомного режима</string>
     <string name="qqs_layout_rows_landscape_units"> строки</string>
-    <string name="qs_media_respect_halving_title">Сокращение размера для Медиа</string>
-    <string name="qs_media_respect_halving_summary">Когда включено, медиа в строке сократит количество колонок Быстрых настроек вдвое</string>
     <string name="qs_layout_default">По умолчанию (Система)</string>
     <string name="heads_up_notifications_title">Всплывающее уведомление</string>
     <string name="heads_up_notifications_summary">Настройте всплывающие уведомления</string>

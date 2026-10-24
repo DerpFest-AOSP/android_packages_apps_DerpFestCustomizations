@@ -411,8 +411,6 @@
     <string name="qqs_layout_rows_landscape_title">列數 (橫向)</string>
     <string name="qqs_layout_rows_landscape_summary">橫向模式的列數</string>
     <string name="qqs_layout_rows_landscape_units"> 列</string>
-    <string name="qs_media_respect_halving_title">當媒體在同一列時將欄數減半</string>
-    <string name="qs_media_respect_halving_summary">啟用後，當媒體控制項與圖示顯示在同一列時，QS 欄數將會減半</string>
     <string name="qs_layout_default">預設 (系統)</string>
 
     <!-- Heads up -->
