@@ -292,10 +292,6 @@
     <string name="keyguard_affordance_single_tap_title">锁屏快捷操作单击触发</string>
     <string name="keyguard_affordance_single_tap_summary">单击即可执行锁屏快捷操作功能</string>
 
-    <!-- Small landscape notifications -->
-    <string name="small_landscape_notification_title">小型横屏通知</string>
-    <string name="small_landscape_notification_summary">按 AOSP 设计，在横屏模式下的通知面板中显示更窄的通知</string>
-
     <!-- QS Panel -->
     <string name="qs_appearance_category_title">外观</string>
     <string name="pulse_haptics_title">低音触觉反馈</string>

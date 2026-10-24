@@ -319,9 +319,6 @@
         <item quantity="many">Тепер вам залишилося %d кроків від того, щоб вас derpнули.</item>
         <item quantity="other">Тепер вам залишилося %d кроків, щоб вас derpнули.</item>
     </plurals>
-    <string name="small_landscape_notification_summary">Відображає сповіщення меншої ширини на панелі сповіщень у горизонтальному режимі, а саме як це передбачено AOSP</string>
-    <!-- Small landscape notifications -->
-    <string name="small_landscape_notification_title">Невеликі сповіщення у ландшафтному режимі</string>
     <string name="spoofing_apps_category_title">Спуфінг додатків</string>
     <!-- Spoofing Categories -->
     <string name="spoofing_attestation_category_title">Атестація</string>

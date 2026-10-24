@@ -56,7 +56,6 @@
     <string name="spoofing_summary">Обходите ограничения приложений, подменяя компоненты</string>
     <string name="misc_title">Прочее</string>
     <string name="qs_header_image_summary">Выберите фоновое изображение заголовка быстрых настроек</string>
-    <string name="small_landscape_notification_summary">Отображает уведомления меньшего размера в альбомном положении экрана, как предполагается в AOSP</string>
     <string name="qs_enable_tile_squishing_summary">Выберите способ отображения плиток на панели быстрых настроек</string>
     <string name="lockscreen_hide_status_bar_summary">Если включено, строка состояния будет скрыта на экране блокировки</string>
     <string name="screen_off_animation_scale">Масштабирование</string>
@@ -79,7 +78,6 @@
     <string name="monet_engine_luminance_factor_title">Яркость</string>
     <string name="screen_off_animation_title">Анимация выключения экрана</string>
     <string name="ambient_aod_summary">Включить улучшения фоновых обоев и Активного экрана</string>
-    <string name="small_landscape_notification_title">Небольшие уведомления в альбомном положении</string>
     <string name="screen_off_animation_default">По умолчанию</string>
     <string name="monet_engine_wallpaper_color_summary">Выбор цвета обоев</string>
     <string name="enable">Включить</string>
