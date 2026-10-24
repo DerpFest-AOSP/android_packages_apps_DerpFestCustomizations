@@ -361,7 +361,7 @@
         <item>6</item>
     </string-array>
 
-    <!-- Edge light (Settings.System, crDroid-compatible) -->
+    <!-- Edge light -->
     <string-array name="edge_light_color_mode_entries" translatable="false">
         <item>@string/accent_color</item>
         <item>@string/notification_color</item>

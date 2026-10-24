@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: DerpFest AOSP
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="qs_title">Hurtig-indstillinger</string>
+    <string name="notifications_title">Notifikationer</string>
+    <string name="buttons_title">Knapper</string>
+    <string name="misc_title">Diverse</string>
+    <string name="general_category_title">Generelt</string>
+    <string name="monet_engine_custom_color_title">Markeringsfarve</string>
+    <string name="monet_engine_color_override_title">Tilpasset farve</string>
+    <string name="edge_light_custom_color_title">Tilpasset farve</string>
+    <string name="accent_color">Markeringsfarve</string>
+    <string name="notification_color">Notifikationsfarve</string>
+    <string name="wallpaper_color">Tapet farver</string>
+    <string name="custom_color">Tilpasset farve</string>
+    <string name="fp_success_vibrate_title">Vibration ved fingeraftryksgodkendelse</string>
+    <string name="fp_success_vibrate_summary">Vibrér, når fingeraftryksgodkendelse lykkes</string>
+    <string name="fp_error_vibrate_title">Vibration ved fejllæst fingeraftryk</string>
+    <string name="fp_error_vibrate_summary">Vibrér ved fejllæst fingeraftryk</string>
+    <string name="qs_header_daylight_pack_title">Overskriftsbilledesamling</string>
+    <string name="qs_header_shadow_title">Overskriftsbilledeskygge</string>
+    <string name="qs_header_shadow_summary">For bedre synlighed på lyse billeder</string>
+    <string name="qs_header_static_provider_title">Statisk billede</string>
+    <string name="qs_header_daylight_provider_title">Billedesamling</string>
+    <string name="qs_header_file_provider_title">Tilpasset billede</string>
+    <string name="qs_header_provider_title">Overskriftsudbyder</string>
+    <string name="qs_header_browse_title">Gennemse installerede overskrifter</string>
+    <string name="qs_header_browse_summary">Gennemse alle tilgængelige overskriftsamlinger</string>
+    <string name="qs_header_pick_title">Vælg overskriftsbillede</string>
+    <string name="qs_header_pick_summary">Vælg et billede for at benytte det til statisk tilstand</string>
+    <string name="qs_header_file_select_title">Vælg billede</string>
+    <string name="qs_header_file_select_summary">Vælg tilpasset billede</string>
+    <string name="enable">Aktivér</string>
+    <string name="screen_off_animation_title">Skærmslukningsanimation</string>
+    <string name="screen_off_animation_default">Standard</string>
+    <string name="screen_off_animation_crt">Billedrør</string>
+    <string name="screen_off_animation_scale">Skalering</string>
+    <string name="charging_animation_title">Opladningsanimation</string>
+    <string name="charging_animation_style_none">Ingen</string>
+    <string name="charging_animation_style_flash">Blitz</string>
+    <string name="pulse_color_accent">Accent</string>
+    <string name="pulse_renderer_solid">Faste linjer</string>
+    <string name="pulse_renderer_fading">Blokudtoninger</string>
+    <string name="brightness_category_title">Lysstyrkeskyder</string>
+    <string name="qs_show_auto_brightness_summary">Vis kontakt til tilpasset lysstyrke nær skyderen</string>
+    <string name="qs_tile_icon_shape_circle">Cirkel</string>
+    <string name="qs_tile_icon_shape_heart">Hjerte</string>
+    <string name="qs_tile_icon_shape_dotted_circle">Stiplet cirkel</string>
+    <string name="qs_tile_shape_circle">Cirkel</string>
+    <string name="qs_tile_animation_style_none">Ingen</string>
+    <string name="qs_tile_animation_style_bounce">Hoppe</string>
+    <string name="qs_tile_animation_style_pulse">Pulsering</string>
+    <string name="qs_tile_animation_style_tilt">Hældning</string>
+    <string name="default_value">Standard</string>
+    <string name="qs_notifications_category_title">Notifikationer</string>
+    <string name="heads_up_notifications_title">Statusnotifikationer</string>
+    <string name="heads_up_time_out_title">Timeout</string>
+    <string name="heads_up_time_out_5sec">5 sekunder</string>
+    <string name="heads_up_time_out_10sec">10 sekunder</string>
+    <string name="heads_up_snooze_1min">1 minut</string>
+    <string name="heads_up_snooze_5min">5 minutter</string>
+    <string name="heads_up_snooze_10min">10 minutter</string>
+    <string name="heads_up_snooze_20min">20 minutter</string>
+    <string name="ls_media_art_title">Albumomslagsillustrationer</string>
+    <string name="ls_media_art_summary">Vise mediers albumomslagsillustrationer, når tilgængelige</string>
+    <string name="ls_media_art_filter_title">Mediealbumillustrationer, filter</string>
+    <string name="ls_media_art_filter_none">Ingen</string>
+    <string name="ls_media_art_filter_blur">Sløre</string>
+    <string name="ls_media_art_filter_grayscale">Gråtoner</string>
+    <string name="ls_media_art_filter_tint">Overgangstoning</string>
+    <string name="dynamic_bar_chip_style_circle">Cirkel</string>
+    <string name="dynamic_bar_event_notification">Notifikationer</string>
+    <string name="app_spoofing_disabled">Deaktiveret</string>
+    <string name="advanced_spoof_disabled">Deaktiveret</string>
+    <string name="advanced_spoof_none">Ingen</string>
+    <string name="obscura_disabled">Deaktiveret</string>
+    <string name="obscura_badge_hidden">Skjult</string>
+    <string name="obscura_cancel">Annullér</string>
+</resources>

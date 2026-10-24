@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: DerpFest AOSP
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="monet_settings">Monet-asetukset</string>
+    <string name="qs_title">Pika-asetukset</string>
+    <string name="notifications_title">Ilmoitukset</string>
+    <string name="buttons_title">Painikkeet</string>
+    <string name="misc_title">Sekalaiset</string>
+    <string name="custom_font_style_normal">Normaali</string>
+    <string name="general_category_title">Yleiset</string>
+    <string name="monet_engine_custom_color_title">Korostusväri</string>
+    <string name="monet_engine_custom_color_summary">Valitse korostuksen mukautettu väri</string>
+    <string name="monet_engine_custom_bgcolor_title">Taustaväri</string>
+    <string name="monet_engine_custom_bgcolor_summary">Valitse taustan mukautettu väri</string>
+    <string name="monet_engine_color_override_title">Mukautettu väri</string>
+    <string name="monet_engine_luminance_factor_title">Luminanssi</string>
+    <string name="monet_engine_luminance_factor_summary">Korkeammat arvot tuottavat kirkkaampia värejä</string>
+    <string name="monet_engine_chroma_factor_title">Chroma-kerroin</string>
+    <string name="monet_engine_chroma_factor_summary">Korkeammat arvot tuottavat vahvempia värejä</string>
+    <string name="monet_engine_tint_background_title">Taustan sävy</string>
+    <string name="monet_engine_tint_background_summary">Laita luminanssin ja chroman valinta vaikuttamaan myös taustaväreihin</string>
+    <string name="monet_engine_style_title">Teeman tyyli</string>
+    <string name="monet_engine_style_tonal_spot">Tonaalinen Spot (Oletus)</string>
+    <string name="monet_engine_style_vibrant">Eloisa</string>
+    <string name="monet_engine_style_expressive">Ilmeikäs</string>
+    <string name="monet_engine_style_spritz">Suihku</string>
+    <string name="monet_engine_style_rainbow">Sateenkaari</string>
+    <string name="monet_engine_style_fruit_salad">Hedelmäsalaatti</string>
+    <string name="edge_light_category_title">Reunavalo</string>
+    <string name="edge_light_title">Reunavalo</string>
+    <string name="edge_light_summary">Valaise näytön sivureunat ilmoituspulssilla</string>
+    <string name="edge_light_custom_color_title">Mukautettu väri</string>
+    <string name="accent_color">Korostusväri</string>
+    <string name="notification_color">Ilmoituksen väri</string>
+    <string name="wallpaper_color">Taustakuvan väri</string>
+    <string name="custom_color">Mukautettu väri</string>
+    <string name="fp_success_vibrate_title">Sormenjälkitunnistuksen värinä</string>
+    <string name="fp_success_vibrate_summary">Värise kun sormenjälkitunnistus onnistuu</string>
+    <string name="fp_error_vibrate_title">Sormenjälkitunnistuksen virhevärinä</string>
+    <string name="fp_error_vibrate_summary">Värise kun sormenjälkitunnistus epäonnistuu</string>
+    <string name="enable">Ota käyttöön</string>
+    <string name="screen_off_animation_title">Näytön sulkemisanimaatio</string>
+    <string name="screen_off_animation_default">Oletus</string>
+    <string name="screen_off_animation_scale">Asteikko</string>
+    <string name="charging_animation_title">Latauksen animaatio</string>
+    <string name="charging_animation_style_none">Ei mitään</string>
+    <string name="pulse_color_accent">Korostus</string>
+    <string name="pulse_renderer_solid">Kiinteät viivat</string>
+    <string name="pulse_renderer_fading">Häivytetyt lohkot</string>
+    <string name="brightness_category_title">Kirkkauden säädin</string>
+    <string name="qs_show_auto_brightness_title">Automaattisen kirkkauden kuvake</string>
+    <string name="qs_show_auto_brightness_summary">Näytä automaattisen kirkkauden valinta liukusäätimen vieressä</string>
+    <string name="data_usage_category_title">Datan käyttö</string>
+    <string name="qs_footer_datausage_title">Datan käyttö</string>
+    <string name="qs_footer_datausage_summary">Näytä datan käytön yhteenveto pika-asetusten alatunnisteessa</string>
+    <string name="qs_tile_icon_shape_circle">Ympyrä</string>
+    <string name="qs_tile_icon_shape_dotted_circle">Pilkullinen ympyrä</string>
+    <string name="qs_tile_shape_circle">Ympyrä</string>
+    <string name="qs_tile_animation_style_none">Ei mitään</string>
+    <string name="qs_tile_animation_style_tilt">Kallistus</string>
+    <string name="default_value">Oletus</string>
+    <string name="qs_notifications_category_title">Ilmoitukset</string>
+    <string name="heads_up_time_out_5sec">5 sekuntia</string>
+    <string name="heads_up_time_out_10sec">10 sekuntia</string>
+    <string name="heads_up_snooze_1min">1 minuutti</string>
+    <string name="heads_up_snooze_5min">5 minuuttia</string>
+    <string name="heads_up_snooze_10min">10 minuuttia</string>
+    <string name="heads_up_snooze_20min">20 minuuttia</string>
+    <string name="ls_media_art_title">Median kansikuva</string>
+    <string name="ls_media_art_summary">Näytä median kansikuva kun käytettävissä</string>
+    <string name="ls_media_art_filter_title">Median kansikuvan suodatin</string>
+    <string name="ls_media_art_filter_none">Ei mitään</string>
+    <string name="ls_media_art_filter_blur">Sumennus</string>
+    <string name="ls_media_art_filter_grayscale">Harmaasävy</string>
+    <string name="ls_media_art_filter_tint">Sävytetty korostus</string>
+    <string name="dynamic_bar_keyguard_battery_chip_disabled">Älä näytä koskaan</string>
+    <string name="dynamic_bar_chip_style_circle">Ympyrä</string>
+    <string name="dynamic_bar_event_notification">Ilmoitukset</string>
+    <string name="dynamic_bar_event_torch">Taskulamppu</string>
+    <string name="app_spoofing_disabled">Poistettu käytöstä</string>
+    <string name="dynamic_island_flashlight_title">Taskulamppu</string>
+    <string name="advanced_spoof_disabled">Poistettu käytöstä</string>
+    <string name="advanced_spoof_none">Ei mitään</string>
+    <string name="obscura_disabled">Poistettu käytöstä</string>
+    <string name="obscura_badge_hidden">Piilotettu</string>
+    <string name="obscura_cancel">Peruuta</string>
+</resources>

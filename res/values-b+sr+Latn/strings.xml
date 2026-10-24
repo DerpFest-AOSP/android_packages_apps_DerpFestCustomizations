@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: DerpFest AOSP
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="monet_settings">Monet podešavanja</string>
+    <string name="qs_title">Brza podešavanja</string>
+    <string name="notifications_title">Obaveštenja</string>
+    <string name="buttons_title">Tasteri</string>
+    <string name="misc_title">Razno</string>
+    <string name="general_category_title">Opšte</string>
+    <string name="monet_engine_custom_color_title">Naglašena boja</string>
+    <string name="monet_engine_color_override_title">Prilagodjene boje</string>
+    <string name="monet_engine_chroma_factor_title">Hroma faktor</string>
+    <string name="edge_light_summary">Osvetli bočne ivice ekrana za obaveštenja u pulsu</string>
+    <string name="edge_light_custom_color_title">Prilagodjene boje</string>
+    <string name="accent_color">Naglašena boja</string>
+    <string name="custom_color">Prilagodjene boje</string>
+    <string name="fp_success_vibrate_title">Vibracija čitača otiska prsta prilikom prepoznavanja identiteta</string>
+    <string name="fp_success_vibrate_summary">Vibriraj kada je otisak prsta uspešno prepoznat</string>
+    <string name="fp_error_vibrate_title">Vibracija čitača otiska prsta na neprepoznat identitet</string>
+    <string name="fp_error_vibrate_summary">Vibriraj kada otisak prsta nije prepoznat</string>
+    <string name="qs_header_daylight_pack_title">Kolekcija slika zaglavlja</string>
+    <string name="qs_header_shadow_title">Senka slike zaglavlja</string>
+    <string name="qs_header_shadow_summary">Za bolju vidljivost na svetlim slikama</string>
+    <string name="qs_header_static_provider_title">Nepomerajuća slika</string>
+    <string name="qs_header_daylight_provider_title">Kolekcija slika</string>
+    <string name="qs_header_file_provider_title">Proizvoljna slika</string>
+    <string name="qs_header_provider_title">Provajder zaglavlja</string>
+    <string name="qs_header_browse_title">Potraži instalirana zaglavlja</string>
+    <string name="qs_header_browse_summary">Potraži sve dostupne kolekcije zaglavlja</string>
+    <string name="qs_header_pick_title">Izaberi sliku zaglavlja</string>
+    <string name="qs_header_pick_summary">Izaberi sliku koju ćeš koristiti u nepomerajućem režimu</string>
+    <string name="qs_header_file_select_title">Izaberi sliku</string>
+    <string name="qs_header_file_select_summary">Proizvoljno izaberi sliku</string>
+    <string name="enable">Uključi</string>
+    <string name="screen_off_animation_title">Animacija gašenja ekrana</string>
+    <string name="screen_off_animation_default">Podrazumevano</string>
+    <string name="screen_off_animation_scale">Skaliranje</string>
+    <string name="charging_animation_title">Animacija punjenja</string>
+    <string name="charging_animation_style_none">Nijedan</string>
+    <string name="charging_animation_style_flash">Munja</string>
+    <string name="pulse_color_accent">Naglašena boja</string>
+    <string name="pulse_renderer_solid">Pune linije</string>
+    <string name="pulse_renderer_fading">Opadajući blokovi</string>
+    <string name="brightness_category_title">Nivo osvjetljenja</string>
+    <string name="qs_show_auto_brightness_title">Ikona automatskog osvetljenja</string>
+    <string name="qs_show_auto_brightness_summary">Prikaži prečicu za prilagodljivu osvetljenost pored klizača</string>
+    <string name="data_usage_category_title">Korišćenje podataka</string>
+    <string name="qs_footer_datausage_title">Korišćenje podataka</string>
+    <string name="qs_footer_datausage_summary">Prikaži korišćenje podataka u podnožju brzog podešavanja</string>
+    <string name="qs_tile_icon_shape_circle">Krug</string>
+    <string name="qs_tile_icon_shape_heart">Srce</string>
+    <string name="qs_tile_icon_shape_dotted_circle">Istačkan krug</string>
+    <string name="qs_tile_shape_circle">Krug</string>
+    <string name="qs_tile_animation_style_none">Nijedan</string>
+    <string name="qs_tile_animation_style_bounce">Skakanje</string>
+    <string name="qs_tile_animation_style_flip">Okreni</string>
+    <string name="qs_tile_animation_style_tilt">Naginjanje</string>
+    <string name="default_value">Podrazumevano</string>
+    <string name="qs_notifications_category_title">Obaveštenja</string>
+    <string name="heads_up_time_out_title">Isteklo vreme</string>
+    <string name="heads_up_time_out_5sec">5 sekundi</string>
+    <string name="heads_up_time_out_10sec">10 sekundi</string>
+    <string name="heads_up_snooze_1min">1 minut</string>
+    <string name="heads_up_snooze_5min">5 minuta</string>
+    <string name="heads_up_snooze_10min">10 minuta</string>
+    <string name="heads_up_snooze_20min">20 minuta</string>
+    <string name="ls_media_art_title">Odaberi sliku omota</string>
+    <string name="ls_media_art_summary">Prikaži sliku omota kada bude dostupna</string>
+    <string name="ls_media_art_filter_title">Filter omota medijskog sadržaja</string>
+    <string name="ls_media_art_filter_none">Nijedan</string>
+    <string name="ls_media_art_filter_blur">Zamućeno</string>
+    <string name="ls_media_art_filter_grayscale">Crno-beli prikaz</string>
+    <string name="ls_media_art_filter_tint">Nijansa naglašene boje</string>
+    <string name="dynamic_bar_keyguard_battery_chip_disabled">Nikad ne pokazuj</string>
+    <string name="dynamic_bar_chip_style_circle">Krug</string>
+    <string name="dynamic_bar_event_notification">Obaveštenja</string>
+    <string name="dynamic_bar_event_torch">Blic</string>
+    <string name="dynamic_island_flashlight_title">Blic</string>
+    <string name="advanced_spoof_none">Nijedan</string>
+    <string name="obscura_badge_hidden">Skriveno</string>
+    <string name="obscura_cancel">Otkaži</string>
+</resources>

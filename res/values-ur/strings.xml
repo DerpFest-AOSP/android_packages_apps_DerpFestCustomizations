@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: DerpFest AOSP
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="monet_settings">مونٹ کی ترتیبات</string>
+    <string name="qs_title">فوری ترتیبات</string>
+    <string name="notifications_title">اطلاعات</string>
+    <string name="buttons_title">بٹن</string>
+    <string name="misc_title">متفرق</string>
+    <string name="custom_font_style_normal">عام</string>
+    <string name="general_category_title">جنرل</string>
+    <string name="monet_engine_custom_color_title">لہجے کا رنگ</string>
+    <string name="monet_engine_color_override_title">من پسند رنگ</string>
+    <string name="monet_engine_luminance_factor_summary">اعلی اقدار روشن رنگ پیدا کرتی ہیں۔</string>
+    <string name="monet_engine_chroma_factor_title">رنگت کا عنصر</string>
+    <string name="edge_light_summary">نوٹیفکیشن پلس پر اسکرین کے سائیڈ کناروں کو روشن کریں۔</string>
+    <string name="accent_color">لہجے کا رنگ</string>
+    <string name="notification_color">اطلاعات کا رنگ</string>
+    <string name="wallpaper_color">پس منظر کا رنگ</string>
+    <string name="custom_color">منپسند رنگ</string>
+    <string name="enable_fingerprint_ripple_effect_summary">فنگر پرنٹ کے ساتھ غیر مقفل کرنے پر لہر کا اثر دکھائیں۔</string>
+    <string name="fp_success_vibrate_title">فنگر پرنٹ کی توثیق تھرتھراہٹ</string>
+    <string name="fp_success_vibrate_summary">فنگر پرنٹ کی تصدیق کامیاب ہونے پر تھرتھراہٹ چلائیں۔</string>
+    <string name="fp_error_vibrate_title">فنگر پرنٹ کی خرابی تھرتھراہٹ</string>
+    <string name="fp_error_vibrate_summary">فنگر پرنٹ کی تصدیق ناکام ہونے پر تھرتھراہٹ چلائیں۔</string>
+    <string name="qs_header_daylight_pack_title">ہیڈر امیج کا مجموعہ</string>
+    <string name="qs_header_shadow_title">ہیڈر تصویر کا سائۃ</string>
+    <string name="qs_header_shadow_summary">روشن تصاویر پر بہتر نموداری کے لئے</string>
+    <string name="qs_header_static_provider_title">جامد تصویر</string>
+    <string name="qs_header_daylight_provider_title">تصویری مجموعہ</string>
+    <string name="qs_header_file_provider_title">حسب ضرورت تصویر</string>
+    <string name="qs_header_provider_title">ہیڈر فراہم کرنے والا</string>
+    <string name="qs_header_browse_title">انسٹال شدہ ہیڈرز کو براؤز کریں۔</string>
+    <string name="qs_header_browse_summary">تمام دستیاب ہیڈر مجموعہ براؤز کریں</string>
+    <string name="qs_header_pick_title">اشاروں کے تسلسل کو فعال کریں</string>
+    <string name="qs_header_pick_summary">ایک تصویر منتخب کریںساکن موڈ کو استعمال کرنے کے لئے</string>
+    <string name="qs_header_file_select_title">تصویر منتخب کریں</string>
+    <string name="qs_header_file_select_summary">حسب ضرورت تصویر منتخب کریں۔</string>
+    <string name="enable">فعال کرنا</string>
+    <string name="screen_off_animation_title">اسکرین آف اینیمیشن</string>
+    <string name="screen_off_animation_default">معین شدہ</string>
+    <string name="screen_off_animation_crt">سی- آر- ٹی</string>
+    <string name="screen_off_animation_scale">پیمانہ</string>
+    <string name="charging_animation_title">چارجنگ کی حرکات</string>
+    <string name="charging_animation_style_none">کوئی بھی نہیں</string>
+    <string name="charging_animation_style_flash">فلیش</string>
+    <string name="ambient_pulse_enabled_title">محیطی دھڑکن</string>
+    <string name="pulse_color_accent">لہجہ</string>
+    <string name="pulse_renderer_solid">ٹھوس لائنیں</string>
+    <string name="pulse_renderer_fading">دھندلا کرنے والے ٹکڑے</string>
+    <string name="brightness_category_title">چمک سلائیڈر</string>
+    <string name="qs_show_auto_brightness_title">خودکار چمک کا آیکن</string>
+    <string name="qs_show_auto_brightness_summary">سلائیڈر کے قریب حسب منشاء چمک کے لئے ٹوگل دکھائیں</string>
+    <string name="data_usage_category_title">ڈیٹا کا استعمال</string>
+    <string name="qs_footer_datausage_title">ڈیٹا کا استعمال</string>
+    <string name="qs_tile_icon_shape_circle">دائرہ</string>
+    <string name="qs_tile_icon_shape_heart">دل</string>
+    <string name="qs_tile_icon_shape_dotted_circle">دانے دار دائرہ</string>
+    <string name="qs_tile_shape_circle">دائرہ</string>
+    <string name="qs_tile_animation_style_none">کوئی بھی نہیں</string>
+    <string name="qs_tile_animation_style_bounce">اچھالنا</string>
+    <string name="qs_tile_animation_style_flip">پلٹائیں</string>
+    <string name="qs_tile_animation_style_pulse">دھڑکن</string>
+    <string name="qs_tile_animation_style_tilt">جھکاؤ</string>
+    <string name="default_value">پہلے سے طے شدہ</string>
+    <string name="qs_notifications_category_title">اطلاعات</string>
+    <string name="heads_up_notifications_title">ہیڈز اپ</string>
+    <string name="heads_up_time_out_title">وقت ختم</string>
+    <string name="heads_up_time_out_5sec">5 سیکنڈز</string>
+    <string name="heads_up_time_out_10sec">10 سیکنڈز</string>
+    <string name="heads_up_snooze_1min">1 منٹ</string>
+    <string name="heads_up_snooze_5min">5 منٹس</string>
+    <string name="heads_up_snooze_10min">10 منٹ</string>
+    <string name="heads_up_snooze_20min">20 منٹس</string>
+    <string name="ls_media_art_title">میڈیا کور آرٹ</string>
+    <string name="ls_media_art_summary">میڈیا کور آرٹ دکھائیں جب موجود ہوں</string>
+    <string name="ls_media_art_filter_title">میڈیا کور آرٹ فلٹر</string>
+    <string name="ls_media_art_filter_none">کوئی بھی نہیں</string>
+    <string name="ls_media_art_filter_blur">دھندلا پن</string>
+    <string name="ls_media_art_filter_grayscale">گرے سکیل</string>
+    <string name="ls_media_art_filter_tint">لہجہ رنگا ہوا</string>
+    <string name="dynamic_bar_keyguard_battery_chip_disabled">کبھی بھی اجازت نہ دکھائیں</string>
+    <string name="dynamic_bar_chip_style_circle">دائرہ</string>
+    <string name="dynamic_bar_event_notification">اطلاعات</string>
+    <string name="dynamic_bar_event_torch">ٹارچ</string>
+    <string name="dynamic_island_flashlight_title">ٹارچ</string>
+    <string name="advanced_spoof_none">کوئی بھی نہیں</string>
+    <string name="obscura_badge_hidden">پوشیدہ</string>
+    <string name="obscura_cancel">منسوخ کریں</string>
+</resources>

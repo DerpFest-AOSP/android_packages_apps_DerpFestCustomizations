@@ -817,4 +817,7 @@
     <string name="obscura_preset_detectors_short">偵測工具</string>
     <string name="obscura_preset_tools">檔案與開發工具</string>
     <string name="obscura_preset_tools_short">工具</string>
+
+    <string name="live_status_summary_no_cutout">動態列</string>
+    <string name="qs_tile_icon_shape_squaremedo">星型八角形</string>
 </resources>

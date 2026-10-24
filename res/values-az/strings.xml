@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: DerpFest AOSP
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="monet_settings">Monet tənzimləmələri</string>
+    <string name="qs_title">Sürətli Tənzimləmələr</string>
+    <string name="notifications_title">Bildirişlər</string>
+    <string name="buttons_title">Düymələr</string>
+    <string name="misc_title">Əlavələr</string>
+    <string name="general_category_title">Ümumi parametrlər</string>
+    <string name="monet_engine_custom_color_title">Vurğu rəngi</string>
+    <string name="monet_engine_custom_bgcolor_title">Arxafon rəngi</string>
+    <string name="monet_engine_custom_bgcolor_summary">Fon üçün xüsusi rəng seçin</string>
+    <string name="monet_engine_color_override_title">Xüsusi rəng</string>
+    <string name="monet_engine_chroma_factor_title">Xroma faktoru</string>
+    <string name="edge_light_summary">Bildiriş ekranında ekranın yan kənarlarını aydınladın</string>
+    <string name="edge_light_custom_color_title">Xüsusi rəng</string>
+    <string name="accent_color">Vurğu rəngi</string>
+    <string name="notification_color">Bildiriş rəngi</string>
+    <string name="wallpaper_color">Divar kağızı rəngi</string>
+    <string name="custom_color">Xüsusi rəng</string>
+    <string name="enable_fingerprint_ripple_effect_summary">Barmaq izi ilə kilit açma sonrası dalğalanmanı göstər</string>
+    <string name="fp_success_vibrate_title">Barmaq izi identifikasiyası vibrasiyası</string>
+    <string name="fp_success_vibrate_summary">Barmaq izi identifikasiyası uğurlu olduğunda titrət</string>
+    <string name="fp_error_vibrate_title">Barmaq izi xətası identifikasiyası</string>
+    <string name="fp_error_vibrate_summary">Barmaq izi uğurlu olmadığında titrət</string>
+    <string name="qs_header_daylight_pack_title">Başlıq şəkil kolleksiyası</string>
+    <string name="qs_header_shadow_title">Başlıq şəkil kölgəsi</string>
+    <string name="qs_header_shadow_summary">İşıqlı şəkillərdə daha yaxşı görünmə üçün</string>
+    <string name="qs_header_static_provider_title">Sabit şəkil</string>
+    <string name="qs_header_daylight_provider_title">Şəkillər kolleksiyası</string>
+    <string name="qs_header_file_provider_title">Xüsusi şəkil</string>
+    <string name="qs_header_provider_title">Başlıq provayderi</string>
+    <string name="qs_header_browse_title">Yüklənən başlıqları axtar</string>
+    <string name="qs_header_browse_summary">Bütün mövcud olan başlıq kolleksiyalarını axtarın</string>
+    <string name="qs_header_pick_title">Başlıq şəklini seçin</string>
+    <string name="qs_header_pick_summary">Statik mod istifadəsi üçün hər hansı şəkil seçin</string>
+    <string name="qs_header_file_select_title">Şəkil seç</string>
+    <string name="qs_header_file_select_summary">Özəl şəkil seçin</string>
+    <string name="enable">Aktiv</string>
+    <string name="screen_off_animation_title">Ekran bağlanma animasyası</string>
+    <string name="screen_off_animation_default">Susmaya görə</string>
+    <string name="screen_off_animation_scale">Miqyas</string>
+    <string name="charging_animation_title">Enerji doldurma animasiyası</string>
+    <string name="charging_animation_style_none">Heç biri</string>
+    <string name="charging_animation_style_flash">Flaş</string>
+    <string name="pulse_color_accent">Vurğu</string>
+    <string name="pulse_renderer_solid">Düz xəttlər</string>
+    <string name="pulse_renderer_fading">Fading bloklar</string>
+    <string name="brightness_category_title">Parlaqlıq diyircəyi</string>
+    <string name="qs_show_auto_brightness_title">Avtomatik parlağlıq simgəsi</string>
+    <string name="qs_show_auto_brightness_summary">Avtomatik parlaqlıq nişanını diyircəyin yanında göstər</string>
+    <string name="data_usage_category_title">Data istifadəsi</string>
+    <string name="qs_footer_datausage_title">Data istifadəsi</string>
+    <string name="qs_footer_datausage_summary">Sürətli parametrlər altbilgisində data istifadəsi xülasəsini göstərin</string>
+    <string name="qs_tile_icon_shape_circle">Dairə</string>
+    <string name="qs_tile_icon_shape_dotted_circle">Nöqtəli dairə</string>
+    <string name="qs_tile_shape_circle">Dairə</string>
+    <string name="qs_tile_animation_style_none">Heç biri</string>
+    <string name="qs_tile_animation_style_bounce">Sıçrat</string>
+    <string name="qs_tile_animation_style_flip">Çevirmə</string>
+    <string name="default_value">Defolt</string>
+    <string name="qs_notifications_category_title">Bildirişlər</string>
+    <string name="heads_up_notifications_title">Bildiriş pəncərələri</string>
+    <string name="heads_up_time_out_title">Vaxt bitdi</string>
+    <string name="heads_up_time_out_5sec">5 saniyə</string>
+    <string name="heads_up_time_out_10sec">10 saniyə</string>
+    <string name="heads_up_snooze_1min">1 dəqiqə</string>
+    <string name="heads_up_snooze_5min">5 dəqiqə</string>
+    <string name="heads_up_snooze_10min">10 dəqiqə</string>
+    <string name="heads_up_snooze_20min">20 dəqiqə</string>
+    <string name="ls_media_art_title">Media örtük şəkli</string>
+    <string name="ls_media_art_summary">Əgər varsa media örtük şəklini göstər</string>
+    <string name="ls_media_art_filter_title">Media örtüyü rəsm filteri</string>
+    <string name="ls_media_art_filter_none">Heç biri</string>
+    <string name="ls_media_art_filter_blur">Bulanık</string>
+    <string name="ls_media_art_filter_grayscale">Boz tonlamalar</string>
+    <string name="ls_media_art_filter_tint">Vurğu rəngi</string>
+    <string name="dynamic_bar_keyguard_battery_chip_disabled">Heç vaxt göstərmə</string>
+    <string name="dynamic_bar_chip_style_circle">Dairə</string>
+    <string name="dynamic_bar_event_notification">Bildirişlər</string>
+    <string name="dynamic_bar_event_torch">Fənər</string>
+    <string name="app_spoofing_disabled">Deaktiv</string>
+    <string name="dynamic_island_flashlight_title">Fənər</string>
+    <string name="advanced_spoof_disabled">Deaktiv</string>
+    <string name="advanced_spoof_none">Heç biri</string>
+    <string name="obscura_disabled">Deaktiv</string>
+    <string name="obscura_badge_hidden">Gizli</string>
+    <string name="obscura_cancel">İmtina et</string>
+</resources>

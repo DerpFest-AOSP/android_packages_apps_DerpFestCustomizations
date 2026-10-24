@@ -666,4 +666,19 @@
     <string name="app_spoofing_longpress_hint">长按可快速重新分配配置文件</string>
     <string name="app_spoofing_remove_title">移除应用？</string>
     <string name="app_spoofing_remove_confirm">要将 %1$s 从伪装列表中移除吗？</string>
+
+    <string name="live_status_summary_no_cutout">动态栏</string>
+    <string name="pulse_height_multiplier_title">脉冲高度</string>
+    <string name="pulse_height_multiplier_summary">调整可视化效果显示高度</string>
+    <string name="dynamic_bar_chip_style_circle">环形图标</string>
+    <string name="dynamic_bar_compact_notifications">紧凑型通知</string>
+    <string name="dynamic_bar_compact_notifications_summary">首先将通知显示为小胶囊，点击即可展开</string>
+    <string name="dynamic_island_stopwatch_title">秒表</string>
+    <string name="dynamic_island_flashlight_title">手电筒</string>
+    <string name="dynamic_island_ongoing_activities_title">进行中的活动</string>
+    <string name="advanced_spoof_disabled">禁用</string>
+    <string name="advanced_spoof_none">无</string>
+    <string name="obscura_disabled">禁用</string>
+    <string name="obscura_badge_hidden">隐藏</string>
+    <string name="obscura_cancel">取消</string>
 </resources>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: DerpFest AOSP
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="monet_settings">Configuració de Monet</string>
+    <string name="qs_title">Configuració ràpida</string>
+    <string name="notifications_title">Notificacions</string>
+    <string name="buttons_title">Botons</string>
+    <string name="misc_title">Miscel·lània</string>
+    <string name="monet_engine_custom_color_title">Color d\'èmfasi</string>
+    <string name="monet_engine_custom_color_summary">Escolliu el color d\'èmfasi personalitzat</string>
+    <string name="monet_engine_custom_bgcolor_title">Color de fons</string>
+    <string name="monet_engine_custom_bgcolor_summary">Escolliu un color de fons personalitzat</string>
+    <string name="monet_engine_color_override_title">Color personalitzat</string>
+    <string name="monet_engine_luminance_factor_title">Luminància</string>
+    <string name="monet_engine_luminance_factor_summary">Valors més alts produeixen colors més brillants</string>
+    <string name="monet_engine_chroma_factor_title">Factor cromátic</string>
+    <string name="monet_engine_chroma_factor_summary">Valors més alts produeixen colors més forts</string>
+    <string name="monet_engine_tint_background_title">Tint del fons</string>
+    <string name="monet_engine_tint_background_summary">Fes que la selecció de luminància i crominància afecti també els colors de fons</string>
+    <string name="monet_engine_style_title">Estil del tema</string>
+    <string name="monet_engine_style_tonal_spot">Tonal Spot (Per defecte)</string>
+    <string name="monet_engine_color_source_title">Font de color</string>
+    <string name="monet_engine_color_source_both">Ambdós (Per defecte)</string>
+    <string name="monet_engine_color_source_home">Fons de pantalla d\'inici</string>
+    <string name="monet_engine_color_source_lock">Fons de pantalla de bloqueig</string>
+    <string name="edge_light_summary">Il·lumina les vores laterals de la pantalla a la notificació pulsant</string>
+    <string name="edge_light_custom_color_title">Color personalitzat</string>
+    <string name="accent_color">Color d\'èmfasi</string>
+    <string name="notification_color">Color de notificació</string>
+    <string name="wallpaper_color">Color del fons de pantalla</string>
+    <string name="custom_color">Color personalitzat</string>
+    <string name="enable_fingerprint_ripple_effect_summary">Mostra l\'efecte al desbloquejar amb empremta digital</string>
+    <string name="fp_success_vibrate_title">Vibració de l\'autenticació d’empremtes digitals</string>
+    <string name="fp_success_vibrate_summary">Vibra quan l\'autenticació amb emprempta digital sigui satisfactòria</string>
+    <string name="fp_error_vibrate_title">Vibració d\'error d\'empremta digital</string>
+    <string name="fp_error_vibrate_summary">Vibra quan l\'autenticació amb emprempta digital falli</string>
+    <string name="enable">Activa</string>
+    <string name="screen_off_animation_title">Animació d\'apagat de la pantalla</string>
+    <string name="screen_off_animation_default">Per defecte</string>
+    <string name="screen_off_animation_crt">Tub de raigs catòdics</string>
+    <string name="screen_off_animation_scale">Escalat</string>
+    <string name="charging_animation_title">Animació de càrrega</string>
+    <string name="charging_animation_style_none">Cap</string>
+    <string name="charging_animation_style_flash">Flaix</string>
+    <string name="ambient_pulse_enabled_title">Pulse ambient</string>
+    <string name="pulse_color_accent">Èmfasi</string>
+    <string name="pulse_renderer_solid">Línies sòlides</string>
+    <string name="pulse_renderer_fading">Esvaïment de blocs</string>
+    <string name="brightness_category_title">Barra de brillantor</string>
+    <string name="qs_show_auto_brightness_title">Icona de brillantor automàtica</string>
+    <string name="qs_show_auto_brightness_summary">Mostra el commutador de lluminositat automàtica al costat del regulador de lluentor</string>
+    <string name="data_usage_category_title">Ús de dades</string>
+    <string name="qs_footer_datausage_title">Ús de dades</string>
+    <string name="qs_footer_datausage_summary">Mostra un resum de l\'ús de dades a la part de sota de la configuració ràpida</string>
+    <string name="qs_tile_icon_shape_circle">Cercle</string>
+    <string name="qs_tile_icon_shape_heart">Cor</string>
+    <string name="qs_tile_icon_shape_dotted_circle">Cercle puntejat</string>
+    <string name="qs_tile_shape_circle">Cercle</string>
+    <string name="qs_tile_animation_style_none">Cap</string>
+    <string name="qs_tile_animation_style_bounce">Rebota</string>
+    <string name="qs_tile_animation_style_flip">Regira</string>
+    <string name="qs_tile_animation_style_tilt">Inclinació</string>
+    <string name="default_value">Per defecte</string>
+    <string name="qs_notifications_category_title">Notificacions</string>
+    <string name="heads_up_notifications_title">Notificacions emergents</string>
+    <string name="heads_up_time_out_title">Temps de visualització</string>
+    <string name="heads_up_time_out_5sec">5 segons</string>
+    <string name="heads_up_time_out_10sec">10 segons</string>
+    <string name="heads_up_snooze_1min">1 minut</string>
+    <string name="heads_up_snooze_5min">5 minuts</string>
+    <string name="heads_up_snooze_10min">10 minuts</string>
+    <string name="heads_up_snooze_20min">20 minuts</string>
+    <string name="ls_media_art_title">Carátules Multimèdia</string>
+    <string name="ls_media_art_summary">Mostra la caràtula multimèdia si és disponible</string>
+    <string name="ls_media_art_filter_title">Filtre de caràtules multimèdia</string>
+    <string name="ls_media_art_filter_none">Cap</string>
+    <string name="ls_media_art_filter_blur">Difuminat</string>
+    <string name="ls_media_art_filter_grayscale">Escala de grisos</string>
+    <string name="ls_media_art_filter_tint">Ènfasi tintat</string>
+    <string name="dynamic_bar_keyguard_battery_chip_disabled">No mostrar mai</string>
+    <string name="dynamic_bar_chip_style_circle">Cercle</string>
+    <string name="dynamic_bar_event_notification">Notificacions</string>
+    <string name="dynamic_bar_event_torch">Llanterna</string>
+    <string name="dynamic_island_flashlight_title">Llanterna</string>
+    <string name="advanced_spoof_none">Cap</string>
+    <string name="obscura_cancel">Cancel·lar</string>
+</resources>
