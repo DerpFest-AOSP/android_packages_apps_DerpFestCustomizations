@@ -137,8 +137,8 @@
     <string name="monet_engine_wallpaper_color_requires_preset">Farbquelle auf „Voreinstellung“ setzen, um eine Farbe aus dem Hintergrundbild zu wählen</string>
 
     <!-- Keybox Data -->
-    <string name="keybox_data_title">Keybox-Attestation überschreiben</string>
-    <string name="keybox_data_summary">Benutzerdefinierte Keybox-XML laden, um Geräteschlüssel-Attestation zu überschreiben</string>
+    <string name="keybox_data_title">Keybox-Attestationsüberschreibung</string>
+    <string name="keybox_data_summary">Keybox-XML-Datei auswählen, um den integrierten Standard zu ersetzen. Löschen, um wieder die integrierte Keybox zu verwenden.</string>
     <string name="keybox_excluded_apps_title">Ausgeschlossene Apps</string>
     <string name="keybox_excluded_apps_summary">Ausgeschlossene Apps verwenden die Geräte-Attestation statt der konfigurierten Keybox. Manager für gehookte Frameworks bleiben ausgeschlossen, bis diese Liste geändert wird.</string>
     <string name="keybox_data_loaded_summary">„%1$s“-Keybox geladen mit %2$d Zertifikaten (%3$s)</string>
@@ -147,10 +147,15 @@
     <string name="keybox_toast_missing_data">Ungültige Keybox-XML: Fehlende Pflichtfelder</string>
     <string name="keybox_toast_file_loaded">Keybox geladen</string>
     <string name="keybox_toast_file_cleared">Keybox gelöscht</string>
+    <string name="keybox_download_title">Neueste Keybox herunterladen</string>
+    <string name="keybox_download_summary">Aktuelle Keybox abrufen und für die Attestation verwenden</string>
+    <string name="keybox_toast_download_failed">Keybox konnte nicht heruntergeladen werden</string>
+    <string name="keybox_toast_download_valid">Heruntergeladene Keybox ist gültig</string>
+    <string name="keybox_toast_download_revoked">Heruntergeladene Keybox ist widerrufen</string>
 
     <!-- Pif Data -->
     <string name="pif_data_title">PIF-JSON zum Spoofen auswählen</string>
-    <string name="pif_data_summary">PIF-JSON auswählen, das für das Spoofing von Prop-Attestations für Google Mobile Services und Play Store verwendet wird. Klicken auf die Schaltfläche „Löschen“, um die PIF-Daten-Props zurückzusetzen und dynamische PIF-Props zu verwenden, die standardmäßig verwendet werden.</string>
+    <string name="pif_data_summary">pif.json für GMS und den Play Store auswählen. Löschen, um wieder dynamisch abgerufene Props zu verwenden.</string>
     <string name="pif_data_loaded_summary">%1$d Props geladen (%2$s)</string>
     <string name="pif_delete_content_description">PIF-Daten löschen</string>
     <string name="pif_toast_invalid_file_selected">Keine JSON-Datei. Bitte gültige PIF-JSON auswählen.</string>
@@ -174,6 +179,10 @@
     <string name="pif_active_source_fetched">Quelle: Abgerufenes Profil</string>
     <string name="pif_active_source_builtin">Quelle: Integriertes Profil</string>
     <string name="pif_refresh_title">Fingerabdruck aktualisieren</string>
+    <string name="pif_toast_refresh_failed">Fingerabdruck konnte nicht heruntergeladen werden</string>
+    <string name="pif_toast_refresh_updated">Fingerabdruck aktualisiert</string>
+    <string name="pif_toast_refresh_unchanged">Fingerabdruck ist bereits aktuell</string>
+    <string name="pif_toast_refresh_imported">Abgerufenes Profil aktualisiert. Die importierte Datei wird weiterhin verwendet.</string>
 
     <!-- Edge light -->
     <string name="edge_light_category_title">Seitenlicht</string>
@@ -316,9 +325,12 @@
     <string name="pulse_color_lavalamp">Lavalampe</string>
     <string name="pulse_color_album">Album-Cover</string>
     <string name="pulse_color_accent">Akzentfarbe</string>
+    <string name="pulse_custom_color_requires_custom">Visualisierungsfarbe auf „Benutzerdefinierte Farbe“ setzen, um eine Farbe zu wählen</string>
     <string name="pulse_bar_count_title">Anzahl der Balken</string>
     <string name="pulse_bar_count_summary">Legen Sie fest, wie viele Balken in der Visualisierung angezeigt werden</string>
     <string name="pulse_bar_count_units">Balken</string>
+    <string name="pulse_height_multiplier_title">Pulse-Höhe</string>
+    <string name="pulse_height_multiplier_summary">Höhe der angezeigten Visualisierung anpassen</string>
     <string name="pulse_renderer">Visualisierungsstil</string>
     <string name="pulse_renderer_solid">Durchgehende Balken</string>
     <string name="pulse_renderer_fading">Verblassende Blöcke</string>
