@@ -70,6 +70,7 @@
     <string name="custom_font_error_version_changed">The font configuration changed. Try again.</string>
     <string name="custom_font_error_not_found">The selected font file no longer exists.</string>
     <string name="custom_font_error_rejected">The system rejected this font.</string>
+    <string name="custom_font_error_unavailable">The font service could not be reached. Try again.</string>
     <string name="custom_font_footer">The font is applied to newly started apps. Restart the device to update every screen.</string>
 
     <string name="dark_mode_summary_default">Enable system dark theme</string>

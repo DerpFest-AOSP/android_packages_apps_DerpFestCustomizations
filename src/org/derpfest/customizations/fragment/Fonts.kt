@@ -138,7 +138,7 @@ class Fonts : SettingsPreferenceFragment() {
             val result =
                 runCatching { controller.install(font) }
                     .getOrElse {
-                        FontOperationResult.Failed(FontManager.RESULT_ERROR_INVALID_FONT_FILE)
+                        FontOperationResult.Failed(FontOperationResult.RESULT_EXCEPTION)
                     }
             mainHandler.post {
                 if (!isAdded) return@post
@@ -167,7 +167,7 @@ class Fonts : SettingsPreferenceFragment() {
         ioExecutor.execute {
             val result =
                 runCatching { controller.restoreDefault() }
-                    .getOrDefault(FontManager.RESULT_ERROR_FAILED_UPDATE_CONFIG)
+                    .getOrDefault(FontOperationResult.RESULT_EXCEPTION)
             mainHandler.post {
                 if (!isAdded) return@post
                 setOperationRunning(false)
@@ -301,6 +301,8 @@ class Fonts : SettingsPreferenceFragment() {
                 R.string.custom_font_error_version_changed
             FontManager.RESULT_ERROR_FONT_NOT_FOUND ->
                 R.string.custom_font_error_not_found
+            FontOperationResult.RESULT_EXCEPTION ->
+                R.string.custom_font_error_unavailable
             else -> R.string.custom_font_error_rejected
         }
     }

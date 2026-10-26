@@ -114,9 +114,12 @@ internal class CustomFontController(private val context: Context) {
     fun install(candidate: FontCandidate): FontOperationResult {
         if (!isPreparedFont(candidate.file)) return FontOperationResult.InvalidFile
         val result =
-            ParcelFileDescriptor.open(candidate.file, ParcelFileDescriptor.MODE_READ_ONLY).use {
-                fontManager.installCustomFont(it)
-            }
+            runCatching {
+                    ParcelFileDescriptor.open(candidate.file, ParcelFileDescriptor.MODE_READ_ONLY)
+                        .use { fontManager.installCustomFont(it) }
+                }
+                .onFailure { Log.e(TAG, "installCustomFont failed", it) }
+                .getOrDefault(FontOperationResult.RESULT_EXCEPTION)
         if (result != FontManager.RESULT_SUCCESS) return FontOperationResult.Failed(result)
 
         preferences.edit().putString(KEY_DISPLAY_NAME, candidate.displayName).apply()
@@ -127,7 +130,10 @@ internal class CustomFontController(private val context: Context) {
     }
 
     fun restoreDefault(): Int {
-        val result = fontManager.clearCustomFont()
+        val result =
+            runCatching { fontManager.clearCustomFont() }
+                .onFailure { Log.e(TAG, "clearCustomFont failed", it) }
+                .getOrDefault(FontOperationResult.RESULT_EXCEPTION)
         if (result == FontManager.RESULT_SUCCESS) {
             preferences.edit().remove(KEY_DISPLAY_NAME).apply()
             discardImportedFonts()
@@ -412,4 +418,12 @@ internal sealed interface FontOperationResult {
     data class Failed(val errorCode: Int) : FontOperationResult
 
     object InvalidFile : FontOperationResult
+
+    companion object {
+        /**
+         * The call never reached FontManager. Kept outside the framework RESULT_* range, which
+         * uses -1..-12 and -10001..-10008.
+         */
+        const val RESULT_EXCEPTION = -20000
+    }
 }
