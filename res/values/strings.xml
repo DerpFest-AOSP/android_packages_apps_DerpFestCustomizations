@@ -58,6 +58,7 @@
     <string name="custom_font_archive_too_large">This archive contains too many fonts or is too large</string>
     <string name="custom_font_import_failed">Could not import this file</string>
     <string name="custom_font_apply_success">Font applied</string>
+    <string name="custom_font_overlay_reset_failed">Font applied, but the font style could not be set back to Default.</string>
     <string name="custom_font_restore_success">Default font restored</string>
     <string name="custom_font_error_storage">The font could not be saved. Check available storage and try again.</string>
     <string name="custom_font_error_verification">The font failed system integrity verification.</string>

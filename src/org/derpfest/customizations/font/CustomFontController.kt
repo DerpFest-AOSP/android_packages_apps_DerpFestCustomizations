@@ -17,6 +17,7 @@
 package org.derpfest.customizations.font
 
 import android.content.Context
+import android.content.om.OverlayManager
 import android.graphics.Typeface
 import android.graphics.fonts.Font
 import android.graphics.fonts.FontFileUtil
@@ -24,7 +25,12 @@ import android.graphics.fonts.FontManager
 import android.graphics.fonts.FontStyle
 import android.net.Uri
 import android.os.ParcelFileDescriptor
+import android.os.UserHandle
 import android.provider.OpenableColumns
+import android.provider.Settings
+import android.util.Log
+import org.json.JSONException
+import org.json.JSONObject
 import java.io.BufferedInputStream
 import java.io.File
 import java.io.FileInputStream
@@ -114,7 +120,10 @@ internal class CustomFontController(private val context: Context) {
         if (result != FontManager.RESULT_SUCCESS) return FontOperationResult.Failed(result)
 
         preferences.edit().putString(KEY_DISPLAY_NAME, candidate.displayName).apply()
-        return FontOperationResult.Success(candidate.displayName)
+        // The framework puts this font in front of the UI families only. A ThemePicker font
+        // overlay for any other family stays on top of it, so go back to the default style.
+        val overlayReset = resetFontOverlayToDefault()
+        return FontOperationResult.Success(candidate.displayName, overlayReset)
     }
 
     fun restoreDefault(): Int {
@@ -187,6 +196,63 @@ internal class CustomFontController(private val context: Context) {
                 )
             }
             .getOrNull()
+    }
+
+    /**
+     * Removes the font entry from the theme setting and disables any font overlay that is still
+     * enabled. SystemUI reapplies whatever the setting lists, so clearing the overlay alone would
+     * come back on the next theme update.
+     */
+    private fun resetFontOverlayToDefault(): Boolean {
+        return runCatching {
+                val settingCleared = clearFontOverlaySetting()
+                val overlaysDisabled = disableEnabledFontOverlays()
+                settingCleared && overlaysDisabled
+            }
+            .onFailure { Log.e(TAG, "Failed to reset the font overlay", it) }
+            .getOrDefault(false)
+    }
+
+    private fun clearFontOverlaySetting(): Boolean {
+        val current =
+            Settings.Secure.getStringForUser(
+                context.contentResolver,
+                Settings.Secure.THEME_CUSTOMIZATION_OVERLAY_PACKAGES,
+                context.userId,
+            )
+        if (current.isNullOrEmpty()) return true
+        val json =
+            try {
+                JSONObject(current)
+            } catch (e: JSONException) {
+                Log.e(TAG, "Could not read the theme overlay setting", e)
+                return false
+            }
+        if (!json.has(OVERLAY_CATEGORY_FONT)) return true
+        json.remove(OVERLAY_CATEGORY_FONT)
+        val updated =
+            Settings.Secure.putStringForUser(
+                context.contentResolver,
+                Settings.Secure.THEME_CUSTOMIZATION_OVERLAY_PACKAGES,
+                json.toString(),
+                context.userId,
+            )
+        if (!updated) Log.e(TAG, "Could not clear the font overlay setting")
+        return updated
+    }
+
+    private fun disableEnabledFontOverlays(): Boolean {
+        val overlayManager = context.getSystemService(OverlayManager::class.java) ?: return true
+        val userIds =
+            listOf(context.userId, UserHandle.USER_SYSTEM).distinct()
+        userIds.forEach { userId ->
+            overlayManager.getOverlayInfosForTarget(ANDROID_PACKAGE, UserHandle.of(userId))
+                .filter { it.category == OVERLAY_CATEGORY_FONT && it.isEnabled }
+                .forEach { info ->
+                    overlayManager.setEnabled(info.packageName, false, UserHandle.of(userId))
+                }
+        }
+        return true
     }
 
     private fun isPreparedFont(file: File): Boolean {
@@ -294,6 +360,9 @@ internal class CustomFontController(private val context: Context) {
     private class ImportLimitException : IOException()
 
     private companion object {
+        const val TAG = "CustomFontController"
+        const val ANDROID_PACKAGE = "android"
+        const val OVERLAY_CATEGORY_FONT = "android.theme.customization.font"
         const val PREFERENCES = "custom_font"
         const val KEY_DISPLAY_NAME = "display_name"
         const val IMPORT_DIRECTORY = "CustomTTF"
@@ -338,7 +407,7 @@ internal sealed interface FontImportResult {
 }
 
 internal sealed interface FontOperationResult {
-    data class Success(val displayName: String) : FontOperationResult
+    data class Success(val displayName: String, val overlayReset: Boolean) : FontOperationResult
 
     data class Failed(val errorCode: Int) : FontOperationResult
 

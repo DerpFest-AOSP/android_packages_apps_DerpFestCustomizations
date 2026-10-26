@@ -147,7 +147,11 @@ class Fonts : SettingsPreferenceFragment() {
                     is FontOperationResult.Success -> {
                         activeFont = result.displayName
                         bind()
-                        toast(R.string.custom_font_apply_success)
+                        if (result.overlayReset) {
+                            toast(R.string.custom_font_apply_success)
+                        } else {
+                            toast(R.string.custom_font_overlay_reset_failed, long = true)
+                        }
                     }
                     is FontOperationResult.Failed ->
                         toast(fontOperationErrorMessage(result.errorCode), long = true)
