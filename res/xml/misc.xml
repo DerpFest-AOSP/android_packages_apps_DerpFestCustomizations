@@ -38,4 +38,16 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="experimental_category"
+        android:title="@string/experimental_category_title">
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="accesscard_enabled"
+            android:title="@string/accesscard_title"
+            android:summary="@string/accesscard_summary"
+            android:persistent="false" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
