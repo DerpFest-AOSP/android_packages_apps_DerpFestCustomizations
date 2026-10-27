@@ -23,6 +23,8 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.UserHandle;
 import android.provider.MediaStore;
 import android.provider.SearchIndexableResource;
@@ -47,6 +49,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @SearchIndexable
 public class QsHeaderImageSettings extends SettingsPreferenceFragment implements
@@ -67,6 +71,9 @@ public class QsHeaderImageSettings extends SettingsPreferenceFragment implements
     private static final String OMNISTYLE_PICK = OMNISTYLE_PACKAGE + ".PickHeaderActivity";
     /** Same key OmniStyle reads: "package" or "package/activity". */
     private static final String EXTRA_HEADER_PACK = "header_pack";
+
+    private final ExecutorService mExecutor = Executors.newSingleThreadExecutor();
+    private final Handler mMainHandler = new Handler(Looper.getMainLooper());
 
     private Preference mHeaderBrowse;
     private ListPreference mDaylightHeaderPack;
@@ -102,6 +109,12 @@ public class QsHeaderImageSettings extends SettingsPreferenceFragment implements
         mHeaderProvider.setValue(provider);
         mHeaderProvider.setSummary(mHeaderProvider.getEntry());
         updateProviderUi(provider);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mExecutor.shutdown();
     }
 
     private void refreshHeaderPacks() {
@@ -238,16 +251,24 @@ public class QsHeaderImageSettings extends SettingsPreferenceFragment implements
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent result) {
-        if (requestCode == REQUEST_PICK_IMAGE && resultCode == Activity.RESULT_OK) {
-            final Uri imageUri = result.getData();
-            if (imageUri != null) {
-                String savedImagePath = ImageUtils.saveImageToInternalStorage(getContext(), imageUri, "qs_header_image", "QS_HEADER_IMAGE");
-                if (savedImagePath != null) {
-                    ContentResolver resolver = getContext().getContentResolver();
-                    Settings.System.putStringForUser(resolver, Settings.System.STATUS_BAR_FILE_HEADER_IMAGE, savedImagePath, UserHandle.USER_CURRENT);
-                }
-            }
+        if (requestCode != REQUEST_PICK_IMAGE || resultCode != Activity.RESULT_OK
+                || result == null || result.getData() == null) {
+            return;
         }
+        final Uri imageUri = result.getData();
+        final Context appContext = getContext().getApplicationContext();
+        mExecutor.execute(() -> {
+            String savedPath = ImageUtils.saveImageToInternalStorage(
+                    appContext, imageUri, "qs_header_image", "QS_HEADER_IMAGE");
+            if (savedPath != null) {
+                Settings.System.putStringForUser(appContext.getContentResolver(),
+                        Settings.System.STATUS_BAR_FILE_HEADER_IMAGE, savedPath,
+                        UserHandle.USER_CURRENT);
+            } else {
+                mMainHandler.post(() -> Toast.makeText(appContext,
+                        R.string.qs_header_file_failed, Toast.LENGTH_LONG).show());
+            }
+        });
     }
 
     /**
