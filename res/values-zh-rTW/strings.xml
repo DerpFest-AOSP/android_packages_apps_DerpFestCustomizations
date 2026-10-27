@@ -806,4 +806,7 @@
 
     <string name="live_status_summary_no_cutout">動態列</string>
     <string name="qs_tile_icon_shape_squaremedo">星型八角形</string>
+    <string name="accesscard_title">門禁卡</string>
+    <string name="accesscard_summary">啟用 AccessCard 與其快速設定入口。支援程度依裝置而異。</string>
+    <string name="accesscard_toggle_error">無法變更 AccessCard 的啟用狀態，請再試一次。</string>
 </resources>

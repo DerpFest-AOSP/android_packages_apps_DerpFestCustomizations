@@ -872,4 +872,7 @@
     <string name="obscura_preset_shizuku">Shizuku / Dhizuku</string>
     <string name="obscura_preset_shizuku_short">Shizuku</string>
     <string name="obscura_preset_count">%1$s (%2$d)</string>
+    <string name="accesscard_title">Access cards</string>
+    <string name="accesscard_summary">Enable AccessCard and its Quick Settings entry. Card support varies by device.</string>
+    <string name="accesscard_toggle_error">Could not change AccessCard availability. Try again.</string>
 </resources>
