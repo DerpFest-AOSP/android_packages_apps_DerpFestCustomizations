@@ -42,11 +42,7 @@
         android:title="@string/qs_header_browse_title"
         android:summary="@string/qs_header_browse_summary"
         android:persistent="false"
-        android:dependency="status_bar_custom_header" >
-        <intent android:action="android.intent.action.MAIN"
-                android:targetPackage="org.omnirom.omnistyle"
-                android:targetClass="org.omnirom.omnistyle.PickHeaderActivity" />
-        </Preference>
+        android:dependency="status_bar_custom_header" />
 
     <Preference
         android:key="file_header_select"

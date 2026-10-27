@@ -181,19 +181,33 @@ public class QsHeaderImageSettings extends SettingsPreferenceFragment implements
             } catch (Exception e) {
                 Toast.makeText(getContext(), R.string.qs_header_needs_gallery, Toast.LENGTH_LONG).show();
             }
-        } else if (preference == mHeaderBrowse && !isBrowseHeaderAvailable()) {
-            Toast.makeText(getContext(), R.string.qs_header_needs_omnistyle, Toast.LENGTH_LONG).show();
-            return true;
-        }
-        try {
-            return super.onPreferenceTreeClick(preference);
-        } catch (ActivityNotFoundException e) {
-            if (preference == mHeaderBrowse) {
+        } else if (preference == mHeaderBrowse) {
+            if (!isBrowseHeaderAvailable()) {
                 Toast.makeText(getContext(), R.string.qs_header_needs_omnistyle, Toast.LENGTH_LONG).show();
                 return true;
             }
-            throw e;
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.setClassName("org.omnirom.omnistyle", "org.omnirom.omnistyle.PickHeaderActivity");
+            // A static header already opens on the pack that contains it. For the daylight
+            // provider, open on the pack chosen here.
+            ContentResolver resolver = getContext().getContentResolver();
+            String provider = Settings.System.getString(resolver,
+                    Settings.System.STATUS_BAR_CUSTOM_HEADER_PROVIDER);
+            if (provider == null || provider.equals(mDaylightHeaderProvider)) {
+                String pack = Settings.System.getString(resolver,
+                        Settings.System.STATUS_BAR_DAYLIGHT_HEADER_PACK);
+                if (pack != null) {
+                    intent.putExtra("header_pack", pack);
+                }
+            }
+            try {
+                startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                Toast.makeText(getContext(), R.string.qs_header_needs_omnistyle, Toast.LENGTH_LONG).show();
+            }
+            return true;
         }
+        return super.onPreferenceTreeClick(preference);
     }
 
     private boolean isBrowseHeaderAvailable() {
