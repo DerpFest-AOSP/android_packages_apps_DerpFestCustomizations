@@ -29,7 +29,7 @@
     <string name="flashlight_on_call_silent">When entirely silent (no ringer or vibrator)</string>
     <string name="flashlight_on_call_always">Always</string>
     <string name="flashlight_on_call_ignore_dnd_title">Ignore DND</string>
-    <string name="flashlight_on_call_ignore_dnd_summary">Whether to flash when Do Not Disturb mode is active</string>
+    <string name="flashlight_on_call_ignore_dnd_summary">Blink during Do Not Disturb for the silent and always modes. A call that is actually ringing blinks either way.</string>
     <string name="flashlight_on_call_rate_title">Blink rate</string>
     <string name="unit_hz" translatable="false">Hz</string>
     <string name="live_status_title">Live status</string>

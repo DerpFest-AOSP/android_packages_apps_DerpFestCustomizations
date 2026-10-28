@@ -29,7 +29,7 @@
     <string name="flashlight_on_call_silent">Wenn ganz stummgeschaltet (weder Klingelton noch Vibration)</string>
     <string name="flashlight_on_call_always">Immer</string>
     <string name="flashlight_on_call_ignore_dnd_title">Ignorieren des „Bitte nicht stören“-Modus</string>
-    <string name="flashlight_on_call_ignore_dnd_summary">Aufblitzen bei aktiviertem „Bitte nicht stören“-Modus</string>
+    <string name="flashlight_on_call_ignore_dnd_summary">Blinkt während „Bitte nicht stören“ in den Modi „stumm“ und „immer“. Ein Anruf, der tatsächlich klingelt, blinkt in jedem Fall.</string>
     <string name="flashlight_on_call_rate_title">Blinkfrequenz</string>
     <string name="live_status_title">Live-Status</string>
     <string name="live_status_summary">Dynamic Island und Dynamic Bar</string>
