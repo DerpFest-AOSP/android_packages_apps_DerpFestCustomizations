@@ -53,8 +53,7 @@
         android:key="ax_dynamic_bar_lockscreen_media_lyrics_enabled"
         android:title="@string/dynamic_bar_lockscreen_media_lyrics"
         android:summary="@string/dynamic_bar_lockscreen_media_lyrics_summary"
-        android:defaultValue="false"
-        android:dependency="ax_dynamic_bar_lockscreen_media_enabled" />
+        android:defaultValue="false" />
 
     <Preference
         android:key="dynamic_bar_lyric_settings"
