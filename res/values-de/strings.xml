@@ -164,6 +164,30 @@
     <string name="keybox_toast_download_failed">Keybox konnte nicht heruntergeladen werden</string>
     <string name="keybox_toast_download_valid">Heruntergeladene Keybox ist gültig</string>
     <string name="keybox_toast_download_revoked">Heruntergeladene Keybox ist widerrufen</string>
+    <string name="keybox_toast_download_suspended">Heruntergeladene Keybox ist gesperrt</string>
+    <string name="keybox_toast_download_expired">Heruntergeladene Keybox ist abgelaufen</string>
+    <string name="keybox_toast_download_invalid">Heruntergeladene Keybox hat die Prüfung nicht bestanden</string>
+    <string name="keybox_status_today">Heute</string>
+    <string name="keybox_status_revoked">Widerrufen</string>
+    <string name="keybox_status_suspended">Gesperrt</string>
+    <string name="keybox_status_expired">Abgelaufen</string>
+    <string name="keybox_status_invalid">Ungültig</string>
+    <string name="keybox_status_untrusted">Nicht vertrauenswürdig</string>
+    <string name="keybox_status_unchecked">Ungeprüft</string>
+    <string name="keybox_status_checking">Prüfe</string>
+    <plurals name="keybox_status_days">
+        <item quantity="one"><xliff:g id="days" example="1">%1$d</xliff:g> Tag</item>
+        <item quantity="other"><xliff:g id="days" example="42">%1$d</xliff:g> Tage</item>
+    </plurals>
+    <string name="keybox_status_content_description">Keybox-Status: %1$s</string>
+    <string name="keybox_notification_channel">Keybox</string>
+    <string name="keybox_notification_channel_description">Weist darauf hin, wenn die Attestierungs-Keybox widerrufen, abgelaufen oder sonst ungültig ist</string>
+    <string name="keybox_notification_title">Keybox ist nicht mehr gültig</string>
+    <string name="keybox_notification_revoked">Die Attestierungs-Keybox wurde widerrufen.</string>
+    <string name="keybox_notification_suspended">Die Attestierungs-Keybox wurde gesperrt.</string>
+    <string name="keybox_notification_expired">Das Zertifikat der Attestierungs-Keybox ist abgelaufen.</string>
+    <string name="keybox_notification_invalid">Die Zertifikatskette der Attestierungs-Keybox ist ungültig.</string>
+    <string name="keybox_notification_untrusted">Die Attestierungs-Keybox ist nicht von einem Google-Attestierungs-Root signiert.</string>
 
     <!-- Pif Data -->
     <string name="pif_data_title">PIF-JSON zum Spoofen auswählen</string>

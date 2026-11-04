@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: DerpFest AOSP
+     SPDX-License-Identifier: Apache-2.0
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false"
+    android:clipToPadding="false"
+    android:gravity="center_vertical"
+    android:minHeight="@dimen/settingslib_expressive_space_large3"
+    android:orientation="horizontal"
+    android:paddingTop="@dimen/settingslib_expressive_space_extrasmall2"
+    android:paddingBottom="@dimen/settingslib_expressive_space_extrasmall2">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/settingslib_expressive_space_extrasmall6"
+        android:paddingBottom="@dimen/settingslib_expressive_space_extrasmall6"
+        android:paddingEnd="@dimen/settingslib_expressive_space_extrasmall6">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textAlignment="viewStart"
+            android:textAppearance="?android:attr/textAppearanceListItem" />
+
+        <TextView
+            android:id="@+id/summary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/settingslib_expressive_space_extrasmall1"
+            android:ellipsize="end"
+            android:maxLines="5"
+            android:textAlignment="viewStart"
+            android:textAppearance="?android:attr/textAppearanceListItemSecondary"
+            android:textColor="?android:attr/textColorSecondary" />
+
+        <TextView
+            android:id="@+id/keybox_status_chip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/settingslib_expressive_space_extrasmall4"
+            android:background="@drawable/keybox_status_chip"
+            android:clickable="false"
+            android:ellipsize="end"
+            android:focusable="false"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:minHeight="@dimen/settingslib_expressive_space_medium1"
+            android:paddingStart="@dimen/settingslib_expressive_space_extrasmall6"
+            android:paddingEnd="@dimen/settingslib_expressive_space_extrasmall6"
+            android:textAppearance="@style/TextAppearance.SettingsLib.LabelMedium.Emphasized"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/keybox_delete_divider"
+        android:layout_width="1dp"
+        android:layout_height="@dimen/settingslib_expressive_space_medium1"
+        android:layout_gravity="center_vertical"
+        android:background="?android:attr/listDivider"
+        android:importantForAccessibility="no"
+        android:visibility="gone" />
+
+    <ImageButton
+        android:id="@+id/delete_button"
+        android:layout_width="@dimen/settingslib_expressive_space_medium4"
+        android:layout_height="@dimen/settingslib_expressive_space_medium4"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="@dimen/settingslib_expressive_space_extrasmall2"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/keybox_delete_content_description"
+        android:src="@drawable/ic_trash_can"
+        android:visibility="gone" />
+</LinearLayout>

@@ -31,6 +31,7 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 import com.android.settingslib.widget.ButtonPreference;
 
+import org.derpfest.customizations.keybox.KeyboxStatusJobService;
 import org.derpfest.customizations.preference.ActiveFingerprintPreference;
 import org.derpfest.customizations.preference.KeyboxDataPreference;
 import org.derpfest.customizations.preference.PifDataPreference;
@@ -135,6 +136,10 @@ public class Spoofing extends SettingsPreferenceFragment implements
     @Override
     public void onResume() {
         super.onResume();
+        KeyboxStatusJobService.ensureScheduled(requireContext());
+        if (mKeyboxDataPreference != null) {
+            mKeyboxDataPreference.refreshStatus();
+        }
         refreshActiveFingerprint();
         ContentResolver resolver = getContentResolver();
         resolver.registerContentObserver(

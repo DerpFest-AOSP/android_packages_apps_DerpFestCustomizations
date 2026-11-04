@@ -4,12 +4,12 @@ import android.app.ActivityManager;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.Settings;
 import android.util.AttributeSet;
-import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -22,41 +22,40 @@ import androidx.preference.PreferenceViewHolder;
 
 import com.android.settings.R;
 
+import org.derpfest.customizations.keybox.KeyboxChecker;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.security.cert.CertificateFactory;
-import java.security.cert.X509Certificate;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class KeyboxDataPreference extends Preference {
 
     private static final String TAG = "KeyboxDataPref";
     private static final int DOWNLOAD_TIMEOUT_MS = 15_000;
     private static final String KEYBOX_URL = "https://derpfest.org/keybox.xml";
-    private static final String REVOCATION_URL =
-            "https://android.googleapis.com/attestation/status?encrypted=0";
-    private static final Pattern CERT_PATTERN = Pattern.compile(
-            "-----BEGIN CERTIFICATE-----([\\s\\S]+?)-----END CERTIFICATE-----");
 
     private final Handler mHandler = new Handler(Looper.getMainLooper());
+    private final KeyboxChecker.Listener mStatusListener = result -> {
+        if (result == null || getContext() == null) return;
+        mStatus = result;
+        notifyChanged();
+    };
+
     private ActivityResultLauncher<Intent> mFilePickerLauncher;
+    private KeyboxChecker.Result mStatus;
 
     public KeyboxDataPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
-        setLayoutResource(R.layout.pref_with_delete);
+        setLayoutResource(R.layout.pref_keybox);
     }
 
     public void setFilePickerLauncher(ActivityResultLauncher<Intent> launcher) {
@@ -96,6 +95,11 @@ public class KeyboxDataPreference extends Preference {
 
         deleteButton.setVisibility(hasData ? View.VISIBLE : View.GONE);
         deleteButton.setEnabled(hasData);
+        View divider = holder.findViewById(R.id.keybox_delete_divider);
+        if (divider != null) {
+            divider.setVisibility(hasData ? View.VISIBLE : View.GONE);
+        }
+        bindStatusChip((TextView) holder.findViewById(R.id.keybox_status_chip));
 
         holder.itemView.setOnClickListener(v -> {
             if (mFilePickerLauncher != null) {
@@ -112,8 +116,30 @@ public class KeyboxDataPreference extends Preference {
             Settings.Secure.putString(cr, Settings.Secure.KEYBOX_DATA, null);
             Settings.Secure.putString(cr, Settings.Secure.KEYBOX_DATA_TIMESTAMP, null);
             Toast.makeText(ctx, ctx.getString(R.string.keybox_toast_file_cleared), Toast.LENGTH_SHORT).show();
-            notifyChanged();
+            refreshStatus();
         });
+    }
+
+    @Override
+    public void onAttached() {
+        super.onAttached();
+        KeyboxChecker.addListener(mStatusListener);
+    }
+
+    @Override
+    public void onDetached() {
+        KeyboxChecker.removeListener(mStatusListener);
+        super.onDetached();
+    }
+
+    /** Re-checks the keybox that attestation is using and updates the status chip. */
+    public void refreshStatus() {
+        Context ctx = getContext();
+        if (ctx == null) return;
+        KeyboxChecker.Result cached = KeyboxChecker.cached();
+        mStatus = cached != null ? cached : KeyboxChecker.checking();
+        notifyChanged();
+        KeyboxChecker.refreshActive(ctx, null);
     }
 
 
@@ -150,6 +176,7 @@ public class KeyboxDataPreference extends Preference {
             }
             Toast.makeText(ctx,
                     ctx.getString(R.string.keybox_toast_file_loaded), Toast.LENGTH_SHORT).show();
+            refreshStatus();
             restartAttestationClients();
         } catch (IOException e) {
             Log.e(TAG, "Failed to read XML file", e);
@@ -183,7 +210,7 @@ public class KeyboxDataPreference extends Preference {
         setEnabled(false);
         new Thread(() -> {
             String xml = fetchUrl(KEYBOX_URL);
-            Boolean revoked = xml != null ? isRevoked(xml) : null;
+            KeyboxChecker.Result checked = xml != null ? KeyboxChecker.checkXml(ctx, xml) : null;
             mHandler.post(() -> {
                 setEnabled(true);
                 if (xml == null) {
@@ -195,10 +222,11 @@ public class KeyboxDataPreference extends Preference {
                     return;
                 }
                 toast(ctx, R.string.keybox_toast_file_loaded);
-                if (revoked != null) {
-                    toast(ctx, revoked
-                            ? R.string.keybox_toast_download_revoked
-                            : R.string.keybox_toast_download_valid);
+                if (checked != null) {
+                    KeyboxChecker.supersede(ctx, checked);
+                    int statusToast = toastForStatus(
+                            checked.at(System.currentTimeMillis()).status);
+                    if (statusToast != 0) toast(ctx, statusToast);
                 }
                 restartAttestationClients();
             });
@@ -232,34 +260,78 @@ public class KeyboxDataPreference extends Preference {
         }
     }
 
-    /** @return true if revoked, false if not, null if the status list could not be read */
-    private static Boolean isRevoked(String xml) {
-        String status = fetchUrl(REVOCATION_URL);
-        if (status == null) return null;
-        try {
-            org.json.JSONObject entries = new org.json.JSONObject(status).optJSONObject("entries");
-            if (entries == null) return null;
-            CertificateFactory factory = CertificateFactory.getInstance("X.509");
-            Matcher matcher = CERT_PATTERN.matcher(xml);
-            boolean sawCert = false;
-            while (matcher.find()) {
-                byte[] der = Base64.decode(matcher.group(1).replaceAll("\\s", ""), Base64.DEFAULT);
-                X509Certificate cert = (X509Certificate) factory.generateCertificate(
-                        new ByteArrayInputStream(der));
-                sawCert = true;
-                org.json.JSONObject entry = entries.optJSONObject(
-                        cert.getSerialNumber().toString(16).toUpperCase(Locale.US));
-                if (entry == null) continue;
-                String state = entry.optString("status", "").toUpperCase(Locale.US);
-                if ("REVOKED".equals(state) || "SUSPENDED".equals(state)) {
-                    return true;
-                }
-            }
-            return sawCert ? false : null;
-        } catch (Exception e) {
-            Log.w(TAG, "Keybox revocation check failed", e);
-            return null;
+    private static int toastForStatus(KeyboxChecker.Status status) {
+        switch (status) {
+            case REVOKED:
+                return R.string.keybox_toast_download_revoked;
+            case SUSPENDED:
+                return R.string.keybox_toast_download_suspended;
+            case EXPIRED:
+                return R.string.keybox_toast_download_expired;
+            case CHAIN_INVALID:
+            case UNTRUSTED_ROOT:
+                return R.string.keybox_toast_download_invalid;
+            case VALID:
+            case EXPIRING_SOON:
+                return R.string.keybox_toast_download_valid;
+            case UNKNOWN:
+            case NONE:
+            case CHECKING:
+            default:
+                return 0;
         }
+    }
+
+    private void bindStatusChip(TextView chip) {
+        if (chip == null) return;
+        Context ctx = chip.getContext();
+        KeyboxChecker.Result result = mStatus != null ? mStatus : KeyboxChecker.cached();
+        if (result == null) {
+            chip.setVisibility(View.GONE);
+            return;
+        }
+        long now = System.currentTimeMillis();
+        String label = result.chipLabel(ctx, now);
+        if (label == null) {
+            chip.setVisibility(View.GONE);
+            return;
+        }
+        chip.setVisibility(View.VISIBLE);
+        chip.setText(label);
+        chip.setContentDescription(ctx.getString(
+                R.string.keybox_status_content_description, label));
+        int background;
+        int text;
+        switch (result.tone(now)) {
+            case POSITIVE:
+                background = com.android.settingslib.widget.theme.R.color
+                        .settingslib_materialColorPrimaryContainer;
+                text = com.android.settingslib.widget.theme.R.color
+                        .settingslib_materialColorOnPrimaryContainer;
+                break;
+            case WARNING:
+                background = com.android.settingslib.widget.theme.R.color
+                        .settingslib_materialColorTertiaryContainer;
+                text = com.android.settingslib.widget.theme.R.color
+                        .settingslib_materialColorOnTertiaryContainer;
+                break;
+            case NEGATIVE:
+                background = com.android.settingslib.widget.theme.R.color
+                        .settingslib_materialColorErrorContainer;
+                text = com.android.settingslib.widget.theme.R.color
+                        .settingslib_materialColorOnErrorContainer;
+                break;
+            case NEUTRAL:
+            default:
+                background = com.android.settingslib.widget.theme.R.color
+                        .settingslib_materialColorSurfaceVariant;
+                text = com.android.settingslib.widget.theme.R.color
+                        .settingslib_materialColorOnSurfaceVariant;
+                break;
+        }
+        chip.setBackgroundResource(R.drawable.keybox_status_chip);
+        chip.setBackgroundTintList(ColorStateList.valueOf(ctx.getColor(background)));
+        chip.setTextColor(ctx.getColor(text));
     }
 
     private void restartAttestationClients() {

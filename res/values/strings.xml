@@ -170,6 +170,30 @@
     <string name="keybox_toast_download_failed">Couldn\'t download a keybox</string>
     <string name="keybox_toast_download_valid">Downloaded keybox is valid</string>
     <string name="keybox_toast_download_revoked">Downloaded keybox is revoked</string>
+    <string name="keybox_toast_download_suspended">Downloaded keybox is suspended</string>
+    <string name="keybox_toast_download_expired">Downloaded keybox is expired</string>
+    <string name="keybox_toast_download_invalid">Downloaded keybox failed validation</string>
+    <string name="keybox_status_today">Today</string>
+    <string name="keybox_status_revoked">Revoked</string>
+    <string name="keybox_status_suspended">Suspended</string>
+    <string name="keybox_status_expired">Expired</string>
+    <string name="keybox_status_invalid">Invalid</string>
+    <string name="keybox_status_untrusted">Untrusted</string>
+    <string name="keybox_status_unchecked">Unchecked</string>
+    <string name="keybox_status_checking">Checking</string>
+    <plurals name="keybox_status_days">
+        <item quantity="one"><xliff:g id="days" example="1">%1$d</xliff:g> day</item>
+        <item quantity="other"><xliff:g id="days" example="42">%1$d</xliff:g> days</item>
+    </plurals>
+    <string name="keybox_status_content_description">Keybox status: %1$s</string>
+    <string name="keybox_notification_channel">Keybox</string>
+    <string name="keybox_notification_channel_description">Alerts you when the attestation keybox is revoked, expired, or otherwise not valid</string>
+    <string name="keybox_notification_title">Keybox is no longer valid</string>
+    <string name="keybox_notification_revoked">The attestation keybox was revoked.</string>
+    <string name="keybox_notification_suspended">The attestation keybox was suspended.</string>
+    <string name="keybox_notification_expired">The attestation keybox certificate has expired.</string>
+    <string name="keybox_notification_invalid">The attestation keybox certificate chain is invalid.</string>
+    <string name="keybox_notification_untrusted">The attestation keybox is not signed by a Google attestation root.</string>
 
     <!-- Pif Data -->
     <string name="pif_data_title">Select PIF JSON to spoof</string>
