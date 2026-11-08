@@ -48,7 +48,8 @@ import java.util.regex.Pattern;
  * certificate chain is ordered leaf to root and verified link by link, the root
  * must be a Google attestation root, the earliest leaf must still be inside its
  * validity window, and every serial is compared with Google's revocation list.
- * A failed revocation fetch never reports the keybox as valid.
+ * A response that cannot be read, including a JSON body with no entries
+ * object, keeps a known bad serial and never reports the keybox as valid.
  */
 public final class KeyboxChecker {
 
@@ -341,24 +342,25 @@ public final class KeyboxChecker {
         List<String> serials = serialKeys(flat);
 
         JSONObject revocation = fetchRevocationJson();
-        if (revocation == null) {
+        JSONObject entries = revocation == null ? null : revocation.optJSONObject("entries");
+        if (entries == null) {
+            if (revocation != null) {
+                Log.w(TAG, "Revocation response has no entries object");
+            }
             Result cached = checkCachedRevocation(context, serials, leafExpiry, sourceId);
             if (cached != null) return cached;
             return new Result(Status.UNKNOWN, "", leafExpiry, sourceId);
         }
 
-        JSONObject entries = revocation.optJSONObject("entries");
-        if (entries != null) {
-            for (String serial : serials) {
-                JSONObject entry = entries.optJSONObject(serial);
-                if (entry == null) continue;
-                String state = entry.optString("status", "").toUpperCase(Locale.US);
-                String reason = entry.optString("reason", "").toUpperCase(Locale.US);
-                if ("REVOKED".equals(state) || "SUSPENDED".equals(state)) {
-                    cacheRevokedSerial(context, serial, state);
-                    Status status = "REVOKED".equals(state) ? Status.REVOKED : Status.SUSPENDED;
-                    return new Result(status, reason, leafExpiry, sourceId);
-                }
+        for (String serial : serials) {
+            JSONObject entry = entries.optJSONObject(serial);
+            if (entry == null) continue;
+            String state = entry.optString("status", "").toUpperCase(Locale.US);
+            String reason = entry.optString("reason", "").toUpperCase(Locale.US);
+            if ("REVOKED".equals(state) || "SUSPENDED".equals(state)) {
+                cacheRevokedSerial(context, serial, state);
+                Status status = "REVOKED".equals(state) ? Status.REVOKED : Status.SUSPENDED;
+                return new Result(status, reason, leafExpiry, sourceId);
             }
         }
         clearCachedRevocation(context);
@@ -632,7 +634,7 @@ public final class KeyboxChecker {
     }
 
     /**
-     * Used only when the live revocation fetch fails. Reports a previously seen
+     * Used when the live status list cannot be trusted. Reports a previously seen
      * revoked or suspended serial inside the trust window, and never reports valid.
      */
     private static Result checkCachedRevocation(Context context, List<String> serials,
