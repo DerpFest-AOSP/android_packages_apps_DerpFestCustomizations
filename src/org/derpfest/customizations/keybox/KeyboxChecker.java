@@ -44,12 +44,13 @@ import java.util.regex.Pattern;
 /**
  * Validates the keybox attestation currently in use.
  *
- * <p>The checks match Evolution X Evolver's TrickyStore revocation check: each
- * certificate chain is ordered leaf to root and verified link by link, the root
- * must be a Google attestation root, the earliest leaf must still be inside its
- * validity window, and every serial is compared with Google's revocation list.
- * A response that cannot be read, including a JSON body with no entries
- * object, keeps a known bad serial and never reports the keybox as valid.
+ * <p>A serial on Google's revocation list is reported first, including when the
+ * chain or the dates are also wrong, because that listing is what drops strong
+ * integrity. Each chain is then ordered leaf to root and verified link by link,
+ * the root must be a Google attestation root, and the earliest leaf must still
+ * be inside its validity window. A list that cannot be read, including a JSON
+ * body with no entries object, keeps any known bad serial and is never treated
+ * as a clean result.
  */
 public final class KeyboxChecker {
 
@@ -315,60 +316,82 @@ public final class KeyboxChecker {
 
     private static Result evaluate(Context context, List<List<X509Certificate>> chains,
             String sourceId) {
-        Set<X509Certificate> anchors = getTrustAnchors(context);
-        String chainError = null;
-        for (List<X509Certificate> chain : chains) {
-            chainError = validateChain(chain, anchors);
-            if (chainError != null) break;
-        }
-        if (chainError != null) {
-            Status status = "UNTRUSTED_ROOT".equals(chainError)
-                    ? Status.UNTRUSTED_ROOT : Status.CHAIN_INVALID;
-            return new Result(status, chainError, 0L, sourceId);
-        }
-
-        long leafExpiry = Long.MAX_VALUE;
-        for (List<X509Certificate> chain : chains) {
-            leafExpiry = Math.min(leafExpiry, chain.get(0).getNotAfter().getTime());
-        }
-        long now = System.currentTimeMillis();
-        if (leafExpiry < now) {
-            return new Result(Status.EXPIRED, "CERT_EXPIRED", leafExpiry, sourceId);
-        }
-        boolean expiringSoon = leafExpiry - now < EXPIRY_WARN_MS;
-
         List<X509Certificate> flat = new ArrayList<>();
         for (List<X509Certificate> chain : chains) flat.addAll(chain);
+        long leafExpiry = earliestLeaf(chains);
         List<String> serials = serialKeys(flat);
 
-        JSONObject revocation = fetchRevocationJson();
-        JSONObject entries = revocation == null ? null : revocation.optJSONObject("entries");
-        if (entries == null) {
-            if (revocation != null) {
-                Log.w(TAG, "Revocation response has no entries object");
-            }
+        JSONObject entries = revocationEntries();
+        if (entries != null) {
+            Result listed = listedRevocation(context, entries, serials, leafExpiry, sourceId);
+            if (listed != null) return listed;
+            clearCachedRevocation(context);
+        } else {
             Result cached = checkCachedRevocation(context, serials, leafExpiry, sourceId);
             if (cached != null) return cached;
-            return new Result(Status.UNKNOWN, "", leafExpiry, sourceId);
         }
 
+        Set<X509Certificate> anchors = getTrustAnchors(context);
+        for (List<X509Certificate> chain : chains) {
+            String chainError = validateChain(chain, anchors);
+            if (chainError != null) {
+                Status status = "UNTRUSTED_ROOT".equals(chainError)
+                        ? Status.UNTRUSTED_ROOT : Status.CHAIN_INVALID;
+                return new Result(status, chainError, 0L, sourceId);
+            }
+        }
+
+        long now = System.currentTimeMillis();
+        if (leafExpiry > 0L && leafExpiry < now) {
+            return new Result(Status.EXPIRED, "CERT_EXPIRED", leafExpiry, sourceId);
+        }
+        // The dates and the chain can be checked locally. Valid cannot.
+        if (entries == null) {
+            return new Result(Status.UNKNOWN, "", leafExpiry, sourceId);
+        }
+        if (leafExpiry > 0L && leafExpiry - now < EXPIRY_WARN_MS) {
+            return new Result(Status.EXPIRING_SOON, "", leafExpiry, sourceId);
+        }
+        return new Result(Status.VALID, "", leafExpiry, sourceId);
+    }
+
+    private static long earliestLeaf(List<List<X509Certificate>> chains) {
+        long expiry = Long.MAX_VALUE;
+        for (List<X509Certificate> chain : chains) {
+            if (chain.isEmpty()) continue;
+            expiry = Math.min(expiry, chain.get(0).getNotAfter().getTime());
+        }
+        return expiry == Long.MAX_VALUE ? 0L : expiry;
+    }
+
+    /**
+     * Parsed status-list entries, or null when the response cannot be trusted.
+     * A JSON body that simply has no entries object is not an empty list.
+     */
+    private static JSONObject revocationEntries() {
+        JSONObject body = fetchRevocationJson();
+        if (body == null) return null;
+        JSONObject entries = body.optJSONObject("entries");
+        if (entries == null) {
+            Log.w(TAG, "Revocation response has no entries object");
+        }
+        return entries;
+    }
+
+    /** The first revoked or suspended serial in {@code entries}, or null. */
+    private static Result listedRevocation(Context context, JSONObject entries,
+            List<String> serials, long leafExpiry, String sourceId) {
         for (String serial : serials) {
             JSONObject entry = entries.optJSONObject(serial);
             if (entry == null) continue;
             String state = entry.optString("status", "").toUpperCase(Locale.US);
+            if (!"REVOKED".equals(state) && !"SUSPENDED".equals(state)) continue;
+            cacheRevokedSerial(context, serial, state);
+            Status status = "REVOKED".equals(state) ? Status.REVOKED : Status.SUSPENDED;
             String reason = entry.optString("reason", "").toUpperCase(Locale.US);
-            if ("REVOKED".equals(state) || "SUSPENDED".equals(state)) {
-                cacheRevokedSerial(context, serial, state);
-                Status status = "REVOKED".equals(state) ? Status.REVOKED : Status.SUSPENDED;
-                return new Result(status, reason, leafExpiry, sourceId);
-            }
+            return new Result(status, reason, leafExpiry, sourceId);
         }
-        clearCachedRevocation(context);
-
-        if (expiringSoon) {
-            return new Result(Status.EXPIRING_SOON, "", leafExpiry, sourceId);
-        }
-        return new Result(Status.VALID, "", leafExpiry, sourceId);
+        return null;
     }
 
     private static List<List<X509Certificate>> extractChains(String xml) {
