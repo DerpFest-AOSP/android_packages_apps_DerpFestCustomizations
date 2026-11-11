@@ -58,7 +58,7 @@
     <string name="custom_font_style_italic">Italic</string>
     <string name="custom_font_preview_default">System default preview</string>
     <string name="custom_font_preview_text">An old man is dreaming of lions.</string>
-    <string name="custom_font_preview_supporting_text" translatable="false">The quick brown fox jumps over the lazy dog.</string>
+    <string name="custom_font_preview_supporting_text">The quick brown fox jumps over the lazy dog.</string>
     <string name="custom_font_preview_digits" translatable="false">0123456789</string>
     <string name="custom_font_preview_japanese" translatable="false">いろはにほへと ちりぬるを</string>
     <string name="custom_font_apply_action">Apply selected font</string>
