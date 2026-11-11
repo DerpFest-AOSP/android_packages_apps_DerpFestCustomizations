@@ -37,9 +37,9 @@
         app:isPreferenceVisible="false"
         settings:searchable="false" />
 
-    <Preference
+    <com.android.settingslib.widget.LayoutPreference
         android:key="custom_font_empty"
-        android:summary="@string/custom_font_empty_summary"
+        android:layout="@layout/custom_font_empty"
         android:selectable="false"
         settings:searchable="false" />
 
