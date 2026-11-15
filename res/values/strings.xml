@@ -182,8 +182,8 @@
     <string name="keybox_status_unchecked">Unchecked</string>
     <string name="keybox_status_checking">Checking</string>
     <plurals name="keybox_status_days">
-        <item quantity="one"><xliff:g id="days" example="1">%1$d</xliff:g> day</item>
-        <item quantity="other"><xliff:g id="days" example="42">%1$d</xliff:g> days</item>
+        <item quantity="one"><xliff:g id="days" example="1">%1$d</xliff:g> day left</item>
+        <item quantity="other"><xliff:g id="days" example="42">%1$d</xliff:g> days left</item>
     </plurals>
     <string name="keybox_status_content_description">Keybox status: %1$s</string>
     <string name="keybox_notification_channel">Keybox</string>
