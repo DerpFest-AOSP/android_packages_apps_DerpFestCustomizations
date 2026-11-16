@@ -60,6 +60,9 @@ public class Spoofing extends SettingsPreferenceFragment implements
         @Override
         public void onChange(boolean selfChange) {
             refreshActiveFingerprint();
+            if (mPifDataPreference != null) {
+                mPifDataPreference.refresh();
+            }
         }
     };
 

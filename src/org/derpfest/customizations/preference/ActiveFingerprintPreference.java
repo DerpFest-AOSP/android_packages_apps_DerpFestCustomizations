@@ -27,7 +27,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
+import java.util.Locale;
 
 /**
  * Shows the fingerprint {@code PropImitationHooks} will apply:
@@ -111,7 +114,8 @@ public class ActiveFingerprintPreference extends Preference {
     }
 
     /**
-     * Downloads the certified profile into the fetched setting. An imported file stays in use.
+     * Downloads the certified profile and applies it to the fingerprint currently in use.
+     * An imported file keeps any extra keys the download does not replace.
      */
     public void downloadLatest(Runnable onFinished) {
         final Context appContext = getContext() == null
@@ -137,24 +141,93 @@ public class ActiveFingerprintPreference extends Preference {
             return;
         }
         ContentResolver cr = ctx.getContentResolver();
-        String saved = Settings.Secure.getString(cr, Settings.Secure.FETCHED_PIF);
-        boolean changed = !TextUtils.equals(saved, body);
-        if (changed) {
+        String imported = Settings.Secure.getString(cr, Settings.Secure.PIF_DATA);
+        String fetched = Settings.Secure.getString(cr, Settings.Secure.FETCHED_PIF);
+        boolean usingImport = !TextUtils.isEmpty(imported);
+        String active = usingImport ? imported : fetched;
+        boolean current = TextUtils.isEmpty(active)
+                ? sameFingerprint(fromBuiltin(ctx).fingerprint, fingerprintOf(body))
+                : covers(active, body);
+        if (!TextUtils.equals(fetched, body)) {
             Settings.Secure.putString(cr, Settings.Secure.FETCHED_PIF, body);
         }
-        boolean imported = !TextUtils.isEmpty(
-                Settings.Secure.getString(cr, Settings.Secure.PIF_DATA));
-        refresh();
-        if (!changed) {
+        if (current) {
+            refresh();
             toast(ctx, R.string.pif_toast_refresh_unchanged);
             return;
         }
-        if (imported) {
-            toast(ctx, R.string.pif_toast_refresh_imported);
-            return;
+        if (usingImport) {
+            String merged = mergeProfile(imported, body);
+            if (merged == null) {
+                refresh();
+                toast(ctx, R.string.pif_toast_refresh_imported);
+                return;
+            }
+            Settings.Secure.putString(cr, Settings.Secure.PIF_DATA, merged);
+            Settings.Secure.putString(cr, Settings.Secure.PIF_DATA_TIMESTAMP,
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()).format(new Date()));
         }
+        refresh();
         toast(ctx, R.string.pif_toast_refresh_updated);
         restartIntegrityClients(ctx);
+    }
+
+    /** True when {@code active} already has every value from the downloaded profile. */
+    private static boolean covers(String active, String downloaded) {
+        try {
+            JSONObject current = new JSONObject(active);
+            JSONObject update = new JSONObject(downloaded);
+            Iterator<String> keys = update.keys();
+            while (keys.hasNext()) {
+                String key = keys.next();
+                if (!TextUtils.equals(jsonValue(current, key), jsonValue(update, key))) {
+                    return false;
+                }
+            }
+            return true;
+        } catch (JSONException e) {
+            return false;
+        }
+    }
+
+    /**
+     * Copies the downloaded properties onto an imported profile.
+     * Keys the download does not mention are left as they are.
+     */
+    private static String mergeProfile(String imported, String downloaded) {
+        try {
+            JSONObject base = new JSONObject(imported);
+            JSONObject update = new JSONObject(downloaded);
+            Iterator<String> keys = update.keys();
+            while (keys.hasNext()) {
+                String key = keys.next();
+                base.put(key, update.get(key));
+            }
+            return base.toString();
+        } catch (JSONException e) {
+            Log.w(TAG, "Could not update the imported fingerprint", e);
+            return null;
+        }
+    }
+
+    private static String fingerprintOf(String json) {
+        if (TextUtils.isEmpty(json)) return "";
+        try {
+            return new JSONObject(json).optString("FINGERPRINT", "");
+        } catch (JSONException e) {
+            return "";
+        }
+    }
+
+    private static boolean sameFingerprint(String current, String downloaded) {
+        return !TextUtils.isEmpty(downloaded) && TextUtils.equals(current, downloaded);
+    }
+
+    private static String jsonValue(JSONObject object, String key) {
+        if (!object.has(key) || object.isNull(key)) return null;
+        Object raw = object.opt(key);
+        if (raw instanceof JSONObject || raw instanceof JSONArray) return null;
+        return String.valueOf(raw);
     }
 
     private static Profile read(Context ctx) {

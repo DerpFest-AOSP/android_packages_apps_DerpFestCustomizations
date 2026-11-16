@@ -45,6 +45,11 @@ public class PifDataPreference extends Preference {
         this.mFilePickerLauncher = launcher;
     }
 
+    /** Rebinds the row after the stored profile changes. */
+    public void refresh() {
+        notifyChanged();
+    }
+
     @Override
     public void onBindViewHolder(PreferenceViewHolder holder) {
         super.onBindViewHolder(holder);
