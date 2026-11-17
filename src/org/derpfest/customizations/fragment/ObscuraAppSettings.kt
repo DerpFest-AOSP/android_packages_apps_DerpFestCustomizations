@@ -124,6 +124,10 @@ import com.android.settingslib.spa.widget.preference.SwitchPreferenceModel
 import com.android.settingslib.spa.widget.preference.ZeroStatePreference
 import com.android.settingslib.spa.widget.ui.Category
 import com.android.settingslib.spa.widget.ui.CategoryTitle
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import com.android.settingslib.spa.widget.ui.LazyCategory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -435,62 +439,61 @@ class ObscuraAppSettings : SettingsPreferenceFragment() {
     }
 
     private fun readTextFromUri(uri: Uri): String {
-        val stringBuilder = StringBuilder()
-        requireContext().contentResolver.openInputStream(uri)?.use { inputStream ->
-            BufferedReader(InputStreamReader(inputStream)).use { reader ->
-                var line: String? = reader.readLine()
-                while (line != null) {
-                    stringBuilder.append(line)
-                    line = reader.readLine()
-                }
+        val input = requireContext().contentResolver.openInputStream(uri)
+            ?: error("Unable to open backup")
+        return input.bufferedReader(Charsets.UTF_8).use { reader ->
+            val text = StringBuilder()
+            val buffer = CharArray(8192)
+            while (true) {
+                val count = reader.read(buffer)
+                if (count < 0) break
+                require(text.length + count <= 1024 * 1024) { "Backup is too large" }
+                text.append(buffer, 0, count)
             }
+            text.toString()
         }
-        return stringBuilder.toString()
     }
 
     private fun performExport(uri: Uri, jsonContent: String) {
-        try {
-            requireContext().contentResolver.openOutputStream(uri)?.use { os ->
-                os.write(jsonContent.toByteArray())
-                os.flush()
+        val context = requireContext()
+        lifecycleScope.launch {
+            val success = withContext(Dispatchers.IO) {
+                runCatching {
+                    val output = context.contentResolver.openOutputStream(uri)
+                        ?: error("Unable to open destination")
+                    output.use { it.write(jsonContent.toByteArray(Charsets.UTF_8)) }
+                }.isSuccess
             }
-            Toast.makeText(
-                requireContext(),
-                R.string.obscura_backup_export_success,
-                Toast.LENGTH_SHORT
-            ).show()
-        } catch (e: Exception) {
-            Toast.makeText(
-                requireContext(),
-                R.string.obscura_backup_export_failed,
-                Toast.LENGTH_SHORT
-            ).show()
-        } finally {
             jsonToExport = null
+            if (isAdded) Toast.makeText(context, if (success)
+                R.string.obscura_backup_export_success else R.string.obscura_backup_export_failed,
+                Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun performImport(uri: Uri) {
-        try {
-            val content = readTextFromUri(uri)
-            val json = JSONObject(content)
-            Settings.Secure.putString(
-                requireContext().contentResolver,
-                ObscuraManager.SETTING_OBSCURA_CONFIG,
-                json.toString()
-            )
-            reloadTrigger.value += 1
-            Toast.makeText(
-                requireContext(),
-                R.string.obscura_backup_import_success,
-                Toast.LENGTH_SHORT
-            ).show()
-        } catch (e: Exception) {
-            Toast.makeText(
-                requireContext(),
-                R.string.obscura_backup_import_failed,
-                Toast.LENGTH_SHORT
-            ).show()
+        val context = requireContext()
+        lifecycleScope.launch {
+            val success = withContext(Dispatchers.IO) {
+                runCatching {
+                    val json = JSONObject(readTextFromUri(uri))
+                    val arrays = setOf("hidden_pkgs", "launcher_hidden_pkgs", "detached_pkgs",
+                        "isolated_pkgs", "data_isolation_pkgs")
+                    val maps = setOf("gid_restrictions", "spoof_settings_map",
+                        "app_scope_modes", "app_scope_lists")
+                    for (key in json.keys()) {
+                        require(key in arrays || key in maps) { "Unknown backup field" }
+                        if (key in arrays) require(json.get(key) is org.json.JSONArray)
+                        else require(json.get(key) is JSONObject)
+                    }
+                    check(Settings.Secure.putString(context.contentResolver,
+                        ObscuraManager.SETTING_OBSCURA_CONFIG, json.toString()))
+                }.isSuccess
+            }
+            if (success) reloadTrigger.value += 1
+            if (isAdded) Toast.makeText(context, if (success)
+                R.string.obscura_backup_import_success else R.string.obscura_backup_import_failed,
+                Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -561,11 +564,12 @@ private fun ObscuraAppSettingsContent(
     reloadKey: Int = 0,
 ) {
     val scope = rememberCoroutineScope()
-    var searchQuery by remember { mutableStateOf("") }
-    var showSystemApps by remember { mutableStateOf(false) }
-    var filterConfiguredOnly by remember { mutableStateOf(false) }
+    val saveMutex = remember { Mutex() }
+    var searchQuery by rememberSaveable { mutableStateOf("") }
+    var showSystemApps by rememberSaveable { mutableStateOf(false) }
+    var filterConfiguredOnly by rememberSaveable { mutableStateOf(false) }
     var isLoading by remember { mutableStateOf(true) }
-    var selectedAppPackage by remember { mutableStateOf<String?>(null) }
+    var selectedAppPackage by rememberSaveable { mutableStateOf<String?>(null) }
     var allApps by remember { mutableStateOf<List<ObscuraAppEntry>>(emptyList()) }
 
     val obscuraManager = remember {
@@ -604,10 +608,14 @@ private fun ObscuraAppSettingsContent(
     }
 
     fun saveEntry(entry: ObscuraAppEntry) {
+        val previous = allApps.firstOrNull { it.packageName == entry.packageName }
         allApps = allApps.map { if (it.packageName == entry.packageName) entry else it }
         if (obscuraManager == null) return
-        scope.launch(Dispatchers.IO) {
-            val launcherToggled = entry.isHidden || entry.isLauncherHidden
+        scope.launch {
+          saveMutex.withLock {
+           withContext(Dispatchers.IO) {
+            val launcherToggled = previous?.isHidden != entry.isHidden ||
+                previous?.isLauncherHidden != entry.isLauncherHidden
             obscuraManager.setPackageHidden(entry.packageName, entry.isHidden)
             obscuraManager.setPackageLauncherHidden(entry.packageName, entry.isLauncherHidden)
             obscuraManager.setPackageDetached(entry.packageName, entry.isPlayStoreDetached)
@@ -640,7 +648,12 @@ private fun ObscuraAppSettingsContent(
 
             forceStopPackage(context, entry.packageName)
             if (launcherToggled) forceStopDefaultLauncher(context)
-            forceStopPackage(context, "com.android.vending")
+            if (previous?.isPlayStoreDetached != entry.isPlayStoreDetached ||
+                previous?.isHidden != entry.isHidden) {
+                forceStopPackage(context, "com.android.vending")
+            }
+           }
+          }
         }
     }
 
@@ -1342,7 +1355,7 @@ private fun forceStopDefaultLauncher(context: Context) {
         val am = context.getSystemService(Context.ACTIVITY_SERVICE) as? ActivityManager ?: return
         val launcher = getDefaultLauncher(context)
         if (launcher.isNotEmpty()) {
-            am.forceStopPackageAsUser(launcher, UserHandle.USER_CURRENT)
+            am.forceStopPackageAsUser(launcher, context.userId)
         }
     } catch (e: Exception) {
         Log.e("Obscura", "Error force stopping launcher", e)
@@ -1352,7 +1365,7 @@ private fun forceStopDefaultLauncher(context: Context) {
 private fun forceStopPackage(context: Context, packageName: String) {
     try {
         val am = context.getSystemService(Context.ACTIVITY_SERVICE) as? ActivityManager ?: return
-        am.forceStopPackageAsUser(packageName, UserHandle.USER_CURRENT)
+        am.forceStopPackageAsUser(packageName, context.userId)
     } catch (e: Exception) {
         Log.e("Obscura", "Error force stopping $packageName", e)
     }
@@ -1391,7 +1404,7 @@ private fun PresetPickerDialog(
     }
 
     var selectedCategory by remember { mutableStateOf(PresetCategory.ALL) }
-    var searchQuery by remember { mutableStateOf("") }
+    var searchQuery by rememberSaveable { mutableStateOf("") }
 
     val selectedPackages = remember {
         mutableStateListOf<String>().apply {
