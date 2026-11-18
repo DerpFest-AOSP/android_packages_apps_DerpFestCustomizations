@@ -701,7 +701,7 @@
     <string name="obscura_backup_menu_export">Exportar ajustes</string>
     <string name="obscura_backup_export_success">Ajustes exportados correctamente</string>
     <string name="obscura_backup_export_failed">Error al exportar los ajustes</string>
-    <string name="obscura_backup_import_success">Ajustes importados correctamente</string>
+    <string name="obscura_backup_import_success">Ajustes importados. Reinicia las apps afectadas para aplicar todos los cambios.</string>
     <string name="obscura_backup_import_failed">Archivo de copia no válido</string>
     <string name="obscura_reboot_dialog_title">Reiniciar el sistema</string>
     <string name="obscura_reboot_dialog_message">Desactivar la visibilidad o las restricciones de Play Store requiere reiniciar el sistema para que los cambios surtan efecto por completo en todos los launchers, Play Store y los servicios del sistema.\n\n¿Quieres reiniciar ahora?</string>

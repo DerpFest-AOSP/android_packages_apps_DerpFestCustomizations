@@ -823,8 +823,13 @@
     <string name="obscura_backup_menu_export">Export settings</string>
     <string name="obscura_backup_export_success">Settings exported successfully</string>
     <string name="obscura_backup_export_failed">Failed to export settings</string>
-    <string name="obscura_backup_import_success">Settings imported successfully</string>
+    <string name="obscura_backup_import_success">Settings imported. Restart affected apps to apply all changes.</string>
     <string name="obscura_backup_import_failed">Invalid backup file</string>
+    <string name="obscura_save_failed">Could not save Obscura settings. Reloading the saved configuration.</string>
+    <string name="obscura_load_failed">Could not load Obscura settings. Close this page and try again.</string>
+    <string name="obscura_import_confirm">Replace your Obscura configuration with this backup? Restart affected apps after importing to apply all changes.</string>
+    <string name="obscura_reset_app">Reset app settings</string>
+    <string name="obscura_reset_app_message">Remove all Obscura controls and saved scope selections for %1$s? App data and other apps’ rules will be kept.</string>
     <string name="obscura_reboot_dialog_title">Restart System</string>
     <string name="obscura_reboot_dialog_message">Disabling visibility or Play Store restrictions requires a system restart for changes to fully take effect across all launchers, Play Store, and system services.\n\nWould you like to restart now?</string>
     <string name="obscura_reboot_dialog_button_now">Restart Now</string>

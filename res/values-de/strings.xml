@@ -797,7 +797,7 @@
     <string name="obscura_backup_menu_export">Einstellungen exportieren</string>
     <string name="obscura_backup_export_success">Einstellungen erfolgreich exportiert</string>
     <string name="obscura_backup_export_failed">Einstellungen konnten nicht exportiert werden</string>
-    <string name="obscura_backup_import_success">Einstellungen erfolgreich importiert</string>
+    <string name="obscura_backup_import_success">Einstellungen importiert. Starte betroffene Apps neu, damit alle Änderungen wirksam werden.</string>
     <string name="obscura_backup_import_failed">Ungültige Sicherungsdatei</string>
     <string name="obscura_reboot_dialog_title">System neu starten</string>
     <string name="obscura_reboot_dialog_message">Beim Aufheben der Sichtbarkeit oder der Play-Store-Einschränkung ist ein Neustart nötig, damit die Änderung in Launchern, im Play Store und in Systemdiensten vollständig gilt.\n\nJetzt neu starten?</string>

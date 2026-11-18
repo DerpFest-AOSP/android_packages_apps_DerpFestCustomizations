@@ -17,8 +17,6 @@ import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.os.PowerManager
-import android.os.UserHandle
-import android.provider.Settings
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
@@ -28,8 +26,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import java.io.BufferedReader
-import java.io.InputStreamReader
+import androidx.lifecycle.lifecycleScope
 import org.json.JSONObject
 import androidx.activity.compose.BackHandler
 import androidx.compose.animation.AnimatedVisibility
@@ -97,6 +94,7 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -124,13 +122,12 @@ import com.android.settingslib.spa.widget.preference.SwitchPreferenceModel
 import com.android.settingslib.spa.widget.preference.ZeroStatePreference
 import com.android.settingslib.spa.widget.ui.Category
 import com.android.settingslib.spa.widget.ui.CategoryTitle
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.sync.Mutex
-import kotlinx.coroutines.sync.withLock
 import com.android.settingslib.spa.widget.ui.LazyCategory
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 
 data class ObscuraAppEntry(
@@ -153,6 +150,8 @@ data class ObscuraAppEntry(
     var spoofPkgVerifier: Boolean = false,
     var spoofUsbVerify: Boolean = false,
     var spoofAccessibility: Boolean = false,
+    val extraSpoofSettings: Set<String> = emptySet(),
+    val extraRestrictedGids: Set<Int> = emptySet(),
 )
 
 private val EXCLUDED_SUFFIXES = listOf(
@@ -411,30 +410,31 @@ private fun getAppPresetCategory(packageName: String): PresetCategory? {
 }
 
 val ObscuraAppEntry.isConfigured: Boolean
-    get() = isHidden || isLauncherHidden || isIsolated || isPlayStoreDetached || scopeMode != ObscuraManager.SCOPE_MODE_DISABLED
+    get() = extraSpoofSettings.isNotEmpty() || extraRestrictedGids.isNotEmpty() || isHidden || isLauncherHidden || isIsolated || isPlayStoreDetached || scopeMode != ObscuraManager.SCOPE_MODE_DISABLED
+            || scopeList.isNotEmpty() || restrictInternet || restrictStorage || forceDataIsolation
             || spoofAdb || spoofDevOptions || spoofWirelessDebug || spoofPkgVerifier || spoofUsbVerify || spoofAccessibility
 
 class ObscuraAppSettings : SettingsPreferenceFragment() {
 
     private val reloadTrigger = mutableStateOf(0)
-    private var jsonToExport: String? = null
+    private val mutationMutex = Mutex()
 
     private val exportLauncher = registerForActivityResult(
         ActivityResultContracts.CreateDocument("application/json")
     ) { uri ->
-        uri?.let {
-            val content = jsonToExport
-            if (content != null) {
-                performExport(it, content)
-            }
-        }
+        if (uri != null) performExport(uri)
     }
 
     private val importLauncher = registerForActivityResult(
         ActivityResultContracts.OpenDocument()
     ) { uri ->
         if (uri != null) {
-            performImport(uri)
+            androidx.appcompat.app.AlertDialog.Builder(requireContext())
+                .setTitle(R.string.obscura_backup_menu_import)
+                .setMessage(R.string.obscura_import_confirm)
+                .setNegativeButton(android.R.string.cancel, null)
+                .setPositiveButton(R.string.obscura_backup_menu_import) { _, _ -> performImport(uri) }
+                .show()
         }
     }
 
@@ -454,17 +454,22 @@ class ObscuraAppSettings : SettingsPreferenceFragment() {
         }
     }
 
-    private fun performExport(uri: Uri, jsonContent: String) {
+    private fun performExport(uri: Uri) {
         val context = requireContext()
         lifecycleScope.launch {
             val success = withContext(Dispatchers.IO) {
-                runCatching {
-                    val output = context.contentResolver.openOutputStream(uri)
-                        ?: error("Unable to open destination")
-                    output.use { it.write(jsonContent.toByteArray(Charsets.UTF_8)) }
-                }.isSuccess
+                mutationMutex.withLock {
+                    runCatching {
+                        val manager = context.getSystemService(ObscuraManager::class.java)
+                            ?: error("Obscura is unavailable")
+                        val config = manager.config
+                        val formatted = JSONObject(config).toString(2).toByteArray(Charsets.UTF_8)
+                        val output = context.contentResolver.openOutputStream(uri, "wt")
+                            ?: error("Unable to open destination")
+                        output.use { it.write(formatted) }
+                    }.isSuccess
+                }
             }
-            jsonToExport = null
             if (isAdded) Toast.makeText(context, if (success)
                 R.string.obscura_backup_export_success else R.string.obscura_backup_export_failed,
                 Toast.LENGTH_SHORT).show()
@@ -475,20 +480,13 @@ class ObscuraAppSettings : SettingsPreferenceFragment() {
         val context = requireContext()
         lifecycleScope.launch {
             val success = withContext(Dispatchers.IO) {
-                runCatching {
-                    val json = JSONObject(readTextFromUri(uri))
-                    val arrays = setOf("hidden_pkgs", "launcher_hidden_pkgs", "detached_pkgs",
-                        "isolated_pkgs", "data_isolation_pkgs")
-                    val maps = setOf("gid_restrictions", "spoof_settings_map",
-                        "app_scope_modes", "app_scope_lists")
-                    for (key in json.keys()) {
-                        require(key in arrays || key in maps) { "Unknown backup field" }
-                        if (key in arrays) require(json.get(key) is org.json.JSONArray)
-                        else require(json.get(key) is JSONObject)
-                    }
-                    check(Settings.Secure.putString(context.contentResolver,
-                        ObscuraManager.SETTING_OBSCURA_CONFIG, json.toString()))
-                }.isSuccess
+                mutationMutex.withLock {
+                    runCatching {
+                        val manager = context.getSystemService(ObscuraManager::class.java)
+                            ?: error("Obscura is unavailable")
+                        manager.importConfig(readTextFromUri(uri))
+                    }.isSuccess
+                }
             }
             if (success) reloadTrigger.value += 1
             if (isAdded) Toast.makeText(context, if (success)
@@ -519,16 +517,6 @@ class ObscuraAppSettings : SettingsPreferenceFragment() {
                 true
             }
             2 -> {
-                val currentConfig = Settings.Secure.getString(
-                    requireContext().contentResolver,
-                    ObscuraManager.SETTING_OBSCURA_CONFIG
-                ) ?: "{}"
-                val formatted = try {
-                    JSONObject(currentConfig).toString(2)
-                } catch (e: Exception) {
-                    "{}"
-                }
-                jsonToExport = formatted
                 exportLauncher.launch("obscura_backup.json")
                 true
             }
@@ -552,6 +540,7 @@ class ObscuraAppSettings : SettingsPreferenceFragment() {
                 ObscuraAppSettingsContent(
                     context = requireContext(),
                     reloadKey = reloadTrigger.value,
+                    saveMutex = mutationMutex,
                 )
             }
         }
@@ -562,9 +551,10 @@ class ObscuraAppSettings : SettingsPreferenceFragment() {
 private fun ObscuraAppSettingsContent(
     context: Context,
     reloadKey: Int = 0,
+    saveMutex: Mutex,
 ) {
     val scope = rememberCoroutineScope()
-    val saveMutex = remember { Mutex() }
+    var refreshKey by remember { mutableStateOf(0) }
     var searchQuery by rememberSaveable { mutableStateOf("") }
     var showSystemApps by rememberSaveable { mutableStateOf(false) }
     var filterConfiguredOnly by rememberSaveable { mutableStateOf(false) }
@@ -576,146 +566,136 @@ private fun ObscuraAppSettingsContent(
         context.getSystemService(Context.OBSCURA_SERVICE) as? ObscuraManager
     }
 
-    fun loadAppStates(): Map<String, ObscuraAppEntry> {
-        if (obscuraManager == null) return emptyMap()
-        val result = mutableMapOf<String, ObscuraAppEntry>()
-
-        for (pkg in obscuraManager.hiddenPackages) {
-            result.getOrPut(pkg) { ObscuraAppEntry(pkg, "", null) }.isHidden = true
-        }
-        for (pkg in obscuraManager.launcherHiddenPackages) {
-            result.getOrPut(pkg) { ObscuraAppEntry(pkg, "", null) }.isLauncherHidden = true
-        }
-        for (pkg in obscuraManager.detachedPackages) {
-            result.getOrPut(pkg) { ObscuraAppEntry(pkg, "", null) }.isPlayStoreDetached = true
-        }
-        for (pkg in obscuraManager.isolatedPackages) {
-            val entry = result.getOrPut(pkg) { ObscuraAppEntry(pkg, "", null) }
-            entry.isIsolated = true
-            val restrictedGids = obscuraManager.getRestrictedGids(pkg)
-            if (restrictedGids != null) {
-                for (gid in restrictedGids) {
-                    when (gid) {
-                        ObscuraManager.GID_INET -> entry.restrictInternet = true
-                        in ObscuraManager.STORAGE_GIDS -> entry.restrictStorage = true
-                    }
-                }
-            }
-            entry.forceDataIsolation = obscuraManager.isDataIsolationEnabled(pkg)
-        }
-
-        return result
-    }
-
     fun saveEntry(entry: ObscuraAppEntry) {
         val previous = allApps.firstOrNull { it.packageName == entry.packageName }
+        if (previous == entry) return
         allApps = allApps.map { if (it.packageName == entry.packageName) entry else it }
         if (obscuraManager == null) return
         scope.launch {
-          saveMutex.withLock {
-           withContext(Dispatchers.IO) {
-            val launcherToggled = previous?.isHidden != entry.isHidden ||
-                previous?.isLauncherHidden != entry.isLauncherHidden
-            obscuraManager.setPackageHidden(entry.packageName, entry.isHidden)
-            obscuraManager.setPackageLauncherHidden(entry.packageName, entry.isLauncherHidden)
-            obscuraManager.setPackageDetached(entry.packageName, entry.isPlayStoreDetached)
+            try {
+                saveMutex.withLock {
+                    withContext(Dispatchers.IO) {
+                        val gids = entry.extraRestrictedGids.toMutableList()
+                        if (entry.restrictInternet) gids.add(ObscuraManager.GID_INET)
+                        if (entry.restrictStorage) gids.addAll(ObscuraManager.STORAGE_GIDS.toList())
+                        val spoofs = buildList {
+                            addAll(entry.extraSpoofSettings)
+                            if (entry.spoofAdb) add("adb_enabled")
+                            if (entry.spoofDevOptions) add("development_settings_enabled")
+                            if (entry.spoofWirelessDebug) add("adb_wifi_enabled")
+                            if (entry.spoofPkgVerifier) add("package_verifier_user_consent")
+                            if (entry.spoofUsbVerify) add("verify_apps_over_usb")
+                            if (entry.spoofAccessibility) add("accessibility_enabled")
+                        }
+                        obscuraManager.setAppConfig(entry.packageName, entry.isHidden,
+                            entry.isLauncherHidden, entry.isPlayStoreDetached, entry.isIsolated,
+                            gids.toIntArray(), entry.forceDataIsolation, entry.scopeMode,
+                            entry.scopeList.toList(), spoofs)
 
-            // Save Scope Mode & Target Scope List
-            obscuraManager.setAppScopeMode(entry.packageName, entry.scopeMode)
-            obscuraManager.setAppScopeList(entry.packageName, entry.scopeList.toList())
-
-            // Master Isolation & Hardware/Storage restrictions
-            if (entry.isIsolated) {
-                obscuraManager.isolatePackage(entry.packageName)
-                val gids = mutableListOf<Int>()
-                if (entry.restrictInternet) gids.add(ObscuraManager.GID_INET)
-                if (entry.restrictStorage) gids.addAll(ObscuraManager.STORAGE_GIDS.toList())
-                obscuraManager.setRestrictedGids(entry.packageName, gids.toIntArray())
-                obscuraManager.setDataIsolationEnabled(entry.packageName, entry.forceDataIsolation)
-            } else {
-                obscuraManager.unisolatePackage(entry.packageName)
-                obscuraManager.setRestrictedGids(entry.packageName, intArrayOf())
-                obscuraManager.setDataIsolationEnabled(entry.packageName, false)
+                        forceStopPackage(context, entry.packageName)
+                        if (previous?.isHidden != entry.isHidden ||
+                            previous?.isLauncherHidden != entry.isLauncherHidden) {
+                            forceStopDefaultLauncher(context)
+                        }
+                        if (previous?.isPlayStoreDetached != entry.isPlayStoreDetached ||
+                            previous?.isHidden != entry.isHidden) {
+                            forceStopPackage(context, "com.android.vending")
+                        }
+                    }
+                }
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                Log.e("Obscura", "Unable to save app configuration", e)
+                refreshKey += 1
+                Toast.makeText(context, R.string.obscura_save_failed, Toast.LENGTH_LONG).show()
             }
-
-            // Spoof settings are managed independently
-            obscuraManager.setSpoofSettingEnabled(entry.packageName, "adb_enabled", entry.spoofAdb)
-            obscuraManager.setSpoofSettingEnabled(entry.packageName, "development_settings_enabled", entry.spoofDevOptions)
-            obscuraManager.setSpoofSettingEnabled(entry.packageName, "adb_wifi_enabled", entry.spoofWirelessDebug)
-            obscuraManager.setSpoofSettingEnabled(entry.packageName, "package_verifier_user_consent", entry.spoofPkgVerifier)
-            obscuraManager.setSpoofSettingEnabled(entry.packageName, "verify_apps_over_usb", entry.spoofUsbVerify)
-            obscuraManager.setSpoofSettingEnabled(entry.packageName, "accessibility_enabled", entry.spoofAccessibility)
-
-            forceStopPackage(context, entry.packageName)
-            if (launcherToggled) forceStopDefaultLauncher(context)
-            if (previous?.isPlayStoreDetached != entry.isPlayStoreDetached ||
-                previous?.isHidden != entry.isHidden) {
-                forceStopPackage(context, "com.android.vending")
-            }
-           }
-          }
         }
     }
 
-    LaunchedEffect(reloadKey) {
+    LaunchedEffect(reloadKey, refreshKey) {
         isLoading = true
-        withContext(Dispatchers.IO) {
-            val pm = context.packageManager
-            val appStates = loadAppStates()
-            val installed = pm.getInstalledApplications(PackageManager.GET_META_DATA)
-                .filter { app ->
-                    val isSystem = (app.flags and ApplicationInfo.FLAG_SYSTEM != 0) &&
-                            (app.flags and ApplicationInfo.FLAG_UPDATED_SYSTEM_APP == 0)
-                    val isExcluded = EXCLUDED_SUFFIXES.any { app.packageName.endsWith(it) || app.packageName.contains(it) }
-                    if (isSystem && isExcluded && !appStates.containsKey(app.packageName)) {
-                        return@filter false
+        try {
+            val installed = withContext(Dispatchers.IO) {
+                saveMutex.withLock {
+                    checkNotNull(obscuraManager) { "Obscura is unavailable" }
+                    val pm = context.packageManager
+                    val config = JSONObject(obscuraManager.config)
+                    fun packageSet(key: String): Set<String> {
+                        val values = config.optJSONArray(key) ?: return emptySet()
+                        return (0 until values.length()).map { values.getString(it) }.toSet()
                     }
-                    true
-                }
-                .map { app ->
-                    val isSystem = (app.flags and ApplicationInfo.FLAG_SYSTEM != 0) &&
-                            (app.flags and ApplicationInfo.FLAG_UPDATED_SYSTEM_APP == 0)
-                    val existing = appStates[app.packageName]
-                    val scopeMode = obscuraManager?.getAppScopeMode(app.packageName) ?: ObscuraManager.SCOPE_MODE_DISABLED
-                    val scopeList = if (scopeMode != ObscuraManager.SCOPE_MODE_DISABLED) {
-                        obscuraManager?.getAppScopeList(app.packageName)?.toSet() ?: emptySet()
-                    } else {
-                        emptySet()
+                    fun packageList(key: String, pkg: String): Set<String> {
+                        val values = config.optJSONObject(key)?.optJSONArray(pkg) ?: return emptySet()
+                        return (0 until values.length()).map { values.getString(it) }.toSet()
                     }
-                    val enabledSpoofs = obscuraManager?.getEnabledSpoofSettings(app.packageName) ?: emptyList()
+                    val hidden = packageSet("hidden_pkgs")
+                    val launcherHidden = packageSet("launcher_hidden_pkgs")
+                    val detached = packageSet("detached_pkgs")
+                    val isolated = packageSet("isolated_pkgs")
+                    val dataIsolation = packageSet("data_isolation_pkgs")
+                    pm.getInstalledApplications(PackageManager.GET_META_DATA)
+                        .map { app ->
+                            val isSystem = (app.flags and ApplicationInfo.FLAG_SYSTEM != 0) &&
+                                    (app.flags and ApplicationInfo.FLAG_UPDATED_SYSTEM_APP == 0)
+                            val scopeMode = config.optJSONObject("app_scope_modes")
+                                ?.optInt(app.packageName, ObscuraManager.SCOPE_MODE_DISABLED)
+                                ?: ObscuraManager.SCOPE_MODE_DISABLED
+                            val scopeList = packageList("app_scope_lists", app.packageName)
+                            val enabledSpoofs = packageList("spoof_settings_map", app.packageName)
+                            val gids = config.optJSONObject("gid_restrictions")?.optJSONArray(app.packageName)
+                            val restrictedGids = gids?.let { values ->
+                                (0 until values.length()).map { values.getInt(it) }.toSet()
+                            }.orEmpty()
 
-                    ObscuraAppEntry(
-                        packageName = app.packageName,
-                        label = runCatching { app.loadLabel(pm).toString() }.getOrDefault(app.packageName),
-                        icon = runCatching { app.loadIcon(pm) }.getOrNull(),
-                        isSystem = isSystem,
-                        isHidden = existing?.isHidden ?: false,
-                        isLauncherHidden = existing?.isLauncherHidden ?: false,
-                        isIsolated = existing?.isIsolated ?: false,
-                        isPlayStoreDetached = existing?.isPlayStoreDetached ?: false,
-                        scopeMode = scopeMode,
-                        scopeList = scopeList,
-                        restrictInternet = existing?.restrictInternet ?: false,
-                        restrictStorage = existing?.restrictStorage ?: false,
-                        forceDataIsolation = existing?.forceDataIsolation ?: false,
-                        spoofAdb = enabledSpoofs.contains("adb_enabled"),
-                        spoofDevOptions = enabledSpoofs.contains("development_settings_enabled"),
-                        spoofWirelessDebug = enabledSpoofs.contains("adb_wifi_enabled"),
-                        spoofPkgVerifier = enabledSpoofs.contains("package_verifier_user_consent"),
-                        spoofUsbVerify = enabledSpoofs.contains("verify_apps_over_usb"),
-                        spoofAccessibility = enabledSpoofs.contains("accessibility_enabled"),
-                    )
+                            ObscuraAppEntry(
+                                packageName = app.packageName,
+                                label = runCatching { app.loadLabel(pm).toString() }.getOrDefault(app.packageName),
+                                icon = runCatching { app.loadIcon(pm) }.getOrNull(),
+                                isSystem = isSystem,
+                                isHidden = app.packageName in hidden,
+                                isLauncherHidden = app.packageName in launcherHidden,
+                                isIsolated = app.packageName in isolated,
+                                isPlayStoreDetached = app.packageName in detached,
+                                scopeMode = scopeMode,
+                                scopeList = scopeList,
+                                restrictInternet = ObscuraManager.GID_INET in restrictedGids,
+                                restrictStorage = restrictedGids.any { it in ObscuraManager.STORAGE_GIDS },
+                                forceDataIsolation = app.packageName in dataIsolation,
+                                spoofAdb = enabledSpoofs.contains("adb_enabled"),
+                                spoofDevOptions = enabledSpoofs.contains("development_settings_enabled"),
+                                spoofWirelessDebug = enabledSpoofs.contains("adb_wifi_enabled"),
+                                spoofPkgVerifier = enabledSpoofs.contains("package_verifier_user_consent"),
+                                spoofUsbVerify = enabledSpoofs.contains("verify_apps_over_usb"),
+                                spoofAccessibility = enabledSpoofs.contains("accessibility_enabled"),
+                                extraSpoofSettings = enabledSpoofs.toSet() - setOf("adb_enabled",
+                                    "development_settings_enabled", "adb_wifi_enabled",
+                                    "package_verifier_user_consent", "verify_apps_over_usb",
+                                    "accessibility_enabled"),
+                                extraRestrictedGids = restrictedGids -
+                                    (ObscuraManager.STORAGE_GIDS.toSet() + ObscuraManager.GID_INET),
+                            )
+                        }
+                        .filter { entry ->
+                            !entry.isSystem || entry.isConfigured ||
+                                EXCLUDED_SUFFIXES.none { entry.packageName.contains(it) }
+                        }
+                        .sortedWith(compareBy(
+                            { !it.isConfigured },
+                            { it.isSystem },
+                            { it.label.lowercase() }
+                        ))
+
                 }
-                .sortedWith(compareBy(
-                    { !it.isConfigured },
-                    { it.isSystem },
-                    { it.label.lowercase() }
-                ))
-
-            withContext(Dispatchers.Main) {
-                allApps = installed
-                isLoading = false
             }
+            allApps = installed
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            Log.e("Obscura", "Unable to load app configuration", e)
+            Toast.makeText(context, R.string.obscura_load_failed, Toast.LENGTH_LONG).show()
+        } finally {
+            isLoading = false
         }
     }
 
@@ -735,7 +715,7 @@ private fun ObscuraAppSettingsContent(
                 allApps = allApps,
                 onBack = { selectedAppPackage = null },
                 onUpdate = { updated ->
-                    saveEntry(updated)
+                    if (!isLoading) saveEntry(updated)
                 }
             )
         } else {
@@ -900,6 +880,7 @@ private fun ObscuraAppDetailScreen(
     var showScopeTargetList by remember { mutableStateOf(false) }
     var showPresetDialog by remember { mutableStateOf(false) }
     var showRestartDialog by remember { mutableStateOf(false) }
+    var showResetDialog by remember { mutableStateOf(false) }
 
     val otherApps = remember(allApps, app.packageName) {
         allApps.filter { it.packageName != app.packageName }
@@ -975,6 +956,16 @@ private fun ObscuraAppDetailScreen(
                 )
             }
             ActionButtons(actions)
+
+            OutlinedButton(
+                onClick = { showResetDialog = true },
+                enabled = app.isConfigured,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = SettingsSpace.small1),
+            ) {
+                Text(stringResource(R.string.obscura_reset_app))
+            }
 
             SectionHeader(stringResource(R.string.obscura_scope_section_title))
             SectionDescription(stringResource(R.string.obscura_scope_subtitle))
@@ -1269,6 +1260,26 @@ private fun ObscuraAppDetailScreen(
             onApply = { selectedFromPreset ->
                 onUpdate(app.copy(scopeList = app.scopeList + selectedFromPreset))
             },
+        )
+    }
+
+    if (showResetDialog) {
+        AlertDialog(
+            onDismissRequest = { showResetDialog = false },
+            title = { Text(stringResource(R.string.obscura_reset_app)) },
+            text = { Text(stringResource(R.string.obscura_reset_app_message, app.label)) },
+            confirmButton = {
+                Button(onClick = {
+                    showResetDialog = false
+                    onUpdate(ObscuraAppEntry(app.packageName, app.label, app.icon, app.isSystem))
+                    if (app.isHidden || app.isPlayStoreDetached) showRestartDialog = true
+                }) { Text(stringResource(R.string.obscura_reset_app)) }
+            },
+            dismissButton = {
+                OutlinedButton(onClick = { showResetDialog = false }) {
+                    Text(stringResource(android.R.string.cancel))
+                }
+            }
         )
     }
 

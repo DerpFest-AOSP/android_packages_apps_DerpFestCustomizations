@@ -718,7 +718,7 @@
     <string name="obscura_backup_menu_export">匯出設定</string>
     <string name="obscura_backup_export_success">已成功匯出設定</string>
     <string name="obscura_backup_export_failed">無法匯出設定</string>
-    <string name="obscura_backup_import_success">已成功匯入設定</string>
+    <string name="obscura_backup_import_success">已匯入設定。請重新啟動受影響的應用程式，以套用所有變更。</string>
     <string name="obscura_backup_import_failed">備份檔案無效</string>
     <string name="obscura_reboot_dialog_title">重新啟動系統</string>
     <string name="obscura_reboot_dialog_message">停用可見性或 Play 商店限制後，必須重新啟動系統，變更才會在所有桌面啟動器、Play 商店及系統服務中完全生效。\n\n要立即重新啟動嗎？</string>
